@@ -1,5 +1,6 @@
 import './globals.css';
 import ThemeToggle from '@/components/ThemeToggle';
+import { Analytics } from '@vercel/analytics/next';
 
 const SITE_URL = 'https://vidvisual-tau.vercel.app';
 
@@ -59,6 +60,7 @@ export default function RootLayout({ children }) {
           <ThemeToggle />
         </div>
         {children}
+        <Analytics />
       </body>
     </html>
   );
