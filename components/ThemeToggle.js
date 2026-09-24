@@ -33,9 +33,9 @@ export default function ThemeToggle() {
       className="theme-toggle"
       onClick={() => setIsDark((current) => !current)}
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
-      <span aria-hidden="true">{isDark ? '☀️' : '🌙'}</span>
-      <span>{isDark ? 'Light' : 'Dark'}</span>
+      <span aria-hidden="true" className="theme-toggle-icon">{isDark ? '☀️' : '🌙'}</span>
     </button>
   );
 }

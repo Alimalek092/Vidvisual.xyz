@@ -55,7 +55,9 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        <ThemeToggle />
+        <div className="top-bar">
+          <ThemeToggle />
+        </div>
         {children}
       </body>
     </html>

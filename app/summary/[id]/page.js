@@ -43,12 +43,13 @@ export default function SummaryPage({ params }) {
     setBusy(kind);
     try {
       const lib = await import('html-to-image');
+      const bg = document.documentElement.dataset.theme === 'dark' ? '#0f172a' : '#ffffff';
       if (kind === 'jpg') {
-        download(await lib.toJpeg(ref.current, { quality: 0.92, pixelRatio: 2, backgroundColor: '#ffffff' }), `${base}.jpg`);
+        download(await lib.toJpeg(ref.current, { quality: 0.92, pixelRatio: 2, backgroundColor: bg }), `${base}.jpg`);
       } else if (kind === 'png') {
-        download(await lib.toPng(ref.current, { pixelRatio: 3 }), `${base}-HD.png`);
+        download(await lib.toPng(ref.current, { pixelRatio: 3, backgroundColor: bg }), `${base}-HD.png`);
       } else if (kind === 'pdf') {
-        const img = await lib.toPng(ref.current, { pixelRatio: 2 });
+        const img = await lib.toPng(ref.current, { pixelRatio: 2, backgroundColor: bg });
         const { jsPDF } = await import('jspdf');
         const w = ref.current.offsetWidth, h = ref.current.offsetHeight;
         const pdf = new jsPDF({ orientation: w > h ? 'l' : 'p', unit: 'px', format: [w, h] });
