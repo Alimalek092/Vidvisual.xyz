@@ -2,7 +2,7 @@ import './globals.css';
 import ThemeToggle from '@/components/ThemeToggle';
 import { Analytics } from '@vercel/analytics/next';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://vidvisual-tau.vercel.app';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://vidvisual.xyz';
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),

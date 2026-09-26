@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://vidvisual-tau.vercel.app/</loc>
+    <loc>https://vidvisual.xyz/</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://vidvisual-tau.vercel.app/register</loc>
+    <loc>https://vidvisual.xyz/register</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://vidvisual-tau.vercel.app/login</loc>
+    <loc>https://vidvisual.xyz/login</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
