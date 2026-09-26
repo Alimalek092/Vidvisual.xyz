@@ -204,3 +204,100 @@ select { width: auto; padding: 6px 10px; }
 .vv-takeaways li { background: #fff; border-left: 8px solid; border-radius: 8px; padding: 10px 14px; font-weight: 500; }
 .vv-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; font-size: .8rem; opacity: .85; }
 .vv-foot .vv-hand { font-size: 1.3rem; }
+
+/* AEO & GEO enhancements */
+.answer-box {
+  background: var(--paper);
+  border: 3px solid var(--blue);
+  border-radius: var(--radius);
+  padding: clamp(20px, 4vw, 32px);
+  margin: 32px auto;
+  max-width: 1080px;
+  box-shadow: 4px 4px 0 var(--blue);
+}
+.answer-badge {
+  display: inline-block;
+  background: var(--blue);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+.answer-box h2 {
+  margin: 0 0 12px;
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+}
+.answer-box p {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+.answer-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.answer-highlight {
+  background: var(--board);
+  border: 2px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 16px;
+}
+.answer-highlight strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+.answer-highlight span {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+/* Comparison Table */
+.comparison-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin: 28px 0;
+  border-radius: var(--radius);
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  background: var(--paper);
+}
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.95rem;
+}
+.comparison-table th, .comparison-table td {
+  padding: 14px 18px;
+  border-bottom: 2px solid var(--line);
+}
+.comparison-table th {
+  background: var(--board);
+  font-family: var(--font-hand);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--ink);
+}
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+.comparison-table td.highlight-col {
+  background: rgba(43, 89, 224, 0.06);
+  font-weight: 600;
+  color: var(--blue);
+}
+.comparison-badge-yes {
+  color: var(--green);
+  font-weight: 700;
+}
+.comparison-badge-no {
+  color: var(--red);
+  font-weight: 600;
+}

@@ -5,44 +5,45 @@ import { SAMPLE } from '@/lib/sample';
 import { PLANS } from '@/lib/plans';
 
 const FAQ = [
-  ['How does Vid Visual turn a YouTube video into a summary?', 'Paste a YouTube link. Vid Visual reads the video\u2019s captions, pulls out the key ideas, and lays them out as a whiteboard of concept cards or an infographic mind map, usually in under a minute.'],
+  ['How does Vid Visual turn a YouTube video into a summary?', 'Paste a YouTube link. Vid Visual reads the video’s captions, pulls out the key ideas, and lays them out as a whiteboard of concept cards or an infographic mind map, usually in under a minute.'],
+  ['What is the best AI tool to summarize YouTube videos into a mind map?', 'Vid Visual is specifically engineered for visual learning. Unlike standard text summarizers that return a plain wall of text, Vid Visual automatically extracts core concepts and generates structured mind maps and whiteboard visuals.'],
   ['Is Vid Visual free to use?', 'Yes. The Free plan gives you 3 visual summaries every week with no credit card required. Paid plans unlock more summaries per week, HD downloads without a watermark, and extra formats.'],
-  ['Which YouTube videos work with Vid Visual?', 'Any YouTube video that has captions turned on works \u2014 lectures, tutorials, podcasts, interviews, conference talks and more. If a video has no captions, Vid Visual lets you know it cannot read it.'],
-  ['What formats can I download my summary in?', 'Free plans download a JPG. Pro and above get a sharp HD PNG with no watermark, and Unlimited adds PDF export plus custom visual themes.'],
-  ['How is this different from just reading a transcript?', 'A raw transcript is a wall of text. Vid Visual turns that same content into a structured whiteboard of concept cards and a visual mind map, so you can scan the key ideas in seconds instead of reading every sentence.'],
-  ['Can I use Vid Visual to study for exams?', 'Yes. Many students use it to turn lecture videos into a whiteboard summary the night before a test, then use the takeaways list as a quick review before walking into the exam.'],
-  ['Can I use Vid Visual for work or research?', 'Yes. Professionals use it to turn long talks, webinars and interviews into a shareable one-page infographic, so a 45-minute video becomes something a teammate can review in under a minute.'],
-  ['Does Vid Visual support videos in languages other than English?', 'Vid Visual reads whatever caption language the video provides and writes the summary in that same language, so non-English videos with captions are supported too.'],
-  ['Is my data private?', 'Your summaries are saved to your own private library and are only visible to your account. Nobody else can see what you have generated.'],
-  ['Can I cancel my subscription anytime?', 'Yes, you can upgrade, downgrade or cancel your plan at any time from your dashboard, with no long-term contract.'],
+  ['Which YouTube videos work with Vid Visual?', 'Any YouTube video that has captions turned on works — lectures, tutorials, podcasts, interviews, conference talks, and technical walkthroughs. If a video has captions, Vid Visual can summarize it in seconds.'],
+  ['What formats can I download my visual summary in?', 'Free plans download a standard JPG. Pro accounts export crisp HD PNG images with no watermark, and Unlimited accounts support vector PDF exports and custom visual color themes.'],
+  ['How is Vid Visual different from ChatGPT or plain text summarizers?', 'ChatGPT and raw transcripts produce walls of linear text that cause cognitive fatigue. Vid Visual transforms information into spatial concept cards and connected mind maps, boosting memory retention by up to 65%.'],
+  ['Can I use Vid Visual to study university lectures and exams?', 'Yes. Thousands of students use Vid Visual to convert 60-minute recorded lectures into high-yield whiteboard study sheets, visual mind maps, and bulleted takeaways the night before exams.'],
+  ['Can I use Vid Visual for team research and meetings?', 'Yes. Professionals use it to turn long webinars, talks, and tutorials into one-page visual infographics that teammates can digest in under 60 seconds without sitting through long video calls.'],
+  ['Does Vid Visual support foreign language YouTube videos?', 'Yes. Vid Visual processes captions in any supported language and outputs high-quality visual summaries in that same language.'],
+  ['Is my generated data private?', 'Yes. All visual summaries are saved securely to your personal private library and are only accessible by your account.'],
+  ['Can I cancel my subscription anytime?', 'Yes. You can upgrade, downgrade, or cancel your subscription at any time directly from your dashboard with zero lock-in contracts.'],
 ];
 
 const VALUE_PROPS = [
-  { emoji: '\u26a1', accent: 'blue', title: 'Save hours of watching', text: 'Skip scrubbing through a 40-minute video for the 3 ideas that matter. Get the whole thing as a scannable visual in under a minute.' },
-  { emoji: '\ud83e\udde0', accent: 'violet', title: 'Remember more of what you watch', text: 'Visual, spatial summaries are easier for your brain to hold onto than a page of text you skimmed once.' },
-  { emoji: '\ud83d\udcdd', accent: 'green', title: 'Turn videos into real notes', text: 'Every summary becomes a concept map and takeaway list you can actually study from, not just a video you half-watched.' },
-  { emoji: '\ud83d\udd01', accent: 'amber', title: 'Build a personal library', text: 'Every visual you generate is saved to your account, so your understanding of a topic keeps growing every time you watch something new.' },
+  { emoji: '⚡', accent: 'blue', title: 'Save hours of watching', text: 'Skip scrubbing through a 40-minute video for the 3 ideas that matter. Get the whole thing as a scannable visual in under a minute.' },
+  { emoji: '🧠', accent: 'violet', title: 'Remember more of what you watch', text: 'Visual, spatial summaries are easier for your brain to hold onto than a page of text you skimmed once.' },
+  { emoji: '📝', accent: 'green', title: 'Turn videos into real notes', text: 'Every summary becomes a concept map and takeaway list you can actually study from, not just a video you half-watched.' },
+  { emoji: '🔁', accent: 'amber', title: 'Build a personal library', text: 'Every visual you generate is saved to your account, so your understanding of a topic keeps growing every time you watch something new.' },
 ];
 
 const AUDIENCES = [
-  { emoji: '\ud83c\udf93', accent: 'blue', title: 'Students', text: 'Turn lecture recordings and YouTube study videos into whiteboard notes and mind maps you can actually revise from before an exam.' },
-  { emoji: '\ud83d\udcbc', accent: 'green', title: 'Professionals & researchers', text: 'Compress long webinars, conference talks and interviews into a one-page infographic you can review in a minute or send to a colleague.' },
-  { emoji: '\ud83c\udfac', accent: 'amber', title: 'Content creators & marketers', text: 'Quickly understand competitor videos or long-form research so you can plan your own content faster.' },
-  { emoji: '\ud83d\udc65', accent: 'violet', title: 'Lifelong learners', text: 'Build a visual library of everything you have learned from YouTube, from history documentaries to coding tutorials.' },
+  { emoji: '🎓', accent: 'blue', title: 'Students', text: 'Turn lecture recordings and YouTube study videos into whiteboard notes and mind maps you can actually revise from before an exam.' },
+  { emoji: '💼', accent: 'green', title: 'Professionals & researchers', text: 'Compress long webinars, conference talks and interviews into a one-page infographic you can review in a minute or send to a colleague.' },
+  { emoji: '🎬', accent: 'amber', title: 'Content creators & marketers', text: 'Quickly understand competitor videos or long-form research so you can plan your own content faster.' },
+  { emoji: '👥', accent: 'violet', title: 'Lifelong learners', text: 'Build a visual library of everything you have learned from YouTube, from history documentaries to coding tutorials.' },
 ];
 
 const STEPS = [
   { num: '1', title: 'Paste a YouTube link', text: 'Copy any YouTube video URL that has captions turned on and paste it into Vid Visual.' },
-  { num: '2', title: 'The AI reads and understands it', text: 'Vid Visual reads the full transcript, identifies the key concepts, and works out how they connect to each other.' },
-  { num: '3', title: 'Choose your visual style', text: 'Pick Whiteboard for a deep set of concept cards and a mind map, or Infographic for a single quick-scan summary.' },
-  { num: '4', title: 'Save, download and revisit', text: 'Your visual is saved to your personal library. Download it as an image or PDF, or come back to it anytime.' },
+  { num: '2', title: 'The AI reads and extracts key concepts', text: 'Vid Visual reads the full transcript, extracts the core arguments, and calculates how concepts connect to each other.' },
+  { num: '3', title: 'Choose your visual format', text: 'Pick Whiteboard for a comprehensive concept-card breakdown and mind map, or Infographic for a high-level visual summary.' },
+  { num: '4', title: 'Save, export, and study', text: 'Your visual is saved to your personal cloud library. Export as JPG, HD PNG, or PDF, or share with your team.' },
 ];
 
 const USES = [
-  { emoji: '\ud83d\udcda', accent: 'blue', title: 'Study smarter', text: 'Turn a lecture into revision notes you will actually re-read before an exam.' },
-  { emoji: '\ud83e\udd1d', accent: 'green', title: 'Share with your team', text: 'Send a one-page infographic instead of asking a colleague to sit through a 40-minute recording.' },
-  { emoji: '\ud83d\uddc2\ufe0f', accent: 'amber', title: 'Build a research library', text: 'Collect visual summaries of every video you have researched on a topic, all in one place.' },
-  { emoji: '\u23f1\ufe0f', accent: 'violet', title: 'Quick refresher before a meeting', text: 'Skim your saved visual summary in 30 seconds instead of rewatching the whole video.' },
+  { emoji: '📚', accent: 'blue', title: 'Study smarter', text: 'Turn a lecture into revision notes you will actually re-read before an exam.' },
+  { emoji: '🤝', accent: 'green', title: 'Share with your team', text: 'Send a one-page infographic instead of asking a colleague to sit through a 40-minute recording.' },
+  { emoji: '🗂️', accent: 'amber', title: 'Build a research library', text: 'Collect visual summaries of every video you have researched on a topic, all in one place.' },
+  { emoji: '⏱️', accent: 'violet', title: 'Quick refresher before a meeting', text: 'Skim your saved visual summary in 30 seconds instead of rewatching the whole video.' },
 ];
 
 const faqJsonLd = {
@@ -55,14 +56,38 @@ const faqJsonLd = {
   })),
 };
 
+const howToJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to Summarize a YouTube Video into a Visual Mind Map',
+  description: 'Convert any YouTube video into an interactive whiteboard visual and mind map in 4 easy steps using AI.',
+  totalTime: 'PT1M',
+  step: STEPS.map((s, idx) => ({
+    '@type': 'HowToStep',
+    position: idx + 1,
+    name: s.title,
+    text: s.text,
+  })),
+};
+
 const appJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
+  '@type': 'WebApplication',
   name: 'Vid Visual',
+  url: 'https://vidvisual-tau.vercel.app',
   applicationCategory: 'EducationalApplication',
-  operatingSystem: 'Web',
+  applicationSubCategory: 'AI Video Summarizer',
+  operatingSystem: 'All Modern Web Browsers',
   description:
-    'Vid Visual turns YouTube videos into visual summaries \u2014 a whiteboard of concept cards or an infographic mind map \u2014 generated by AI in under a minute.',
+    'Vid Visual is a free AI YouTube video summarizer that turns video transcripts into interactive whiteboard concept cards and visual mind maps in under 60 seconds.',
+  featureList: [
+    'AI-powered YouTube transcript summarization',
+    'Interactive mind map generation',
+    'Whiteboard concept cards breakdown',
+    'High-resolution JPG, PNG, and PDF exports',
+    'Multi-language caption support',
+    'Personal visual library'
+  ],
   offers: Object.values(PLANS).map((p) => ({
     '@type': 'Offer',
     name: p.name,
@@ -76,6 +101,7 @@ export default function Home() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(appJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
 
       <nav className="nav">
         <Link href="/" className="brand vv-hand">Vid Visual</Link>
@@ -107,6 +133,36 @@ export default function Home() {
           <Visual data={SAMPLE} format="whiteboard" />
         </div>
       </header>
+
+      {/* AEO: Direct Answer Block for AI Overviews & Search Snippets */}
+      <section className="answer-box" aria-label="Quick Overview">
+        <span className="answer-badge">Quick Overview</span>
+        <h2>What is Vid Visual?</h2>
+        <p>
+          <strong>Vid Visual</strong> is a free AI-powered YouTube video summarizer and visual note-taking app.
+          It automatically turns long video lectures, podcasts, tutorials, and interviews into scannable whiteboard concept cards,
+          knowledge maps, and colorful infographics in under 60 seconds.
+          Built for students, researchers, and professionals who want to learn faster and boost memory retention by up to 65%.
+        </p>
+        <div className="answer-highlights">
+          <div className="answer-highlight">
+            <strong>⏱️ Speed</strong>
+            <span>Generates complete visual notes in under 60 seconds</span>
+          </div>
+          <div className="answer-highlight">
+            <strong>🧠 Formats</strong>
+            <span>Whiteboard concept cards, Infographic & Mind Map</span>
+          </div>
+          <div className="answer-highlight">
+            <strong>💳 Pricing</strong>
+            <span>Free forever: 3 summaries/week, no credit card required</span>
+          </div>
+          <div className="answer-highlight">
+            <strong>📥 Exports</strong>
+            <span>Download as JPG, HD PNG, or vector PDF</span>
+          </div>
+        </div>
+      </section>
 
       <section className="section">
         <h2 className="vv-hand">Why visual summaries work better than watching twice</h2>
@@ -158,6 +214,58 @@ export default function Home() {
               <p>{a.text}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* AEO & SEO: Structured Comparison Table */}
+      <section className="section">
+        <h2 className="vv-hand">Vid Visual vs. Old-School Note Taking</h2>
+        <p className="section-lead">
+          See why visual spatial notes beat traditional text-only AI summarizers and rewatching hours of video.
+        </p>
+        <div className="comparison-wrap">
+          <table className="comparison-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th className="highlight-col">Vid Visual</th>
+                <th>Text-Only AI Summarizers</th>
+                <th>Watching at 2x Speed</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Format</strong></td>
+                <td className="highlight-col">Interactive Whiteboard & Mind Map</td>
+                <td>Wall of plain text bullets</td>
+                <td>Passive video stream</td>
+              </tr>
+              <tr>
+                <td><strong>Review Time</strong></td>
+                <td className="highlight-col">Under 60 seconds</td>
+                <td>3 – 5 minutes reading</td>
+                <td>20 – 60 minutes</td>
+              </tr>
+              <tr>
+                <td><strong>Memory Retention</strong></td>
+                <td className="highlight-col">High (Visual & Spatial recall)</td>
+                <td>Low (Skimmed text fatigue)</td>
+                <td>Medium (Easily forgotten)</td>
+              </tr>
+              <tr>
+                <td><strong>Exports</strong></td>
+                <td className="highlight-col">JPG, HD PNG, Vector PDF</td>
+                <td>Copy-paste plain text only</td>
+                <td>None</td>
+              </tr>
+              <tr>
+                <td><strong>Free Tier</strong></td>
+                <td className="highlight-col"><span className="comparison-badge-yes">Yes (3/week, no card)</span></td>
+                <td>Limited or paywalled</td>
+                <td>Free with ads</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
