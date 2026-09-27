@@ -110,7 +110,7 @@ export default function Home() {
           <a href="#how-it-works">How it works</a>
           <a href="#pricing">Pricing</a>
           <a href="#faq">FAQ</a>
-          <a href="#support">Support</a>
+          <a href="mailto:vidvisual.xyz@gmail.com?subject=Vid%20Visual%20Support%20Request">Support</a>
           <Link href="/login">Log in</Link>
           <Link href="/register" className="btn btn-primary btn-sm">Sign up free</Link>
         </div>
@@ -321,36 +321,10 @@ export default function Home() {
         <Link href="/register" className="btn btn-primary btn-lg">Get started free</Link>
       </section>
 
-      <section id="support" className="section contact-section">
-        <h2 className="vv-hand">Need any support?</h2>
-        <p className="section-lead">
-          Have an issue with your account, payment, or video summary? Have any questions or doubts?
-          Click below to email our support team directly.
-        </p>
-        <div className="contact-card">
-          <span className="contact-emoji">✉️</span>
-          <div>
-            <strong>Direct Support Email</strong>
-            <a href="mailto:vidvisual.xyz@gmail.com?subject=Vid%20Visual%20Support%20Request" className="contact-email">
-              vidvisual.xyz@gmail.com
-            </a>
-            <p className="muted small">We typically respond within 24 hours.</p>
-            <div style={{ marginTop: '12px' }}>
-              <a
-                href="mailto:vidvisual.xyz@gmail.com?subject=Vid%20Visual%20Support%20Request"
-                className="btn btn-primary btn-sm"
-              >
-                ✉️ Email support directly
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <footer className="site-foot">
         <span className="vv-hand">Vid Visual</span>
         <div className="foot-links">
-          <a href="#support">Support</a>
+          <a href="mailto:vidvisual.xyz@gmail.com?subject=Vid%20Visual%20Support%20Request">Support</a>
           <a href="mailto:vidvisual.xyz@gmail.com?subject=Vid%20Visual%20Support%20Request">vidvisual.xyz@gmail.com</a>
         </div>
         <span className="muted small">© {new Date().getFullYear()} Vid Visual</span>
