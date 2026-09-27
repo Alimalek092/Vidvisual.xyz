@@ -7,16 +7,6 @@ import { getPlan } from '@/lib/plans';
 import Pricing from '@/components/Pricing';
 import SupportModal from '@/components/SupportModal';
 
-function loadRazorpay() {
-  return new Promise((resolve, reject) => {
-    if (window.Razorpay) return resolve();
-    const s = document.createElement('script');
-    s.src = 'https://checkout.razorpay.com/v1/checkout.js';
-    s.onload = resolve;
-    s.onerror = () => reject(new Error('Could not load checkout'));
-    document.body.appendChild(s);
-  });
-}
 
 export default function Dashboard() {
   const router = useRouter();
@@ -30,6 +20,8 @@ export default function Dashboard() {
   const [showPlans, setShowPlans] = useState(false);
   const [showSupport, setShowSupport] = useState(false);
 
+  const [successMsg, setSuccessMsg] = useState('');
+
   const load = useCallback(async () => {
     const { data } = await supabase().auth.getSession();
     if (!data.session) return router.replace('/login');
@@ -38,7 +30,16 @@ export default function Dashboard() {
     if (b.ok) setItems((await b.json()).items);
   }, [router]);
 
-  useEffect(() => { load(); }, [load]);
+  useEffect(() => {
+    load();
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('checkout') === 'success') {
+        setSuccessMsg('🎉 Payment successful! Your subscription is now active.');
+        window.history.replaceState({}, '', '/dashboard');
+      }
+    }
+  }, [load]);
 
   async function generate(e) {
     e.preventDefault();
@@ -61,16 +62,11 @@ export default function Dashboard() {
       const res = await authFetch('/api/billing/checkout', { method: 'POST', body: JSON.stringify({ plan }) });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error);
-      await loadRazorpay();
-      new window.Razorpay({
-        key: json.key,
-        subscription_id: json.subscriptionId,
-        name: 'Vid Visual',
-        description: `${getPlan(plan).name} plan`,
-        prefill: { email: json.email },
-        theme: { color: '#2B59E0' },
-        handler: () => setTimeout(load, 3000),
-      }).open();
+      if (json.url) {
+        window.location.href = json.url;
+        return;
+      }
+      throw new Error('Could not start checkout.');
     } catch (e) {
       setError(e.message || 'Could not start checkout.');
     }
@@ -124,6 +120,7 @@ export default function Dashboard() {
             <span>{left} of {me.limit} summaries left this week</span>
           </div>
         ) : null}
+        {successMsg ? <p className="msg msg-ok" role="status">{successMsg}</p> : null}
         {error ? (
           <div className="msg msg-error" role="alert">
             <p style={{ margin: 0 }}>{error}</p>
