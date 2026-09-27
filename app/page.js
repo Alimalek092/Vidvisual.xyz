@@ -324,7 +324,7 @@ export default function Home() {
       <footer className="site-foot">
         <span className="vv-hand">Vid Visual</span>
         <div id="support" className="foot-support">
-          <a href="mailto:support@vidvisual.xyz">support@vidvisual.xyz</a>
+          <a href="mailto:vidvisual.xyz@gmail.com?subject=Vid%20Visual%20Support%20Request">vidvisual.xyz@gmail.com</a>
         </div>
         <span className="muted small">© {new Date().getFullYear()} Vid Visual</span>
       </footer>
