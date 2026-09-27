@@ -123,6 +123,7 @@ export default function Dashboard() {
             <div className="bar"><i style={{ width: `${Math.min(100, (me.used / me.limit) * 100)}%` }} /></div>
             <span>{left} of {me.limit} summaries left this week</span>
           </div>
+        ) : null}
         {error ? (
           <div className="msg msg-error" role="alert">
             <p style={{ margin: 0 }}>{error}</p>

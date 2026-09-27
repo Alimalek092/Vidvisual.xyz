@@ -52,7 +52,7 @@ export default function SummaryPage({ params }) {
         download(await lib.toPng(ref.current, { pixelRatio: 3, backgroundColor: bg }), `${base}-HD.png`);
       } else if (kind === 'pdf') {
         const img = await lib.toPng(ref.current, { pixelRatio: 2, backgroundColor: bg });
-        const { jsPDF } = await import('jspdf');
+        const { jsPDF } = await import('jspdf/dist/jspdf.umd.min.js');
         const w = ref.current.offsetWidth, h = ref.current.offsetHeight;
         const pdf = new jsPDF({ orientation: w > h ? 'l' : 'p', unit: 'px', format: [w, h] });
         pdf.addImage(img, 'PNG', 0, 0, w, h);

@@ -50,6 +50,7 @@ export default function AuthForm({ mode }) {
         </label>
         <label>Password
           <input type="password" required minLength={6} value={password} onChange={(e) => setPassword(e.target.value)} autoComplete={isRegister ? 'new-password' : 'current-password'} />
+        </label>
         {error ? (
           <div className="msg msg-error" role="alert">
             <p style={{ margin: 0 }}>{error}</p>

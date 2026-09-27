@@ -10,6 +10,8 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.45.0",
     "@vercel/analytics": "^1.6.1",
+    "caniuse-lite": "^1.0.30001812",
+    "core-js": "^3.50.0",
     "html-to-image": "^1.11.11",
     "jspdf": "^2.5.1",
     "next": "^14.2.35",
