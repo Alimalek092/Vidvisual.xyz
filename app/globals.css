@@ -157,6 +157,9 @@ img { max-width: 100%; }
 .foot-links { display: flex; gap: 20px; font-size: 0.9rem; }
 .foot-links a { color: var(--ink-soft); text-decoration: none; font-weight: 500; }
 .foot-links a:hover { color: var(--blue); text-decoration: underline; }
+.foot-support { text-align: center; }
+.foot-support a { color: var(--blue); font-weight: 600; text-decoration: underline; font-size: 0.95rem; }
+.foot-support a:hover { color: var(--ink); }
 
 /* contact */
 .contact-section { text-align: center; }

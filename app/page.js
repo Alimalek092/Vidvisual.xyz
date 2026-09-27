@@ -106,11 +106,11 @@ export default function Home() {
       <nav className="nav">
         <Link href="/" className="brand vv-hand">Vid Visual</Link>
         <div className="nav-links">
-          <a href="#formats">Formats</a>
+          <a href="#formats">Format</a>
           <a href="#how-it-works">How it works</a>
           <a href="#pricing">Pricing</a>
           <a href="#faq">FAQ</a>
-          <a href="mailto:vidvisual.xyz@gmail.com?subject=Vid%20Visual%20Support%20Request">Support</a>
+          <a href="#support">Support</a>
           <Link href="/login">Log in</Link>
           <Link href="/register" className="btn btn-primary btn-sm">Sign up free</Link>
         </div>
@@ -323,9 +323,8 @@ export default function Home() {
 
       <footer className="site-foot">
         <span className="vv-hand">Vid Visual</span>
-        <div className="foot-links">
-          <a href="mailto:vidvisual.xyz@gmail.com?subject=Vid%20Visual%20Support%20Request">Support</a>
-          <a href="mailto:vidvisual.xyz@gmail.com?subject=Vid%20Visual%20Support%20Request">vidvisual.xyz@gmail.com</a>
+        <div id="support" className="foot-support">
+          <a href="mailto:support@vidvisual.xyz">support@vidvisual.xyz</a>
         </div>
         <span className="muted small">© {new Date().getFullYear()} Vid Visual</span>
       </footer>
