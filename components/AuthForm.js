@@ -50,8 +50,17 @@ export default function AuthForm({ mode }) {
         </label>
         <label>Password
           <input type="password" required minLength={6} value={password} onChange={(e) => setPassword(e.target.value)} autoComplete={isRegister ? 'new-password' : 'current-password'} />
-        </label>
-        {error ? <p className="msg msg-error" role="alert">{error}</p> : null}
+        {error ? (
+          <div className="msg msg-error" role="alert">
+            <p style={{ margin: 0 }}>{error}</p>
+            <p className="small" style={{ margin: '6px 0 0' }}>
+              Having trouble? Contact support at{' '}
+              <a href="mailto:vidvisual.xyz@gmail.com" style={{ textDecoration: 'underline', fontWeight: 600 }}>
+                vidvisual.xyz@gmail.com
+              </a>
+            </p>
+          </div>
+        ) : null}
         {notice ? <p className="msg msg-ok">{notice}</p> : null}
         <button className="btn btn-primary btn-wide" disabled={loading}>
           {loading ? 'Please wait…' : isRegister ? 'Create account' : 'Log in'}

@@ -118,8 +118,17 @@ export default function Dashboard() {
             <div className="bar"><i style={{ width: `${Math.min(100, (me.used / me.limit) * 100)}%` }} /></div>
             <span>{left} of {me.limit} summaries left this week</span>
           </div>
+        {error ? (
+          <div className="msg msg-error" role="alert">
+            <p style={{ margin: 0 }}>{error}</p>
+            <p className="small" style={{ margin: '6px 0 0' }}>
+              Need help or facing payment issues? Email us at{' '}
+              <a href="mailto:vidvisual.xyz@gmail.com" style={{ textDecoration: 'underline', fontWeight: 600 }}>
+                vidvisual.xyz@gmail.com
+              </a>
+            </p>
+          </div>
         ) : null}
-        {error ? <p className="msg msg-error" role="alert">{error}</p> : null}
 
         {showPlans ? (
           <section className="upgrade">

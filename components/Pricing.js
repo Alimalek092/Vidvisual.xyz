@@ -37,5 +37,11 @@ export default function Pricing({ current, onSelect, busy, href = '/register' })
         );
       })}
     </div>
+    <p className="pricing-help muted small" style={{ textAlign: 'center', marginTop: '18px' }}>
+      Have questions or facing payment issues? Email us at{' '}
+      <a href="mailto:vidvisual.xyz@gmail.com" style={{ textDecoration: 'underline', fontWeight: 600 }}>
+        vidvisual.xyz@gmail.com
+      </a>
+    </p>
   );
 }

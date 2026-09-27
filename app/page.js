@@ -12,10 +12,10 @@ const FAQ = [
   ['What formats can I download my visual summary in?', 'Free plans download a standard JPG. Pro accounts export crisp HD PNG images with no watermark, and Unlimited accounts support vector PDF exports and custom visual color themes.'],
   ['How is Vid Visual different from ChatGPT or plain text summarizers?', 'ChatGPT and raw transcripts produce walls of linear text that cause cognitive fatigue. Vid Visual transforms information into spatial concept cards and connected mind maps, boosting memory retention by up to 65%.'],
   ['Can I use Vid Visual to study university lectures and exams?', 'Yes. Thousands of students use Vid Visual to convert 60-minute recorded lectures into high-yield whiteboard study sheets, visual mind maps, and bulleted takeaways the night before exams.'],
-  ['Can I use Vid Visual for team research and meetings?', 'Yes. Professionals use it to turn long webinars, talks, and tutorials into one-page visual infographics that teammates can digest in under 60 seconds without sitting through long video calls.'],
   ['Does Vid Visual support foreign language YouTube videos?', 'Yes. Vid Visual processes captions in any supported language and outputs high-quality visual summaries in that same language.'],
   ['Is my generated data private?', 'Yes. All visual summaries are saved securely to your personal private library and are only accessible by your account.'],
   ['Can I cancel my subscription anytime?', 'Yes. You can upgrade, downgrade, or cancel your subscription at any time directly from your dashboard with zero lock-in contracts.'],
+  ['What if I have an issue or payment question?', 'If you experience any issues, payment questions, or need assistance with your account, please email our support team directly at vidvisual.xyz@gmail.com and we will resolve it within 24 hours.'],
 ];
 
 const VALUE_PROPS = [
@@ -110,6 +110,7 @@ export default function Home() {
           <a href="#how-it-works">How it works</a>
           <a href="#pricing">Pricing</a>
           <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
           <Link href="/login">Log in</Link>
           <Link href="/register" className="btn btn-primary btn-sm">Sign up free</Link>
         </div>
@@ -320,8 +321,28 @@ export default function Home() {
         <Link href="/register" className="btn btn-primary btn-lg">Get started free</Link>
       </section>
 
+      <section id="contact" className="section contact-section">
+        <h2 className="vv-hand">Need help? Get in touch.</h2>
+        <p className="section-lead">
+          Have a question about your account, billing, payments, or just need help getting started?
+          Our support team is here for you.
+        </p>
+        <div className="contact-card">
+          <span className="contact-emoji">✉️</span>
+          <div>
+            <strong>Email us anytime</strong>
+            <a href="mailto:vidvisual.xyz@gmail.com" className="contact-email">vidvisual.xyz@gmail.com</a>
+            <p className="muted small">We typically respond within 24 hours.</p>
+          </div>
+        </div>
+      </section>
+
       <footer className="site-foot">
         <span className="vv-hand">Vid Visual</span>
+        <div className="foot-links">
+          <a href="#contact">Contact</a>
+          <a href="mailto:vidvisual.xyz@gmail.com">vidvisual.xyz@gmail.com</a>
+        </div>
         <span className="muted small">© {new Date().getFullYear()} Vid Visual</span>
       </footer>
     </>
