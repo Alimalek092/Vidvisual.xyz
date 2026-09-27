@@ -42,3 +42,6 @@ Vid Visual (https://vidvisual.xyz) is an AI-driven web application that automate
 - Free Tier Available: Yes (3/week, no card needed)
 - Output Types: Whiteboard, Infographic, Mind Map, Concept Cards, Takeaways
 - Export Types: JPG, HD PNG, PDF
+- Topic Hub (Mind Maps): https://vidvisual.xyz/youtube-to-mind-map
+- Topic Hub (Study Notes): https://vidvisual.xyz/youtube-to-notes
+- Topic Hub (Whiteboard Visuals): https://vidvisual.xyz/whiteboard-summary
