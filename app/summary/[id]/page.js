@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { supabase, authFetch } from '@/lib/supabaseClient';
 import { getPlan } from '@/lib/plans';
 import Visual, { THEMES } from '@/components/Visual';
+import SupportModal from '@/components/SupportModal';
 
 function download(dataUrl, name) {
   const a = document.createElement('a');
@@ -20,6 +21,7 @@ export default function SummaryPage({ params }) {
   const [theme, setTheme] = useState('marker');
   const [busy, setBusy] = useState('');
   const [error, setError] = useState('');
+  const [showSupport, setShowSupport] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -66,8 +68,14 @@ export default function SummaryPage({ params }) {
     <>
       <nav className="nav">
         <Link href="/dashboard" className="brand vv-hand">Vid Visual</Link>
-        <div className="nav-links"><Link href="/dashboard">Back to library</Link></div>
+        <div className="nav-links">
+          <button className="link" onClick={() => setShowSupport(true)}>Support</button>
+          <Link href="/dashboard">Back to library</Link>
+        </div>
       </nav>
+
+      <SupportModal open={showSupport} onClose={() => setShowSupport(false)} />
+
       <main className="dash">
         <h1 className="vv-hand small-h">{summary.title}</h1>
         <div className="toolbar">
@@ -87,7 +95,17 @@ export default function SummaryPage({ params }) {
             </label>
           ) : <span className="muted small">Custom themes come with Unlimited</span>}
         </div>
-        {error ? <p className="msg msg-error" role="alert">{error}</p> : null}
+        {error ? (
+          <div className="msg msg-error" role="alert">
+            <p style={{ margin: 0 }}>{error}</p>
+            <p className="small" style={{ margin: '6px 0 0' }}>
+              Having trouble? Contact support at{' '}
+              <a href="mailto:vidvisual.xyz@gmail.com" style={{ textDecoration: 'underline', fontWeight: 600 }}>
+                vidvisual.xyz@gmail.com
+              </a>
+            </p>
+          </div>
+        ) : null}
         <div className="stage">
           <Visual ref={ref} data={summary.data} format={summary.format} theme={theme} watermark={plan.watermark} />
         </div>

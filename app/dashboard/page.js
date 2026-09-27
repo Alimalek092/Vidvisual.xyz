@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { supabase, authFetch } from '@/lib/supabaseClient';
 import { getPlan } from '@/lib/plans';
 import Pricing from '@/components/Pricing';
+import SupportModal from '@/components/SupportModal';
 
 function loadRazorpay() {
   return new Promise((resolve, reject) => {
@@ -27,6 +28,7 @@ export default function Dashboard() {
   const [error, setError] = useState('');
   const [upgrading, setUpgrading] = useState('');
   const [showPlans, setShowPlans] = useState(false);
+  const [showSupport, setShowSupport] = useState(false);
 
   const load = useCallback(async () => {
     const { data } = await supabase().auth.getSession();
@@ -94,9 +96,12 @@ export default function Dashboard() {
         <div className="nav-links">
           {me ? <span className="chip">{getPlan(me.plan).name} plan</span> : null}
           <button className="link" onClick={() => setShowPlans((v) => !v)}>Plans</button>
+          <button className="link" onClick={() => setShowSupport(true)}>Support</button>
           <button className="link" onClick={logout}>Log out</button>
         </div>
       </nav>
+
+      <SupportModal open={showSupport} onClose={() => setShowSupport(false)} />
 
       <main className="dash">
         <h1 className="vv-hand">Make a visual</h1>
