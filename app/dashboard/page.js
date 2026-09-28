@@ -91,21 +91,6 @@ export default function Dashboard() {
         <Link href="/" className="brand vv-hand"><img src="/logo.png" alt="Vid Visual" className="brand-icon" width="32" height="32" /><span>Vid Visual</span></Link>
         <div className="nav-links">
           {me ? <span className="chip">{getPlan(me.plan).name} plan</span> : null}
-          {me && me.plan !== 'free' ? (
-            <button
-              className="link small"
-              style={{ color: '#e2483d', fontSize: '0.85rem' }}
-              title="Reset your account back to Free plan"
-              onClick={async () => {
-                if (confirm('Reset your account back to the Free plan?')) {
-                  await authFetch('/api/billing/reset-my-plan', { method: 'POST' });
-                  window.location.reload();
-                }
-              }}
-            >
-              Reset to Free
-            </button>
-          ) : null}
           <button className="link" onClick={() => setShowPlans((v) => !v)}>Plans</button>
           <button className="link" onClick={() => setShowSupport(true)}>Support</button>
           <button className="link" onClick={logout}>Log out</button>
