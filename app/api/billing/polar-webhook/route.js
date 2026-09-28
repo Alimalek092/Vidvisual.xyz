@@ -6,38 +6,41 @@ import { sendAdminPurchaseNotification } from '@/lib/email';
 export async function POST(request) {
   const rawBody = await request.text();
 
-  // Signature verification (optional if secret configured)
+  // Signature verification (strict if webhook secret is configured)
   const webhookSecret = process.env.POLAR_WEBHOOK_SECRET;
   if (webhookSecret) {
     const signature = request.headers.get('webhook-signature') || request.headers.get('x-polar-signature');
     const timestamp = request.headers.get('webhook-timestamp');
     const webhookId = request.headers.get('webhook-id');
 
-    if (signature && timestamp && webhookId) {
-      const signedPayload = `${webhookId}.${timestamp}.${rawBody}`;
-      const secretBytes = webhookSecret.startsWith('polar_whs_')
-        ? Buffer.from(webhookSecret.replace('polar_whs_', ''), 'base64')
-        : Buffer.from(webhookSecret, 'utf-8');
+    if (!signature || !timestamp || !webhookId) {
+      console.error('[Polar Webhook] Missing signature headers');
+      return NextResponse.json({ error: 'Missing webhook signature headers' }, { status: 401 });
+    }
 
-      const expectedSignature = crypto
-        .createHmac('sha256', secretBytes)
-        .update(signedPayload)
-        .digest('base64');
+    const signedPayload = `${webhookId}.${timestamp}.${rawBody}`;
+    const secretBytes = webhookSecret.startsWith('polar_whs_')
+      ? Buffer.from(webhookSecret.replace('polar_whs_', ''), 'base64')
+      : Buffer.from(webhookSecret, 'utf-8');
 
-      // Check if signatures match (safe timing)
-      const sigList = signature.split(' ');
-      const matched = sigList.some((s) => {
-        const clean = s.replace(/^v1,/, '');
-        try {
-          return crypto.timingSafeEqual(Buffer.from(clean), Buffer.from(expectedSignature));
-        } catch {
-          return false;
-        }
-      });
+    const expectedSignature = crypto
+      .createHmac('sha256', secretBytes)
+      .update(signedPayload)
+      .digest('base64');
 
-      if (!matched) {
-        console.warn('Polar webhook signature verification failed');
+    const sigList = signature.split(' ');
+    const matched = sigList.some((s) => {
+      const clean = s.replace(/^v1,/, '');
+      try {
+        return crypto.timingSafeEqual(Buffer.from(clean), Buffer.from(expectedSignature));
+      } catch {
+        return false;
       }
+    });
+
+    if (!matched) {
+      console.error('[Polar Webhook] Signature verification failed');
+      return NextResponse.json({ error: 'Invalid signature' }, { status: 401 });
     }
   }
 
@@ -53,6 +56,14 @@ export async function POST(request) {
 
   if (!data) {
     return NextResponse.json({ received: true });
+  }
+
+  // CRITICAL SECURITY RULE:
+  // 'checkout.created' is ONLY an open checkout modal. Payment has NOT happened!
+  // Ignore checkout.created, checkout.expired, etc.
+  if (eventType === 'checkout.created') {
+    console.log('[Polar Webhook] Checkout modal opened (unpaid). Ignoring activation.');
+    return NextResponse.json({ received: true, note: 'Checkout initiated, waiting for payment' });
   }
 
   try {
@@ -79,7 +90,7 @@ export async function POST(request) {
     }
 
     if (!userId) {
-      console.warn('Polar webhook received without matching user:', { customerEmail, eventType });
+      console.warn('[Polar Webhook] Webhook received without matching user:', { customerEmail, eventType });
       return NextResponse.json({ received: true });
     }
 
@@ -96,23 +107,33 @@ export async function POST(request) {
       else plan = 'pro';
     }
 
-    // Active subscription or purchase events
-    const isActivation = [
-      'subscription.created',
-      'subscription.updated',
-      'subscription.active',
-      'order.created',
-      'checkout.created',
-    ].includes(eventType);
+    // STRICT PAYMENT VERIFICATION:
+    // Only activate if payment was actually captured and completed:
+    // 1. 'order.created' -> In Polar, an order is an invoice that was successfully PAID.
+    // 2. 'subscription.active' -> In Polar, this event fires only when subscription is active & paid.
+    // 3. 'subscription.created' or 'subscription.updated' ONLY if data.status === 'active'
+    // 4. 'checkout.updated' ONLY if data.status === 'succeeded'
+    const status = (data.status || '').toLowerCase();
 
-    // Cancellation or revocation events
-    const isDeactivation = [
-      'subscription.canceled',
-      'subscription.revoked',
-      'order.refunded',
-    ].includes(eventType);
+    const isPaidOrder = eventType === 'order.created';
+    const isActiveSubscription =
+      eventType === 'subscription.active' ||
+      (['subscription.created', 'subscription.updated'].includes(eventType) && status === 'active');
+    const isSuccessfulCheckout =
+      eventType === 'checkout.updated' && status === 'succeeded';
 
-    if (isActivation && data.status !== 'canceled') {
+    const isActivation = isPaidOrder || isActiveSubscription || isSuccessfulCheckout;
+
+    // Cancellation, revocation, or failure events
+    const isDeactivation =
+      [
+        'subscription.canceled',
+        'subscription.revoked',
+        'order.refunded',
+      ].includes(eventType) ||
+      ['canceled', 'revoked', 'unpaid', 'past_due'].includes(status);
+
+    if (isActivation && status !== 'canceled' && status !== 'unpaid' && status !== 'incomplete') {
       const { error: updateError } = await db
         .from('profiles')
         .update({ plan })
@@ -121,7 +142,7 @@ export async function POST(request) {
         console.error('[Polar Webhook] Supabase update error:', updateError);
         return NextResponse.json({ error: 'Database update failed' }, { status: 500 });
       }
-      console.log(`[Polar Webhook] Upgraded user ${userId} to ${plan}`);
+      console.log(`[Polar Webhook] VERIFIED PAYMENT: Upgraded user ${userId} to ${plan} (event: ${eventType}, status: ${status})`);
 
       // Resolve customer details for email alert
       let buyerEmail = customerEmail;
@@ -131,7 +152,6 @@ export async function POST(request) {
         data.customer_name ||
         '';
 
-      // If missing from Polar payload, query user record from Supabase
       if (!buyerEmail || !buyerName) {
         try {
           const { data: userRecord } = await db.auth.admin.getUserById(userId);
@@ -154,7 +174,6 @@ export async function POST(request) {
         buyerName = buyerEmail.split('@')[0];
       }
 
-      // Format amount if available
       let formattedAmount = '';
       const rawAmount = data.amount || data.order?.amount || data.subtotal_amount;
       if (typeof rawAmount === 'number') {
@@ -162,9 +181,9 @@ export async function POST(request) {
         formattedAmount = `$${(rawAmount / 100).toFixed(2)} ${cur}`;
       }
 
-      // Send purchase email notification to vidvisual.xyz@gmail.com
-      const isNewPurchase = ['order.created', 'subscription.created', 'subscription.active'].includes(eventType);
-      if (isNewPurchase) {
+      // Send purchase email alert to vidvisual.xyz@gmail.com
+      // Only for verified paid events (order.created or subscription.active)
+      if (isPaidOrder || eventType === 'subscription.active') {
         sendAdminPurchaseNotification({
           customerEmail: buyerEmail,
           customerName: buyerName,
@@ -177,7 +196,7 @@ export async function POST(request) {
           console.error('[Polar Webhook] Error sending admin purchase email:', err?.message);
         });
       }
-    } else if (isDeactivation || data.status === 'canceled') {
+    } else if (isDeactivation) {
       const { error: updateError } = await db
         .from('profiles')
         .update({ plan: 'free' })
@@ -186,7 +205,9 @@ export async function POST(request) {
         console.error('[Polar Webhook] Supabase update error on deactivation:', updateError);
         return NextResponse.json({ error: 'Database update failed' }, { status: 500 });
       }
-      console.log(`[Polar Webhook] Reverted user ${userId} to free plan`);
+      console.log(`[Polar Webhook] Reverted user ${userId} to free plan (event: ${eventType}, status: ${status})`);
+    } else {
+      console.log(`[Polar Webhook] Ignored non-payment event: ${eventType} with status: ${status}`);
     }
 
     return NextResponse.json({ received: true });
