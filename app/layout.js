@@ -50,15 +50,15 @@ export const metadata = {
   openGraph: {
     title: 'Vid Visual — AI YouTube Video Summarizer & Whiteboard Mind Map Generator',
     description:
-      'Paste any YouTube link and get a whiteboard visual or infographic mind map in under 60 seconds. Free to start, no card required.',
+      'Turn long YouTube videos, lectures, and podcasts into scannable whiteboard visuals, concept cards, and mind maps in under 60 seconds.',
     url: SITE_URL,
     siteName: 'Vid Visual',
     images: [
       {
-        url: '/og-image.png',
+        url: `${SITE_URL}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: 'Vid Visual — AI YouTube Video Summarizer & Mind Map Generator',
+        alt: 'Vid Visual — Turn YouTube Videos into Whiteboard Mind Maps',
       },
     ],
     locale: 'en_US',
@@ -66,10 +66,12 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vid Visual — AI YouTube Video Summarizer & Mind Map Generator',
+    site: '@vidvisual',
+    creator: '@Ali_Mlk092',
+    title: 'Vid Visual — AI YouTube Video Summarizer & Whiteboard Mind Map Generator',
     description:
-      'Turn long YouTube videos, lectures, and podcasts into scannable whiteboard visuals and mind maps in under a minute.',
-    images: ['/og-image.png'],
+      'Turn long YouTube videos, lectures, and podcasts into scannable whiteboard visuals, concept cards, and mind maps in under 60 seconds.',
+    images: [`${SITE_URL}/og-image.png`],
   },
   robots: {
     index: true,
@@ -112,6 +114,24 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.png" type="image/png" sizes="512x512" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Vid Visual" />
+        <meta property="og:title" content="Vid Visual — AI YouTube Video Summarizer & Whiteboard Mind Maps" />
+        <meta property="og:description" content="Turn long YouTube videos, lectures, and podcasts into scannable whiteboard visuals, concept cards, and mind maps in under 60 seconds." />
+        <meta property="og:url" content="https://vidvisual.xyz" />
+        <meta property="og:image" content="https://vidvisual.xyz/og-image.png" />
+        <meta property="og:image:secure_url" content="https://vidvisual.xyz/og-image.png" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Vid Visual — Turn YouTube Videos into Whiteboard Mind Maps" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@vidvisual" />
+        <meta name="twitter:creator" content="@Ali_Mlk092" />
+        <meta name="twitter:title" content="Vid Visual — AI YouTube Video Summarizer & Whiteboard Mind Maps" />
+        <meta name="twitter:description" content="Turn long YouTube videos, lectures, and podcasts into scannable whiteboard visuals, concept cards, and mind maps in under 60 seconds." />
+        <meta name="twitter:image" content="https://vidvisual.xyz/og-image.png" />
+        <meta name="twitter:image:alt" content="Vid Visual — Turn YouTube Videos into Whiteboard Mind Maps" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
