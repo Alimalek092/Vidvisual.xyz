@@ -67,7 +67,7 @@ export default function SummaryPage({ params }) {
   return (
     <>
       <nav className="nav">
-        <Link href="/dashboard" className="brand vv-hand">Vid Visual</Link>
+        <Link href="/dashboard" className="brand vv-hand"><img src="/logo.png" alt="Vid Visual" className="brand-icon" width="32" height="32" /><span>Vid Visual</span></Link>
         <div className="nav-links">
           <button className="link" onClick={() => setShowSupport(true)}>Support</button>
           <Link href="/dashboard">Back to library</Link>

@@ -38,12 +38,29 @@ export const metadata = {
   alternates: {
     canonical: '/',
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/icon.png', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png' },
+    ],
+  },
   openGraph: {
     title: 'Vid Visual — AI YouTube Video Summarizer & Whiteboard Mind Map Generator',
     description:
       'Paste any YouTube link and get a whiteboard visual or infographic mind map in under 60 seconds. Free to start, no card required.',
     url: SITE_URL,
     siteName: 'Vid Visual',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Vid Visual — AI YouTube Video Summarizer & Mind Map Generator',
+      },
+    ],
     locale: 'en_US',
     type: 'website',
   },
@@ -52,6 +69,7 @@ export const metadata = {
     title: 'Vid Visual — AI YouTube Video Summarizer & Mind Map Generator',
     description:
       'Turn long YouTube videos, lectures, and podcasts into scannable whiteboard visuals and mind maps in under a minute.',
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,

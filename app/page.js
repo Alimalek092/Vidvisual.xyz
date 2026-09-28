@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import BrandLogo from '@/components/BrandLogo';
 import Visual from '@/components/Visual';
 import Pricing from '@/components/Pricing';
 import { SAMPLE } from '@/lib/sample';
@@ -104,7 +105,7 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
 
       <nav className="nav">
-        <Link href="/" className="brand vv-hand">Vid Visual</Link>
+        <BrandLogo />
         <div className="nav-links">
           <a href="#formats">Format</a>
           <a href="#how-it-works">How it works</a>
@@ -322,7 +323,7 @@ export default function Home() {
       </section>
 
       <footer className="site-foot">
-        <span className="vv-hand">Vid Visual</span>
+        <span className="vv-hand brand-inline"><img src="/logo.png" alt="" className="brand-icon-sm" width="22" height="22" /> Vid Visual</span>
         <div id="support" className="foot-support">
           <a href="mailto:vidvisual.xyz@gmail.com?subject=Vid%20Visual%20Support%20Request">vidvisual.xyz@gmail.com</a>
         </div>

@@ -39,7 +39,7 @@ export default function AuthForm({ mode }) {
 
   return (
     <main className="auth">
-      <Link href="/" className="brand vv-hand">Vid Visual</Link>
+      <Link href="/" className="brand vv-hand"><img src="/logo.png" alt="Vid Visual" className="brand-icon" width="32" height="32" /><span>Vid Visual</span></Link>
       <h1 className="vv-hand">{isRegister ? 'Create your free account' : 'Welcome back'}</h1>
       <p className="muted">{isRegister ? '3 summaries a week, free forever.' : 'Log in to see your library.'}</p>
       <button type="button" className="btn btn-wide" onClick={google}>Continue with Google</button>

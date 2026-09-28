@@ -100,7 +100,7 @@ export default function WhiteboardSummaryPage() {
       />
 
       <nav className="nav">
-        <Link href="/" className="brand vv-hand">Vid Visual</Link>
+        <Link href="/" className="brand vv-hand"><img src="/logo.png" alt="Vid Visual" className="brand-icon" width="32" height="32" /><span>Vid Visual</span></Link>
         <div className="nav-links">
           <Link href="/youtube-to-mind-map">Mind Maps</Link>
           <Link href="/youtube-to-notes">Study Notes</Link>
