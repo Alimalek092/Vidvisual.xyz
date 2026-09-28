@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import crypto from 'crypto';
 import { admin } from '@/lib/supabaseAdmin';
+import { sendAdminPurchaseNotification } from '@/lib/email';
 
 export async function POST(request) {
   const rawBody = await request.text();
@@ -121,6 +122,61 @@ export async function POST(request) {
         return NextResponse.json({ error: 'Database update failed' }, { status: 500 });
       }
       console.log(`[Polar Webhook] Upgraded user ${userId} to ${plan}`);
+
+      // Resolve customer details for email alert
+      let buyerEmail = customerEmail;
+      let buyerName =
+        data.customer?.name ||
+        data.user?.name ||
+        data.customer_name ||
+        '';
+
+      // If missing from Polar payload, query user record from Supabase
+      if (!buyerEmail || !buyerName) {
+        try {
+          const { data: userRecord } = await db.auth.admin.getUserById(userId);
+          if (userRecord?.user) {
+            if (!buyerEmail) buyerEmail = userRecord.user.email;
+            if (!buyerName) {
+              buyerName =
+                userRecord.user.user_metadata?.full_name ||
+                userRecord.user.user_metadata?.name ||
+                buyerEmail?.split('@')[0] ||
+                'Valued Customer';
+            }
+          }
+        } catch (authErr) {
+          console.warn('[Polar Webhook] Could not fetch user from auth admin:', authErr?.message);
+        }
+      }
+
+      if (!buyerName && buyerEmail) {
+        buyerName = buyerEmail.split('@')[0];
+      }
+
+      // Format amount if available
+      let formattedAmount = '';
+      const rawAmount = data.amount || data.order?.amount || data.subtotal_amount;
+      if (typeof rawAmount === 'number') {
+        const cur = (data.currency || 'usd').toUpperCase();
+        formattedAmount = `$${(rawAmount / 100).toFixed(2)} ${cur}`;
+      }
+
+      // Send purchase email notification to vidvisual.xyz@gmail.com
+      const isNewPurchase = ['order.created', 'subscription.created', 'subscription.active'].includes(eventType);
+      if (isNewPurchase) {
+        sendAdminPurchaseNotification({
+          customerEmail: buyerEmail,
+          customerName: buyerName,
+          plan,
+          amount: formattedAmount,
+          currency: data.currency || 'USD',
+          orderId: data.id || data.order_id || data.subscription_id || '',
+          eventType,
+        }).catch((err) => {
+          console.error('[Polar Webhook] Error sending admin purchase email:', err?.message);
+        });
+      }
     } else if (isDeactivation || data.status === 'canceled') {
       const { error: updateError } = await db
         .from('profiles')
