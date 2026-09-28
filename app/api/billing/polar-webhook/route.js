@@ -54,65 +54,88 @@ export async function POST(request) {
     return NextResponse.json({ received: true });
   }
 
-  const db = admin();
+  try {
+    const db = admin();
 
-  // Extract user ID
-  let userId = data.metadata?.user_id;
-  const customerEmail = data.customer?.email || data.customer_email;
+    // Extract user ID & customer email
+    const metadata = data.metadata || data.subscription?.metadata || data.order?.metadata || {};
+    let userId = metadata.user_id;
+    const customerEmail =
+      data.customer?.email ||
+      data.user?.email ||
+      data.customer_email ||
+      data.email;
 
-  // Fallback to looking up user by email if metadata is missing
-  if (!userId && customerEmail) {
-    const { data: profile } = await db
-      .from('profiles')
-      .select('id')
-      .eq('email', customerEmail)
-      .maybeSingle();
-    if (profile) userId = profile.id;
-  }
+    // Fallback to looking up user by email if metadata is missing
+    if (!userId && customerEmail) {
+      const cleanEmail = customerEmail.toLowerCase().trim();
+      const { data: profile } = await db
+        .from('profiles')
+        .select('id')
+        .ilike('email', cleanEmail)
+        .maybeSingle();
+      if (profile) userId = profile.id;
+    }
 
-  if (!userId) {
-    console.warn('Polar webhook received without matching user:', { customerEmail, eventType });
+    if (!userId) {
+      console.warn('Polar webhook received without matching user:', { customerEmail, eventType });
+      return NextResponse.json({ received: true });
+    }
+
+    // Determine plan & normalize to lowercase
+    let plan = metadata.plan;
+    if (plan) {
+      plan = String(plan).toLowerCase().trim();
+    }
+    if (!plan || !['pro', 'unlimited', 'team'].includes(plan)) {
+      const productName = (data.product?.name || data.product?.title || data.name || '').toLowerCase();
+      if (productName.includes('unlimited')) plan = 'unlimited';
+      else if (productName.includes('team')) plan = 'team';
+      else if (productName.includes('pro')) plan = 'pro';
+      else plan = 'pro';
+    }
+
+    // Active subscription or purchase events
+    const isActivation = [
+      'subscription.created',
+      'subscription.updated',
+      'subscription.active',
+      'order.created',
+      'checkout.created',
+    ].includes(eventType);
+
+    // Cancellation or revocation events
+    const isDeactivation = [
+      'subscription.canceled',
+      'subscription.revoked',
+      'order.refunded',
+    ].includes(eventType);
+
+    if (isActivation && data.status !== 'canceled') {
+      const { error: updateError } = await db
+        .from('profiles')
+        .update({ plan })
+        .eq('id', userId);
+      if (updateError) {
+        console.error('[Polar Webhook] Supabase update error:', updateError);
+        return NextResponse.json({ error: 'Database update failed' }, { status: 500 });
+      }
+      console.log(`[Polar Webhook] Upgraded user ${userId} to ${plan}`);
+    } else if (isDeactivation || data.status === 'canceled') {
+      const { error: updateError } = await db
+        .from('profiles')
+        .update({ plan: 'free' })
+        .eq('id', userId);
+      if (updateError) {
+        console.error('[Polar Webhook] Supabase update error on deactivation:', updateError);
+        return NextResponse.json({ error: 'Database update failed' }, { status: 500 });
+      }
+      console.log(`[Polar Webhook] Reverted user ${userId} to free plan`);
+    }
+
     return NextResponse.json({ received: true });
+  } catch (err) {
+    console.error('[Polar Webhook] Error handling webhook event:', err);
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
-
-  // Determine plan
-  let plan = data.metadata?.plan;
-  if (!plan) {
-    const productName = (data.product?.name || data.name || '').toLowerCase();
-    if (productName.includes('unlimited')) plan = 'unlimited';
-    else if (productName.includes('team')) plan = 'team';
-    else if (productName.includes('pro')) plan = 'pro';
-    else plan = 'pro';
-  }
-
-  // Active subscription or purchase events
-  const isActivation = [
-    'subscription.created',
-    'subscription.updated',
-    'subscription.active',
-    'order.created',
-    'checkout.created',
-  ].includes(eventType);
-
-  // Cancellation or revocation events
-  const isDeactivation = [
-    'subscription.canceled',
-    'subscription.revoked',
-  ].includes(eventType);
-
-  if (isActivation && data.status !== 'canceled') {
-    await db
-      .from('profiles')
-      .update({ plan })
-      .eq('id', userId);
-    console.log(`Upgraded user ${userId} to ${plan} via Polar`);
-  } else if (isDeactivation || data.status === 'canceled') {
-    await db
-      .from('profiles')
-      .update({ plan: 'free' })
-      .eq('id', userId);
-    console.log(`Reverted user ${userId} to free plan via Polar`);
-  }
-
-  return NextResponse.json({ received: true });
 }
