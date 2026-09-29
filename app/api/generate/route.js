@@ -51,7 +51,9 @@ export async function POST(request) {
     data = await summarize(transcript.text, model);
   } catch (e) {
     console.error('[Generate Route] Summarization failed:', e?.message || e);
-    return NextResponse.json({ error: 'The AI could not build this summary. Please try again.' }, { status: 502 });
+    return NextResponse.json({
+      error: e?.message || 'The AI could not build this summary. Please try again.'
+    }, { status: 502 });
   }
   data.minutes = transcript.minutes;
   const ytTitle = await getVideoTitle(videoId);
