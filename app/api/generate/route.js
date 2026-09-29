@@ -43,13 +43,14 @@ export async function POST(request) {
   }
 
   const model = plan.priority
-    ? process.env.GEMINI_MODEL_PRIORITY || 'gemini-2.5-pro'
-    : process.env.GEMINI_MODEL || 'gemini-2.5-flash';
+    ? process.env.GEMINI_MODEL_PRIORITY || 'gemini-1.5-flash'
+    : process.env.GEMINI_MODEL || 'gemini-1.5-flash';
 
   let data;
   try {
     data = await summarize(transcript.text, model);
   } catch (e) {
+    console.error('[Generate Route] Summarization failed:', e?.message || e);
     return NextResponse.json({ error: 'The AI could not build this summary. Please try again.' }, { status: 502 });
   }
   data.minutes = transcript.minutes;
