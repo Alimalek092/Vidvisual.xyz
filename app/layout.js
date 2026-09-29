@@ -121,6 +121,14 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Figtree:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
+        <meta property="og:image" content="https://www.vidvisual.xyz/og-image.jpg" />
+        <meta property="og:image:secure_url" content="https://www.vidvisual.xyz/og-image.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://www.vidvisual.xyz/og-image.jpg" />
+        <meta name="twitter:image:src" content="https://www.vidvisual.xyz/og-image.jpg" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
