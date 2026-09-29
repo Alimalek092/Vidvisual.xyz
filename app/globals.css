@@ -154,12 +154,14 @@ img { max-width: 100%; }
 .plans { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 28px; align-items: stretch; }
 @media (max-width: 1000px) { .plans { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .plans { grid-template-columns: 1fr; } }
-.plan { position: relative; background: var(--paper); border: 2px solid var(--ink); border-radius: var(--radius); padding: 24px 20px; display: flex; flex-direction: column; gap: 10px; }
-.plan h3 { margin: 0; font-size: 1.25rem; }
-.plan-hot { background: #eef2ff; box-shadow: 5px 5px 0 var(--blue); }
+.plan { position: relative; background: var(--paper); border: 2px solid var(--ink); border-radius: var(--radius); padding: 24px 20px; display: flex; flex-direction: column; gap: 10px; color: var(--ink); }
+.plan h3 { margin: 0; font-size: 1.25rem; color: var(--ink); }
+.plan-hot { background: #eef4ff; border-color: var(--blue); box-shadow: 5px 5px 0 var(--blue); }
+html[data-theme='dark'] .plan-hot { background: #17223b; border-color: var(--blue); box-shadow: 0 0 24px rgba(122, 162, 255, 0.25), 4px 4px 0 rgba(0, 0, 0, 0.4); }
 .plan-tag { position: absolute; top: -13px; left: 16px; background: var(--red); color: #fff; font-size: .8rem; font-weight: 700; padding: 2px 12px; border-radius: 999px; }
-.plan-price { margin: 0; } .plan-price strong { font-size: 2.4rem; } .plan-price span { color: var(--ink-soft); }
+.plan-price { margin: 0; } .plan-price strong { font-size: 2.4rem; color: var(--ink); } .plan-price span { color: var(--ink-soft); }
 .plan ul { list-style: none; padding: 0; margin: 4px 0 12px; display: grid; gap: 8px; flex: 1; }
+.plan ul li { color: var(--ink); }
 .plan li::before { content: '✓'; color: var(--green); font-weight: 800; margin-right: 8px; }
 
 .faq details { background: var(--paper); border: 2px solid var(--line); border-radius: 12px; padding: 14px 18px; margin: 10px 0; max-width: 760px; }
