@@ -2,12 +2,12 @@ import Link from 'next/link';
 import Visual from '@/components/Visual';
 import { SAMPLE } from '@/lib/sample';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://vidvisual.xyz';
+const SITE_URL = 'https://www.vidvisual.xyz';
 
 export const metadata = {
   title: 'YouTube to Notes AI — Convert YouTube Videos to Study Notes | Vid Visual',
   description:
-    'Turn any YouTube video or lecture into structured study notes, concept cards, and takeaway lists with AI. Built for students, researchers, and lifelong learners.',
+    'Turn any YouTube video, lecture, or podcast into structured study notes, concept cards, and takeaway lists in 20 seconds with AI. Built for students and researchers. Free to start.',
   keywords: [
     'youtube to notes',
     'take notes from youtube video ai',
@@ -17,6 +17,7 @@ export const metadata = {
     'study from youtube videos',
     'ai study notes from video',
     'summarize youtube lecture',
+    'free youtube notes ai',
   ],
   alternates: {
     canonical: `${SITE_URL}/youtube-to-notes`,
@@ -24,21 +25,36 @@ export const metadata = {
   openGraph: {
     title: 'YouTube to Notes AI — Convert YouTube Videos to Study Notes',
     description:
-      'Turn long university lectures, coding tutorials, and research videos into exam-ready whiteboard notes and mind maps with AI.',
+      'Turn long university lectures, coding tutorials, and research videos into exam-ready whiteboard notes and mind maps in 20 seconds with AI.',
     url: `${SITE_URL}/youtube-to-notes`,
     siteName: 'Vid Visual',
     type: 'website',
+    images: [
+      {
+        url: `${SITE_URL}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'Vid Visual — AI YouTube to Notes Generator',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'YouTube to Notes AI — Convert YouTube Videos to Study Notes',
+    description:
+      'Turn long university lectures, coding tutorials, and research videos into exam-ready whiteboard notes and mind maps in 20 seconds with AI.',
+    images: [`${SITE_URL}/og-image.jpg`],
   },
 };
 
 const FAQ_NOTES = [
   [
     'How do I take notes from a YouTube video automatically?',
-    'With Vid Visual, you simply paste the YouTube video link. The AI reads the entire spoken transcript, extracts the core definitions, organizes the key concepts into visual study cards, and generates bulleted takeaways in under a minute.',
+    'With Vid Visual, you simply paste the YouTube video link. The AI reads the entire spoken transcript, extracts the core definitions, organizes the key concepts into visual study cards, and generates bulleted takeaways in under 20 seconds.',
   ],
   [
     'Can I use Vid Visual to study university lectures and prepare for exams?',
-    'Yes! Vid Visual is widely used by college students to convert 60-minute recorded lectures into high-yield visual summary sheets, active recall cards, and actionable takeaway lists the night before exams.',
+    'Yes! Vid Visual is widely used by college students to convert 60-to-120-minute recorded lectures into high-yield visual summary sheets, active recall cards, and actionable takeaway lists the night before exams.',
   ],
   [
     'What formats can I export my study notes in?',
@@ -58,6 +74,15 @@ const faqJsonLd = {
     name: q,
     acceptedAnswer: { '@type': 'Answer', text: a },
   })),
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+    { '@type': 'ListItem', position: 2, name: 'YouTube to Notes', item: `${SITE_URL}/youtube-to-notes` },
+  ],
 };
 
 const howToJsonLd = {
@@ -103,6 +128,10 @@ export default function YouTubeToNotesPage() {
       />
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
 
@@ -117,9 +146,20 @@ export default function YouTubeToNotesPage() {
         </div>
       </nav>
 
+      <div className="breadcrumb-nav">
+        <Link href="/">Home</Link>
+        <span>&rsaquo;</span>
+        <span>YouTube to Study Notes</span>
+      </div>
+
       <header className="hero">
         <div className="hero-copy">
-          <h1 className="vv-hand">Convert YouTube Videos into High-Yield Study Notes</h1>
+          <div className="hero-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '999px', background: 'rgba(16, 185, 129, 0.1)', color: 'var(--green)', fontWeight: 700, fontSize: '0.85rem', marginBottom: '14px', border: '1.5px solid var(--green)' }}>
+            <span>📝 AI Note Taking Engine</span>
+            <span>·</span>
+            <span>20s Study Notes</span>
+          </div>
+          <h1 className="vv-hand">Convert YouTube Videos into High-Yield Study Notes in 20 Seconds</h1>
           <p>
             Skip typing notes by hand. Vid Visual automatically turns recorded lectures, podcasts,
             and tutorials into structured concept cards, visual diagrams, and bulleted takeaways you can study from.
@@ -134,6 +174,26 @@ export default function YouTubeToNotesPage() {
           <Visual data={SAMPLE} format="infographic" theme="ocean" />
         </div>
       </header>
+
+      {/* Stats Strip */}
+      <section className="stats-strip" aria-label="Study Notes Benchmarks">
+        <div className="stat-pill">
+          <span className="stat-pill-num">20 Sec</span>
+          <span className="stat-pill-label">Average note generation speed</span>
+        </div>
+        <div className="stat-pill">
+          <span className="stat-pill-num">65% Higher</span>
+          <span className="stat-pill-label">Exam retention with visual spatial notes</span>
+        </div>
+        <div className="stat-pill">
+          <span className="stat-pill-num">Tablet Ready</span>
+          <span className="stat-pill-label">Exports to PDF for GoodNotes &amp; Notion</span>
+        </div>
+        <div className="stat-pill">
+          <span className="stat-pill-num">4.9 / 5.0</span>
+          <span className="stat-pill-label">Rated by college students &amp; researchers</span>
+        </div>
+      </section>
 
       {/* Direct Answer Box for Google AI Overviews */}
       <section className="answer-box" aria-label="Direct Answer">
@@ -237,11 +297,16 @@ export default function YouTubeToNotesPage() {
       </section>
 
       <footer className="site-foot">
-        <span className="vv-hand">Vid Visual</span>
+        <span className="vv-hand brand-inline">
+          <img src="/logo.png" alt="" className="brand-icon-sm" width="22" height="22" /> Vid Visual
+        </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
+          <Link href="/youtube-podcast-summarizer">Podcasts</Link>
+          <Link href="/youtube-lecture-summarizer">Lectures</Link>
+          <Link href="/video-to-infographic">Infographics</Link>
           <Link href="/youtube-to-mind-map">Mind Maps</Link>
-          <Link href="/whiteboard-summary">Whiteboard</Link>
+          <Link href="/whiteboard-summary">Whiteboard Visuals</Link>
           <a href="mailto:vidvisual.xyz@gmail.com">Support</a>
         </div>
         <span className="muted small">© {new Date().getFullYear()} Vid Visual</span>

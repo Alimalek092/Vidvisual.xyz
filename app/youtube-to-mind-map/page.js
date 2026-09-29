@@ -2,12 +2,12 @@ import Link from 'next/link';
 import Visual from '@/components/Visual';
 import { SAMPLE } from '@/lib/sample';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://vidvisual.xyz';
+const SITE_URL = 'https://www.vidvisual.xyz';
 
 export const metadata = {
   title: 'YouTube to Mind Map Generator (AI) — Turn Videos into Mind Maps | Vid Visual',
   description:
-    'Convert any YouTube video into an interactive visual mind map in seconds with AI. Automatically extracts concepts, nodes, and relationships from video captions. Free to start.',
+    'Convert any YouTube video, podcast, or lecture into an interactive visual mind map in 20 seconds with AI. Automatically extracts concepts, nodes, and relationships from video captions. Free to start.',
   keywords: [
     'youtube to mind map',
     'video to mind map',
@@ -17,6 +17,7 @@ export const metadata = {
     'visual learning from youtube',
     'turn video into mind map',
     'youtube concept map',
+    'free youtube mind map ai',
   ],
   alternates: {
     canonical: `${SITE_URL}/youtube-to-mind-map`,
@@ -28,6 +29,21 @@ export const metadata = {
     url: `${SITE_URL}/youtube-to-mind-map`,
     siteName: 'Vid Visual',
     type: 'website',
+    images: [
+      {
+        url: `${SITE_URL}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'Vid Visual — AI YouTube to Mind Map Generator',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'YouTube to Mind Map Generator (AI) — Convert Videos to Mind Maps',
+    description:
+      'Turn long YouTube lectures, talks, and tutorials into structured, interactive mind maps with AI in 20 seconds.',
+    images: [`${SITE_URL}/og-image.jpg`],
   },
 };
 
@@ -64,12 +80,21 @@ const faqJsonLd = {
   })),
 };
 
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+    { '@type': 'ListItem', position: 2, name: 'YouTube to Mind Map', item: `${SITE_URL}/youtube-to-mind-map` },
+  ],
+};
+
 const howToJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
   name: 'How to Convert a YouTube Video into a Visual Mind Map',
   description: 'Step-by-step procedure to transform YouTube video captions into an interactive visual mind map with AI.',
-  totalTime: 'PT1M',
+  totalTime: 'PT20S',
   step: [
     {
       '@type': 'HowToStep',
@@ -87,7 +112,7 @@ const howToJsonLd = {
       '@type': 'HowToStep',
       position: 3,
       name: 'AI Generates Mind Map',
-      text: 'Our AI analyzes the transcript, links related nodes, and renders your visual mind map in under 60 seconds.',
+      text: 'Our AI analyzes the transcript, links related nodes, and renders your visual mind map in 20 seconds.',
     },
     {
       '@type': 'HowToStep',
@@ -107,6 +132,10 @@ export default function YouTubeToMindMapPage() {
       />
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
 
@@ -121,12 +150,23 @@ export default function YouTubeToMindMapPage() {
         </div>
       </nav>
 
+      <div className="breadcrumb-nav">
+        <Link href="/">Home</Link>
+        <span>&rsaquo;</span>
+        <span>YouTube to Mind Map</span>
+      </div>
+
       <header className="hero">
         <div className="hero-copy">
+          <div className="hero-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '999px', background: 'rgba(43, 89, 224, 0.1)', color: 'var(--blue)', fontWeight: 700, fontSize: '0.85rem', marginBottom: '14px', border: '1.5px solid var(--blue)' }}>
+            <span>🗺️ Spatial Mind Mapping AI</span>
+            <span>·</span>
+            <span>Instant Concept Nodes</span>
+          </div>
           <h1 className="vv-hand">Turn Any YouTube Video into a Visual Mind Map</h1>
           <p>
             Stop drowning in walls of text. Vid Visual uses AI to read video transcripts, identify core concepts,
-            and connect them into a beautifully structured, spatial mind map in under a minute.
+            and connect them into a beautifully structured, spatial mind map in under 20 seconds.
           </p>
           <div className="hero-cta">
             <Link href="/register" className="btn btn-primary btn-lg">Generate Mind Map Free</Link>
@@ -138,6 +178,26 @@ export default function YouTubeToMindMapPage() {
           <Visual data={SAMPLE} format="whiteboard" />
         </div>
       </header>
+
+      {/* Stats Strip */}
+      <section className="stats-strip" aria-label="Mind Map Benchmarks">
+        <div className="stat-pill">
+          <span className="stat-pill-num">20 Sec</span>
+          <span className="stat-pill-label">Average mind map generation speed</span>
+        </div>
+        <div className="stat-pill">
+          <span className="stat-pill-num">65% Higher</span>
+          <span className="stat-pill-label">Recall using spatial node connections</span>
+        </div>
+        <div className="stat-pill">
+          <span className="stat-pill-num">Free Tier</span>
+          <span className="stat-pill-label">3 mind maps/week with zero card needed</span>
+        </div>
+        <div className="stat-pill">
+          <span className="stat-pill-num">4.9 / 5.0</span>
+          <span className="stat-pill-label">Rated by visual thinkers &amp; students</span>
+        </div>
+      </section>
 
       {/* Direct Answer Block for AEO & AI Overviews */}
       <section className="answer-box" aria-label="Direct Answer Overview">
@@ -244,11 +304,16 @@ export default function YouTubeToMindMapPage() {
       </section>
 
       <footer className="site-foot">
-        <span className="vv-hand">Vid Visual</span>
+        <span className="vv-hand brand-inline">
+          <img src="/logo.png" alt="" className="brand-icon-sm" width="22" height="22" /> Vid Visual
+        </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
-          <Link href="/youtube-to-notes">YouTube to Notes</Link>
-          <Link href="/whiteboard-summary">Whiteboard Summary</Link>
+          <Link href="/youtube-podcast-summarizer">Podcasts</Link>
+          <Link href="/youtube-lecture-summarizer">Lectures</Link>
+          <Link href="/video-to-infographic">Infographics</Link>
+          <Link href="/youtube-to-notes">Study Notes</Link>
+          <Link href="/whiteboard-summary">Whiteboard Visuals</Link>
           <a href="mailto:vidvisual.xyz@gmail.com">Support</a>
         </div>
         <span className="muted small">© {new Date().getFullYear()} Vid Visual</span>

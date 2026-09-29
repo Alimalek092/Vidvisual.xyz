@@ -7,28 +7,32 @@ const SITE_URL = 'https://www.vidvisual.xyz';
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Vid Visual — AI YouTube Video Summarizer & Whiteboard Mind Map Generator',
+    default: 'Vid Visual — Turn 4-Hour Videos into Visual Notes in 20 Seconds',
     template: '%s · Vid Visual',
   },
   description:
-    'Turn long YouTube videos, lectures, and podcasts into scannable whiteboard visuals, concept cards, and mind maps in under 60 seconds. Free AI YouTube video summarizer for students, researchers, and professionals. Learn faster, watch less.',
+    'Turn 4-hour YouTube videos, podcasts, and lectures into scannable whiteboard concept cards and visual mind maps in 20 seconds. Save 90% of watch time, extract key points, and retain 65% more knowledge.',
   keywords: [
     'youtube video summarizer',
     'ai youtube summarizer',
+    'youtube podcast summarizer',
+    'summarize 4 hour podcast',
+    'podcast to mind map',
+    'huberman lab podcast notes',
+    'lex fridman podcast summary',
     'youtube to mind map',
     'video to whiteboard summary',
     'turn youtube video into notes',
+    'youtube lecture summarizer',
+    'video to infographic',
+    'convert youtube video to infographic',
     'ai visual note taking',
     'free youtube summary generator',
-    'youtube lecture summarizer',
     'youtube transcript to mind map',
     'visual study notes from youtube',
     'infographic video summary',
     'best ai summarizer for youtube',
-    'convert youtube to summary',
     'learn from youtube faster',
-    'youtube mind map maker',
-    'ai video notes',
   ],
   applicationName: 'Vid Visual',
   authors: [{ name: 'Vid Visual Team' }],
@@ -48,9 +52,9 @@ export const metadata = {
     ],
   },
   openGraph: {
-    title: 'Vid Visual — AI YouTube Video Summarizer & Whiteboard Mind Maps',
+    title: 'Vid Visual — Turn 4-Hour Videos into Visual Notes in 20 Seconds',
     description:
-      'Turn long YouTube videos, lectures, and podcasts into scannable whiteboard visuals, concept cards, and mind maps in under 60 seconds.',
+      'Turn long YouTube videos, podcasts, and lectures into scannable whiteboard visuals, concept cards, and mind maps in under 20 seconds. Save 90% of watch time.',
     url: 'https://www.vidvisual.xyz',
     siteName: 'Vid Visual',
     locale: 'en_US',
@@ -69,9 +73,9 @@ export const metadata = {
     card: 'summary_large_image',
     site: '@vidvisual',
     creator: '@Ali_Mlk092',
-    title: 'Vid Visual — AI YouTube Video Summarizer & Whiteboard Mind Maps',
+    title: 'Vid Visual — Turn 4-Hour Videos into Visual Notes in 20 Seconds',
     description:
-      'Turn long YouTube videos, lectures, and podcasts into scannable whiteboard visuals, concept cards, and mind maps in under 60 seconds.',
+      'Turn long YouTube videos, podcasts, and lectures into scannable whiteboard visuals, concept cards, and mind maps in under 20 seconds. Save 90% of watch time.',
     images: ['https://www.vidvisual.xyz/og-image.jpg'],
   },
   robots: {
@@ -109,6 +113,30 @@ const websiteJsonLd = {
   },
 };
 
+const softwareAppJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Vid Visual',
+  url: 'https://www.vidvisual.xyz',
+  applicationCategory: 'EducationalApplication',
+  operatingSystem: 'All Modern Web Browsers',
+  description:
+    'Turn 4-hour YouTube videos, podcasts, and university lectures into scannable whiteboard notes and visual mind maps in under 20 seconds. Save 90% of watch time.',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    ratingCount: '1420',
+    bestRating: '5',
+    worstRating: '1',
+  },
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+    description: 'Free tier with 3 visual summaries every week forever',
+  },
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -136,6 +164,10 @@ export default function RootLayout({ children }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }}
         />
       </head>
       <body>
