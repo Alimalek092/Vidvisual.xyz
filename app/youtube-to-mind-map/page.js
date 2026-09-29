@@ -194,8 +194,8 @@ export default function YouTubeToMindMapPage() {
           <span className="stat-pill-label">3 mind maps/week with zero card needed</span>
         </div>
         <div className="stat-pill">
-          <span className="stat-pill-num">4.9 / 5.0</span>
-          <span className="stat-pill-label">Rated by visual thinkers &amp; students</span>
+          <span className="stat-pill-num">90% Saved</span>
+          <span className="stat-pill-label">Watch time saved on long YouTube videos</span>
         </div>
       </section>
 

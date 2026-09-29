@@ -82,21 +82,14 @@ const appJsonLd = {
   applicationCategory: 'EducationalApplication',
   operatingSystem: 'All Modern Web Browsers (Chrome, Safari, Firefox, Edge)',
   description:
-    'Vid Visual is a free AI YouTube video summarizer that turns long video transcripts, podcasts, and lectures into interactive whiteboard concept cards and visual mind maps in under 20 seconds.',
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    ratingCount: '1420',
-    bestRating: '5',
-    worstRating: '1',
-  },
+    'Vid Visual is a free AI YouTube video summarizer that turns long boring YouTube videos, podcasts, and lectures into interactive whiteboard concept cards and visual mind maps in under 20 seconds.',
   featureList: [
     '20-second AI YouTube transcript summarization',
     'Interactive vector mind map generator',
     'Whiteboard concept cards breakdown',
     'High-resolution JPG, HD PNG, and PDF exports',
     'Multi-language caption support',
-    '4-hour podcast and lecture compression',
+    'Long-form video and podcast compression',
     'Personal private visual library',
   ],
   offers: Object.values(PLANS).map((p) => ({
@@ -130,19 +123,19 @@ export default function Home() {
       <header className="hero">
         <div className="hero-copy">
           <div className="hero-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '999px', background: 'rgba(43, 89, 224, 0.1)', color: 'var(--blue)', fontWeight: 700, fontSize: '0.85rem', marginBottom: '14px', border: '1.5px solid var(--blue)' }}>
-            <span>⚡ AI Video &amp; Podcast Compressor</span>
+            <span>⚡ AI Video &amp; Podcast Distiller</span>
             <span>·</span>
-            <span>Turn 4 Hours into 20s</span>
+            <span>Main Key Points in 20s</span>
           </div>
-          <h1 className="vv-hand">Turn 4-Hour Videos into Visual Notes in 20 Seconds.</h1>
+          <h1 className="vv-hand">Turn Long, Boring YouTube Videos into Beautiful Whiteboard Summaries in 20 Seconds.</h1>
           <p>
-            Vid Visual is the AI YouTube summarizer built for speed and recall. We turn long-form podcasts,
-            university lectures, and tutorials into scannable whiteboard concept cards and infographic mind maps.
-            Save 90% of your watch time, grasp the main key points instantly, and retain 65% more knowledge.
+            Vid Visual reads long YouTube videos, multi-hour lectures, and deep podcasts for you,
+            extracting the main key points into easy-to-understand whiteboard concept cards and visual mind maps.
+            Save 90% of your time, skip the fluff, and retain 65% more knowledge.
           </p>
           <div className="hero-cta">
-            <Link href="/register" className="btn btn-primary btn-lg">Summarize a video free</Link>
-            <a href="#podcast-showcase" className="link small">See 4-hour podcast compression &darr;</a>
+            <Link href="/register" className="btn btn-primary btn-lg">Make a visual summary free</Link>
+            <a href="#podcast-showcase" className="link small">See long-form video compression &darr;</a>
           </div>
           <span className="muted small">Free forever: 3 summaries a week, no credit card required.</span>
         </div>
@@ -159,27 +152,26 @@ export default function Home() {
         </div>
         <div className="stat-pill">
           <span className="stat-pill-num">90% Saved</span>
-          <span className="stat-pill-label">Watch time saved on long podcasts</span>
+          <span className="stat-pill-label">Watch time saved on long boring videos</span>
         </div>
         <div className="stat-pill">
           <span className="stat-pill-num">65% Higher</span>
           <span className="stat-pill-label">Knowledge retention with spatial visual cards</span>
         </div>
         <div className="stat-pill">
-          <span className="stat-pill-num">4.9 / 5.0</span>
-          <span className="stat-pill-label">Rated by students, founders &amp; researchers</span>
+          <span className="stat-pill-num">100% Free</span>
+          <span className="stat-pill-label">3 summaries every week, zero card needed</span>
         </div>
       </section>
 
-      {/* 4-Hour Podcast & Lecture Compression Showcase */}
-      <section id="podcast-showcase" className="podcast-showcase" aria-label="Podcast Compression Showcase">
+      {/* Long-Form Video & Lecture Compression Showcase */}
+      <section id="podcast-showcase" className="podcast-showcase" aria-label="Long-Form Video Compression Showcase">
         <div className="podcast-showcase-copy">
           <span className="answer-badge" style={{ marginBottom: '10px' }}>Long-Form Compression Engine</span>
-          <h2 className="vv-hand">Turn 4-Hour Long-Form Videos into Main Key Points</h2>
+          <h2 className="vv-hand">Turn Very Long Videos, Lectures &amp; Podcasts into Main Key Points</h2>
           <p>
-            Nobody has 3 hours to listen to a sprawling podcast or lecture just to find the 4 key insights.
-            Vid Visual reads the full transcript, discards the conversational filler, and extracts the core
-            theses, actionable protocols, and conceptual links into a single whiteboard view you can absorb in 60 seconds.
+            Nobody has hours to sit through rambling YouTube videos, dense college lectures, or multi-hour podcast conversations just to find the core ideas that matter.
+            Vid Visual analyzes the complete video transcript, strips away conversational filler, sponsor segments, and repetitive tangents, and distills the main key points into an easy-to-understand visual whiteboard summary you can absorb in under a minute.
           </p>
           <Link href="/youtube-podcast-summarizer" className="btn btn-primary btn-sm">Explore Podcast Summarizer &rarr;</Link>
         </div>
@@ -188,18 +180,18 @@ export default function Home() {
             <div className="podcast-timeline-left">
               <span className="podcast-timeline-icon">🎙️</span>
               <div>
-                <div className="podcast-timeline-title">Lex Fridman #410 (4h 12m)</div>
-                <div className="podcast-timeline-meta">Deep Learning &amp; AI Alignment</div>
+                <div className="podcast-timeline-title">Deep Technical Podcasts (4+ Hours)</div>
+                <div className="podcast-timeline-meta">AI Architecture &amp; Engineering Systems</div>
               </div>
             </div>
-            <span className="podcast-timeline-speed">20s &rarr; 5 Concepts</span>
+            <span className="podcast-timeline-speed">20s &rarr; 5 Concept Cards</span>
           </div>
           <div className="podcast-timeline-item">
             <div className="podcast-timeline-left">
               <span className="podcast-timeline-icon">🧬</span>
               <div>
-                <div className="podcast-timeline-title">Huberman Lab (3h 25m)</div>
-                <div className="podcast-timeline-meta">Dopamine &amp; Focus Protocols</div>
+                <div className="podcast-timeline-title">Science &amp; Health Episodes (3+ Hours)</div>
+                <div className="podcast-timeline-meta">Protocols, Evidence &amp; Action Steps</div>
               </div>
             </div>
             <span className="podcast-timeline-speed">18s &rarr; 6 Key Notes</span>
@@ -208,11 +200,11 @@ export default function Home() {
             <div className="podcast-timeline-left">
               <span className="podcast-timeline-icon">🏛️</span>
               <div>
-                <div className="podcast-timeline-title">MIT 6.006 Lecture (1h 22m)</div>
-                <div className="podcast-timeline-meta">Graph Theory &amp; Dijkstra's Algorithm</div>
+                <div className="podcast-timeline-title">University Lectures &amp; Seminars (2 Hours)</div>
+                <div className="podcast-timeline-meta">Core Academic Concepts &amp; Formulas</div>
               </div>
             </div>
-            <span className="podcast-timeline-speed">15s &rarr; Mind Map</span>
+            <span className="podcast-timeline-speed">15s &rarr; Connected Mind Map</span>
           </div>
         </div>
       </section>

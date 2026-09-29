@@ -183,8 +183,8 @@ export default function WhiteboardSummaryPage() {
           <span className="stat-pill-label">Marker, Ocean, Forest, Sunset, Slate</span>
         </div>
         <div className="stat-pill">
-          <span className="stat-pill-num">4.9 / 5.0</span>
-          <span className="stat-pill-label">Loved by visual thinkers worldwide</span>
+          <span className="stat-pill-num">100% Free</span>
+          <span className="stat-pill-label">3 summaries/week with zero card needed</span>
         </div>
       </section>
 

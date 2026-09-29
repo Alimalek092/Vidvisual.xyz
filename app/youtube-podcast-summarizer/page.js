@@ -5,14 +5,14 @@ import { SAMPLE } from '@/lib/sample';
 const SITE_URL = 'https://www.vidvisual.xyz';
 
 export const metadata = {
-  title: 'YouTube Podcast Summarizer (AI) — Turn 4-Hour Podcasts into Visual Notes | Vid Visual',
+  title: 'YouTube Podcast Summarizer (AI) — Turn Long Podcasts into Visual Notes | Vid Visual',
   description:
-    'Turn 2 to 4-hour YouTube podcasts into scannable whiteboard notes and visual mind maps in 20 seconds. Save 90% of watch time. Free AI podcast summarizer for Huberman Lab, Lex Fridman, Joe Rogan, and All-In.',
+    'Turn long YouTube podcasts and multi-hour conversations into scannable whiteboard notes and visual mind maps in 20 seconds. Save 90% of listening time. Free AI podcast summarizer for Huberman Lab, Lex Fridman, Joe Rogan, and All-In.',
   keywords: [
     'youtube podcast summarizer',
     'summarize youtube podcast',
     'podcast to mind map',
-    'summarize 4 hour podcast',
+    'summarize long podcast',
     'huberman lab podcast notes',
     'lex fridman podcast summary',
     'ai podcast summarizer',
@@ -25,9 +25,9 @@ export const metadata = {
     canonical: `${SITE_URL}/youtube-podcast-summarizer`,
   },
   openGraph: {
-    title: 'YouTube Podcast Summarizer (AI) — Turn 4-Hour Podcasts into Visual Notes',
+    title: 'YouTube Podcast Summarizer (AI) — Turn Long Podcasts into Visual Notes',
     description:
-      'Turn 2 to 4-hour YouTube podcasts into scannable whiteboard notes and visual mind maps in 20 seconds. Save 90% of watch time.',
+      'Turn long YouTube podcasts into scannable whiteboard notes and visual mind maps in 20 seconds. Save 90% of listening time.',
     url: `${SITE_URL}/youtube-podcast-summarizer`,
     siteName: 'Vid Visual',
     type: 'website',
@@ -42,9 +42,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'YouTube Podcast Summarizer (AI) — Turn 4-Hour Podcasts into Visual Notes',
+    title: 'YouTube Podcast Summarizer (AI) — Turn Long Podcasts into Visual Notes',
     description:
-      'Turn 2 to 4-hour YouTube podcasts into scannable whiteboard notes and visual mind maps in 20 seconds. Save 90% of watch time.',
+      'Turn long YouTube podcasts into scannable whiteboard notes and visual mind maps in 20 seconds. Save 90% of listening time.',
     images: [`${SITE_URL}/og-image.jpg`],
   },
 };
@@ -159,7 +159,7 @@ export default function YouTubePodcastSummarizerPage() {
             <span>·</span>
             <span>20s Compression</span>
           </div>
-          <h1 className="vv-hand">Turn 4-Hour Podcasts into Visual Notes in 20 Seconds</h1>
+          <h1 className="vv-hand">Turn Long Podcasts into Beautiful Visual Notes in 20 Seconds</h1>
           <p>
             Stop wasting entire afternoons scrubbing through 3-hour podcasts. Vid Visual reads the transcript,
             cuts through the conversational noise, and extracts the core hypotheses, actionable advice, and
@@ -191,8 +191,8 @@ export default function YouTubePodcastSummarizerPage() {
           <span className="stat-pill-label">Recall with spatial concept cards</span>
         </div>
         <div className="stat-pill">
-          <span className="stat-pill-num">4.9 / 5.0</span>
-          <span className="stat-pill-label">Rated by avid podcast listeners</span>
+          <span className="stat-pill-num">100% Free</span>
+          <span className="stat-pill-label">3 summaries/week with zero card needed</span>
         </div>
       </section>
 
@@ -344,7 +344,7 @@ export default function YouTubePodcastSummarizerPage() {
 
       {/* CTA */}
       <section className="section final">
-        <h2 className="vv-hand">Ready to turn 4-hour podcasts into 20-second notes?</h2>
+        <h2 className="vv-hand">Ready to turn long podcasts into 20-second visual notes?</h2>
         <Link href="/register" className="btn btn-primary btn-lg">Start Summarizing Free</Link>
       </section>
 

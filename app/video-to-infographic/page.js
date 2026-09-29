@@ -189,8 +189,8 @@ export default function VideoToInfographicPage() {
           <span className="stat-pill-label">Presentation-ready export formats</span>
         </div>
         <div className="stat-pill">
-          <span className="stat-pill-num">4.9 / 5.0</span>
-          <span className="stat-pill-label">Rated by marketers &amp; visual learners</span>
+          <span className="stat-pill-num">100% Free</span>
+          <span className="stat-pill-label">3 summaries/week with zero card needed</span>
         </div>
       </section>
 

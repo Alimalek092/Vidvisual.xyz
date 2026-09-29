@@ -190,8 +190,8 @@ export default function YouTubeLectureSummarizerPage() {
           <span className="stat-pill-label">3 summaries/week with zero card needed</span>
         </div>
         <div className="stat-pill">
-          <span className="stat-pill-num">4.9 / 5.0</span>
-          <span className="stat-pill-label">Trusted by students at top universities</span>
+          <span className="stat-pill-num">90% Saved</span>
+          <span className="stat-pill-label">Lecture review time saved before exams</span>
         </div>
       </section>
 

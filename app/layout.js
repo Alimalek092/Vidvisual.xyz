@@ -7,16 +7,16 @@ const SITE_URL = 'https://www.vidvisual.xyz';
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Vid Visual — Turn 4-Hour Videos into Visual Notes in 20 Seconds',
+    default: 'Vid Visual — Turn Long YouTube Videos into Beautiful Whiteboard Summaries in 20 Seconds',
     template: '%s · Vid Visual',
   },
   description:
-    'Turn 4-hour YouTube videos, podcasts, and lectures into scannable whiteboard concept cards and visual mind maps in 20 seconds. Save 90% of watch time, extract key points, and retain 65% more knowledge.',
+    'Turn long, boring YouTube videos, podcasts, and lectures into scannable whiteboard concept cards and visual mind maps in 20 seconds. Save 90% of watch time, extract main key points, and retain 65% more knowledge.',
   keywords: [
     'youtube video summarizer',
     'ai youtube summarizer',
     'youtube podcast summarizer',
-    'summarize 4 hour podcast',
+    'summarize long podcast',
     'podcast to mind map',
     'huberman lab podcast notes',
     'lex fridman podcast summary',
@@ -52,9 +52,9 @@ export const metadata = {
     ],
   },
   openGraph: {
-    title: 'Vid Visual — Turn 4-Hour Videos into Visual Notes in 20 Seconds',
+    title: 'Vid Visual — Turn Long YouTube Videos into Beautiful Whiteboard Summaries in 20 Seconds',
     description:
-      'Turn long YouTube videos, podcasts, and lectures into scannable whiteboard visuals, concept cards, and mind maps in under 20 seconds. Save 90% of watch time.',
+      'Turn long, boring YouTube videos, podcasts, and lectures into scannable whiteboard visuals, concept cards, and mind maps in under 20 seconds. Save 90% of watch time.',
     url: 'https://www.vidvisual.xyz',
     siteName: 'Vid Visual',
     locale: 'en_US',
@@ -73,9 +73,9 @@ export const metadata = {
     card: 'summary_large_image',
     site: '@vidvisual',
     creator: '@Ali_Mlk092',
-    title: 'Vid Visual — Turn 4-Hour Videos into Visual Notes in 20 Seconds',
+    title: 'Vid Visual — Turn Long YouTube Videos into Beautiful Whiteboard Summaries in 20 Seconds',
     description:
-      'Turn long YouTube videos, podcasts, and lectures into scannable whiteboard visuals, concept cards, and mind maps in under 20 seconds. Save 90% of watch time.',
+      'Turn long, boring YouTube videos, podcasts, and lectures into scannable whiteboard visuals, concept cards, and mind maps in under 20 seconds. Save 90% of watch time.',
     images: ['https://www.vidvisual.xyz/og-image.jpg'],
   },
   robots: {
@@ -121,14 +121,7 @@ const softwareAppJsonLd = {
   applicationCategory: 'EducationalApplication',
   operatingSystem: 'All Modern Web Browsers',
   description:
-    'Turn 4-hour YouTube videos, podcasts, and university lectures into scannable whiteboard notes and visual mind maps in under 20 seconds. Save 90% of watch time.',
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    ratingCount: '1420',
-    bestRating: '5',
-    worstRating: '1',
-  },
+    'Turn long boring YouTube videos, multi-hour podcasts, and university lectures into scannable whiteboard notes and visual mind maps in under 20 seconds. Save 90% of watch time.',
   offers: {
     '@type': 'Offer',
     price: '0',
