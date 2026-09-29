@@ -43,8 +43,8 @@ export async function POST(request) {
   }
 
   const model = plan.priority
-    ? process.env.GEMINI_MODEL_PRIORITY || 'gemini-1.5-flash'
-    : process.env.GEMINI_MODEL || 'gemini-1.5-flash';
+    ? process.env.GEMINI_MODEL_PRIORITY || 'gemini-2.5-flash'
+    : process.env.GEMINI_MODEL || 'gemini-2.5-flash';
 
   let data;
   try {
