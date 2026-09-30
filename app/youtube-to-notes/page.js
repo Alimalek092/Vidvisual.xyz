@@ -31,7 +31,7 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: `${SITE_URL}/og-image.jpg`,
+        url: `/og-image.jpg?v=2`,
         width: 1200,
         height: 630,
         alt: 'Vid Visual — AI YouTube to Notes Generator',
@@ -43,7 +43,7 @@ export const metadata = {
     title: 'YouTube to Notes AI — Convert YouTube Videos to Study Notes',
     description:
       'Turn long university lectures, coding tutorials, and research videos into exam-ready whiteboard notes and mind maps in 20 seconds with AI.',
-    images: [`${SITE_URL}/og-image.jpg`],
+    images: [`/og-image.jpg?v=2`],
   },
 };
 

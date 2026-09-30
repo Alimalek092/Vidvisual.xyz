@@ -398,6 +398,14 @@ export default function Home() {
       {/* Footer SEO Programmatic Pillar Hubs */}
       <section className="footer-pillars" aria-label="Explore Vid Visual Tools & Guides">
         <div className="footer-pillar-col">
+          <h4>AI Summarization Hubs</h4>
+          <ul>
+            <li><Link href="/youtube-video-summarizer">YouTube Video Summarizer (AI)</Link></li>
+            <li><Link href="/youtube-transcript-summarizer">YouTube Transcript Summarizer</Link></li>
+            <li><Link href="/youtube-to-pdf">YouTube to PDF Converter</Link></li>
+          </ul>
+        </div>
+        <div className="footer-pillar-col">
           <h4>Visual Learning Tools</h4>
           <ul>
             <li><Link href="/youtube-to-mind-map">YouTube to Mind Map Generator</Link></li>

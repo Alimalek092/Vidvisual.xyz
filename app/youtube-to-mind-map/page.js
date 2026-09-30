@@ -31,7 +31,7 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: `${SITE_URL}/og-image.jpg`,
+        url: `/og-image.jpg?v=2`,
         width: 1200,
         height: 630,
         alt: 'Vid Visual — AI YouTube to Mind Map Generator',
@@ -43,7 +43,7 @@ export const metadata = {
     title: 'YouTube to Mind Map Generator (AI) — Convert Videos to Mind Maps',
     description:
       'Turn long YouTube lectures, talks, and tutorials into structured, interactive mind maps with AI in 20 seconds.',
-    images: [`${SITE_URL}/og-image.jpg`],
+    images: [`/og-image.jpg?v=2`],
   },
 };
 

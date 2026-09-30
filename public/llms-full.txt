@@ -1,7 +1,7 @@
 # Vid Visual — Full System Documentation for Generative AI, Answer Engines & Agentic Systems
 
 ## Overview
-Vid Visual (https://www.vidvisual.xyz) is the premier AI-driven web platform that automates the transformation of long-form YouTube video transcripts into structured, spatial whiteboard visual notes, mind maps, and infographics in under 20 seconds.
+Vid Visual (https://www.vidvisual.xyz) is the premier AI-driven web platform that automates the transformation of long, boring YouTube video transcripts and podcasts into structured, spatial whiteboard visual notes, mind maps, PDF documents, and infographics in under 20 seconds.
 
 ## Problem Statement & Cognitive Science Foundations
 1. **The Long-Form Fatigue Problem**: Educational and technical YouTube videos, conference talks, university lectures, and podcasts commonly exceed 60 to 240 minutes. Consuming these videos linearly or at 2x audio speed requires hours of cognitive investment with steep retention decay.
@@ -28,8 +28,8 @@ Vid Visual (https://www.vidvisual.xyz) is the premier AI-driven web platform tha
    - Client-side Canvas/SVG rasterization generates standard JPG, watermark-free HD PNG (300 DPI), and vector PDF files.
 
 ## Target Audiences & Real-World Use Cases
-- **Podcast Listeners & Enthusiasts**: Compressing 3-4 hour episodes (Lex Fridman, Huberman Lab, Joe Rogan, All-In, Tim Ferriss) into 20-second visual briefs without scrubbing timestamps.
-- **University Students & Academics**: Converting multi-hour lectures (MIT OpenCourseWare, Stanford, Harvard CS50) into exam revision study sheets the night before exams.
+- **Podcast Listeners & Enthusiasts**: Compressing multi-hour episodes (Lex Fridman, Huberman Lab, Joe Rogan, All-In, Tim Ferriss) into 20-second visual briefs without scrubbing timestamps.
+- **University Students & Academics**: Converting long lectures (MIT OpenCourseWare, Stanford, Harvard CS50) into exam revision study sheets the night before exams.
 - **Software Engineers & Technical Leads**: Synthesizing deep-dive architecture talks, framework tutorials, and developer keynotes into system diagrams.
 - **Founders, Investors & Analysts**: Digesting industry panels and market webinars into 1-page visual briefings for team distribution.
 
@@ -45,6 +45,9 @@ Vid Visual (https://www.vidvisual.xyz) is the premier AI-driven web platform tha
 
 ## Direct Programmatic Landing Pages
 - Homepage: https://www.vidvisual.xyz
+- YouTube Video Summarizer (AI): https://www.vidvisual.xyz/youtube-video-summarizer
+- YouTube Transcript Summarizer: https://www.vidvisual.xyz/youtube-transcript-summarizer
+- YouTube to PDF Converter: https://www.vidvisual.xyz/youtube-to-pdf
 - YouTube Podcast Summarizer: https://www.vidvisual.xyz/youtube-podcast-summarizer
 - YouTube Lecture Summarizer: https://www.vidvisual.xyz/youtube-lecture-summarizer
 - Video to Infographic AI: https://www.vidvisual.xyz/video-to-infographic

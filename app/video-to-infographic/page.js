@@ -31,7 +31,7 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: `${SITE_URL}/og-image.jpg`,
+        url: `/og-image.jpg?v=2`,
         width: 1200,
         height: 630,
         alt: 'Vid Visual — YouTube Video to Infographic Generator',
@@ -43,7 +43,7 @@ export const metadata = {
     title: 'YouTube Video to Infographic Generator (AI) — Visual Video Summaries',
     description:
       'Convert any YouTube video into an aesthetic, high-resolution infographic summary in 20 seconds using AI.',
-    images: [`${SITE_URL}/og-image.jpg`],
+    images: [`/og-image.jpg?v=2`],
   },
 };
 

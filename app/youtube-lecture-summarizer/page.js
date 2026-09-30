@@ -32,7 +32,7 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: `${SITE_URL}/og-image.jpg`,
+        url: `/og-image.jpg?v=2`,
         width: 1200,
         height: 630,
         alt: 'Vid Visual — AI YouTube Lecture Summarizer',
@@ -44,7 +44,7 @@ export const metadata = {
     title: 'YouTube Lecture Summarizer (AI) — Convert College Lectures to Study Notes',
     description:
       'Turn 60 to 120-minute university lectures into visual whiteboard study sheets and mind maps in under 20 seconds with AI.',
-    images: [`${SITE_URL}/og-image.jpg`],
+    images: [`/og-image.jpg?v=2`],
   },
 };
 

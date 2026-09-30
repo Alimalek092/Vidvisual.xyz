@@ -33,7 +33,7 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: `${SITE_URL}/og-image.jpg`,
+        url: `/og-image.jpg?v=2`,
         width: 1200,
         height: 630,
         alt: 'Vid Visual — AI YouTube Podcast Summarizer',
@@ -45,7 +45,7 @@ export const metadata = {
     title: 'YouTube Podcast Summarizer (AI) — Turn Long Podcasts into Visual Notes',
     description:
       'Turn long YouTube podcasts into scannable whiteboard notes and visual mind maps in 20 seconds. Save 90% of listening time.',
-    images: [`${SITE_URL}/og-image.jpg`],
+    images: [`/og-image.jpg?v=2`],
   },
 };
 

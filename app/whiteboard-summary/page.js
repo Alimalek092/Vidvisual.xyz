@@ -30,7 +30,7 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: `${SITE_URL}/og-image.jpg`,
+        url: `/og-image.jpg?v=2`,
         width: 1200,
         height: 630,
         alt: 'Vid Visual — AI Whiteboard Video Summarizer',
@@ -42,7 +42,7 @@ export const metadata = {
     title: 'Whiteboard Video Summarizer — AI Whiteboard Notes from YouTube',
     description:
       'Transform complex YouTube videos into scannable whiteboard visual summaries in under 20 seconds with AI.',
-    images: [`${SITE_URL}/og-image.jpg`],
+    images: [`/og-image.jpg?v=2`],
   },
 };
 
