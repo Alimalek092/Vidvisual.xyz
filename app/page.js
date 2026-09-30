@@ -390,6 +390,46 @@ export default function Home() {
         ))}
       </section>
 
+      {/* SEO & Learning Knowledge Hub */}
+      <section id="knowledge-hub" className="section knowledge-hub" aria-label="AI Video Learning & Knowledge Hub">
+        <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+          <span className="answer-badge" style={{ marginBottom: '10px' }}>🔍 AI Video Learning &amp; SEO Knowledge Hub</span>
+          <h2 className="vv-hand">Everything You Need to Master Video Summarization</h2>
+          <p className="section-sub" style={{ maxWidth: '650px', margin: '0 auto' }}>
+            Actionable guides, cognitive research, and tool comparisons to help you save 90% of your watch time and retain more knowledge.
+          </p>
+        </div>
+
+        <div className="grid-3">
+          <div className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div>
+              <span className="answer-badge" style={{ fontSize: '0.75rem', marginBottom: '8px' }}>Guide</span>
+              <h3><Link href="/blog/how-to-summarize-youtube-videos-ai" style={{ color: 'inherit', textDecoration: 'none' }}>How to Summarize YouTube Videos in 20s</Link></h3>
+              <p className="small muted">Step-by-step tutorial on extracting core takeaways from long YouTube videos into whiteboard cards.</p>
+            </div>
+            <Link href="/blog/how-to-summarize-youtube-videos-ai" className="link small" style={{ marginTop: '14px', fontWeight: 600 }}>Read Tutorial &rarr;</Link>
+          </div>
+
+          <div className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div>
+              <span className="answer-badge" style={{ fontSize: '0.75rem', marginBottom: '8px' }}>Comparison</span>
+              <h3><Link href="/blog/best-ai-youtube-summarizers" style={{ color: 'inherit', textDecoration: 'none' }}>Best AI YouTube Summarizers of 2026</Link></h3>
+              <p className="small muted">Why traditional chatbot text walls cause reading fatigue and how spatial memory cards boost recall by 65%.</p>
+            </div>
+            <Link href="/blog/best-ai-youtube-summarizers" className="link small" style={{ marginTop: '14px', fontWeight: 600 }}>Compare Tools &rarr;</Link>
+          </div>
+
+          <div className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div>
+              <span className="answer-badge" style={{ fontSize: '0.75rem', marginBottom: '8px' }}>Study Hack</span>
+              <h3><Link href="/blog/youtube-lecture-to-study-notes" style={{ color: 'inherit', textDecoration: 'none' }}>Turn College Lectures into A+ Notes</Link></h3>
+              <p className="small muted">How top students synthesize recorded semester lectures into GoodNotes and Notion-ready vector PDFs.</p>
+            </div>
+            <Link href="/blog/youtube-lecture-to-study-notes" className="link small" style={{ marginTop: '14px', fontWeight: 600 }}>See Study Hack &rarr;</Link>
+          </div>
+        </div>
+      </section>
+
       <section className="section final">
         <h2 className="vv-hand">Stop forgetting what you watch.</h2>
         <Link href="/register" className="btn btn-primary btn-lg">Get started free</Link>
@@ -422,8 +462,9 @@ export default function Home() {
           </ul>
         </div>
         <div className="footer-pillar-col">
-          <h4>Account &amp; Support</h4>
+          <h4>Resources &amp; Support</h4>
           <ul>
+            <li><Link href="/blog">Blog &amp; Knowledge Hub</Link></li>
             <li><Link href="/login">Dashboard Login</Link></li>
             <li><Link href="/register">Sign Up Free (3/week)</Link></li>
             <li><a href="mailto:vidvisual.xyz@gmail.com">Contact Developer Support</a></li>

@@ -13,6 +13,11 @@ export const metadata = {
   description:
     'Turn long, boring YouTube videos, podcasts, and lectures into scannable whiteboard concept cards and visual mind maps in 20 seconds. Save 90% of watch time, extract main key points, and retain 65% more knowledge.',
   keywords: [
+    'vidvisual',
+    'vid visual',
+    'vidvisual.xyz',
+    'vidvisual ai',
+    'vid visual summarizer',
     'youtube video summarizer',
     'ai youtube summarizer',
     'youtube podcast summarizer',
@@ -96,15 +101,23 @@ const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Vid Visual',
+  alternateName: ['Vidvisual', 'VidVisual', 'Vid Visual AI', 'vidvisual.xyz'],
   url: 'https://www.vidvisual.xyz',
   logo: 'https://www.vidvisual.xyz/logo.png',
-  description: 'AI-powered YouTube video summarizer and visual note-taking platform.',
+  sameAs: [
+    'https://x.com/vidvisual',
+    'https://x.com/Ali_Mlk092',
+    'https://github.com/Alimalek092/Vidvisual.xyz',
+  ],
+  description:
+    'AI-powered YouTube video summarizer that turns long YouTube videos, podcasts, and lectures into whiteboard concept cards and visual mind maps.',
 };
 
 const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'Vid Visual',
+  alternateName: ['Vidvisual', 'VidVisual', 'vidvisual.xyz'],
   url: 'https://www.vidvisual.xyz',
   potentialAction: {
     '@type': 'SearchAction',
