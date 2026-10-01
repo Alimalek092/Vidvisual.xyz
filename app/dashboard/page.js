@@ -14,6 +14,7 @@ export default function Dashboard() {
   const [items, setItems] = useState(null);
   const [url, setUrl] = useState('');
   const [format, setFormat] = useState('whiteboard');
+  const [language, setLanguage] = useState('auto');
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const [upgrading, setUpgrading] = useState('');
@@ -45,7 +46,10 @@ export default function Dashboard() {
     e.preventDefault();
     setError('');
     setBusy(true);
-    const res = await authFetch('/api/generate', { method: 'POST', body: JSON.stringify({ url, format }) });
+    const res = await authFetch('/api/generate', {
+      method: 'POST',
+      body: JSON.stringify({ url, format, language }),
+    });
     const json = await res.json().catch(() => ({}));
     setBusy(false);
     if (!res.ok) {
@@ -112,6 +116,30 @@ export default function Dashboard() {
                 className={format === v ? 'on' : ''} onClick={() => setFormat(v)}>{l}</button>
             ))}
           </div>
+          <select
+            className="lang-select"
+            value={language}
+            onChange={(e) => setLanguage(e.target.value)}
+            aria-label="Summary Language"
+            title="Choose summary language"
+          >
+            <option value="auto">🌐 Auto (Same as video)</option>
+            <option value="English">🇺🇸 English</option>
+            <option value="Spanish">🇪🇸 Spanish (Español)</option>
+            <option value="French">🇫🇷 French (Français)</option>
+            <option value="German">🇩🇪 German (Deutsch)</option>
+            <option value="Italian">🇮🇹 Italian (Italiano)</option>
+            <option value="Portuguese">🇵🇹 Portuguese (Português)</option>
+            <option value="Arabic">🇸🇦 Arabic (العربية)</option>
+            <option value="Hindi">🇮🇳 Hindi (हिन्दी)</option>
+            <option value="Japanese">🇯🇵 Japanese (日本語)</option>
+            <option value="Korean">🇰🇷 Korean (한국어)</option>
+            <option value="Chinese">🇨🇳 Chinese (中文)</option>
+            <option value="Russian">🇷🇺 Russian (Русский)</option>
+            <option value="Turkish">🇹🇷 Turkish (Türkçe)</option>
+            <option value="Indonesian">🇮🇩 Indonesian (Bahasa)</option>
+            <option value="Dutch">🇳🇱 Dutch (Nederlands)</option>
+          </select>
           <button className="btn btn-primary" disabled={busy}>{busy ? 'Reading the video…' : 'Generate visual'}</button>
         </form>
         {me ? (

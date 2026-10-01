@@ -10,7 +10,7 @@ export async function POST(request) {
   const user = await getUser(request);
   if (!user) return NextResponse.json({ error: 'Please log in.' }, { status: 401 });
 
-  const { url, format } = await request.json().catch(() => ({}));
+  const { url, format, language } = await request.json().catch(() => ({}));
   if (!['whiteboard', 'infographic'].includes(format)) {
     return NextResponse.json({ error: 'Choose Whiteboard or Infographic.' }, { status: 400 });
   }
@@ -42,13 +42,14 @@ export async function POST(request) {
     return NextResponse.json({ error: 'This video has too little spoken content to summarize.' }, { status: 422 });
   }
 
-  const model = plan.priority
+  const rawModel = plan.priority
     ? process.env.GEMINI_MODEL_PRIORITY || 'gemini-2.5-flash'
     : process.env.GEMINI_MODEL || 'gemini-2.5-flash';
+  const model = rawModel.includes('1.5') || rawModel.includes('1.0') ? 'gemini-2.5-flash' : rawModel;
 
   let data;
   try {
-    data = await summarize(transcript.text, model);
+    data = await summarize(transcript.text, model, language || 'auto');
   } catch (e) {
     console.error('[Generate Route] Summarization failed:', e?.message || e);
     return NextResponse.json({
@@ -56,6 +57,7 @@ export async function POST(request) {
     }, { status: 502 });
   }
   data.minutes = transcript.minutes;
+  data.language = language || 'auto';
   const ytTitle = await getVideoTitle(videoId);
 
   const { data: row, error } = await admin()

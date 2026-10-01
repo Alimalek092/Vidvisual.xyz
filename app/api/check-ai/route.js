@@ -48,9 +48,9 @@ export async function GET() {
     diagnostics.list_models_exception = err.message;
   }
 
-  // 2. Test quick generation with gemini-1.5-flash
+  // 2. Test quick generation with gemini-2.5-flash
   try {
-    const testModel = diagnostics.available_models?.[0] || 'gemini-1.5-flash';
+    const testModel = diagnostics.available_models?.[0] || 'gemini-2.5-flash';
     const genRes = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/${testModel}:generateContent`,
       {
