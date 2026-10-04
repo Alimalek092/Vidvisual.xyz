@@ -101,7 +101,7 @@ const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Vid Visual',
-  alternateName: ['Vidvisual', 'VidVisual', 'Vid Visual AI', 'vidvisual.xyz'],
+  alternateName: ['vidvisual', 'vidvisual.xyz', 'Vidvisual', 'VidVisual', 'Vid Visual AI'],
   url: 'https://www.vidvisual.xyz',
   logo: 'https://www.vidvisual.xyz/logo.png',
   sameAs: [
@@ -117,7 +117,7 @@ const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'Vid Visual',
-  alternateName: ['Vidvisual', 'VidVisual', 'vidvisual.xyz'],
+  alternateName: ['vidvisual', 'vidvisual.xyz', 'Vidvisual', 'VidVisual'],
   url: 'https://www.vidvisual.xyz',
   potentialAction: {
     '@type': 'SearchAction',

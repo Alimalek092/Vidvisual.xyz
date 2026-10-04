@@ -393,19 +393,19 @@ export default function Home() {
       {/* SEO & Learning Knowledge Hub */}
       <section id="knowledge-hub" className="section knowledge-hub" aria-label="AI Video Learning & Knowledge Hub">
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-          <span className="answer-badge" style={{ marginBottom: '10px' }}>🔍 AI Video Learning &amp; SEO Knowledge Hub</span>
-          <h2 className="vv-hand">Everything You Need to Master Video Summarization</h2>
-          <p className="section-sub" style={{ maxWidth: '650px', margin: '0 auto' }}>
-            Actionable guides, cognitive research, and tool comparisons to help you save 90% of your watch time and retain more knowledge.
+          <span className="answer-badge" style={{ marginBottom: '10px' }}>🔍 vidvisual learning &amp; research knowledge hub</span>
+          <h2 className="vv-hand">Master Video Learning &amp; AI Summarization with vidvisual</h2>
+          <p className="section-sub" style={{ maxWidth: '720px', margin: '0 auto' }}>
+            Actionable guides, cognitive learning science, and deep-dive comparisons. Learn how vidvisual turns multi-hour YouTube videos, university lectures, and podcast conversations into scannable whiteboard concept cards, interactive mind maps, and printable PDF study sheets.
           </p>
         </div>
 
-        <div className="grid-3">
+        <div className="grid-3" style={{ gap: '20px' }}>
           <div className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
-              <span className="answer-badge" style={{ fontSize: '0.75rem', marginBottom: '8px' }}>Guide</span>
-              <h3><Link href="/blog/how-to-summarize-youtube-videos-ai" style={{ color: 'inherit', textDecoration: 'none' }}>How to Summarize YouTube Videos in 20s</Link></h3>
-              <p className="small muted">Step-by-step tutorial on extracting core takeaways from long YouTube videos into whiteboard cards.</p>
+              <span className="answer-badge" style={{ fontSize: '0.75rem', marginBottom: '8px' }}>Tutorial</span>
+              <h3><Link href="/blog/how-to-summarize-youtube-videos-ai" style={{ color: 'inherit', textDecoration: 'none' }}>How to Summarize YouTube Videos in 20s with vidvisual</Link></h3>
+              <p className="small muted">Step-by-step tutorial on parsing video transcripts, eliminating conversational fluff, and generating structured whiteboard visual summaries from any link.</p>
             </div>
             <Link href="/blog/how-to-summarize-youtube-videos-ai" className="link small" style={{ marginTop: '14px', fontWeight: 600 }}>Read Tutorial &rarr;</Link>
           </div>
@@ -413,8 +413,8 @@ export default function Home() {
           <div className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
               <span className="answer-badge" style={{ fontSize: '0.75rem', marginBottom: '8px' }}>Comparison</span>
-              <h3><Link href="/blog/best-ai-youtube-summarizers" style={{ color: 'inherit', textDecoration: 'none' }}>Best AI YouTube Summarizers of 2026</Link></h3>
-              <p className="small muted">Why traditional chatbot text walls cause reading fatigue and how spatial memory cards boost recall by 65%.</p>
+              <h3><Link href="/blog/best-ai-youtube-summarizers" style={{ color: 'inherit', textDecoration: 'none' }}>Best AI YouTube Summarizers in 2026: Why vidvisual Leads</Link></h3>
+              <p className="small muted">Why traditional chatbot text walls cause reading fatigue and how spatial memory cards boost recall by up to 65% compared to plain bullet points.</p>
             </div>
             <Link href="/blog/best-ai-youtube-summarizers" className="link small" style={{ marginTop: '14px', fontWeight: 600 }}>Compare Tools &rarr;</Link>
           </div>
@@ -422,10 +422,79 @@ export default function Home() {
           <div className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
               <span className="answer-badge" style={{ fontSize: '0.75rem', marginBottom: '8px' }}>Study Hack</span>
-              <h3><Link href="/blog/youtube-lecture-to-study-notes" style={{ color: 'inherit', textDecoration: 'none' }}>Turn College Lectures into A+ Notes</Link></h3>
-              <p className="small muted">How top students synthesize recorded semester lectures into GoodNotes and Notion-ready vector PDFs.</p>
+              <h3><Link href="/blog/youtube-lecture-to-study-notes" style={{ color: 'inherit', textDecoration: 'none' }}>Turn College Lectures into A+ Study Notes &amp; Mind Maps</Link></h3>
+              <p className="small muted">How top students and researchers synthesize 2-hour university lectures into GoodNotes, Obsidian, and Notion-ready vector study sheets.</p>
             </div>
             <Link href="/blog/youtube-lecture-to-study-notes" className="link small" style={{ marginTop: '14px', fontWeight: 600 }}>See Study Hack &rarr;</Link>
+          </div>
+
+          <div className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div>
+              <span className="answer-badge" style={{ fontSize: '0.75rem', marginBottom: '8px' }}>Long-Form Video</span>
+              <h3><Link href="/youtube-podcast-summarizer" style={{ color: 'inherit', textDecoration: 'none' }}>Summarize 3+ Hour Podcasts (Huberman Lab, Lex Fridman)</Link></h3>
+              <p className="small muted">Bypass rambling banter, sponsor reads, and tangents. Extract science-backed protocols and core insights into bite-sized concept cards.</p>
+            </div>
+            <Link href="/youtube-podcast-summarizer" className="link small" style={{ marginTop: '14px', fontWeight: 600 }}>Explore Podcast Tool &rarr;</Link>
+          </div>
+
+          <div className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div>
+              <span className="answer-badge" style={{ fontSize: '0.75rem', marginBottom: '8px' }}>Visual Thinking</span>
+              <h3><Link href="/youtube-to-mind-map" style={{ color: 'inherit', textDecoration: 'none' }}>Convert YouTube Videos to Hierarchical Mind Maps</Link></h3>
+              <p className="small muted">See how complex concepts interconnect visually with central nodes and branches instead of getting lost in dense text paragraphs.</p>
+            </div>
+            <Link href="/youtube-to-mind-map" className="link small" style={{ marginTop: '14px', fontWeight: 600 }}>Explore Mind Map Tool &rarr;</Link>
+          </div>
+
+          <div className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div>
+              <span className="answer-badge" style={{ fontSize: '0.75rem', marginBottom: '8px' }}>Vector Notes</span>
+              <h3><Link href="/youtube-to-pdf" style={{ color: 'inherit', textDecoration: 'none' }}>Export Video Transcripts to High-Resolution PDF Notes</Link></h3>
+              <p className="small muted">Download high-resolution, watermark-free study sheets and whiteboard mind maps ready for offline review, printing, and exam prep.</p>
+            </div>
+            <Link href="/youtube-to-pdf" className="link small" style={{ marginTop: '14px', fontWeight: 600 }}>Explore PDF Tool &rarr;</Link>
+          </div>
+        </div>
+
+        {/* Cognitive Science Deep-Dive & AEO Answer Box */}
+        <div className="answer-box" style={{ marginTop: '36px' }}>
+          <span className="answer-badge">Cognitive Science &amp; Research</span>
+          <h3>The Cognitive Science Behind vidvisual: Why Visual Notes Beat Plain Text</h3>
+          <p>
+            Reading continuous walls of AI-generated text triggers cognitive overload. Research shows that 80% of information processed by the human brain is visual. <strong>vidvisual</strong> applies proven educational psychology principles to make video consumption 10x faster and more memorable:
+          </p>
+          <div className="answer-highlights">
+            <div className="answer-highlight">
+              <strong>🧠 Dual-Coding Theory</strong>
+              <span>Combining concise concepts with spatial visual diagrams activates both visual and verbal channels, boosting recall by 65%.</span>
+            </div>
+            <div className="answer-highlight">
+              <strong>⏱️ 90% Time Saved</strong>
+              <span>Strips conversational fluff, sponsor reads, and filler so you absorb 2-hour videos in under 60 seconds without 2x speed fatigue.</span>
+            </div>
+            <div className="answer-highlight">
+              <strong>🌐 16+ Languages</strong>
+              <span>Seamlessly translate foreign-language lectures and tutorials into clean, structured study notes in your chosen target language.</span>
+            </div>
+            <div className="answer-highlight">
+              <strong>📄 Vector PDF Exports</strong>
+              <span>One-click export to high-resolution JPG, HD PNG, or vector PDF ready for Notion, GoodNotes, and Obsidian knowledge bases.</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Quick-Jump Core Pillar Tool Links */}
+        <div style={{ marginTop: '28px', textAlign: 'center' }}>
+          <p className="small muted" style={{ marginBottom: '14px', fontWeight: 600 }}>Explore Core AI Summarization Tools on vidvisual:</p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: 'center' }}>
+            <Link href="/youtube-video-summarizer" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>YouTube Video Summarizer &rarr;</Link>
+            <Link href="/youtube-transcript-summarizer" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Transcript Summarizer &rarr;</Link>
+            <Link href="/youtube-to-pdf" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>YouTube to PDF &rarr;</Link>
+            <Link href="/youtube-to-mind-map" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>YouTube to Mind Map &rarr;</Link>
+            <Link href="/youtube-podcast-summarizer" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Podcast Summarizer &rarr;</Link>
+            <Link href="/youtube-lecture-summarizer" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Lecture Summarizer &rarr;</Link>
+            <Link href="/whiteboard-summary" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Whiteboard Summarizer &rarr;</Link>
+            <Link href="/video-to-infographic" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Video to Infographic &rarr;</Link>
           </div>
         </div>
       </section>
