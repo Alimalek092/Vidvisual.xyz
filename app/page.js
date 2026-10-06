@@ -13,33 +13,6 @@ const TOOL_INTEGRATIONS = [
   { name: 'Google Drive', icon: '📁', desc: 'Store high-res PNG study decks' },
 ];
 
-const TESTIMONIALS = [
-  {
-    name: 'Dr. Marcus Vance',
-    role: 'Biomedical Researcher & Postdoc',
-    avatar: '🔬',
-    tag: 'Academic Research',
-    quote: 'I used to spend 4 hours every weekend skimming technical seminar recordings and Huberman Lab episodes. vidvisual distills the key mechanisms into visual concept cards in under 30 seconds. It cut my weekly review time by 80%.',
-    metric: '4 hrs/week saved',
-  },
-  {
-    name: 'Elena Rostova',
-    role: 'Computer Science Student',
-    avatar: '🎓',
-    tag: 'University Exams',
-    quote: 'Linear AI bullet points give me total brain fatigue when studying for midterms. The spatial whiteboard cards and mind map hierarchy in vidvisual help me actually retain complex algorithms the night before exams.',
-    metric: '92% Midterm Score',
-  },
-  {
-    name: 'David Chen',
-    role: 'Solo SaaS Founder & Engineer',
-    avatar: '💻',
-    tag: 'Tech & Architecture',
-    quote: 'Instead of forcing my engineering team to sit through 90-minute tech conference talks or architecture webinars, I send them a 1-page visual summary export. It is the highest-signal AI tool in my workflow.',
-    metric: '10x Team Alignment',
-  },
-];
-
 const FAQ = [
   ['Can vidvisual turn a 4-hour podcast or lecture into visual notes?', 'Yes! vidvisual is specifically built to compress long-form content. Paste any 2-to-4-hour podcast (like Lex Fridman, Huberman Lab, or Joe Rogan) or multi-hour university lecture, and our AI extracts the core arguments, concept relationships, and actionable takeaways into a visual whiteboard summary in around 20 seconds.'],
   ['How much watch time do I save using vidvisual?', 'Users save up to 90% to 95% of their watch time. Instead of spending 180 to 240 minutes scrubbing through video timelines, you can understand the complete conceptual hierarchy and main key points in under 60 seconds.'],
@@ -205,36 +178,6 @@ export default function Home() {
             <div key={t.name} className="integration-pill" title={t.desc}>
               <span className="integration-icon">{t.icon}</span>
               <span className="integration-name">{t.name}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Social Proof & Student/Researcher Reviews */}
-      <section className="section testimonials-section" aria-label="User Reviews and Learning Case Studies">
-        <div style={{ textAlign: 'center', marginBottom: '28px' }}>
-          <span className="answer-badge" style={{ marginBottom: '8px' }}>Verified User Reviews</span>
-          <h2 className="vv-hand" style={{ fontSize: 'clamp(2rem, 3.8vw, 2.7rem)', margin: '0 0 10px' }}>Loved by Visual Learners, Researchers &amp; Students</h2>
-          <p className="section-lead" style={{ margin: '0 auto', maxWidth: '640px' }}>
-            See how thousands of university students, researchers, and engineers use vidvisual to turn multi-hour YouTube videos into actionable knowledge.
-          </p>
-        </div>
-        <div className="testimonials-grid">
-          {TESTIMONIALS.map((t) => (
-            <div key={t.name} className="testimonial-card">
-              <div className="testimonial-header">
-                <span className="testimonial-avatar">{t.avatar}</span>
-                <div>
-                  <h3 className="testimonial-name">{t.name}</h3>
-                  <span className="testimonial-role">{t.role}</span>
-                </div>
-                <span className="testimonial-tag">{t.tag}</span>
-              </div>
-              <p className="testimonial-quote">&ldquo;{t.quote}&rdquo;</p>
-              <div className="testimonial-footer">
-                <span className="testimonial-stars">★★★★★</span>
-                <span className="testimonial-metric">{t.metric}</span>
-              </div>
             </div>
           ))}
         </div>
