@@ -70,7 +70,9 @@ export async function POST(request) {
   const rawModel = plan.priority
     ? process.env.GEMINI_MODEL_PRIORITY || 'gemini-2.5-flash'
     : process.env.GEMINI_MODEL || 'gemini-2.5-flash';
-  const model = rawModel.includes('1.5') || rawModel.includes('1.0') ? 'gemini-2.5-flash' : rawModel;
+  const model = rawModel.includes('1.5') || rawModel.includes('1.0') || rawModel.includes('pro')
+    ? 'gemini-2.5-flash'
+    : rawModel;
 
   let data;
   try {
