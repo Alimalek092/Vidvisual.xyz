@@ -3,6 +3,7 @@ import { admin, getUser, getProfile, weeklyUsage } from '@/lib/supabaseAdmin';
 import { getPlan } from '@/lib/plans';
 import { extractVideoId, getVideoTitle, getTranscript } from '@/lib/youtube';
 import { summarize } from '@/lib/gemini';
+import { sendUserLimitUpgradeEmail } from '@/lib/email';
 
 export const maxDuration = 60;
 
@@ -23,6 +24,30 @@ export async function POST(request) {
   const plan = getPlan(profile.plan);
   const used = await weeklyUsage(user.id);
   if (used >= plan.weekly) {
+    // If user is on a free plan, trigger personalized recall & upgrade email (non-blocking)
+    if (plan.id === 'free' && user.email) {
+      (async () => {
+        try {
+          const db = admin();
+          const lastSent = profile.last_upgrade_email_at ? new Date(profile.last_upgrade_email_at).getTime() : 0;
+          const oneWeek = 6 * 24 * 60 * 60 * 1000; // 6 days cooldown
+          if (Date.now() - lastSent > oneWeek) {
+            // Update timestamp first to prevent race condition duplicates
+            await db.from('profiles').update({ last_upgrade_email_at: new Date().toISOString() }).eq('id', user.id);
+            await sendUserLimitUpgradeEmail({
+              recipientEmail: user.email,
+              recipientName: user.user_metadata?.full_name || user.user_metadata?.name || '',
+              plan: plan.id,
+              weeklyLimit: plan.weekly,
+              proWeeklyLimit: 50,
+            });
+          }
+        } catch (emailErr) {
+          console.error('[Generate Route] Error sending limit upgrade email:', emailErr?.message || emailErr);
+        }
+      })();
+    }
+
     return NextResponse.json(
       { error: `You have used all ${plan.weekly} summaries for this week. Upgrade for more.`, code: 'LIMIT' },
       { status: 402 }
