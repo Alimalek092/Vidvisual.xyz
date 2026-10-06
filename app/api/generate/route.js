@@ -87,19 +87,72 @@ export async function POST(request) {
   data.language = language || 'auto';
   const ytTitle = await getVideoTitle(videoId);
 
-  const { data: row, error } = await admin()
+  // Sanitize fields to ensure clean database storage
+  const cleanTitle = (ytTitle || data.title || 'Untitled Visual Summary')
+    .toString()
+    .replace(/\0/g, '')
+    .trim()
+    .slice(0, 255);
+
+  const cleanUrl = (url || `https://www.youtube.com/watch?v=${videoId}`)
+    .toString()
+    .trim()
+    .slice(0, 500);
+
+  const insertPayload = {
+    user_id: user.id,
+    video_id: videoId.slice(0, 50),
+    video_url: cleanUrl,
+    title: cleanTitle,
+    format,
+    data,
+  };
+
+  const db = admin();
+  let { data: row, error: insertError } = await db
     .from('summaries')
-    .insert({
-      user_id: user.id,
-      video_id: videoId,
-      video_url: url.trim(),
-      title: ytTitle || data.title,
-      format,
-      data,
-    })
+    .insert(insertPayload)
     .select('id')
     .single();
-  if (error) return NextResponse.json({ error: 'Could not save the summary.' }, { status: 500 });
+
+  // If initial insert fails, attempt a resilient fallback with streamlined data payload
+  if (insertError) {
+    console.error('[Generate Route] Primary DB insert failed:', insertError.message || insertError);
+    
+    // Fallback: retry with minimal core summary structure
+    const fallbackPayload = {
+      user_id: user.id,
+      video_id: videoId.slice(0, 50),
+      video_url: cleanUrl,
+      title: cleanTitle,
+      format,
+      data: {
+        title: data.title || cleanTitle,
+        level: data.level || 'Intermediate',
+        quote: data.quote || '',
+        concepts: (data.concepts || []).slice(0, 6),
+        mindmap: data.mindmap || { center: 'Core Concepts', branches: [] },
+        takeaways: (data.takeaways || []).slice(0, 5),
+        minutes: data.minutes,
+        language: data.language,
+      },
+    };
+
+    const retry = await db
+      .from('summaries')
+      .insert(fallbackPayload)
+      .select('id')
+      .single();
+
+    if (retry.error) {
+      console.error('[Generate Route] Fallback DB insert failed:', retry.error.message || retry.error);
+      return NextResponse.json({
+        error: `Could not save summary: ${retry.error.message || 'Database error'}. Please try again.`
+      }, { status: 500 });
+    }
+
+    row = retry.data;
+  }
 
   return NextResponse.json({ id: row.id });
 }
