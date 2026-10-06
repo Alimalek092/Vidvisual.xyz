@@ -9,10 +9,16 @@ export default function Pricing({ current, onSelect, busy, href = '/register' })
         {PLAN_ORDER.map((id) => {
           const p = PLANS[id];
           const isCurrent = current === id;
-          const label = isCurrent ? 'Your plan' : id === 'free' ? 'Start free' : `Get ${p.name}`;
+          const label = isCurrent
+            ? 'Your current plan'
+            : id === 'free' ? 'Get started free'
+            : id === 'pro' ? 'Upgrade to Pro →'
+            : id === 'unlimited' ? 'Go Unlimited →'
+            : 'Get Team →';
           return (
-            <div key={id} className={`plan${p.popular ? ' plan-hot' : ''}`}>
+            <div key={id} className={`plan${p.popular ? ' plan-hot' : ''}${id === 'unlimited' ? ' plan-value' : ''}`}>
               {p.popular ? <span className="plan-tag">Most popular</span> : null}
+              {id === 'unlimited' ? <span className="plan-tag plan-tag-value">Best value</span> : null}
               <h3>{p.name}</h3>
               <p className="plan-price">
                 <strong>${p.price}</strong>
@@ -25,14 +31,14 @@ export default function Pricing({ current, onSelect, busy, href = '/register' })
               </ul>
               {onSelect ? (
                 <button
-                  className={p.popular ? 'btn btn-primary' : 'btn'}
+                  className={p.popular ? 'btn btn-primary btn-wide' : 'btn btn-wide'}
                   disabled={isCurrent || busy || id === 'free'}
                   onClick={() => onSelect(id)}
                 >
                   {busy === id ? 'Opening checkout…' : label}
                 </button>
               ) : (
-                <Link className={p.popular ? 'btn btn-primary' : 'btn'} href={href}>{label}</Link>
+                <Link className={p.popular ? 'btn btn-primary btn-wide' : 'btn btn-wide'} href={href}>{label}</Link>
               )}
             </div>
           );

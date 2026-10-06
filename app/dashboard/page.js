@@ -18,7 +18,6 @@ export default function Dashboard() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const [upgrading, setUpgrading] = useState('');
-  const [showPlans, setShowPlans] = useState(false);
   const [showSupport, setShowSupport] = useState(false);
 
   const [successMsg, setSuccessMsg] = useState('');
@@ -53,7 +52,7 @@ export default function Dashboard() {
     const json = await res.json().catch(() => ({}));
     setBusy(false);
     if (!res.ok) {
-      if (json.code === 'LIMIT') setShowPlans(true);
+      if (json.code === 'LIMIT') { /* plans already visible below */ }
       return setError(json.error || 'Something went wrong. Please try again.');
     }
     router.push(`/summary/${json.id}`);
@@ -95,7 +94,8 @@ export default function Dashboard() {
         <Link href="/" className="brand vv-hand"><img src="/logo.png" alt="Vid Visual" className="brand-icon" width="32" height="32" /><span>Vid Visual</span></Link>
         <div className="nav-links">
           {me ? <span className="chip">{getPlan(me.plan).name} plan</span> : null}
-          <button className="link" onClick={() => setShowPlans((v) => !v)}>Plans</button>
+          <a href="#plans" className="link">Plans</a>
+          <Link href="/" className="link">Landing Page</Link>
           <button className="link" onClick={() => setShowSupport(true)}>Support</button>
           <button className="link" onClick={logout}>Log out</button>
         </div>
@@ -161,12 +161,15 @@ export default function Dashboard() {
           </div>
         ) : null}
 
-        {showPlans ? (
-          <section className="upgrade">
-            <h2 className="vv-hand">Choose a plan</h2>
-            <Pricing current={me?.plan} onSelect={upgrade} busy={upgrading} />
-          </section>
-        ) : null}
+        <section id="plans" className="upgrade">
+          <h2 className="vv-hand">Unlock more visual summaries</h2>
+          <p className="muted" style={{ marginBottom: '8px', fontSize: '0.95rem' }}>
+            {me && me.plan === 'free'
+              ? `You're on the Free plan (${left} of ${me.limit} left this week). Upgrade to generate up to 200 summaries per week with HD exports, PDF downloads, and zero watermarks.`
+              : 'Choose the plan that fits your learning workflow. All plans include instant AI summaries, visual mind maps, and a personal cloud library.'}
+          </p>
+          <Pricing current={me?.plan} onSelect={upgrade} busy={upgrading} />
+        </section>
 
         <h2 className="vv-hand lib-title">Your library</h2>
         {items === null ? <p className="muted">Loading…</p> : items.length === 0 ? (

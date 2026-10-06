@@ -159,10 +159,25 @@ img { max-width: 100%; }
 .plan-hot { background: #eef4ff; border-color: var(--blue); box-shadow: 5px 5px 0 var(--blue); }
 html[data-theme='dark'] .plan-hot { background: #17223b; border-color: var(--blue); box-shadow: 0 0 24px rgba(122, 162, 255, 0.25), 4px 4px 0 rgba(0, 0, 0, 0.4); }
 .plan-tag { position: absolute; top: -13px; left: 16px; background: var(--red); color: #fff; font-size: .8rem; font-weight: 700; padding: 2px 12px; border-radius: 999px; }
+.plan-tag-value { background: var(--green); left: auto; right: 16px; }
+.plan-value { border-color: var(--green); }
 .plan-price { margin: 0; } .plan-price strong { font-size: 2.4rem; color: var(--ink); } .plan-price span { color: var(--ink-soft); }
 .plan ul { list-style: none; padding: 0; margin: 4px 0 12px; display: grid; gap: 8px; flex: 1; }
 .plan ul li { color: var(--ink); }
 .plan li::before { content: '✓'; color: var(--green); font-weight: 800; margin-right: 8px; }
+.plan:hover { transform: translateY(-3px); box-shadow: 6px 6px 0 var(--ink); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.plan-hot:hover { box-shadow: 8px 8px 0 var(--blue); }
+
+/* Pricing section conversion styles */
+.pricing-section { text-align: center; }
+.pricing-trust-item {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
 
 .faq details { background: var(--paper); border: 2px solid var(--line); border-radius: 12px; padding: 14px 18px; margin: 10px 0; max-width: 760px; }
 .faq summary { font-weight: 600; cursor: pointer; }
