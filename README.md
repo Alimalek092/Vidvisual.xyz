@@ -1,4 +1,4 @@
-# Vid Visual
+# vidvisual
 
 Turn any YouTube video (with captions) into a whiteboard visual or infographic with a mind map.
 Freemium SaaS: Free, Pro, Unlimited, Team.
