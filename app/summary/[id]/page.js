@@ -46,19 +46,60 @@ export default function SummaryPage({ params }) {
     try {
       const lib = await import('html-to-image');
       const bg = document.documentElement.dataset.theme === 'dark' ? '#0f172a' : '#ffffff';
+      const node = ref.current;
+      if (!node) throw new Error('Visual element not found');
+
+      // Canonical desktop width (1200px) ensures clean layout without mobile squishing
+      const TARGET_WIDTH = 1200;
+      const actualWidth = node.offsetWidth || TARGET_WIDTH;
+      const scale = TARGET_WIDTH / actualWidth;
+      const targetHeight = Math.round(node.offsetHeight * scale);
+
+      // Ultra-HD export configuration:
+      // High pixel ratio + fixed desktop rendering dimensions prevents mobile downsampling blur
+      const exportOptions = {
+        backgroundColor: bg,
+        width: TARGET_WIDTH,
+        height: targetHeight,
+        style: {
+          width: `${TARGET_WIDTH}px`,
+          maxWidth: `${TARGET_WIDTH}px`,
+          transform: `scale(${scale})`,
+          transformOrigin: 'top left',
+          margin: '0',
+        },
+      };
+
       if (kind === 'jpg') {
-        download(await lib.toJpeg(ref.current, { quality: 0.92, pixelRatio: 2, backgroundColor: bg }), `${base}.jpg`);
+        const dataUrl = await lib.toJpeg(node, {
+          ...exportOptions,
+          quality: 0.98,
+          pixelRatio: 2.5,
+        });
+        download(dataUrl, `${base}.jpg`);
       } else if (kind === 'png') {
-        download(await lib.toPng(ref.current, { pixelRatio: 3, backgroundColor: bg }), `${base}-HD.png`);
+        const dataUrl = await lib.toPng(node, {
+          ...exportOptions,
+          pixelRatio: 3, // Ultra-sharp 3600px resolution
+        });
+        download(dataUrl, `${base}-UltraHD.png`);
       } else if (kind === 'pdf') {
-        const img = await lib.toPng(ref.current, { pixelRatio: 2, backgroundColor: bg });
+        const img = await lib.toPng(node, {
+          ...exportOptions,
+          pixelRatio: 2.5,
+        });
         const { jsPDF } = await import('jspdf/dist/jspdf.umd.min.js');
-        const w = ref.current.offsetWidth, h = ref.current.offsetHeight;
-        const pdf = new jsPDF({ orientation: w > h ? 'l' : 'p', unit: 'px', format: [w, h] });
-        pdf.addImage(img, 'PNG', 0, 0, w, h);
+        const pdf = new jsPDF({
+          orientation: TARGET_WIDTH > targetHeight ? 'l' : 'p',
+          unit: 'px',
+          format: [TARGET_WIDTH, targetHeight],
+          hotfixes: ['px_scaling'],
+        });
+        pdf.addImage(img, 'PNG', 0, 0, TARGET_WIDTH, targetHeight, undefined, 'FAST');
         pdf.save(`${base}.pdf`);
       }
-    } catch {
+    } catch (err) {
+      console.error('[Export Error]:', err);
       setError('Could not create the download. Please try again.');
     }
     setBusy('');
