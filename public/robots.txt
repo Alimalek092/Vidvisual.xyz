@@ -61,7 +61,6 @@ Allow: /
 
 # Sitemaps and LLM context files
 Sitemap: https://www.vidvisual.xyz/sitemap.xml
-Sitemap: https://vidvisual.xyz/sitemap.xml
 # LLMs knowledge standard
 # https://www.vidvisual.xyz/llms.txt
 # https://www.vidvisual.xyz/llms-full.txt
