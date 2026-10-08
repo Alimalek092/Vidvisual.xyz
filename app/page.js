@@ -5,14 +5,6 @@ import Pricing from '@/components/Pricing';
 import { SAMPLE } from '@/lib/sample';
 import { PLANS } from '@/lib/plans';
 
-const TOOL_INTEGRATIONS = [
-  { name: 'Notion', icon: '📝', desc: 'Paste whiteboard exports into pages' },
-  { name: 'Obsidian', icon: '💎', desc: 'Embed visual cards in knowledge graphs' },
-  { name: 'GoodNotes', icon: '🖊️', desc: 'Markup PDF summaries with stylus' },
-  { name: 'Apple Notes', icon: '🍎', desc: 'Sync concept summaries across devices' },
-  { name: 'Google Drive', icon: '📁', desc: 'Store high-res PNG study decks' },
-];
-
 const FAQ = [
   ['Can vidvisual turn a 4-hour podcast or lecture into visual notes?', 'Yes! vidvisual is specifically built to compress long-form content. Paste any 2-to-4-hour podcast (like Lex Fridman, Huberman Lab, or Joe Rogan) or multi-hour university lecture, and our AI extracts the core arguments, concept relationships, and actionable takeaways into a visual whiteboard summary in around 20 seconds.'],
   ['How much watch time do I save using vidvisual?', 'Users save up to 90% to 95% of their watch time. Instead of spending 180 to 240 minutes scrubbing through video timelines, you can understand the complete conceptual hierarchy and main key points in under 60 seconds.'],
@@ -129,15 +121,15 @@ export default function Home() {
       <header className="hero">
         <div className="hero-copy">
           <div className="hero-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '999px', background: 'rgba(43, 89, 224, 0.1)', color: 'var(--blue)', fontWeight: 700, fontSize: '0.85rem', marginBottom: '14px', border: '1.5px solid var(--blue)', flexWrap: 'wrap' }}>
-            <span>⚡ AI Video Distiller</span>
+            <span>⚡ Under 20 Seconds</span>
             <span>·</span>
             <span>🌐 16+ Languages</span>
             <span>·</span>
-            <span>Main Points in 20s</span>
+            <span>100% Free Forever</span>
           </div>
-          <h1 className="vv-hand">Free AI YouTube Video Summarizer: Turn Videos into Whiteboard Notes in Any Language</h1>
+          <h1 className="vv-hand">Turn Any YouTube Video into Visual Notes in Under 20s — in Any Language</h1>
           <p>
-            <strong>vidvisual</strong> reads long YouTube videos, podcasts, and university lectures, instantly turning them into scannable whiteboard concept cards and visual mind maps — <strong>translated into any of 16+ languages you choose</strong>. Save 90% of watch time, skip the fluff, and learn without language barriers.
+            Paste any long YouTube video, podcast, or university lecture. <strong>vidvisual</strong> instantly extracts the core ideas into scannable whiteboard concept cards and visual mind maps in under 20 seconds — translated into any of 16+ languages you choose. Skip the fluff, save 90% of watch time, and remember 65% more.
           </p>
           <div className="hero-cta">
             <Link href="/register" className="btn btn-primary btn-lg">Make a visual summary free</Link>
@@ -167,19 +159,6 @@ export default function Home() {
         <div className="stat-pill">
           <span className="stat-pill-num">100% Free</span>
           <span className="stat-pill-label">3 summaries every week, zero card needed</span>
-        </div>
-      </section>
-
-      {/* Tool Compatibility Bar (Notion, Obsidian, GoodNotes) */}
-      <section className="integrations-bar" aria-label="Compatible Note Taking Apps">
-        <span className="integrations-label">Export high-resolution study cards directly to your workflow:</span>
-        <div className="integrations-pills">
-          {TOOL_INTEGRATIONS.map((t) => (
-            <div key={t.name} className="integration-pill" title={t.desc}>
-              <span className="integration-icon">{t.icon}</span>
-              <span className="integration-name">{t.name}</span>
-            </div>
-          ))}
         </div>
       </section>
 
