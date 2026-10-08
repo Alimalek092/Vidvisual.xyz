@@ -128,14 +128,16 @@ export default function Home() {
 
       <header className="hero">
         <div className="hero-copy">
-          <div className="hero-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '999px', background: 'rgba(43, 89, 224, 0.1)', color: 'var(--blue)', fontWeight: 700, fontSize: '0.85rem', marginBottom: '14px', border: '1.5px solid var(--blue)' }}>
-            <span>⚡ AI Video &amp; Podcast Distiller</span>
+          <div className="hero-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '999px', background: 'rgba(43, 89, 224, 0.1)', color: 'var(--blue)', fontWeight: 700, fontSize: '0.85rem', marginBottom: '14px', border: '1.5px solid var(--blue)', flexWrap: 'wrap' }}>
+            <span>⚡ AI Video Distiller</span>
             <span>·</span>
-            <span>Main Key Points in 20s</span>
+            <span>🌐 16+ Languages</span>
+            <span>·</span>
+            <span>Main Points in 20s</span>
           </div>
-          <h1 className="vv-hand">Free AI YouTube Video Summarizer: Turn Videos into Whiteboard Notes in 20s</h1>
+          <h1 className="vv-hand">Free AI YouTube Video Summarizer: Turn Videos into Whiteboard Notes in Any Language</h1>
           <p>
-            <strong>vidvisual</strong> is the free AI YouTube video summarizer that turns multi-hour YouTube videos, podcasts, and university lectures into scannable whiteboard concept cards and visual mind maps. Save 90% of watch time, extract key takeaways, and retain 65% more knowledge without reading boring walls of text.
+            <strong>vidvisual</strong> reads long YouTube videos, podcasts, and university lectures, instantly turning them into scannable whiteboard concept cards and visual mind maps — <strong>translated into any of 16+ languages you choose</strong>. Save 90% of watch time, skip the fluff, and learn without language barriers.
           </p>
           <div className="hero-cta">
             <Link href="/register" className="btn btn-primary btn-lg">Make a visual summary free</Link>

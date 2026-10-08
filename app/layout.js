@@ -7,17 +7,21 @@ const SITE_URL = 'https://www.vidvisual.xyz';
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Free AI YouTube Video Summarizer & Mind Map Notes in 20s · vidvisual',
+    default: 'Free AI YouTube Video Summarizer in Any Language (16+) · vidvisual',
     template: '%s · vidvisual',
   },
   description:
-    'Free AI YouTube video summarizer. Turn long YouTube videos, podcasts, and university lectures into scannable whiteboard concept cards and visual mind maps in 20 seconds. Save 90% of watch time.',
+    'Free AI YouTube video summarizer. Turn long YouTube videos, podcasts, and university lectures into whiteboard concept cards and visual mind maps — in 16+ languages in 20 seconds. Save 90% of watch time.',
   keywords: [
     'vidvisual',
     'vid visual',
     'vidvisual.xyz',
     'vidvisual ai',
-    'vid visual summarizer',
+    'multi-language youtube summarizer',
+    'translate youtube video to summary',
+    'youtube video summarizer in spanish',
+    'youtube video summarizer in hindi',
+    'youtube video summarizer in french',
     'youtube video summarizer',
     'ai youtube summarizer',
     'youtube podcast summarizer',
