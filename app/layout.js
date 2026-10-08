@@ -7,11 +7,11 @@ const SITE_URL = 'https://www.vidvisual.xyz';
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Vid Visual — Turn Long YouTube Videos into Beautiful Whiteboard Summaries in 20 Seconds',
-    template: '%s · Vid Visual',
+    default: 'Free AI YouTube Video Summarizer & Mind Map Notes in 20s · vidvisual',
+    template: '%s · vidvisual',
   },
   description:
-    'Turn long, boring YouTube videos, podcasts, and lectures into scannable whiteboard concept cards and visual mind maps in 20 seconds. Save 90% of watch time, extract main key points, and retain 65% more knowledge.',
+    'Free AI YouTube video summarizer. Turn long YouTube videos, podcasts, and university lectures into scannable whiteboard concept cards and visual mind maps in 20 seconds. Save 90% of watch time.',
   keywords: [
     'vidvisual',
     'vid visual',

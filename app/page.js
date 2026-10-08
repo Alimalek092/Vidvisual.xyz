@@ -133,11 +133,9 @@ export default function Home() {
             <span>·</span>
             <span>Main Key Points in 20s</span>
           </div>
-          <h1 className="vv-hand">Turn Long, Boring YouTube Videos into Beautiful Whiteboard Summaries in 20 Seconds.</h1>
+          <h1 className="vv-hand">Free AI YouTube Video Summarizer: Turn Videos into Whiteboard Notes in 20s</h1>
           <p>
-            Vid Visual reads long YouTube videos, multi-hour lectures, and deep podcasts for you,
-            extracting the main key points into easy-to-understand whiteboard concept cards and visual mind maps.
-            Save 90% of your time, skip the fluff, and retain 65% more knowledge.
+            <strong>vidvisual</strong> is the free AI YouTube video summarizer that turns multi-hour YouTube videos, podcasts, and university lectures into scannable whiteboard concept cards and visual mind maps. Save 90% of watch time, extract key takeaways, and retain 65% more knowledge without reading boring walls of text.
           </p>
           <div className="hero-cta">
             <Link href="/register" className="btn btn-primary btn-lg">Make a visual summary free</Link>
