@@ -162,6 +162,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
         <link rel="icon" href="/icon.png?v=2" type="image/png" sizes="512x512" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" sizes="180x180" />
+        <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
         <meta property="og:image" content="https://www.vidvisual.xyz/og-image.jpg?v=2" />
         <meta property="og:image:secure_url" content="https://www.vidvisual.xyz/og-image.jpg?v=2" />
         <meta property="og:image:type" content="image/jpeg" />
