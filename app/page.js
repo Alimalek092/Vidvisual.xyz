@@ -522,6 +522,10 @@ export default function Home() {
             <Link href="/youtube-lecture-summarizer" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Lecture Summarizer &rarr;</Link>
             <Link href="/whiteboard-summary" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Whiteboard Summarizer &rarr;</Link>
             <Link href="/video-to-infographic" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Video to Infographic &rarr;</Link>
+            <Link href="/compare/notegpt-alternative" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>NoteGPT Alternative &rarr;</Link>
+            <Link href="/compare/eightify-alternative" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Eightify Alternative &rarr;</Link>
+            <Link href="/youtube-to-anki-flashcards" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>YouTube to Anki &rarr;</Link>
+            <Link href="/summarize-huberman-lab-podcast" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Huberman Podcast Notes &rarr;</Link>
           </div>
         </div>
       </section>
@@ -539,6 +543,7 @@ export default function Home() {
             <li><Link href="/youtube-video-summarizer">YouTube Video Summarizer (AI)</Link></li>
             <li><Link href="/youtube-transcript-summarizer">YouTube Transcript Summarizer</Link></li>
             <li><Link href="/youtube-to-pdf">YouTube to PDF Converter</Link></li>
+            <li><Link href="/youtube-to-anki-flashcards">YouTube to Anki Flashcards</Link></li>
           </ul>
         </div>
         <div className="footer-pillar-col">
@@ -547,14 +552,16 @@ export default function Home() {
             <li><Link href="/youtube-to-mind-map">YouTube to Mind Map Generator</Link></li>
             <li><Link href="/whiteboard-summary">Whiteboard Video Summarizer</Link></li>
             <li><Link href="/video-to-infographic">Video to Infographic AI</Link></li>
+            <li><Link href="/youtube-to-notes">YouTube to Study Notes</Link></li>
           </ul>
         </div>
         <div className="footer-pillar-col">
-          <h4>Long-Form Video Study</h4>
+          <h4>Compare &amp; Alternatives</h4>
           <ul>
-            <li><Link href="/youtube-podcast-summarizer">YouTube Podcast Summarizer</Link></li>
-            <li><Link href="/youtube-lecture-summarizer">College Lecture Summarizer</Link></li>
-            <li><Link href="/youtube-to-notes">YouTube to Study Notes</Link></li>
+            <li><Link href="/compare">All Competitor Comparisons</Link></li>
+            <li><Link href="/compare/notegpt-alternative">NoteGPT Alternative (Visual)</Link></li>
+            <li><Link href="/compare/eightify-alternative">Eightify Alternative (Free Web)</Link></li>
+            <li><Link href="/summarize-huberman-lab-podcast">Huberman Lab Summarizer</Link></li>
           </ul>
         </div>
         <div className="footer-pillar-col">
