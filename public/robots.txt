@@ -1,4 +1,4 @@
-# Vid Visual Robots Configuration
+# vidvisual Robots Configuration
 # Optimized for Search Engines (SEO) and Generative AI Answer Engines (GEO/AEO)
 
 User-agent: *

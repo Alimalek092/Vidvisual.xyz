@@ -14,7 +14,7 @@ export const metadata = {
     'Free AI YouTube video summarizer. Turn long YouTube videos, podcasts, and university lectures into whiteboard concept cards and visual mind maps — in 16+ languages in 20 seconds. Save 90% of watch time.',
   keywords: [
     'vidvisual',
-    'vid visual',
+    'vidvisual',
     'vidvisual.xyz',
     'vidvisual ai',
     'multi-language youtube summarizer',
@@ -43,10 +43,10 @@ export const metadata = {
     'best ai summarizer for youtube',
     'learn from youtube faster',
   ],
-  applicationName: 'Vid Visual',
-  authors: [{ name: 'Vid Visual Team' }],
-  creator: 'Vid Visual',
-  publisher: 'Vid Visual',
+  applicationName: 'vidvisual',
+  authors: [{ name: 'vidvisual Team' }],
+  creator: 'vidvisual',
+  publisher: 'vidvisual',
   category: 'Education & Productivity Tools',
   alternates: {
     canonical: 'https://www.vidvisual.xyz',
@@ -61,11 +61,11 @@ export const metadata = {
     ],
   },
   openGraph: {
-    title: 'Vid Visual — Turn Long YouTube Videos into Beautiful Whiteboard Summaries in 20 Seconds',
+    title: 'vidvisual — Turn Long YouTube Videos into Beautiful Whiteboard Summaries in 20 Seconds',
     description:
       'Turn long, boring YouTube videos, podcasts, and lectures into scannable whiteboard visuals, concept cards, and mind maps in under 20 seconds. Save 90% of watch time.',
     url: 'https://www.vidvisual.xyz',
-    siteName: 'Vid Visual',
+    siteName: 'vidvisual',
     locale: 'en_US',
     type: 'website',
     images: [
@@ -73,7 +73,7 @@ export const metadata = {
         url: 'https://www.vidvisual.xyz/og-image.jpg?v=2',
         width: 1200,
         height: 630,
-        alt: 'Vid Visual — Turn YouTube Videos into Whiteboard Mind Maps',
+        alt: 'vidvisual — Turn YouTube Videos into Whiteboard Mind Maps',
         type: 'image/jpeg',
       },
     ],
@@ -82,7 +82,7 @@ export const metadata = {
     card: 'summary_large_image',
     site: '@vidvisual',
     creator: '@Ali_Mlk092',
-    title: 'Vid Visual — Turn Long YouTube Videos into Beautiful Whiteboard Summaries in 20 Seconds',
+    title: 'vidvisual — Turn Long YouTube Videos into Beautiful Whiteboard Summaries in 20 Seconds',
     description:
       'Turn long, boring YouTube videos, podcasts, and lectures into scannable whiteboard visuals, concept cards, and mind maps in under 20 seconds. Save 90% of watch time.',
     images: ['https://www.vidvisual.xyz/twitter-image.jpg?v=2'],
@@ -104,8 +104,8 @@ export const metadata = {
 const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Vid Visual',
-  alternateName: ['vidvisual', 'vidvisual.xyz', 'Vidvisual', 'VidVisual', 'Vid Visual AI'],
+  name: 'vidvisual',
+  alternateName: ['vidvisual', 'vidvisual.xyz', 'vidvisual', 'vidvisual', 'vidvisual AI'],
   url: 'https://www.vidvisual.xyz',
   logo: 'https://www.vidvisual.xyz/logo.png',
   sameAs: [
@@ -120,8 +120,8 @@ const orgJsonLd = {
 const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'Vid Visual',
-  alternateName: ['vidvisual', 'vidvisual.xyz', 'Vidvisual', 'VidVisual'],
+  name: 'vidvisual',
+  alternateName: ['vidvisual', 'vidvisual.xyz', 'vidvisual', 'vidvisual'],
   url: 'https://www.vidvisual.xyz',
   potentialAction: {
     '@type': 'SearchAction',
@@ -133,7 +133,7 @@ const websiteJsonLd = {
 const softwareAppJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: 'Vid Visual',
+  name: 'vidvisual',
   url: 'https://www.vidvisual.xyz',
   applicationCategory: 'EducationalApplication',
   operatingSystem: 'All Modern Web Browsers',
@@ -168,15 +168,15 @@ export default function RootLayout({ children }) {
         <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Vid Visual — Turn YouTube Videos into Whiteboard Mind Maps" />
+        <meta property="og:image:alt" content="vidvisual — Turn YouTube Videos into Whiteboard Mind Maps" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@vidvisual" />
         <meta name="twitter:creator" content="@Ali_Mlk092" />
-        <meta name="twitter:title" content="Vid Visual — Turn Long YouTube Videos into Beautiful Whiteboard Summaries in 20 Seconds" />
+        <meta name="twitter:title" content="vidvisual — Turn Long YouTube Videos into Beautiful Whiteboard Summaries in 20 Seconds" />
         <meta name="twitter:description" content="Turn long, boring YouTube videos, podcasts, and lectures into scannable whiteboard visuals, concept cards, and mind maps in under 20 seconds." />
         <meta name="twitter:image" content="https://www.vidvisual.xyz/twitter-image.jpg?v=2" />
         <meta name="twitter:image:src" content="https://www.vidvisual.xyz/twitter-image.jpg?v=2" />
-        <meta name="twitter:image:alt" content="Vid Visual — AI YouTube Video Summarizer &amp; Mind Maps" />
+        <meta name="twitter:image:alt" content="vidvisual — AI YouTube Video Summarizer &amp; Mind Maps" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}

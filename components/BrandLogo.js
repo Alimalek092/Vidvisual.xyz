@@ -5,13 +5,13 @@ export default function BrandLogo({ href = '/', size = 32, showText = true, clas
     <>
       <img
         src="/logo.png"
-        alt="Vid Visual logo"
+        alt="vidvisual logo"
         className="brand-icon"
         width={size}
         height={size}
         style={{ width: size, height: size }}
       />
-      {showText && <span>Vid Visual</span>}
+      {showText && <span>vidvisual</span>}
     </>
   );
 

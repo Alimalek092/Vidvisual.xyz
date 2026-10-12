@@ -159,8 +159,8 @@ const Visual = forwardRef(function Visual({ data, format = 'whiteboard', theme =
       )}
 
       <footer className="vv-foot">
-        <span className="vv-hand brand-inline"><img src="/logo.png" alt="" className="brand-icon-sm" width="20" height="20" /> Vid Visual</span>
-        {watermark ? <span>Made with Vid Visual · vidvisual.xyz</span> : null}
+        <span className="vv-hand brand-inline"><img src="/logo.png" alt="" className="brand-icon-sm" width="20" height="20" /> vidvisual</span>
+        {watermark ? <span>Made with vidvisual · vidvisual.xyz</span> : null}
       </footer>
     </div>
   );

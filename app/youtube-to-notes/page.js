@@ -5,7 +5,7 @@ import { SAMPLE } from '@/lib/sample';
 const SITE_URL = 'https://www.vidvisual.xyz';
 
 export const metadata = {
-  title: 'YouTube to Notes AI — Convert YouTube Videos to Study Notes | Vid Visual',
+  title: 'YouTube to Notes AI — Convert YouTube Videos to Study Notes | vidvisual',
   description:
     'Turn any YouTube video, lecture, or podcast into structured study notes, concept cards, and takeaway lists in 20 seconds with AI. Built for students and researchers. Free to start.',
   keywords: [
@@ -27,14 +27,14 @@ export const metadata = {
     description:
       'Turn long university lectures, coding tutorials, and research videos into exam-ready whiteboard notes and mind maps in 20 seconds with AI.',
     url: `${SITE_URL}/youtube-to-notes`,
-    siteName: 'Vid Visual',
+    siteName: 'vidvisual',
     type: 'website',
     images: [
       {
         url: `/og-image.jpg?v=2`,
         width: 1200,
         height: 630,
-        alt: 'Vid Visual — AI YouTube to Notes Generator',
+        alt: 'vidvisual — AI YouTube to Notes Generator',
       },
     ],
   },
@@ -50,11 +50,11 @@ export const metadata = {
 const FAQ_NOTES = [
   [
     'How do I take notes from a YouTube video automatically?',
-    'With Vid Visual, you simply paste the YouTube video link. The AI reads the entire spoken transcript, extracts the core definitions, organizes the key concepts into visual study cards, and generates bulleted takeaways in under 20 seconds.',
+    'With vidvisual, you simply paste the YouTube video link. The AI reads the entire spoken transcript, extracts the core definitions, organizes the key concepts into visual study cards, and generates bulleted takeaways in under 20 seconds.',
   ],
   [
-    'Can I use Vid Visual to study university lectures and prepare for exams?',
-    'Yes! Vid Visual is widely used by college students to convert 60-to-120-minute recorded lectures into high-yield visual summary sheets, active recall cards, and actionable takeaway lists the night before exams.',
+    'Can I use vidvisual to study university lectures and prepare for exams?',
+    'Yes! vidvisual is widely used by college students to convert 60-to-120-minute recorded lectures into high-yield visual summary sheets, active recall cards, and actionable takeaway lists the night before exams.',
   ],
   [
     'What formats can I export my study notes in?',
@@ -62,7 +62,7 @@ const FAQ_NOTES = [
   ],
   [
     'Does it work for foreign language tutorials or lectures?',
-    'Yes, Vid Visual processes caption tracks in any language and creates your notes in that same language.',
+    'Yes, vidvisual processes caption tracks in any language and creates your notes in that same language.',
   ],
 ];
 
@@ -102,7 +102,7 @@ const howToJsonLd = {
       '@type': 'HowToStep',
       position: 2,
       name: 'Generate Visual Notes',
-      text: 'Paste the link into Vid Visual and click Generate.',
+      text: 'Paste the link into vidvisual and click Generate.',
     },
     {
       '@type': 'HowToStep',
@@ -136,7 +136,7 @@ export default function YouTubeToNotesPage() {
       />
 
       <nav className="nav">
-        <Link href="/" className="brand vv-hand"><img src="/logo.png" alt="Vid Visual" className="brand-icon" width="32" height="32" /><span>Vid Visual</span></Link>
+        <Link href="/" className="brand vv-hand"><img src="/logo.png" alt="vidvisual" className="brand-icon" width="32" height="32" /><span>vidvisual</span></Link>
         <div className="nav-links">
           <Link href="/youtube-to-mind-map">Mind Maps</Link>
           <Link href="/whiteboard-summary">Whiteboard</Link>
@@ -161,7 +161,7 @@ export default function YouTubeToNotesPage() {
           </div>
           <h1 className="vv-hand">Convert YouTube Videos into High-Yield Study Notes in 20 Seconds</h1>
           <p>
-            Skip typing notes by hand. Vid Visual automatically turns recorded lectures, podcasts,
+            Skip typing notes by hand. vidvisual automatically turns recorded lectures, podcasts,
             and tutorials into structured concept cards, visual diagrams, and bulleted takeaways you can study from.
           </p>
           <div className="hero-cta">
@@ -200,7 +200,7 @@ export default function YouTubeToNotesPage() {
         <span className="answer-badge">AI Answer Overview</span>
         <h2>How do you convert YouTube videos to notes?</h2>
         <p>
-          To convert YouTube videos into notes, paste any captioned video URL into <strong>Vid Visual</strong>.
+          To convert YouTube videos into notes, paste any captioned video URL into <strong>vidvisual</strong>.
           The AI engine analyzes the transcript, filters out conversational filler, and extracts core concepts
           into structured whiteboard cards, mind map relationships, and actionable takeaways in under 60 seconds.
           Notes can be exported to PDF or PNG for exam preparation.
@@ -221,9 +221,9 @@ export default function YouTubeToNotesPage() {
         </div>
       </section>
 
-      {/* Comparison: Vid Visual vs Manual Notes */}
+      {/* Comparison: vidvisual vs Manual Notes */}
       <section className="section">
-        <h2 className="vv-hand">Vid Visual vs. Taking Notes by Hand</h2>
+        <h2 className="vv-hand">vidvisual vs. Taking Notes by Hand</h2>
         <p className="section-lead">Why automated visual note-taking saves you 10+ hours every week:</p>
         <div className="card-grid">
           <div className="info-card accent-blue">
@@ -298,7 +298,7 @@ export default function YouTubeToNotesPage() {
 
       <footer className="site-foot">
         <span className="vv-hand brand-inline">
-          <img src="/logo.png" alt="" className="brand-icon-sm" width="22" height="22" /> Vid Visual
+          <img src="/logo.png" alt="" className="brand-icon-sm" width="22" height="22" /> vidvisual
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
@@ -309,7 +309,7 @@ export default function YouTubeToNotesPage() {
           <Link href="/whiteboard-summary">Whiteboard Visuals</Link>
           <a href="mailto:vidvisual.xyz@gmail.com">Support</a>
         </div>
-        <span className="muted small">© {new Date().getFullYear()} Vid Visual</span>
+        <span className="muted small">© {new Date().getFullYear()} vidvisual</span>
       </footer>
     </>
   );

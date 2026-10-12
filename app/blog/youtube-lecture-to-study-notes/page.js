@@ -3,7 +3,7 @@ import Link from 'next/link';
 const SITE_URL = 'https://www.vidvisual.xyz';
 
 export const metadata = {
-  title: 'How to Turn 2-Hour College Lectures into A+ Study Notes and PDFs | Vid Visual',
+  title: 'How to Turn 2-Hour College Lectures into A+ Study Notes and PDFs | vidvisual',
   description:
     'A study guide for students: convert recorded YouTube college lectures, STEM proofs, and exam reviews into visual whiteboard cheat sheets and printable PDF notes in 20 seconds.',
   keywords: [
@@ -22,7 +22,7 @@ export const metadata = {
     description:
       'The step-by-step framework to turn recorded university lectures into visual study cheat sheets in 20 seconds.',
     url: `${SITE_URL}/blog/youtube-lecture-to-study-notes`,
-    siteName: 'Vid Visual',
+    siteName: 'vidvisual',
     type: 'article',
     images: [`${SITE_URL}/og-image.jpg?v=2`],
   },
@@ -45,12 +45,12 @@ const articleJsonLd = {
   dateModified: '2026-09-30',
   author: {
     '@type': 'Organization',
-    name: 'Vid Visual Academic Team',
+    name: 'vidvisual Academic Team',
     url: SITE_URL,
   },
   publisher: {
     '@type': 'Organization',
-    name: 'Vid Visual',
+    name: 'vidvisual',
     logo: {
       '@type': 'ImageObject',
       url: `${SITE_URL}/logo.png`,
@@ -65,8 +65,8 @@ export default function ArticleLectureStudyNotes() {
 
       <nav className="nav">
         <Link href="/" className="brand vv-hand">
-          <img src="/logo.png" alt="Vid Visual" className="brand-icon" width="32" height="32" />
-          <span>Vid Visual</span>
+          <img src="/logo.png" alt="vidvisual" className="brand-icon" width="32" height="32" />
+          <span>vidvisual</span>
         </Link>
         <div className="nav-links">
           <Link href="/blog">Blog</Link>
@@ -91,7 +91,7 @@ export default function ArticleLectureStudyNotes() {
             How to Turn 2-Hour College Lectures into A+ Study Notes and PDFs
           </h1>
           <div style={{ display: 'flex', gap: '14px', alignItems: 'center', color: 'var(--muted)', fontSize: '0.85rem' }}>
-            <span>By Vid Visual Academic Team</span>
+            <span>By vidvisual Academic Team</span>
             <span>·</span>
             <span>Published September 30, 2026</span>
             <span>·</span>
@@ -108,7 +108,7 @@ export default function ArticleLectureStudyNotes() {
 
           <p>
             Top students don't re-watch lectures. They convert them into high-yield visual study sheets and spatial mind maps.
-            Here is the exact study framework using <strong>Vid Visual</strong>.
+            Here is the exact study framework using <strong>vidvisual</strong>.
           </p>
 
           <h2 style={{ fontSize: '1.6rem', marginTop: '36px', marginBottom: '14px' }}>1. Isolate the Core Academic Mechanisms</h2>
@@ -118,19 +118,19 @@ export default function ArticleLectureStudyNotes() {
             that appear on the exam.
           </p>
           <p>
-            Vid Visual automatically filters out administrative chatter and groups the underlying academic concepts onto separate cards.
+            vidvisual automatically filters out administrative chatter and groups the underlying academic concepts onto separate cards.
           </p>
 
           <h2 style={{ fontSize: '1.6rem', marginTop: '36px', marginBottom: '14px' }}>2. Use the Mind Map for Conceptual Hierarchy</h2>
           <p>
             Most exam mistakes come from confusing how two related formulas or doctrines relate to each other.
-            Vid Visual’s vector mind map connects sub-arguments to the central theme, giving you a top-down mental model
+            vidvisual’s vector mind map connects sub-arguments to the central theme, giving you a top-down mental model
             you can review in 30 seconds before walking into the examination hall.
           </p>
 
           <h2 style={{ fontSize: '1.6rem', marginTop: '36px', marginBottom: '14px' }}>3. Export to Vector PDF for Tablet Annotation</h2>
           <p>
-            Once Vid Visual generates your notes in ~20 seconds, export the summary as a vector PDF.
+            Once vidvisual generates your notes in ~20 seconds, export the summary as a vector PDF.
             You can drop it directly into <strong>GoodNotes</strong>, <strong>Notability</strong>, or <strong>Apple Notes</strong>,
             highlight key points with an Apple Pencil or stylus, and add your professor's specific exam hints alongside the AI-extracted definitions.
           </p>
@@ -147,7 +147,7 @@ export default function ArticleLectureStudyNotes() {
 
       <footer className="site-foot">
         <span className="vv-hand brand-inline">
-          <img src="/logo.png" alt="" className="brand-icon-sm" width="22" height="22" /> Vid Visual
+          <img src="/logo.png" alt="" className="brand-icon-sm" width="22" height="22" /> vidvisual
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
@@ -156,7 +156,7 @@ export default function ArticleLectureStudyNotes() {
           <Link href="/youtube-to-pdf">YouTube to PDF</Link>
           <Link href="/youtube-to-mind-map">Mind Maps</Link>
         </div>
-        <span className="muted small">© {new Date().getFullYear()} Vid Visual</span>
+        <span className="muted small">© {new Date().getFullYear()} vidvisual</span>
       </footer>
     </>
   );

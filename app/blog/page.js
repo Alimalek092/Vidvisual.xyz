@@ -3,7 +3,7 @@ import Link from 'next/link';
 const SITE_URL = 'https://www.vidvisual.xyz';
 
 export const metadata = {
-  title: 'Vid Visual Blog & Learning Hub — AI Video Summaries & Study Guides',
+  title: 'vidvisual Blog & Learning Hub — AI Video Summaries & Study Guides',
   description:
     'Read the latest guides on AI video summarization, visual note-taking, podcast compression, and exam preparation. Learn how to save 90% of your watch time.',
   keywords: [
@@ -18,17 +18,17 @@ export const metadata = {
     canonical: `${SITE_URL}/blog`,
   },
   openGraph: {
-    title: 'Vid Visual Blog & Learning Hub — AI Video Summaries & Study Guides',
+    title: 'vidvisual Blog & Learning Hub — AI Video Summaries & Study Guides',
     description:
       'Guides and strategies on AI video summarization, visual mind maps, and saving 90% of your watch time.',
     url: `${SITE_URL}/blog`,
-    siteName: 'Vid Visual',
+    siteName: 'vidvisual',
     type: 'website',
     images: [`${SITE_URL}/og-image.jpg?v=2`],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vid Visual Blog & Learning Hub',
+    title: 'vidvisual Blog & Learning Hub',
     description: 'Guides on AI video summarization, visual notes, and podcast compression.',
     images: [`${SITE_URL}/twitter-image.jpg?v=2`],
   },
@@ -52,7 +52,7 @@ const ARTICLES = [
     readTime: '6 min read',
     category: 'Product Comparisons',
     description:
-      'Comparing Vid Visual, ChatGPT, NoteGPT, and Glasp. Why traditional bullet-point text summaries cause reading fatigue and why spatial whiteboard cards increase retention by 65%.',
+      'Comparing vidvisual, ChatGPT, NoteGPT, and Glasp. Why traditional bullet-point text summaries cause reading fatigue and why spatial whiteboard cards increase retention by 65%.',
     emoji: '🧠',
   },
   {
@@ -70,7 +70,7 @@ const ARTICLES = [
 const blogIndexJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Blog',
-  name: 'Vid Visual Blog',
+  name: 'vidvisual Blog',
   url: `${SITE_URL}/blog`,
   description: 'Articles and guides on AI video summarization, visual learning, and study workflows.',
   blogPost: ARTICLES.map((a) => ({
@@ -79,7 +79,7 @@ const blogIndexJsonLd = {
     url: `${SITE_URL}/blog/${a.slug}`,
     description: a.description,
     datePublished: '2026-09-30',
-    author: { '@type': 'Organization', name: 'Vid Visual Team' },
+    author: { '@type': 'Organization', name: 'vidvisual Team' },
   })),
 };
 
@@ -90,8 +90,8 @@ export default function BlogIndexPage() {
 
       <nav className="nav">
         <Link href="/" className="brand vv-hand">
-          <img src="/logo.png" alt="Vid Visual" className="brand-icon" width="32" height="32" />
-          <span>Vid Visual</span>
+          <img src="/logo.png" alt="vidvisual" className="brand-icon" width="32" height="32" />
+          <span>vidvisual</span>
         </Link>
         <div className="nav-links">
           <Link href="/youtube-video-summarizer">Summarizer</Link>
@@ -113,7 +113,7 @@ export default function BlogIndexPage() {
           <div className="hero-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '999px', background: 'rgba(43, 89, 224, 0.1)', color: 'var(--blue)', fontWeight: 700, fontSize: '0.85rem', marginBottom: '14px', border: '1.5px solid var(--blue)' }}>
             <span>📚 Guides, Tutorials &amp; Research</span>
           </div>
-          <h1 className="vv-hand" style={{ fontSize: '2.6rem' }}>Vid Visual Learning &amp; SEO Knowledge Hub</h1>
+          <h1 className="vv-hand" style={{ fontSize: '2.6rem' }}>vidvisual Learning &amp; SEO Knowledge Hub</h1>
           <p style={{ margin: '0 auto 20px', maxWidth: '650px' }}>
             Actionable guides on how to learn 10x faster from long YouTube videos, podcasts, and lectures.
             Stop scrubbing timestamps and start remembering what you watch.
@@ -157,7 +157,7 @@ export default function BlogIndexPage() {
 
       <footer className="site-foot">
         <span className="vv-hand brand-inline">
-          <img src="/logo.png" alt="" className="brand-icon-sm" width="22" height="22" /> Vid Visual
+          <img src="/logo.png" alt="" className="brand-icon-sm" width="22" height="22" /> vidvisual
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
@@ -168,7 +168,7 @@ export default function BlogIndexPage() {
           <Link href="/youtube-to-pdf">YouTube to PDF</Link>
           <a href="mailto:vidvisual.xyz@gmail.com">Support</a>
         </div>
-        <span className="muted small">© {new Date().getFullYear()} Vid Visual</span>
+        <span className="muted small">© {new Date().getFullYear()} vidvisual</span>
       </footer>
     </>
   );

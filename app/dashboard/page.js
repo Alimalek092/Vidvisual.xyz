@@ -91,7 +91,7 @@ export default function Dashboard() {
   return (
     <>
       <nav className="nav">
-        <Link href="/" className="brand vv-hand"><img src="/logo.png" alt="Vid Visual" className="brand-icon" width="32" height="32" /><span>Vid Visual</span></Link>
+        <Link href="/" className="brand vv-hand"><img src="/logo.png" alt="vidvisual" className="brand-icon" width="32" height="32" /><span>vidvisual</span></Link>
         <div className="nav-links">
           {me ? <span className="chip">{getPlan(me.plan).name} plan</span> : null}
           <a href="#plans" className="link">Plans</a>

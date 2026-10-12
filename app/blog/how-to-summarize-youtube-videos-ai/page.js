@@ -3,7 +3,7 @@ import Link from 'next/link';
 const SITE_URL = 'https://www.vidvisual.xyz';
 
 export const metadata = {
-  title: 'How to Summarize YouTube Videos with AI in 20 Seconds (2026 Guide) | Vid Visual',
+  title: 'How to Summarize YouTube Videos with AI in 20 Seconds (2026 Guide) | vidvisual',
   description:
     'Step-by-step guide to summarizing long YouTube videos and podcasts using AI. Extract key points into whiteboard concept cards and visual mind maps without reading walls of text.',
   keywords: [
@@ -22,7 +22,7 @@ export const metadata = {
     description:
       'Step-by-step guide to summarizing long YouTube videos into whiteboard concept cards and mind maps.',
     url: `${SITE_URL}/blog/how-to-summarize-youtube-videos-ai`,
-    siteName: 'Vid Visual',
+    siteName: 'vidvisual',
     type: 'article',
     images: [`${SITE_URL}/og-image.jpg?v=2`],
   },
@@ -46,12 +46,12 @@ const articleJsonLd = {
   dateModified: '2026-09-30',
   author: {
     '@type': 'Organization',
-    name: 'Vid Visual Team',
+    name: 'vidvisual Team',
     url: SITE_URL,
   },
   publisher: {
     '@type': 'Organization',
-    name: 'Vid Visual',
+    name: 'vidvisual',
     logo: {
       '@type': 'ImageObject',
       url: `${SITE_URL}/logo.png`,
@@ -66,8 +66,8 @@ export default function ArticleSummarizeGuide() {
 
       <nav className="nav">
         <Link href="/" className="brand vv-hand">
-          <img src="/logo.png" alt="Vid Visual" className="brand-icon" width="32" height="32" />
-          <span>Vid Visual</span>
+          <img src="/logo.png" alt="vidvisual" className="brand-icon" width="32" height="32" />
+          <span>vidvisual</span>
         </Link>
         <div className="nav-links">
           <Link href="/blog">Blog</Link>
@@ -92,7 +92,7 @@ export default function ArticleSummarizeGuide() {
             How to Summarize Any YouTube Video with AI in 20 Seconds
           </h1>
           <div style={{ display: 'flex', gap: '14px', alignItems: 'center', color: 'var(--muted)', fontSize: '0.85rem' }}>
-            <span>By Vid Visual Engineering Team</span>
+            <span>By vidvisual Engineering Team</span>
             <span>·</span>
             <span>Published September 30, 2026</span>
             <span>·</span>
@@ -114,25 +114,25 @@ export default function ArticleSummarizeGuide() {
           </p>
 
           <p>
-            Here is the modern, visual way to extract the core insights in under 20 seconds using <strong>Vid Visual</strong>.
+            Here is the modern, visual way to extract the core insights in under 20 seconds using <strong>vidvisual</strong>.
           </p>
 
           <h2 style={{ fontSize: '1.6rem', marginTop: '36px', marginBottom: '14px' }}>Step 1: Grab Any Public YouTube URL</h2>
           <p>
             Open YouTube in your browser or mobile app and copy the link of any video that has subtitles or captions enabled.
-            Vid Visual supports standard videos, live replay recordings, multi-hour podcasts (like Huberman Lab or Lex Fridman),
+            vidvisual supports standard videos, live replay recordings, multi-hour podcasts (like Huberman Lab or Lex Fridman),
             and university lectures (MIT, Stanford, Harvard CS50).
           </p>
 
-          <h2 style={{ fontSize: '1.6rem', marginTop: '36px', marginBottom: '14px' }}>Step 2: Paste the Link into Vid Visual</h2>
+          <h2 style={{ fontSize: '1.6rem', marginTop: '36px', marginBottom: '14px' }}>Step 2: Paste the Link into vidvisual</h2>
           <p>
-            Head to <Link href="/" style={{ color: 'var(--blue)', fontWeight: 600 }}>Vid Visual</Link> and paste your YouTube URL into the input field.
+            Head to <Link href="/" style={{ color: 'var(--blue)', fontWeight: 600 }}>vidvisual</Link> and paste your YouTube URL into the input field.
             You do <em>not</em> need to manually open YouTube’s transcript tab or copy thousands of words.
-            Vid Visual’s ingestion engine queries the caption stream directly from the video source.
+            vidvisual’s ingestion engine queries the caption stream directly from the video source.
           </p>
 
           <h2 style={{ fontSize: '1.6rem', marginTop: '36px', marginBottom: '14px' }}>Step 3: Select Your Visual Format</h2>
-          <p>Vid Visual offers two distinct layout modes depending on what you need:</p>
+          <p>vidvisual offers two distinct layout modes depending on what you need:</p>
           <ul>
             <li><strong>Whiteboard Mode:</strong> Breaks down complex subjects into 4–6 color-coded concept cards, accompanied by an interactive vector mind map showing node relationships. Ideal for deep study and technical concepts.</li>
             <li><strong>Infographic Mode:</strong> Synthesizes the core ideas into a one-page knowledge map with high-yield takeaways underneath. Perfect for a 30-second review before a meeting or class.</li>
@@ -152,16 +152,16 @@ export default function ArticleSummarizeGuide() {
           <div style={{ margin: '40px 0', padding: '24px', borderRadius: '12px', background: 'rgba(43, 89, 224, 0.08)', border: '1px solid rgba(43, 89, 224, 0.25)' }}>
             <h3 style={{ marginTop: 0, marginBottom: '8px', fontSize: '1.2rem' }}>Ready to try it on your longest "Watch Later" video?</h3>
             <p style={{ marginBottom: '16px', fontSize: '0.95rem' }}>
-              Vid Visual is 100% free with 3 visual summaries every week and zero credit card required.
+              vidvisual is 100% free with 3 visual summaries every week and zero credit card required.
             </p>
-            <Link href="/register" className="btn btn-primary btn-sm">Try Vid Visual Free &rarr;</Link>
+            <Link href="/register" className="btn btn-primary btn-sm">Try vidvisual Free &rarr;</Link>
           </div>
         </div>
       </article>
 
       <footer className="site-foot">
         <span className="vv-hand brand-inline">
-          <img src="/logo.png" alt="" className="brand-icon-sm" width="22" height="22" /> Vid Visual
+          <img src="/logo.png" alt="" className="brand-icon-sm" width="22" height="22" /> vidvisual
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
@@ -170,7 +170,7 @@ export default function ArticleSummarizeGuide() {
           <Link href="/youtube-podcast-summarizer">Podcast Summarizer</Link>
           <Link href="/youtube-to-pdf">YouTube to PDF</Link>
         </div>
-        <span className="muted small">© {new Date().getFullYear()} Vid Visual</span>
+        <span className="muted small">© {new Date().getFullYear()} vidvisual</span>
       </footer>
     </>
   );

@@ -5,7 +5,7 @@ import { SAMPLE } from '@/lib/sample';
 const SITE_URL = 'https://www.vidvisual.xyz';
 
 export const metadata = {
-  title: 'YouTube Video to Infographic Generator (AI) — Visual Video Summaries | Vid Visual',
+  title: 'YouTube Video to Infographic Generator (AI) — Visual Video Summaries | vidvisual',
   description:
     'Convert any YouTube video into an aesthetic, high-resolution infographic summary in 20 seconds using AI. Perfect for visual learners, executive briefings, and team sharing. Free to start.',
   keywords: [
@@ -27,14 +27,14 @@ export const metadata = {
     description:
       'Convert any YouTube video into an aesthetic, high-resolution infographic summary in 20 seconds using AI. Free to start.',
     url: `${SITE_URL}/video-to-infographic`,
-    siteName: 'Vid Visual',
+    siteName: 'vidvisual',
     type: 'website',
     images: [
       {
         url: `/og-image.jpg?v=2`,
         width: 1200,
         height: 630,
-        alt: 'Vid Visual — YouTube Video to Infographic Generator',
+        alt: 'vidvisual — YouTube Video to Infographic Generator',
       },
     ],
   },
@@ -49,8 +49,8 @@ export const metadata = {
 
 const FAQ_INFOGRAPHIC = [
   [
-    'How does Vid Visual convert a YouTube video into an infographic?',
-    'Paste the YouTube link into Vid Visual and select the Infographic format. Our AI reads the entire video transcript, extracts the core theme and high-yield takeaways, and structures them into a clean, colorful one-page infographic in about 20 seconds.',
+    'How does vidvisual convert a YouTube video into an infographic?',
+    'Paste the YouTube link into vidvisual and select the Infographic format. Our AI reads the entire video transcript, extracts the core theme and high-yield takeaways, and structures them into a clean, colorful one-page infographic in about 20 seconds.',
   ],
   [
     'Why are infographics better than standard text summaries?',
@@ -106,7 +106,7 @@ const howToJsonLd = {
       '@type': 'HowToStep',
       position: 2,
       name: 'Select Infographic Format',
-      text: 'Paste the link into Vid Visual and select the Infographic layout option.',
+      text: 'Paste the link into vidvisual and select the Infographic layout option.',
     },
     {
       '@type': 'HowToStep',
@@ -132,8 +132,8 @@ export default function VideoToInfographicPage() {
 
       <nav className="nav">
         <Link href="/" className="brand vv-hand">
-          <img src="/logo.png" alt="Vid Visual" className="brand-icon" width="32" height="32" />
-          <span>Vid Visual</span>
+          <img src="/logo.png" alt="vidvisual" className="brand-icon" width="32" height="32" />
+          <span>vidvisual</span>
         </Link>
         <div className="nav-links">
           <Link href="/#formats">Formats</Link>
@@ -160,7 +160,7 @@ export default function VideoToInfographicPage() {
           <h1 className="vv-hand">Convert YouTube Videos into Aesthetic Infographics in 20 Seconds</h1>
           <p>
             Turn long, messy video transcripts into a single, beautifully structured infographic one-pager.
-            Vid Visual extracts the core concepts, visual node maps, and key takeaway bullets so you can
+            vidvisual extracts the core concepts, visual node maps, and key takeaway bullets so you can
             review an entire video in 30 seconds or share it directly with your team.
           </p>
           <div className="hero-cta">
@@ -199,7 +199,7 @@ export default function VideoToInfographicPage() {
         <span className="answer-badge">AI Answer Overview</span>
         <h2>How do you turn a YouTube video into an infographic?</h2>
         <p>
-          To convert a YouTube video into an infographic, paste any video URL into <strong>Vid Visual</strong> and select the Infographic layout.
+          To convert a YouTube video into an infographic, paste any video URL into <strong>vidvisual</strong> and select the Infographic layout.
           The AI engine analyzes the video captions, isolates key takeaways, and renders a consolidated vector knowledge map with bulleted takeaways in about 20 seconds.
           Infographics simplify complex topics for slide presentations, executive summaries, and visual study.
         </p>
@@ -261,7 +261,7 @@ export default function VideoToInfographicPage() {
           <div className="step-detailed">
             <div className="step-num vv-hand">2</div>
             <div>
-              <h3>Paste into Vid Visual</h3>
+              <h3>Paste into vidvisual</h3>
               <p>Paste the link into the generator box and select Infographic format.</p>
             </div>
           </div>
@@ -301,7 +301,7 @@ export default function VideoToInfographicPage() {
 
       <footer className="site-foot">
         <span className="vv-hand brand-inline">
-          <img src="/logo.png" alt="" className="brand-icon-sm" width="22" height="22" /> Vid Visual
+          <img src="/logo.png" alt="" className="brand-icon-sm" width="22" height="22" /> vidvisual
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
@@ -310,7 +310,7 @@ export default function VideoToInfographicPage() {
           <Link href="/youtube-to-mind-map">Mind Maps</Link>
           <a href="mailto:vidvisual.xyz@gmail.com">Support</a>
         </div>
-        <span className="muted small">© {new Date().getFullYear()} Vid Visual</span>
+        <span className="muted small">© {new Date().getFullYear()} vidvisual</span>
       </footer>
     </>
   );

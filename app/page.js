@@ -36,7 +36,7 @@ const AUDIENCES = [
 
 const STEPS = [
   { num: '1', title: 'Paste any YouTube link', text: 'Copy the URL of any YouTube video, podcast, lecture, or tutorial that has captions turned on.' },
-  { num: '2', title: 'AI distills the key points in 20s', text: 'Vid Visual uses Gemini 2.5 Flash to parse the transcript, extract essential concepts, and calculate topical relationships.' },
+  { num: '2', title: 'AI distills the key points in 20s', text: 'vidvisual uses Gemini 2.5 Flash to parse the transcript, extract essential concepts, and calculate topical relationships.' },
   { num: '3', title: 'Explore your visual whiteboard', text: 'Review spatial concept cards, navigate the interactive mind map, and absorb the high-yield takeaway list.' },
   { num: '4', title: 'Export, save, and remember', text: 'Your visual is stored in your private cloud library. Download as high-res JPG, HD PNG, or vector PDF with one click.' },
 ];
@@ -75,12 +75,12 @@ const howToJsonLd = {
 const appJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: 'Vid Visual',
+  name: 'vidvisual',
   url: 'https://www.vidvisual.xyz',
   applicationCategory: 'EducationalApplication',
   operatingSystem: 'All Modern Web Browsers (Chrome, Safari, Firefox, Edge)',
   description:
-    'Vid Visual is a free AI YouTube video summarizer that turns long boring YouTube videos, podcasts, and lectures into interactive whiteboard concept cards and visual mind maps in under 20 seconds.',
+    'vidvisual is a free AI YouTube video summarizer that turns long boring YouTube videos, podcasts, and lectures into interactive whiteboard concept cards and visual mind maps in under 20 seconds.',
   featureList: [
     '20-second AI YouTube transcript summarization',
     'Interactive vector mind map generator',
@@ -169,7 +169,7 @@ export default function Home() {
           <h2 className="vv-hand">Turn Very Long Videos, Lectures &amp; Podcasts into Main Key Points</h2>
           <p>
             Nobody has hours to sit through rambling YouTube videos, dense college lectures, or multi-hour podcast conversations just to find the core ideas that matter.
-            Vid Visual analyzes the complete video transcript, strips away conversational filler, sponsor segments, and repetitive tangents, and distills the main key points into an easy-to-understand visual whiteboard summary you can absorb in under a minute.
+            vidvisual analyzes the complete video transcript, strips away conversational filler, sponsor segments, and repetitive tangents, and distills the main key points into an easy-to-understand visual whiteboard summary you can absorb in under a minute.
           </p>
           <Link href="/youtube-podcast-summarizer" className="btn btn-primary btn-sm">Explore Podcast Summarizer &rarr;</Link>
         </div>
@@ -210,9 +210,9 @@ export default function Home() {
       {/* AEO: Direct Answer Block for AI Overviews & Search Snippets */}
       <section className="answer-box" aria-label="Quick Overview">
         <span className="answer-badge">Quick Overview</span>
-        <h2>What is Vid Visual?</h2>
+        <h2>What is vidvisual?</h2>
         <p>
-          <strong>Vid Visual</strong> is a free AI-powered YouTube video summarizer and visual note-taking app.
+          <strong>vidvisual</strong> is a free AI-powered YouTube video summarizer and visual note-taking app.
           It automatically turns long video lectures, podcasts, tutorials, and interviews into scannable whiteboard concept cards,
           knowledge maps, and colorful infographics in under 20 seconds.
           Built for students, researchers, and professionals who want to learn faster and boost memory retention by up to 65%.
@@ -241,7 +241,7 @@ export default function Home() {
         <h2 className="vv-hand">Why visual summaries work better than watching twice</h2>
         <p className="section-lead">
           Your brain holds onto a well-organized visual far longer than a video you watched once at 2x speed.
-          Vid Visual is built around that idea: instead of leaving you with a pile of scattered notes, it gives
+          vidvisual is built around that idea: instead of leaving you with a pile of scattered notes, it gives
           you a structured, memorable picture of what the video actually said.
         </p>
         <div className="card-grid">
@@ -278,7 +278,7 @@ export default function Home() {
 
       <section className="section">
         <h2 className="vv-hand">Built for how you actually learn</h2>
-        <p className="section-lead">Whoever you are, if you learn from YouTube, Vid Visual turns that time into something you keep.</p>
+        <p className="section-lead">Whoever you are, if you learn from YouTube, vidvisual turns that time into something you keep.</p>
         <div className="card-grid">
           {AUDIENCES.map((a) => (
             <div key={a.title} className={`info-card accent-${a.accent}`}>
@@ -375,7 +375,7 @@ export default function Home() {
 
       <section className="section">
         <h2 className="vv-hand">What you can do with your visual</h2>
-        <p className="section-lead">A Vid Visual summary is not just a picture — it is something you can actually use afterward.</p>
+        <p className="section-lead">A vidvisual summary is not just a picture — it is something you can actually use afterward.</p>
         <div className="card-grid">
           {USES.map((u) => (
             <div key={u.title} className={`info-card accent-${u.accent}`}>
@@ -536,7 +536,7 @@ export default function Home() {
       </section>
 
       {/* Footer SEO Programmatic Pillar Hubs */}
-      <section className="footer-pillars" aria-label="Explore Vid Visual Tools & Guides">
+      <section className="footer-pillars" aria-label="Explore vidvisual Tools & Guides">
         <div className="footer-pillar-col">
           <h4>AI Summarization Hubs</h4>
           <ul>
@@ -576,11 +576,11 @@ export default function Home() {
       </section>
 
       <footer className="site-foot">
-        <span className="vv-hand brand-inline"><img src="/logo.png" alt="" className="brand-icon-sm" width="22" height="22" /> Vid Visual</span>
+        <span className="vv-hand brand-inline"><img src="/logo.png" alt="" className="brand-icon-sm" width="22" height="22" /> vidvisual</span>
         <div id="support" className="foot-support">
           <a href="mailto:vidvisual.xyz@gmail.com?subject=Vid%20Visual%20Support%20Request">vidvisual.xyz@gmail.com</a>
         </div>
-        <span className="muted small">© {new Date().getFullYear()} Vid Visual</span>
+        <span className="muted small">© {new Date().getFullYear()} vidvisual</span>
       </footer>
     </>
   );

@@ -5,7 +5,7 @@ import { SAMPLE } from '@/lib/sample';
 const SITE_URL = 'https://www.vidvisual.xyz';
 
 export const metadata = {
-  title: 'YouTube Lecture Summarizer (AI) — Convert College Lectures to Study Notes | Vid Visual',
+  title: 'YouTube Lecture Summarizer (AI) — Convert College Lectures to Study Notes | vidvisual',
   description:
     'Turn 60 to 120-minute university lectures into visual whiteboard study sheets, mind maps, and exam takeaways in under 20 seconds. Free AI lecture summarizer for college students and researchers.',
   keywords: [
@@ -28,14 +28,14 @@ export const metadata = {
     description:
       'Turn 60 to 120-minute university lectures into visual whiteboard study sheets and mind maps in under 20 seconds with AI.',
     url: `${SITE_URL}/youtube-lecture-summarizer`,
-    siteName: 'Vid Visual',
+    siteName: 'vidvisual',
     type: 'website',
     images: [
       {
         url: `/og-image.jpg?v=2`,
         width: 1200,
         height: 630,
-        alt: 'Vid Visual — AI YouTube Lecture Summarizer',
+        alt: 'vidvisual — AI YouTube Lecture Summarizer',
       },
     ],
   },
@@ -50,16 +50,16 @@ export const metadata = {
 
 const FAQ_LECTURE = [
   [
-    'How does Vid Visual turn a university lecture into study notes?',
-    'Paste the link to any recorded YouTube lecture. Vid Visual’s AI reads the transcript, extracts core academic definitions, mathematical theorems, and experimental proofs, and arranges them into concept cards and a connected knowledge mind map in around 20 seconds.',
+    'How does vidvisual turn a university lecture into study notes?',
+    'Paste the link to any recorded YouTube lecture. vidvisual’s AI reads the transcript, extracts core academic definitions, mathematical theorems, and experimental proofs, and arranges them into concept cards and a connected knowledge mind map in around 20 seconds.',
   ],
   [
-    'Can I use Vid Visual the night before an exam?',
+    'Can I use vidvisual the night before an exam?',
     'Yes! That is one of the most popular student use cases. Instead of panicking and trying to re-watch 15 hours of recorded semester lectures, you can generate 15 visual whiteboard cheat sheets in minutes and revise all core concepts before test time.',
   ],
   [
     'Does it work with complex STEM lectures like Calculus, Physics, and Computer Science?',
-    'Yes. Vid Visual excels at structured STEM content (MIT OpenCourseWare, Stanford Online, Harvard CS50). It isolates algorithmic steps, formulas, and structural hierarchies clearly on separate concept cards.',
+    'Yes. vidvisual excels at structured STEM content (MIT OpenCourseWare, Stanford Online, Harvard CS50). It isolates algorithmic steps, formulas, and structural hierarchies clearly on separate concept cards.',
   ],
   [
     'Can I download or print the lecture notes?',
@@ -106,8 +106,8 @@ const howToJsonLd = {
     {
       '@type': 'HowToStep',
       position: 2,
-      name: 'Paste into Vid Visual',
-      text: 'Paste the URL into Vid Visual and select the Whiteboard format for detailed study notes.',
+      name: 'Paste into vidvisual',
+      text: 'Paste the URL into vidvisual and select the Whiteboard format for detailed study notes.',
     },
     {
       '@type': 'HowToStep',
@@ -133,8 +133,8 @@ export default function YouTubeLectureSummarizerPage() {
 
       <nav className="nav">
         <Link href="/" className="brand vv-hand">
-          <img src="/logo.png" alt="Vid Visual" className="brand-icon" width="32" height="32" />
-          <span>Vid Visual</span>
+          <img src="/logo.png" alt="vidvisual" className="brand-icon" width="32" height="32" />
+          <span>vidvisual</span>
         </Link>
         <div className="nav-links">
           <Link href="/#formats">Formats</Link>
@@ -161,7 +161,7 @@ export default function YouTubeLectureSummarizerPage() {
           <h1 className="vv-hand">Convert 2-Hour College Lectures into Visual Study Notes in 20 Seconds</h1>
           <p>
             Stop wasting hours frantically pausing recorded college lectures to scribble notes.
-            Vid Visual automatically extracts key definitions, core academic concepts, and logical relationships,
+            vidvisual automatically extracts key definitions, core academic concepts, and logical relationships,
             rendering them into exam-ready whiteboard notes and mind maps you can revise from in 60 seconds.
           </p>
           <div className="hero-cta">
@@ -201,7 +201,7 @@ export default function YouTubeLectureSummarizerPage() {
         <h2>How do you summarize YouTube college lectures with AI?</h2>
         <p>
           To turn a recorded YouTube lecture into study notes, copy any lecture URL with subtitles and paste it into{' '}
-          <strong>Vid Visual</strong>. The AI reads the transcript, organizes technical concepts into structured visual cards,
+          <strong>vidvisual</strong>. The AI reads the transcript, organizes technical concepts into structured visual cards,
           and draws a connected mind map outlining topic relationships in about 20 seconds.
           According to cognitive dual-coding science, visual concept maps boost exam recall by up to 65% over traditional linear text notes.
         </p>
@@ -263,7 +263,7 @@ export default function YouTubeLectureSummarizerPage() {
           <div className="step-detailed">
             <div className="step-num vv-hand">2</div>
             <div>
-              <h3>Paste into Vid Visual</h3>
+              <h3>Paste into vidvisual</h3>
               <p>Paste the link into our generator box and select the Whiteboard format.</p>
             </div>
           </div>
@@ -303,7 +303,7 @@ export default function YouTubeLectureSummarizerPage() {
 
       <footer className="site-foot">
         <span className="vv-hand brand-inline">
-          <img src="/logo.png" alt="" className="brand-icon-sm" width="22" height="22" /> Vid Visual
+          <img src="/logo.png" alt="" className="brand-icon-sm" width="22" height="22" /> vidvisual
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
@@ -312,7 +312,7 @@ export default function YouTubeLectureSummarizerPage() {
           <Link href="/video-to-infographic">Infographics</Link>
           <a href="mailto:vidvisual.xyz@gmail.com">Support</a>
         </div>
-        <span className="muted small">© {new Date().getFullYear()} Vid Visual</span>
+        <span className="muted small">© {new Date().getFullYear()} vidvisual</span>
       </footer>
     </>
   );

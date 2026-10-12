@@ -3,7 +3,7 @@ import Link from 'next/link';
 const SITE_URL = 'https://www.vidvisual.xyz';
 
 export const metadata = {
-  title: 'The Best AI YouTube Video Summarizers in 2026: Why Spatial Notes Beat Text | Vid Visual',
+  title: 'The Best AI YouTube Video Summarizers in 2026: Why Spatial Notes Beat Text | vidvisual',
   description:
     'Comprehensive comparison of the top AI YouTube video summarizers in 2026. Discover why spatial whiteboard concept cards and mind maps outperform plain text notes.',
   keywords: [
@@ -22,7 +22,7 @@ export const metadata = {
     description:
       'Comparison of top AI YouTube summarizers. Discover why visual concept cards outperform traditional text bullet points.',
     url: `${SITE_URL}/blog/best-ai-youtube-summarizers`,
-    siteName: 'Vid Visual',
+    siteName: 'vidvisual',
     type: 'article',
     images: [`${SITE_URL}/og-image.jpg?v=2`],
   },
@@ -45,12 +45,12 @@ const articleJsonLd = {
   dateModified: '2026-09-30',
   author: {
     '@type': 'Organization',
-    name: 'Vid Visual Team',
+    name: 'vidvisual Team',
     url: SITE_URL,
   },
   publisher: {
     '@type': 'Organization',
-    name: 'Vid Visual',
+    name: 'vidvisual',
     logo: {
       '@type': 'ImageObject',
       url: `${SITE_URL}/logo.png`,
@@ -65,8 +65,8 @@ export default function ArticleBestSummarizers() {
 
       <nav className="nav">
         <Link href="/" className="brand vv-hand">
-          <img src="/logo.png" alt="Vid Visual" className="brand-icon" width="32" height="32" />
-          <span>Vid Visual</span>
+          <img src="/logo.png" alt="vidvisual" className="brand-icon" width="32" height="32" />
+          <span>vidvisual</span>
         </Link>
         <div className="nav-links">
           <Link href="/blog">Blog</Link>
@@ -91,7 +91,7 @@ export default function ArticleBestSummarizers() {
             The Best AI YouTube Video Summarizers in 2026: Why Spatial Notes Beat Text
           </h1>
           <div style={{ display: 'flex', gap: '14px', alignItems: 'center', color: 'var(--muted)', fontSize: '0.85rem' }}>
-            <span>By Vid Visual Research</span>
+            <span>By vidvisual Research</span>
             <span>·</span>
             <span>Published September 30, 2026</span>
             <span>·</span>
@@ -115,9 +115,9 @@ export default function ArticleBestSummarizers() {
             Here is an in-depth review of the top AI YouTube summarizers available today and how their methodologies compare.
           </p>
 
-          <h2 style={{ fontSize: '1.6rem', marginTop: '36px', marginBottom: '14px' }}>1. Vid Visual (Best for Spatial Memory &amp; Visual Learners)</h2>
+          <h2 style={{ fontSize: '1.6rem', marginTop: '36px', marginBottom: '14px' }}>1. vidvisual (Best for Spatial Memory &amp; Visual Learners)</h2>
           <p>
-            <strong>Vid Visual</strong> (<Link href="/" style={{ color: 'var(--blue)', fontWeight: 600 }}>vidvisual.xyz</Link>) approaches
+            <strong>vidvisual</strong> (<Link href="/" style={{ color: 'var(--blue)', fontWeight: 600 }}>vidvisual.xyz</Link>) approaches
             summarization differently by anchoring its engine in <em>Dual Coding Theory</em>. Instead of giving you another essay to read,
             it structures videos into color-coded whiteboard concept cards paired with an interactive vector mind map in about 20 seconds.
           </p>
@@ -161,7 +161,7 @@ export default function ArticleBestSummarizers() {
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>Vid Visual</strong></td>
+                  <td><strong>vidvisual</strong></td>
                   <td><span className="check">✓</span> Yes (Interactive)</td>
                   <td>~20s</td>
                   <td><span className="check">✓</span> Vector PDF &amp; HD PNG</td>
@@ -197,7 +197,7 @@ export default function ArticleBestSummarizers() {
 
       <footer className="site-foot">
         <span className="vv-hand brand-inline">
-          <img src="/logo.png" alt="" className="brand-icon-sm" width="22" height="22" /> Vid Visual
+          <img src="/logo.png" alt="" className="brand-icon-sm" width="22" height="22" /> vidvisual
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
@@ -206,7 +206,7 @@ export default function ArticleBestSummarizers() {
           <Link href="/youtube-podcast-summarizer">Podcast Summarizer</Link>
           <Link href="/youtube-to-pdf">YouTube to PDF</Link>
         </div>
-        <span className="muted small">© {new Date().getFullYear()} Vid Visual</span>
+        <span className="muted small">© {new Date().getFullYear()} vidvisual</span>
       </footer>
     </>
   );
