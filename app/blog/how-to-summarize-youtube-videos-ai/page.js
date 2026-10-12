@@ -3,7 +3,7 @@ import Link from 'next/link';
 const SITE_URL = 'https://www.vidvisual.xyz';
 
 export const metadata = {
-  title: 'How to Summarize YouTube Videos with AI in 20 Seconds (2026 Guide) | vidvisual',
+  title: 'How to Summarize YouTube Videos with AI in 20 Seconds (2026 Guide)',
   description:
     'Step-by-step guide to summarizing long YouTube videos and podcasts using AI. Extract key points into whiteboard concept cards and visual mind maps without reading walls of text.',
   keywords: [

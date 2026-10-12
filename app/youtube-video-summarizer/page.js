@@ -5,7 +5,7 @@ import { SAMPLE } from '@/lib/sample';
 const SITE_URL = 'https://www.vidvisual.xyz';
 
 export const metadata = {
-  title: 'YouTube Video Summarizer (AI) — Turn Any Video into Visual Notes in 20s | vidvisual',
+  title: 'YouTube Video Summarizer (AI) — Turn Any Video into Visual Notes in 20s',
   description:
     'Free AI YouTube video summarizer. Turn long, boring YouTube videos, podcasts, and lectures into scannable whiteboard concept cards and visual mind maps in under 20 seconds. Save 90% of watch time.',
   keywords: [

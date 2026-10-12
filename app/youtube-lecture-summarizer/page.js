@@ -5,7 +5,7 @@ import { SAMPLE } from '@/lib/sample';
 const SITE_URL = 'https://www.vidvisual.xyz';
 
 export const metadata = {
-  title: 'YouTube Lecture Summarizer (AI) — Convert College Lectures to Study Notes | vidvisual',
+  title: 'YouTube Lecture Summarizer (AI) — Convert College Lectures to Study Notes',
   description:
     'Turn 60 to 120-minute university lectures into visual whiteboard study sheets, mind maps, and exam takeaways in under 20 seconds. Free AI lecture summarizer for college students and researchers.',
   keywords: [

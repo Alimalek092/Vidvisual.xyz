@@ -3,7 +3,7 @@ import Link from 'next/link';
 const SITE_URL = 'https://www.vidvisual.xyz';
 
 export const metadata = {
-  title: 'The Best AI YouTube Video Summarizers in 2026: Why Spatial Notes Beat Text | vidvisual',
+  title: 'The Best AI YouTube Video Summarizers in 2026: Why Spatial Notes Beat Text',
   description:
     'Comprehensive comparison of the top AI YouTube video summarizers in 2026. Discover why spatial whiteboard concept cards and mind maps outperform plain text notes.',
   keywords: [

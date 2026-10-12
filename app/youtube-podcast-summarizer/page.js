@@ -5,7 +5,7 @@ import { SAMPLE } from '@/lib/sample';
 const SITE_URL = 'https://www.vidvisual.xyz';
 
 export const metadata = {
-  title: 'YouTube Podcast Summarizer (AI) — Turn Long Podcasts into Visual Notes | vidvisual',
+  title: 'YouTube Podcast Summarizer (AI) — Turn Long Podcasts into Visual Notes',
   description:
     'Turn long YouTube podcasts and multi-hour conversations into scannable whiteboard notes and visual mind maps in 20 seconds. Save 90% of listening time. Free AI podcast summarizer for Huberman Lab, Lex Fridman, Joe Rogan, and All-In.',
   keywords: [

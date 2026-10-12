@@ -5,7 +5,7 @@ import { SAMPLE } from '@/lib/sample';
 const SITE_URL = 'https://www.vidvisual.xyz';
 
 export const metadata = {
-  title: 'YouTube to Mind Map Generator (AI) — Turn Videos into Mind Maps | vidvisual',
+  title: 'YouTube to Mind Map Generator (AI) — Turn Videos into Mind Maps',
   description:
     'Convert any YouTube video, podcast, or lecture into an interactive visual mind map in 20 seconds with AI. Automatically extracts concepts, nodes, and relationships from video captions. Free to start.',
   keywords: [

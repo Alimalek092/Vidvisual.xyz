@@ -5,7 +5,7 @@ import { SAMPLE } from '@/lib/sample';
 const SITE_URL = 'https://www.vidvisual.xyz';
 
 export const metadata = {
-  title: 'Best Eightify Alternative: Free AI YouTube Summarizer & Mind Maps · vidvisual',
+  title: 'Best Eightify Alternative: Free AI YouTube Summarizer & Mind Maps',
   description:
     'Looking for a free Eightify alternative? vidvisual summarizes long YouTube videos and podcasts into visual concept cards and mind maps. No Chrome extension required.',
   keywords: [
@@ -22,7 +22,7 @@ export const metadata = {
     canonical: `${SITE_URL}/compare/eightify-alternative`,
   },
   openGraph: {
-    title: 'Best Eightify Alternative: Free AI YouTube Summarizer & Mind Maps · vidvisual',
+    title: 'Best Eightify Alternative: Free AI YouTube Summarizer & Mind Maps',
     description:
       'No Chrome extension needed. vidvisual turns long YouTube videos into whiteboard concept cards and visual mind maps in under 20 seconds.',
     url: `${SITE_URL}/compare/eightify-alternative`,

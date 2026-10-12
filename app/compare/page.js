@@ -3,7 +3,7 @@ import Link from 'next/link';
 const SITE_URL = 'https://www.vidvisual.xyz';
 
 export const metadata = {
-  title: 'Compare vidvisual vs NoteGPT, Eightify & ChatGPT (2026) · vidvisual',
+  title: 'Compare vidvisual vs NoteGPT, Eightify & ChatGPT (2026)',
   description:
     'Compare vidvisual with NoteGPT, Eightify, and ChatGPT. Discover why visual concept cards and vector mind maps beat walls of plain text for learning.',
   keywords: [

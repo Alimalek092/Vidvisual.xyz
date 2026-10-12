@@ -3,7 +3,7 @@ import Link from 'next/link';
 const SITE_URL = 'https://www.vidvisual.xyz';
 
 export const metadata = {
-  title: 'How to Turn 2-Hour College Lectures into A+ Study Notes and PDFs | vidvisual',
+  title: 'How to Turn 2-Hour College Lectures into A+ Study Notes and PDFs',
   description:
     'A study guide for students: convert recorded YouTube college lectures, STEM proofs, and exam reviews into visual whiteboard cheat sheets and printable PDF notes in 20 seconds.',
   keywords: [

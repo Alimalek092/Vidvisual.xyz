@@ -5,7 +5,7 @@ import { SAMPLE } from '@/lib/sample';
 const SITE_URL = 'https://www.vidvisual.xyz';
 
 export const metadata = {
-  title: 'YouTube to Anki Flashcards & Visual Study Notes (AI) · vidvisual',
+  title: 'YouTube to Anki Flashcards & Visual Study Notes (AI)',
   description:
     'Convert YouTube lectures, medical videos, and STEM tutorials into active-recall concept flashcards and mind maps in 20 seconds with AI.',
   keywords: [
@@ -22,7 +22,7 @@ export const metadata = {
     canonical: `${SITE_URL}/youtube-to-anki-flashcards`,
   },
   openGraph: {
-    title: 'YouTube to Anki Flashcards & Visual Study Notes (AI) · vidvisual',
+    title: 'YouTube to Anki Flashcards & Visual Study Notes (AI)',
     description:
       'Turn long university lectures and YouTube tutorials into active-recall concept flashcards and mind maps in under 20 seconds.',
     url: `${SITE_URL}/youtube-to-anki-flashcards`,

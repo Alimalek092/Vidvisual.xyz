@@ -5,7 +5,7 @@ import { SAMPLE } from '@/lib/sample';
 const SITE_URL = 'https://www.vidvisual.xyz';
 
 export const metadata = {
-  title: 'Huberman Lab Podcast Summarizer (AI Protocol Notes & Mind Maps) · vidvisual',
+  title: 'Huberman Lab Podcast Summarizer (AI Protocol Notes & Mind Maps)',
   description:
     'Summarize 3-hour Huberman Lab & Lex Fridman podcast episodes into science protocols, concept cards, and mind maps in under 20 seconds with AI.',
   keywords: [
@@ -22,7 +22,7 @@ export const metadata = {
     canonical: `${SITE_URL}/summarize-huberman-lab-podcast`,
   },
   openGraph: {
-    title: 'Huberman Lab Podcast Summarizer (AI Protocol Notes & Mind Maps) · vidvisual',
+    title: 'Huberman Lab Podcast Summarizer (AI Protocol Notes & Mind Maps)',
     description:
       'Distill 3+ hour science podcasts into actionable protocols, whiteboard concept cards, and mind maps in 20 seconds.',
     url: `${SITE_URL}/summarize-huberman-lab-podcast`,

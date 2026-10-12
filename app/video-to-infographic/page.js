@@ -5,7 +5,7 @@ import { SAMPLE } from '@/lib/sample';
 const SITE_URL = 'https://www.vidvisual.xyz';
 
 export const metadata = {
-  title: 'YouTube Video to Infographic Generator (AI) — Visual Video Summaries | vidvisual',
+  title: 'YouTube Video to Infographic Generator (AI) — Visual Video Summaries',
   description:
     'Convert any YouTube video into an aesthetic, high-resolution infographic summary in 20 seconds using AI. Perfect for visual learners, executive briefings, and team sharing. Free to start.',
   keywords: [

@@ -5,7 +5,7 @@ import { SAMPLE } from '@/lib/sample';
 const SITE_URL = 'https://www.vidvisual.xyz';
 
 export const metadata = {
-  title: 'YouTube to PDF (AI) — Convert YouTube Videos to PDF Notes in 20s | vidvisual',
+  title: 'YouTube to PDF (AI) — Convert YouTube Videos to PDF Notes in 20s',
   description:
     'Convert YouTube videos, lectures, and podcasts into downloadable PDF study notes in 20 seconds. Clean visual concept cards, vector mind maps, and bulleted takeaways ready to print or annotate on iPad.',
   keywords: [

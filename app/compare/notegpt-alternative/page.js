@@ -5,7 +5,7 @@ import { SAMPLE } from '@/lib/sample';
 const SITE_URL = 'https://www.vidvisual.xyz';
 
 export const metadata = {
-  title: 'Best NoteGPT Alternative for Visual Learners (2026) · vidvisual',
+  title: 'Best NoteGPT Alternative for Visual Learners (2026)',
   description:
     'Looking for the best NoteGPT alternative? vidvisual turns long YouTube videos into whiteboard concept cards and visual mind maps in under 20 seconds. Zero reading fatigue.',
   keywords: [
@@ -22,7 +22,7 @@ export const metadata = {
     canonical: `${SITE_URL}/compare/notegpt-alternative`,
   },
   openGraph: {
-    title: 'Best NoteGPT Alternative for Visual Learners (2026) · vidvisual',
+    title: 'Best NoteGPT Alternative for Visual Learners (2026)',
     description:
       'Why read walls of text? vidvisual turns long YouTube videos into whiteboard concept cards and visual mind maps in under 20 seconds.',
     url: `${SITE_URL}/compare/notegpt-alternative`,

@@ -5,7 +5,7 @@ import { SAMPLE } from '@/lib/sample';
 const SITE_URL = 'https://www.vidvisual.xyz';
 
 export const metadata = {
-  title: 'YouTube to Notes AI — Convert YouTube Videos to Study Notes | vidvisual',
+  title: 'YouTube to Notes AI — Convert YouTube Videos to Study Notes',
   description:
     'Turn any YouTube video, lecture, or podcast into structured study notes, concept cards, and takeaway lists in 20 seconds with AI. Built for students and researchers. Free to start.',
   keywords: [
