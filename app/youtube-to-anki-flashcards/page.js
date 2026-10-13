@@ -28,14 +28,14 @@ export const metadata = {
     url: `${SITE_URL}/youtube-to-anki-flashcards`,
     siteName: 'vidvisual',
     type: 'website',
-    images: [`${SITE_URL}/og-image.jpg?v=2`],
+    images: [`${SITE_URL}/og-image.jpg?v=3`],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'YouTube to Anki Flashcards & Study Cards (AI) · vidvisual',
     description:
       'Generate active recall study flashcards and spatial concept cards from any YouTube lecture in 20s.',
-    images: [`${SITE_URL}/twitter-image.jpg?v=2`],
+    images: [`${SITE_URL}/twitter-image.jpg?v=3`],
   },
 };
 

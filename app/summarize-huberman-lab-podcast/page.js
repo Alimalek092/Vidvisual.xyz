@@ -28,14 +28,14 @@ export const metadata = {
     url: `${SITE_URL}/summarize-huberman-lab-podcast`,
     siteName: 'vidvisual',
     type: 'website',
-    images: [`${SITE_URL}/og-image.jpg?v=2`],
+    images: [`${SITE_URL}/og-image.jpg?v=3`],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Huberman Lab Podcast Summarizer (AI Protocols & Mind Maps) · vidvisual',
     description:
       'Get actionable health and science protocols from multi-hour podcasts in 20s without sitting through 3 hours of audio.',
-    images: [`${SITE_URL}/twitter-image.jpg?v=2`],
+    images: [`${SITE_URL}/twitter-image.jpg?v=3`],
   },
 };
 

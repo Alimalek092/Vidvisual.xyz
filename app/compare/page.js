@@ -24,14 +24,14 @@ export const metadata = {
     url: `${SITE_URL}/compare`,
     siteName: 'vidvisual',
     type: 'website',
-    images: [`${SITE_URL}/og-image.jpg?v=2`],
+    images: [`${SITE_URL}/og-image.jpg?v=3`],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Compare vidvisual vs NoteGPT, Eightify & ChatGPT · vidvisual',
     description:
       'See why visual concept cards beat text-heavy summarizers for YouTube videos.',
-    images: [`${SITE_URL}/twitter-image.jpg?v=2`],
+    images: [`${SITE_URL}/twitter-image.jpg?v=3`],
   },
 };
 

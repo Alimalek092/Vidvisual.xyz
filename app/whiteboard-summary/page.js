@@ -30,7 +30,7 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: `/og-image.jpg?v=2`,
+        url: `/og-image.jpg?v=3`,
         width: 1200,
         height: 630,
         alt: 'vidvisual — AI Whiteboard Video Summarizer',
@@ -42,7 +42,7 @@ export const metadata = {
     title: 'Whiteboard Video Summarizer — AI Whiteboard Notes from YouTube',
     description:
       'Transform complex YouTube videos into scannable whiteboard visual summaries in under 20 seconds with AI.',
-    images: [`/og-image.jpg?v=2`],
+    images: [`/og-image.jpg?v=3`],
   },
 };
 

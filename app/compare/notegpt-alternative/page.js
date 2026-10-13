@@ -28,14 +28,14 @@ export const metadata = {
     url: `${SITE_URL}/compare/notegpt-alternative`,
     siteName: 'vidvisual',
     type: 'article',
-    images: [`${SITE_URL}/og-image.jpg?v=2`],
+    images: [`${SITE_URL}/og-image.jpg?v=3`],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Best NoteGPT Alternative for Visual Learners · vidvisual',
     description:
       'Stop reading walls of plain text. vidvisual converts YouTube lectures and podcasts into spatial concept cards in 20s.',
-    images: [`${SITE_URL}/twitter-image.jpg?v=2`],
+    images: [`${SITE_URL}/twitter-image.jpg?v=3`],
   },
 };
 

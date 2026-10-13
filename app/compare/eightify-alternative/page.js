@@ -28,14 +28,14 @@ export const metadata = {
     url: `${SITE_URL}/compare/eightify-alternative`,
     siteName: 'vidvisual',
     type: 'article',
-    images: [`${SITE_URL}/og-image.jpg?v=2`],
+    images: [`${SITE_URL}/og-image.jpg?v=3`],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Best Eightify Alternative: Free Visual Summaries & Mind Maps · vidvisual',
     description:
       'Stop paying for basic Chrome extension text bullets. vidvisual creates spatial concept cards and vector mind maps in 20 seconds.',
-    images: [`${SITE_URL}/twitter-image.jpg?v=2`],
+    images: [`${SITE_URL}/twitter-image.jpg?v=3`],
   },
 };
 

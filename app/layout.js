@@ -70,7 +70,7 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://www.vidvisual.xyz/og-image.jpg?v=2',
+        url: 'https://www.vidvisual.xyz/og-image.jpg?v=3',
         width: 1200,
         height: 630,
         alt: 'vidvisual — Turn YouTube Videos into Whiteboard Mind Maps',
@@ -85,7 +85,7 @@ export const metadata = {
     title: 'vidvisual — Turn Long YouTube Videos into Beautiful Whiteboard Summaries in 20 Seconds',
     description:
       'Turn long, boring YouTube videos, podcasts, and lectures into scannable whiteboard visuals, concept cards, and mind maps in under 20 seconds. Save 90% of watch time.',
-    images: ['https://www.vidvisual.xyz/twitter-image.jpg?v=2'],
+    images: ['https://www.vidvisual.xyz/twitter-image.jpg?v=3'],
   },
   robots: {
     index: true,
@@ -163,8 +163,8 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/icon.png?v=2" type="image/png" sizes="512x512" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" sizes="180x180" />
         <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
-        <meta property="og:image" content="https://www.vidvisual.xyz/og-image.jpg?v=2" />
-        <meta property="og:image:secure_url" content="https://www.vidvisual.xyz/og-image.jpg?v=2" />
+        <meta property="og:image" content="https://www.vidvisual.xyz/og-image.jpg?v=3" />
+        <meta property="og:image:secure_url" content="https://www.vidvisual.xyz/og-image.jpg?v=3" />
         <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -174,8 +174,8 @@ export default function RootLayout({ children }) {
         <meta name="twitter:creator" content="@Ali_Mlk092" />
         <meta name="twitter:title" content="vidvisual — Turn Long YouTube Videos into Beautiful Whiteboard Summaries in 20 Seconds" />
         <meta name="twitter:description" content="Turn long, boring YouTube videos, podcasts, and lectures into scannable whiteboard visuals, concept cards, and mind maps in under 20 seconds." />
-        <meta name="twitter:image" content="https://www.vidvisual.xyz/twitter-image.jpg?v=2" />
-        <meta name="twitter:image:src" content="https://www.vidvisual.xyz/twitter-image.jpg?v=2" />
+        <meta name="twitter:image" content="https://www.vidvisual.xyz/twitter-image.jpg?v=3" />
+        <meta name="twitter:image:src" content="https://www.vidvisual.xyz/twitter-image.jpg?v=3" />
         <meta name="twitter:image:alt" content="vidvisual — AI YouTube Video Summarizer &amp; Mind Maps" />
         <script
           type="application/ld+json"

@@ -24,13 +24,13 @@ export const metadata = {
     url: `${SITE_URL}/blog`,
     siteName: 'vidvisual',
     type: 'website',
-    images: [`${SITE_URL}/og-image.jpg?v=2`],
+    images: [`${SITE_URL}/og-image.jpg?v=3`],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'vidvisual Blog & Learning Hub',
     description: 'Guides on AI video summarization, visual notes, and podcast compression.',
-    images: [`${SITE_URL}/twitter-image.jpg?v=2`],
+    images: [`${SITE_URL}/twitter-image.jpg?v=3`],
   },
 };
 

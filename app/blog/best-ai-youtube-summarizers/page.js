@@ -24,13 +24,13 @@ export const metadata = {
     url: `${SITE_URL}/blog/best-ai-youtube-summarizers`,
     siteName: 'vidvisual',
     type: 'article',
-    images: [`${SITE_URL}/og-image.jpg?v=2`],
+    images: [`${SITE_URL}/og-image.jpg?v=3`],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'The Best AI YouTube Video Summarizers in 2026',
     description: 'Why spatial whiteboard concept cards beat plain text summarizers.',
-    images: [`${SITE_URL}/twitter-image.jpg?v=2`],
+    images: [`${SITE_URL}/twitter-image.jpg?v=3`],
   },
 };
 

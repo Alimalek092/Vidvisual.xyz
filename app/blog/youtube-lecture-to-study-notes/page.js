@@ -24,13 +24,13 @@ export const metadata = {
     url: `${SITE_URL}/blog/youtube-lecture-to-study-notes`,
     siteName: 'vidvisual',
     type: 'article',
-    images: [`${SITE_URL}/og-image.jpg?v=2`],
+    images: [`${SITE_URL}/og-image.jpg?v=3`],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'How to Turn 2-Hour College Lectures into A+ Study Notes',
     description: 'Transform recorded college lectures into visual study cheat sheets and PDFs.',
-    images: [`${SITE_URL}/twitter-image.jpg?v=2`],
+    images: [`${SITE_URL}/twitter-image.jpg?v=3`],
   },
 };
 

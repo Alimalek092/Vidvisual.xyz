@@ -24,14 +24,14 @@ export const metadata = {
     url: `${SITE_URL}/blog/how-to-summarize-youtube-videos-ai`,
     siteName: 'vidvisual',
     type: 'article',
-    images: [`${SITE_URL}/og-image.jpg?v=2`],
+    images: [`${SITE_URL}/og-image.jpg?v=3`],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'How to Summarize YouTube Videos with AI in 20 Seconds',
     description:
       'Step-by-step guide to summarizing long YouTube videos into whiteboard concept cards and mind maps.',
-    images: [`${SITE_URL}/twitter-image.jpg?v=2`],
+    images: [`${SITE_URL}/twitter-image.jpg?v=3`],
   },
 };
 

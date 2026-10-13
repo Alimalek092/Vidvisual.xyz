@@ -32,7 +32,7 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: `${SITE_URL}/og-image.jpg?v=2`,
+        url: `${SITE_URL}/og-image.jpg?v=3`,
         width: 1200,
         height: 630,
         alt: 'vidvisual — YouTube to PDF AI Notes',
@@ -44,7 +44,7 @@ export const metadata = {
     title: 'YouTube to PDF (AI) — Convert YouTube Videos to PDF Notes in 20s',
     description:
       'Convert YouTube videos into formatted PDF notes with whiteboard concept cards, mind maps, and key takeaways in 20 seconds.',
-    images: [`${SITE_URL}/og-image.jpg?v=2`],
+    images: [`${SITE_URL}/og-image.jpg?v=3`],
   },
 };
 
