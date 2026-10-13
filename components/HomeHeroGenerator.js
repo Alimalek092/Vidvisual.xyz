@@ -109,7 +109,12 @@ export default function HomeHeroGenerator() {
       clearTimeout(stepTimer1);
       clearTimeout(stepTimer2);
       setBusy(false);
-      setError(err.message || 'Network error. Please try again.');
+      const raw = (err?.message || '').toLowerCase();
+      if (raw.includes('abort') || raw.includes('timeout')) {
+        setError('Video processing took longer than expected. Please try another video or try again.');
+      } else {
+        setError(err?.message || 'Network error. Please try again.');
+      }
     }
   }
 

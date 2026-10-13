@@ -122,9 +122,11 @@ export async function POST(request) {
     data = await summarize(transcript.text, model, language || 'auto');
   } catch (e) {
     console.error('[Generate Route] Summarization failed:', e?.message || e);
-    return NextResponse.json({
-      error: e?.message || 'The AI could not build this summary. Please try again.'
-    }, { status: 502 });
+    const raw = (e?.message || '').toLowerCase();
+    const friendly = raw.includes('abort') || raw.includes('timeout')
+      ? 'Video processing timed out. Please try another video or try again.'
+      : (e?.message || 'The AI could not build this summary. Please try again.');
+    return NextResponse.json({ error: friendly }, { status: 502 });
   }
   data.minutes = transcript.minutes;
   data.language = language || 'auto';

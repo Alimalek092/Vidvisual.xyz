@@ -20,6 +20,7 @@ export default function Dashboard() {
   const [upgrading, setUpgrading] = useState('');
   const [showSupport, setShowSupport] = useState(false);
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
+  const [limitResetInfo, setLimitResetInfo] = useState(null);
 
   const [successMsg, setSuccessMsg] = useState('');
 
@@ -59,19 +60,31 @@ export default function Dashboard() {
     e.preventDefault();
     setError('');
     setBusy(true);
-    const res = await authFetch('/api/generate', {
-      method: 'POST',
-      body: JSON.stringify({ url, format, language }),
-    });
-    const json = await res.json().catch(() => ({}));
-    setBusy(false);
-    if (!res.ok) {
-      if (json.code === 'LIMIT') {
-        setShowUpgradeModal(true);
+    try {
+      const res = await authFetch('/api/generate', {
+        method: 'POST',
+        body: JSON.stringify({ url, format, language }),
+      });
+      const json = await res.json().catch(() => ({}));
+      setBusy(false);
+      if (!res.ok) {
+        if (json.code === 'LIMIT') {
+          if (json.resetInfo) setLimitResetInfo(json.resetInfo);
+          setShowUpgradeModal(true);
+          return setError(json.error || 'You reached your weekly limit. Free allowances recharge on every Monday of every week.');
+        }
+        return setError(json.error || 'Something went wrong. Please try again.');
       }
-      return setError(json.error || 'Something went wrong. Please try again.');
+      router.push(`/summary/${json.id}`);
+    } catch (err) {
+      setBusy(false);
+      const raw = (err?.message || '').toLowerCase();
+      if (raw.includes('abort') || raw.includes('timeout')) {
+        setError('Video processing took longer than expected. Please try another video or try again.');
+      } else {
+        setError(err?.message || 'Network error. Please try again.');
+      }
     }
-    router.push(`/summary/${json.id}`);
   }
 
   async function upgrade(plan) {
@@ -123,6 +136,7 @@ export default function Dashboard() {
         onClose={() => setShowUpgradeModal(false)}
         used={me?.used || 3}
         limit={me?.limit || 3}
+        resetInfo={limitResetInfo}
       />
 
       <main className="dash">
@@ -172,14 +186,46 @@ export default function Dashboard() {
         ) : null}
         {successMsg ? <p className="msg msg-ok" role="status">{successMsg}</p> : null}
         {error ? (
-          <div className="msg msg-error" role="alert">
-            <p style={{ margin: 0 }}>{error}</p>
-            <p className="small" style={{ margin: '6px 0 0' }}>
-              Need help or facing payment issues? Email us at{' '}
-              <a href="mailto:vidvisual.xyz@gmail.com" style={{ textDecoration: 'underline', fontWeight: 600 }}>
-                vidvisual.xyz@gmail.com
-              </a>
+          <div
+            className="msg msg-error"
+            role="alert"
+            style={{
+              background: error.toLowerCase().includes('limit') ? 'rgba(239, 68, 68, 0.08)' : undefined,
+              border: error.toLowerCase().includes('limit') ? '2px solid #ef4444' : undefined,
+              borderRadius: '14px',
+              padding: '16px 18px',
+            }}
+          >
+            {error.toLowerCase().includes('limit') ? (
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
+                <span style={{ fontSize: '1.2rem' }}>🔴</span>
+                <strong style={{ color: '#dc2626', fontSize: '1rem', fontWeight: 800, textTransform: 'uppercase' }}>
+                  Weekly Free Limit Reached
+                </strong>
+              </div>
+            ) : null}
+            <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: 1.45, color: error.toLowerCase().includes('limit') ? '#991b1b' : undefined, fontWeight: error.toLowerCase().includes('limit') ? 600 : undefined }}>
+              {error}
             </p>
+            {error.toLowerCase().includes('limit') ? (
+              <div style={{ marginTop: '12px' }}>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={() => setShowUpgradeModal(true)}
+                  style={{ padding: '10px 20px', fontSize: '0.92rem', fontWeight: 800 }}
+                >
+                  ⚡ Upgrade to Pro to Continue ($9/mo) &rarr;
+                </button>
+              </div>
+            ) : (
+              <p className="small" style={{ margin: '6px 0 0' }}>
+                Need help or facing payment issues? Email us at{' '}
+                <a href="mailto:vidvisual.xyz@gmail.com" style={{ textDecoration: 'underline', fontWeight: 600 }}>
+                  vidvisual.xyz@gmail.com
+                </a>
+              </p>
+            )}
           </div>
         ) : null}
 
