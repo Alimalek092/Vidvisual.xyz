@@ -6,6 +6,7 @@ import { supabase, authFetch } from '@/lib/supabaseClient';
 import { getPlan } from '@/lib/plans';
 import Visual, { THEMES } from '@/components/Visual';
 import SupportModal from '@/components/SupportModal';
+import UpgradeModal from '@/components/UpgradeModal';
 
 function download(dataUrl, name) {
   const a = document.createElement('a');
@@ -22,22 +23,47 @@ export default function SummaryPage({ params }) {
   const [busy, setBusy] = useState('');
   const [error, setError] = useState('');
   const [showSupport, setShowSupport] = useState(false);
+  const [showUpgradeModal, setShowUpgradeModal] = useState(false);
 
   useEffect(() => {
     (async () => {
-      const { data } = await supabase().auth.getSession();
-      if (!data.session) return router.replace('/login');
-      const res = await authFetch(`/api/summaries/${params.id}`);
-      const json = await res.json();
-      if (!res.ok) return setState({ error: json.error });
-      setState({ summary: json.summary, plan: getPlan(json.plan) });
+      const { data: sessionData } = await supabase().auth.getSession();
+      const guestId = typeof window !== 'undefined' ? localStorage.getItem('vv_guest_id') : null;
+
+      const headers = {};
+      if (guestId) headers['x-guest-id'] = guestId;
+
+      try {
+        const res = sessionData?.session
+          ? await authFetch(`/api/summaries/${params.id}`)
+          : await fetch(`/api/summaries/${params.id}`, { headers });
+
+        const json = await res.json();
+        if (!res.ok) return setState({ error: json.error });
+        setState({
+          summary: json.summary,
+          plan: getPlan(json.plan),
+          isGuest: !sessionData?.session || json.isGuest,
+          guestUsed: json.guestUsed,
+          guestLimit: json.guestLimit || 3,
+        });
+      } catch (err) {
+        setState({ error: err.message || 'Could not load summary.' });
+      }
     })();
-  }, [params.id, router]);
+  }, [params.id]);
 
-  if (state.loading) return <main className="dash"><p className="muted">Loading…</p></main>;
-  if (state.error) return <main className="dash"><p className="msg msg-error">{state.error}</p><Link href="/dashboard">Back to library</Link></main>;
+  if (state.loading) return <main className="dash"><p className="muted">Loading visual notes…</p></main>;
+  if (state.error) return (
+    <main className="dash">
+      <p className="msg msg-error">{state.error}</p>
+      <Link href={state.isGuest ? '/' : '/dashboard'}>
+        {state.isGuest ? 'Back to generator' : 'Back to library'}
+      </Link>
+    </main>
+  );
 
-  const { summary, plan } = state;
+  const { summary, plan, isGuest } = state;
   const base = summary.title.replace(/[^\w]+/g, '-').slice(0, 40) || 'visual';
 
   async function exportAs(kind) {
@@ -49,14 +75,11 @@ export default function SummaryPage({ params }) {
       const node = ref.current;
       if (!node) throw new Error('Visual element not found');
 
-      // Canonical desktop width (1200px) ensures clean layout without mobile squishing
       const TARGET_WIDTH = 1200;
       const actualWidth = node.offsetWidth || TARGET_WIDTH;
       const scale = TARGET_WIDTH / actualWidth;
       const targetHeight = Math.round(node.offsetHeight * scale);
 
-      // Ultra-HD export configuration:
-      // High pixel ratio + fixed desktop rendering dimensions prevents mobile downsampling blur
       const exportOptions = {
         backgroundColor: bg,
         width: TARGET_WIDTH,
@@ -73,29 +96,39 @@ export default function SummaryPage({ params }) {
       if (kind === 'jpg') {
         const dataUrl = await lib.toJpeg(node, {
           ...exportOptions,
-          quality: 0.98,
-          pixelRatio: 2.5,
+          quality: 0.95,
+          pixelRatio: 3,
         });
         download(dataUrl, `${base}.jpg`);
       } else if (kind === 'png') {
+        if (!plan.hdPng) {
+          setShowUpgradeModal(true);
+          setBusy('');
+          return;
+        }
         const dataUrl = await lib.toPng(node, {
           ...exportOptions,
-          pixelRatio: 3, // Ultra-sharp 3600px resolution
+          pixelRatio: 4,
         });
-        download(dataUrl, `${base}-UltraHD.png`);
+        download(dataUrl, `${base}-hd.png`);
       } else if (kind === 'pdf') {
-        const img = await lib.toPng(node, {
+        if (!plan.pdf) {
+          setShowUpgradeModal(true);
+          setBusy('');
+          return;
+        }
+        const { jsPDF } = await import('jspdf');
+        const dataUrl = await lib.toPng(node, {
           ...exportOptions,
-          pixelRatio: 2.5,
+          pixelRatio: 3,
         });
-        const { jsPDF } = await import('jspdf/dist/jspdf.umd.min.js');
         const pdf = new jsPDF({
-          orientation: TARGET_WIDTH > targetHeight ? 'l' : 'p',
+          orientation: 'landscape',
           unit: 'px',
           format: [TARGET_WIDTH, targetHeight],
           hotfixes: ['px_scaling'],
         });
-        pdf.addImage(img, 'PNG', 0, 0, TARGET_WIDTH, targetHeight, undefined, 'FAST');
+        pdf.addImage(dataUrl, 'PNG', 0, 0, TARGET_WIDTH, targetHeight, undefined, 'FAST');
         pdf.save(`${base}.pdf`);
       }
     } catch (err) {
@@ -107,34 +140,85 @@ export default function SummaryPage({ params }) {
 
   return (
     <>
+      <UpgradeModal
+        open={showUpgradeModal}
+        onClose={() => setShowUpgradeModal(false)}
+        used={state.guestUsed || 3}
+        limit={state.guestLimit || 3}
+      />
+
       <nav className="nav">
-        <Link href="/dashboard" className="brand vv-hand"><img src="/logo.png" alt="vidvisual" className="brand-icon" width="32" height="32" /><span>vidvisual</span></Link>
+        <Link href={isGuest ? '/' : '/dashboard'} className="brand vv-hand">
+          <img src="/logo.png" alt="vidvisual" className="brand-icon" width="32" height="32" />
+          <span>vidvisual</span>
+        </Link>
         <div className="nav-links">
-          <button className="link" onClick={() => setShowSupport(true)}>Support</button>
-          <Link href="/dashboard">Back to library</Link>
+          {isGuest ? (
+            <>
+              <Link href="/" className="link">⚡ Make Another</Link>
+              <Link href="/login" className="link">Log in</Link>
+              <Link href="/register" className="btn btn-primary btn-sm">Sign up Free</Link>
+            </>
+          ) : (
+            <>
+              <button className="link" onClick={() => setShowSupport(true)}>Support</button>
+              <Link href="/dashboard">Back to library</Link>
+            </>
+          )}
         </div>
       </nav>
 
       <SupportModal open={showSupport} onClose={() => setShowSupport(false)} />
 
       <main className="dash">
+        {/* Guest Progress Notice */}
+        {isGuest ? (
+          <div style={{ background: 'var(--paper)', border: '2px solid var(--blue)', borderRadius: '12px', padding: '12px 18px', marginBottom: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
+            <span style={{ fontSize: '0.9rem', color: 'var(--ink)' }}>
+              ✨ <strong>Guest Summary Created!</strong> (Free allowance: 3/week). Create a free account to save your library permanently.
+            </span>
+            <div style={{ display: 'flex', gap: '8px' }}>
+              <Link href="/register" className="btn btn-primary btn-sm" style={{ padding: '6px 14px', fontSize: '0.85rem' }}>
+                Save My Notes Free &rarr;
+              </Link>
+            </div>
+          </div>
+        ) : null}
+
         <h1 className="vv-hand small-h">{summary.title}</h1>
         <div className="toolbar">
-          <button className="btn" disabled={!!busy} onClick={() => exportAs('jpg')}>{busy === 'jpg' ? 'Preparing…' : 'Download JPG'}</button>
-          <button className="btn" disabled={!!busy || !plan.hdPng} onClick={() => exportAs('png')} title={plan.hdPng ? '' : 'Pro and above'}>
-            {plan.hdPng ? (busy === 'png' ? 'Preparing…' : 'Download HD PNG') : 'HD PNG · Pro'}
+          <button className="btn" disabled={!!busy} onClick={() => exportAs('jpg')}>
+            {busy === 'jpg' ? 'Preparing…' : 'Download JPG'}
           </button>
-          <button className="btn" disabled={!!busy || !plan.pdf} onClick={() => exportAs('pdf')} title={plan.pdf ? '' : 'Unlimited and above'}>
-            {plan.pdf ? (busy === 'pdf' ? 'Preparing…' : 'Download PDF') : 'PDF · Unlimited'}
+          <button
+            className="btn"
+            disabled={!!busy}
+            onClick={() => exportAs('png')}
+            title={plan.hdPng ? 'High definition PNG' : 'Upgrade to Pro for HD watermark-free PNG'}
+          >
+            {plan.hdPng ? (busy === 'png' ? 'Preparing…' : 'Download HD PNG') : 'HD PNG · Pro 🔒'}
+          </button>
+          <button
+            className="btn"
+            disabled={!!busy}
+            onClick={() => exportAs('pdf')}
+            title={plan.pdf ? 'Printable vector PDF' : 'Upgrade to Unlimited for PDF exports'}
+          >
+            {plan.pdf ? (busy === 'pdf' ? 'Preparing…' : 'Download PDF') : 'PDF · Unlimited 🔒'}
           </button>
           <span className="spacer" />
           {plan.themes ? (
-            <label className="theme">Theme
+            <label className="theme">
+              Theme
               <select value={theme} onChange={(e) => setTheme(e.target.value)}>
-                {Object.entries(THEMES).map(([k, v]) => <option key={k} value={k}>{v.name}</option>)}
+                {Object.entries(THEMES).map(([k, v]) => (
+                  <option key={k} value={k}>{v.name}</option>
+                ))}
               </select>
             </label>
-          ) : <span className="muted small">Custom themes come with Unlimited</span>}
+          ) : (
+            <span className="muted small">Custom themes come with Unlimited</span>
+          )}
         </div>
         {error ? (
           <div className="msg msg-error" role="alert">

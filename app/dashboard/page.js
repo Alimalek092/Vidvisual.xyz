@@ -6,7 +6,7 @@ import { supabase, authFetch } from '@/lib/supabaseClient';
 import { getPlan } from '@/lib/plans';
 import Pricing from '@/components/Pricing';
 import SupportModal from '@/components/SupportModal';
-
+import UpgradeModal from '@/components/UpgradeModal';
 
 export default function Dashboard() {
   const router = useRouter();
@@ -19,12 +19,26 @@ export default function Dashboard() {
   const [error, setError] = useState('');
   const [upgrading, setUpgrading] = useState('');
   const [showSupport, setShowSupport] = useState(false);
+  const [showUpgradeModal, setShowUpgradeModal] = useState(false);
 
   const [successMsg, setSuccessMsg] = useState('');
 
   const load = useCallback(async () => {
     const { data } = await supabase().auth.getSession();
     if (!data.session) return router.replace('/login');
+
+    // Claim any guest summaries created before logging in
+    if (typeof window !== 'undefined') {
+      const guestId = localStorage.getItem('vv_guest_id');
+      if (guestId) {
+        await authFetch('/api/guest/claim', {
+          method: 'POST',
+          body: JSON.stringify({ guestId }),
+        }).catch(() => {});
+        localStorage.removeItem('vv_guest_id');
+      }
+    }
+
     const [a, b] = await Promise.all([authFetch('/api/me'), authFetch('/api/summaries')]);
     if (a.ok) setMe(await a.json());
     if (b.ok) setItems((await b.json()).items);
@@ -52,7 +66,9 @@ export default function Dashboard() {
     const json = await res.json().catch(() => ({}));
     setBusy(false);
     if (!res.ok) {
-      if (json.code === 'LIMIT') { /* plans already visible below */ }
+      if (json.code === 'LIMIT') {
+        setShowUpgradeModal(true);
+      }
       return setError(json.error || 'Something went wrong. Please try again.');
     }
     router.push(`/summary/${json.id}`);
@@ -102,6 +118,12 @@ export default function Dashboard() {
       </nav>
 
       <SupportModal open={showSupport} onClose={() => setShowSupport(false)} />
+      <UpgradeModal
+        open={showUpgradeModal}
+        onClose={() => setShowUpgradeModal(false)}
+        used={me?.used || 3}
+        limit={me?.limit || 3}
+      />
 
       <main className="dash">
         <h1 className="vv-hand">Make a visual</h1>

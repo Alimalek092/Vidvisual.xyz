@@ -2,6 +2,7 @@ import Link from 'next/link';
 import BrandLogo from '@/components/BrandLogo';
 import Visual from '@/components/Visual';
 import Pricing from '@/components/Pricing';
+import HomeHeroGenerator from '@/components/HomeHeroGenerator';
 import { SAMPLE } from '@/lib/sample';
 import { PLANS } from '@/lib/plans';
 
@@ -131,11 +132,7 @@ export default function Home() {
           <p>
             Paste any long YouTube video, podcast, or university lecture. <strong>vidvisual</strong> instantly extracts the core ideas into scannable whiteboard concept cards and visual mind maps in under 20 seconds — translated into any of 16+ languages you choose. Skip the fluff, save 90% of watch time, and remember 65% more.
           </p>
-          <div className="hero-cta">
-            <Link href="/register" className="btn btn-primary btn-lg">Make a visual summary free</Link>
-            <a href="#podcast-showcase" className="link small">See long-form video compression &darr;</a>
-          </div>
-          <span className="muted small">Free forever: 3 summaries a week, no credit card required.</span>
+          <HomeHeroGenerator />
         </div>
         <div className="hero-demo">
           <Visual data={SAMPLE} format="whiteboard" />
