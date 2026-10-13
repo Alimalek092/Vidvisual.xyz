@@ -175,7 +175,7 @@ export default function SummaryPage({ params }) {
         {isGuest ? (
           <div style={{ background: 'var(--paper)', border: '2px solid var(--blue)', borderRadius: '12px', padding: '12px 18px', marginBottom: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
             <span style={{ fontSize: '0.9rem', color: 'var(--ink)' }}>
-              ✨ <strong>Guest Summary Created!</strong> (Free allowance: 3/week). Create a free account to save your library permanently.
+              ✨ <strong>Guest Summary Created!</strong> (3 free summaries/week • Recharges on every Monday of every week). Create a free account to save your library permanently.
             </span>
             <div style={{ display: 'flex', gap: '8px' }}>
               <Link href="/register" className="btn btn-primary btn-sm" style={{ padding: '6px 14px', fontSize: '0.85rem' }}>

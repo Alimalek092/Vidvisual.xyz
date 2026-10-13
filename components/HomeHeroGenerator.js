@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { supabase, authFetch } from '@/lib/supabaseClient';
 import UpgradeModal from '@/components/UpgradeModal';
 
@@ -13,7 +14,8 @@ export default function HomeHeroGenerator() {
   const [stepText, setStepText] = useState('');
   const [error, setError] = useState('');
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
-  const [limitData, setLimitData] = useState({ used: 3, limit: 3 });
+  const [limitData, setLimitData] = useState({ used: 3, limit: 3, resetInfo: null });
+  const [hasHitLimit, setHasHitLimit] = useState(false);
 
   // Ensure persistent guest ID exists in localStorage and cookie
   useEffect(() => {
@@ -25,6 +27,12 @@ export default function HomeHeroGenerator() {
       }
       // Ensure cookie is synced for server-side read
       document.cookie = `vv_guest_id=${gid}; path=/; max-age=31536000; SameSite=Lax`;
+
+      // Check if user previously hit limit this week
+      const storedLimit = localStorage.getItem('vv_limit_hit');
+      if (storedLimit) {
+        setHasHitLimit(true);
+      }
     }
   }, []);
 
@@ -70,7 +78,15 @@ export default function HomeHeroGenerator() {
       if (!res.ok) {
         setBusy(false);
         if (json.code === 'LIMIT') {
-          setLimitData({ used: json.used || 3, limit: json.limit || 3 });
+          setLimitData({
+            used: json.used || 3,
+            limit: json.limit || 3,
+            resetInfo: json.resetInfo || null,
+          });
+          setHasHitLimit(true);
+          if (typeof window !== 'undefined') {
+            localStorage.setItem('vv_limit_hit', 'true');
+          }
           setShowUpgradeModal(true);
           return;
         }
@@ -104,9 +120,49 @@ export default function HomeHeroGenerator() {
         onClose={() => setShowUpgradeModal(false)}
         used={limitData.used}
         limit={limitData.limit}
+        resetInfo={limitData.resetInfo}
       />
 
       <div className="hero-generator-box" style={{ background: 'var(--paper)', border: '3px solid var(--ink)', borderRadius: '18px', padding: '24px 22px', boxShadow: '6px 6px 0 var(--ink)', marginTop: '20px' }}>
+        
+        {/* Persistent Psychological Red Alert Banner if limit is reached */}
+        {hasHitLimit ? (
+          <div
+            style={{
+              background: 'rgba(239, 68, 68, 0.08)',
+              border: '2px solid #ef4444',
+              borderRadius: '12px',
+              padding: '12px 14px',
+              marginBottom: '16px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '12px',
+              flexWrap: 'wrap',
+            }}
+          >
+            <div style={{ flex: 1, minWidth: '240px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span>🔴</span>
+                <strong style={{ color: '#dc2626', fontSize: '0.92rem' }}>
+                  You just reached your limit of this week.
+                </strong>
+              </div>
+              <p style={{ margin: '3px 0 0', fontSize: '0.82rem', color: '#991b1b', lineHeight: 1.4 }}>
+                Free allowances recharge on every Monday of every week. If you want to generate more summaries, buy pro version now.
+              </p>
+            </div>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => setShowUpgradeModal(true)}
+              style={{ padding: '8px 16px', fontSize: '0.85rem', fontWeight: 700, whiteSpace: 'nowrap' }}
+            >
+              ⚡ Upgrade to Pro ($9/mo)
+            </button>
+          </div>
+        ) : null}
+
         <form onSubmit={handleGenerate} style={{ display: 'grid', gap: '14px' }}>
           
           {/* URL Input */}
@@ -197,6 +253,8 @@ export default function HomeHeroGenerator() {
                 <span className="spinner" style={{ display: 'inline-block', width: '16px', height: '16px', border: '2px solid #fff', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
                 <span>{stepText || 'Synthesizing with AI…'}</span>
               </span>
+            ) : hasHitLimit ? (
+              '⚡ Limit Reached — Upgrade to Pro for Instant Access'
             ) : (
               '⚡ Generate Visual Summary Free (No Login Needed)'
             )}

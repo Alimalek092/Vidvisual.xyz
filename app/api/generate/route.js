@@ -1,6 +1,11 @@
 import { NextResponse } from 'next/server';
-import { admin, getUser, getProfile, weeklyUsage } from '@/lib/supabaseAdmin';
-import { getOrCreateGuestUser } from '@/lib/guestAuth';
+import { admin, getUser, getProfile } from '@/lib/supabaseAdmin';
+import {
+  getDeviceFingerprint,
+  getOrCreateGuestUser,
+  getMondayResetInfo,
+  weeklyUsageSinceMonday,
+} from '@/lib/guestAuth';
 import { getPlan } from '@/lib/plans';
 import { extractVideoId, getVideoTitle, getTranscript } from '@/lib/youtube';
 import { summarize } from '@/lib/gemini';
@@ -12,21 +17,24 @@ export async function POST(request) {
   let user = await getUser(request);
   let isGuest = false;
   let activeGuestId = null;
+  const resetInfo = getMondayResetInfo();
 
-  // Frictionless NoteGPT-style Guest Mode:
-  // If user is not logged in, identify or create their guest session
+  // Multi-layered bulletproof guest identification:
+  // Combines client token + IP/User-Agent fingerprint to prevent Incognito / cookie-clearing bypasses
   if (!user) {
+    const deviceFingerprint = getDeviceFingerprint(request);
     const headerGuestId = request.headers.get('x-guest-id');
     const cookieGuestId = request.cookies.get('vv_guest_id')?.value;
-    activeGuestId = headerGuestId || cookieGuestId || crypto.randomUUID();
+    const clientGuestId = headerGuestId || cookieGuestId;
 
-    const guestUser = await getOrCreateGuestUser(activeGuestId);
+    const guestUser = await getOrCreateGuestUser(clientGuestId, deviceFingerprint);
     if (!guestUser) {
       return NextResponse.json({ error: 'Could not initialize guest session. Please try again.' }, { status: 500 });
     }
 
     user = guestUser;
     isGuest = true;
+    activeGuestId = guestUser.guestKey || deviceFingerprint;
   }
 
   const { url, format, language } = await request.json().catch(() => ({}));
@@ -47,12 +55,12 @@ export async function POST(request) {
   } else {
     const profile = await getProfile(user);
     plan = getPlan(profile.plan);
-    used = await weeklyUsage(user.id);
+    used = await weeklyUsageSinceMonday(user.id);
   }
 
-  // Check 3 summaries/week limit
+  // Strict enforcement: 3 free summaries per week (recharges every Monday)
   if (used >= plan.weekly) {
-    // If authenticated free user hits limit, send recalling email (with 6-day cooldown)
+    // If logged-in user hits limit, dispatch personalized upgrade email from vidvisual.xyz@gmail.com
     if (!isGuest && plan.id === 'free' && user.email) {
       (async () => {
         try {
@@ -78,10 +86,11 @@ export async function POST(request) {
 
     return NextResponse.json(
       {
-        error: `You have used all ${plan.weekly} visual summaries for this week. Upgrade to Pro for unlimited summaries!`,
+        error: `You just reached your limit of this week (${used}/${plan.weekly}). Free allowances recharge on every Monday of every week at 00:00 UTC (${resetInfo.countdownText} remaining). If you want to generate more summaries, buy pro version now.`,
         code: 'LIMIT',
         used,
         limit: plan.weekly,
+        resetInfo,
         isGuest,
       },
       { status: 402 }
@@ -121,7 +130,6 @@ export async function POST(request) {
   data.language = language || 'auto';
   const ytTitle = await getVideoTitle(videoId);
 
-  // Sanitize fields to ensure clean database storage
   const cleanTitle = (ytTitle || data.title || 'Untitled Visual Summary')
     .toString()
     .replace(/\0/g, '')
@@ -192,15 +200,15 @@ export async function POST(request) {
     guestId: activeGuestId,
     used: used + 1,
     limit: plan.weekly,
+    resetInfo,
   });
 
-  // Attach persistent guest cookie if user is a guest
   if (isGuest && activeGuestId) {
     response.cookies.set('vv_guest_id', activeGuestId, {
       path: '/',
-      maxAge: 365 * 24 * 60 * 60, // 1 year
+      maxAge: 365 * 24 * 60 * 60,
       sameSite: 'lax',
-      httpOnly: false, // accessible to client for sync
+      httpOnly: false,
     });
   }
 
