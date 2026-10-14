@@ -6,10 +6,35 @@ import HomeHeroGenerator from '@/components/HomeHeroGenerator';
 import { SAMPLE } from '@/lib/sample';
 import { PLANS } from '@/lib/plans';
 
+export const metadata = {
+  title: 'vidvisual - Free AI YouTube Video Summarizer into Visual Whiteboard Notes',
+  description:
+    'Turn long YouTube videos, podcasts, and university lectures into structured visual whiteboard concept cards and relational mind maps in 20 seconds. 100% free with no login required.',
+  alternates: {
+    canonical: 'https://www.vidvisual.xyz',
+  },
+  openGraph: {
+    title: 'vidvisual - Free AI YouTube Video Summarizer into Visual Whiteboard Notes',
+    description:
+      'Turn long YouTube videos, podcasts, and university lectures into structured visual whiteboard concept cards and relational mind maps in 20 seconds. 100% free with no login required.',
+    url: 'https://www.vidvisual.xyz',
+    siteName: 'vidvisual',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'vidvisual - Visual YouTube Summarizer' }],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'vidvisual - Free AI YouTube Video Summarizer into Visual Whiteboard Notes',
+    description:
+      'Turn long YouTube videos, podcasts, and university lectures into structured visual whiteboard concept cards and relational mind maps in 20 seconds.',
+    images: ['/og-image.png'],
+  },
+};
+
 const FAQ = [
   ['Can vidvisual turn a 4-hour podcast or lecture into visual notes?', 'Yes! vidvisual is specifically built to compress long-form content. Paste any 2-to-4-hour podcast (like Lex Fridman, Huberman Lab, or Joe Rogan) or multi-hour university lecture, and our AI extracts the core arguments, concept relationships, and actionable takeaways into a visual whiteboard summary in around 20 seconds.'],
   ['How much watch time do I save using vidvisual?', 'Users save up to 90% to 95% of their watch time. Instead of spending 180 to 240 minutes scrubbing through video timelines, you can understand the complete conceptual hierarchy and main key points in under 60 seconds.'],
-  ['How does vidvisual extract the main key points from long YouTube videos?', 'vidvisual parses the full transcript using Google Gemini 2.5 Flash with structured semantic schema distillation. It automatically filters out conversational filler, sponsor segments, and banter, extracting essential definitions and arranging ideas into spatial whiteboard concept cards and an interconnected mind map.'],
+  ['How does vidvisual extract the main key points from long YouTube videos?', 'vidvisual parses the full transcript using advanced visual AI with structured semantic schema distillation. It automatically filters out conversational filler, sponsor segments, and banter, extracting essential definitions and arranging ideas into spatial whiteboard concept cards and an interconnected mind map.'],
   ['How is vidvisual different from ChatGPT, NoteGPT, or Eightify?', 'Standard AI summarizers and Chrome extensions only spit out dense walls of linear bullet points that cause cognitive fatigue. vidvisual is built on cognitive Dual-Coding Theory: it converts linear speech into spatial whiteboard concept cards and relational mind maps, which are scientifically proven to boost memory retention by 65% compared to plain text skims.'],
   ['How does vidvisual prevent AI hallucinations and inaccurate summaries?', 'Unlike generic chatbots that summarize from memory or web approximations, vidvisual grounds all extraction strictly in the actual timestamped transcript of the video. It extracts direct quotes, verifies factual thesis statements against the captions, and organizes only verified claims into concept cards.'],
   ['Is vidvisual free to use?', 'Yes. The Free plan gives you 3 visual summaries every week with no credit card required. Paid plans unlock 50 to 200 summaries per week, HD downloads without a watermark, and vector PDF exports.'],
@@ -37,7 +62,7 @@ const AUDIENCES = [
 
 const STEPS = [
   { num: '1', title: 'Paste any YouTube link', text: 'Copy the URL of any YouTube video, podcast, lecture, or tutorial that has captions turned on.' },
-  { num: '2', title: 'AI distills the key points in 20s', text: 'vidvisual uses Gemini 2.5 Flash to parse the transcript, extract essential concepts, and calculate topical relationships.' },
+  { num: '2', title: 'AI distills the key points in 20s', text: 'vidvisual uses advanced visual AI to parse the transcript, extract essential concepts, and calculate topical relationships.' },
   { num: '3', title: 'Explore your visual whiteboard', text: 'Review spatial concept cards, navigate the interactive mind map, and absorb the high-yield takeaway list.' },
   { num: '4', title: 'Export, save, and remember', text: 'Your visual is stored in your private cloud library. Download as high-res JPG, HD PNG, or vector PDF with one click.' },
 ];

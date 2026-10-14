@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Visual from '@/components/Visual';
+import HomeHeroGenerator from '@/components/HomeHeroGenerator';
 import { SAMPLE } from '@/lib/sample';
 
 const SITE_URL = 'https://www.vidvisual.xyz';
@@ -54,7 +55,7 @@ const FAQ_ANKI = [
   ],
   [
     'Does this work for complex STEM and medical lectures?',
-    'Yes. vidvisual is powered by Gemini 2.5 Flash, which excels at breaking down intricate medical protocols, organic chemistry mechanisms, computer science algorithms, and engineering proofs into digestible concept cards.',
+    'Yes. vidvisual is powered by advanced visual AI, which excels at breaking down intricate medical protocols, organic chemistry mechanisms, computer science algorithms, and engineering proofs into digestible concept cards.',
   ],
 ];
 
@@ -115,11 +116,10 @@ export default function YouTubeToAnkiPage() {
             Stop re-watching 2-hour college lectures before exams.
             <strong> vidvisual</strong> extracts high-yield facts, core definitions, and conceptual hierarchies into scannable flashcard cards and mind maps in 20 seconds.
           </p>
-          <div className="hero-cta">
-            <Link href="/register" className="btn btn-primary btn-lg">Generate Study Cards Free</Link>
+          <HomeHeroGenerator />
+          <div style={{ marginTop: '12px' }}>
             <a href="#how-it-works" className="link small">See how it works &darr;</a>
           </div>
-          <span className="muted small">100% Free · 3 summaries every week · Perfect for Anki &amp; GoodNotes</span>
         </div>
         <div className="hero-demo">
           <Visual data={SAMPLE} format="whiteboard" />
@@ -185,7 +185,7 @@ export default function YouTubeToAnkiPage() {
           <div className="card">
             <span className="step-num">02</span>
             <h3>AI Extracts Core Ideas</h3>
-            <p>Gemini 2.5 Flash analyzes timestamps and groups related concepts into structured cards.</p>
+            <p>Advanced visual AI analyzes timestamps and groups related concepts into structured cards.</p>
           </div>
           <div className="card">
             <span className="step-num">03</span>

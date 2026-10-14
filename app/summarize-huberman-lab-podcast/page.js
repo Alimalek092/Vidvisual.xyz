@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Visual from '@/components/Visual';
+import HomeHeroGenerator from '@/components/HomeHeroGenerator';
 import { SAMPLE } from '@/lib/sample';
 
 const SITE_URL = 'https://www.vidvisual.xyz';
@@ -115,11 +116,10 @@ export default function HubermanLabSummarizerPage() {
             Love Huberman Lab and Lex Fridman but don't have 3.5 hours every week?
             <strong> vidvisual</strong> filters out filler and organizes biological mechanisms into scannable whiteboard cards and mind maps.
           </p>
-          <div className="hero-cta">
-            <Link href="/register" className="btn btn-primary btn-lg">Summarize a Podcast Free</Link>
+          <HomeHeroGenerator />
+          <div style={{ marginTop: '12px' }}>
             <a href="#how-it-works" className="link small">See how it works &darr;</a>
           </div>
-          <span className="muted small">100% Free · 3 summaries every week · Save 90% of listening time</span>
         </div>
         <div className="hero-demo">
           <Visual data={SAMPLE} format="whiteboard" />
@@ -185,7 +185,7 @@ export default function HubermanLabSummarizerPage() {
           <div className="card">
             <span className="step-num">02</span>
             <h3>AI Synthesizes Protocols</h3>
-            <p>Gemini 2.5 Flash filters out ads, banter, and tangential stories to isolate core protocols.</p>
+            <p>Advanced visual AI filters out ads, banter, and tangential stories to isolate core protocols.</p>
           </div>
           <div className="card">
             <span className="step-num">03</span>
