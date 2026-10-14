@@ -217,7 +217,7 @@ export default function UpgradeModal({ open, onClose, used = 3, limit = 3, reset
             </li>
             <li style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <span style={{ color: 'var(--green)', fontWeight: 900, fontSize: '1.1rem' }}>✓</span>
-              <span><strong>Priority Gemini 2.5 Flash Engine</strong> — Ultra-fast generation under 15 seconds</span>
+              <span><strong>Priority High-Speed AI Engine</strong> — Ultra-fast generation under 15 seconds</span>
             </li>
             <li style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <span style={{ color: 'var(--green)', fontWeight: 900, fontSize: '1.1rem' }}>✓</span>

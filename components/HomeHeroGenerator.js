@@ -45,7 +45,7 @@ export default function HomeHeroGenerator() {
     setStepText('🔍 Reading video transcript & captions…');
 
     const stepTimer1 = setTimeout(() => {
-      setStepText('🧠 Gemini 2.5 Flash synthesizing core concepts…');
+      setStepText('🧠 AI synthesizing core concepts & study notes…');
     }, 4500);
 
     const stepTimer2 = setTimeout(() => {
