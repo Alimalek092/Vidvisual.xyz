@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Visual from '@/components/Visual';
-import HomeHeroGenerator from '@/components/HomeHeroGenerator';
 import { SAMPLE } from '@/lib/sample';
 
 const SITE_URL = 'https://www.vidvisual.xyz';
@@ -169,10 +168,11 @@ export default function YouTubeToMindMapPage() {
             Stop drowning in walls of text. vidvisual uses AI to read video transcripts, identify core concepts,
             and connect them into a beautifully structured, spatial mind map in under 20 seconds.
           </p>
-          <HomeHeroGenerator />
-          <div style={{ marginTop: '12px' }}>
+          <div className="hero-cta">
+            <Link href="/register" className="btn btn-primary btn-lg">Generate Mind Map Free</Link>
             <a href="#how" className="link small">See how it works &darr;</a>
           </div>
+          <span className="muted small">Free: 3 mind maps/week · No credit card required</span>
         </div>
         <div className="hero-demo">
           <Visual data={SAMPLE} format="whiteboard" />
@@ -273,7 +273,7 @@ export default function YouTubeToMindMapPage() {
             <div className="step-num vv-hand">3</div>
             <div>
               <h3>AI draws your mind map</h3>
-              <p>High-speed AI maps the relationship between concepts and builds your visual chart.</p>
+              <p>Gemini AI maps the relationship between concepts and builds your visual chart.</p>
             </div>
           </div>
           <div className="step-detailed">

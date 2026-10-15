@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Visual from '@/components/Visual';
-import HomeHeroGenerator from '@/components/HomeHeroGenerator';
 import { SAMPLE } from '@/lib/sample';
 
 const SITE_URL = 'https://www.vidvisual.xyz';
@@ -116,7 +115,7 @@ const howToJsonLd = {
       '@type': 'HowToStep',
       position: 3,
       name: 'AI Extraction & Synthesis',
-      text: 'High-speed AI processes the transcript, strips conversational fluff and sponsor reads, and organizes core concepts in ~20 seconds.',
+      text: 'Google Gemini 2.5 Flash processes the transcript, strips conversational fluff and sponsor reads, and organizes core concepts in ~20 seconds.',
     },
     {
       '@type': 'HowToStep',
@@ -167,10 +166,11 @@ export default function YouTubeVideoSummarizerPage() {
             vidvisual reads the full YouTube video transcript for you and distills the main key points into
             scannable whiteboard concept cards and interconnected mind maps in under 20 seconds.
           </p>
-          <HomeHeroGenerator />
-          <div style={{ marginTop: '12px' }}>
+          <div className="hero-cta">
+            <Link href="/register" className="btn btn-primary btn-lg">Summarize a video free</Link>
             <a href="#how-it-works" className="link small">See how it works &darr;</a>
           </div>
+          <span className="muted small">100% Free · 3 summaries every week · No credit card required</span>
         </div>
         <div className="hero-demo">
           <Visual data={SAMPLE} format="whiteboard" />
@@ -295,7 +295,7 @@ export default function YouTubeVideoSummarizerPage() {
             <span className="step-num">02</span>
             <h3>AI Extracts Core Ideas</h3>
             <p>
-              Our high-speed AI engine scans the full transcript, filters out sponsor ads and conversational fluff, and groups related concepts.
+              Our Gemini 2.5 Flash engine scans the full transcript, filters out sponsor ads and conversational fluff, and groups related concepts.
             </p>
           </div>
           <div className="card">

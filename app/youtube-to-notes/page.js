@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Visual from '@/components/Visual';
-import HomeHeroGenerator from '@/components/HomeHeroGenerator';
 import { SAMPLE } from '@/lib/sample';
 
 const SITE_URL = 'https://www.vidvisual.xyz';
@@ -165,10 +164,11 @@ export default function YouTubeToNotesPage() {
             Skip typing notes by hand. vidvisual automatically turns recorded lectures, podcasts,
             and tutorials into structured concept cards, visual diagrams, and bulleted takeaways you can study from.
           </p>
-          <HomeHeroGenerator />
-          <div style={{ marginTop: '12px' }}>
+          <div className="hero-cta">
+            <Link href="/register" className="btn btn-primary btn-lg">Generate Study Notes Free</Link>
             <a href="#how" className="link small">See how it works &darr;</a>
           </div>
+          <span className="muted small">3 free summaries/week · No card required</span>
         </div>
         <div className="hero-demo">
           <Visual data={SAMPLE} format="infographic" theme="ocean" />

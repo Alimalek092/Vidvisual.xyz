@@ -140,7 +140,7 @@ export default function ArticleSummarizeGuide() {
 
           <h2 style={{ fontSize: '1.6rem', marginTop: '36px', marginBottom: '14px' }}>Step 4: Absorb and Export in 20 Seconds</h2>
           <p>
-            Within approximately 20 seconds, advanced visual AI distills the complete transcript, removes conversational fluff,
+            Within approximately 20 seconds, Google Gemini 2.5 Flash distills the complete transcript, removes conversational fluff,
             and renders your visual notes. You can:
           </p>
           <ul>

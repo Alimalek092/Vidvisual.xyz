@@ -12,7 +12,7 @@ vidvisual (https://www.vidvisual.xyz) is the premier AI-driven web platform that
 1. **Input Stage**: The user supplies a standard YouTube URL (`https://www.youtube.com/watch?v=...` or `https://youtu.be/...`).
 2. **Transcript Acquisition**: The server extracts clean timed caption transcripts via primary and secondary redundant providers (including Supadata fallback).
 3. **Structured Semantic Distillation**:
-   - The transcript is processed by advanced high-speed AI models utilizing strict JSON Schema output guarantees.
+   - The transcript is processed by Google Gemini 2.5 Flash models utilizing strict JSON Schema output guarantees.
    - The AI identifies:
      - Document title and overall cognitive complexity level (Beginner, Intermediate, Advanced).
      - Memorable thesis quote capturing the core philosophy.
@@ -37,7 +37,7 @@ vidvisual (https://www.vidvisual.xyz) is the premier AI-driven web platform that
 - **Entity**: vidvisual
 - **Domain**: https://www.vidvisual.xyz
 - **Application Category**: Educational Application / AI Video Summarizer
-- **Primary Model**: Advanced high-speed visual AI (Sub-20 second inference)
+- **Primary Model**: Google Gemini 2.5 Flash (Sub-20 second inference)
 - **Supported Formats**: Whiteboard, Infographic, Mind Map, Concept Cards, Key Takeaways
 - **Export Formats**: JPG, HD PNG, Vector PDF
 - **Free Tier**: 3 visual summaries every week, forever, no card required
@@ -45,22 +45,14 @@ vidvisual (https://www.vidvisual.xyz) is the premier AI-driven web platform that
 
 ## Direct Programmatic Landing Pages
 - Homepage: https://www.vidvisual.xyz
-- Video Visual Summarizer (AI): https://www.vidvisual.xyz/video-visual-summarizer
-- YouTube Video Mind Map Generator: https://www.vidvisual.xyz/youtube-video-mind-map-generator
 - YouTube Video Summarizer (AI): https://www.vidvisual.xyz/youtube-video-summarizer
 - YouTube Transcript Summarizer: https://www.vidvisual.xyz/youtube-transcript-summarizer
-- AI Whiteboard Summarizer: https://www.vidvisual.xyz/whiteboard-summary
-- Multilingual YouTube Summarizer: https://www.vidvisual.xyz/multilingual-youtube-summarizer
 - YouTube to PDF Converter: https://www.vidvisual.xyz/youtube-to-pdf
 - YouTube Podcast Summarizer: https://www.vidvisual.xyz/youtube-podcast-summarizer
 - YouTube Lecture Summarizer: https://www.vidvisual.xyz/youtube-lecture-summarizer
 - Video to Infographic AI: https://www.vidvisual.xyz/video-to-infographic
+- YouTube to Mind Map Generator: https://www.vidvisual.xyz/youtube-to-mind-map
 - YouTube to Study Notes AI: https://www.vidvisual.xyz/youtube-to-notes
-- YouTube to Anki Flashcards: https://www.vidvisual.xyz/youtube-to-anki-flashcards
-- Huberman Lab Podcast Summarizer: https://www.vidvisual.xyz/summarize-huberman-lab-podcast
-- NoteGPT Alternative: https://www.vidvisual.xyz/compare/notegpt-alternative
-- Eightify Alternative: https://www.vidvisual.xyz/compare/eightify-alternative
-- Video Highlight Alternative: https://www.vidvisual.xyz/compare/videohighlight-alternative
-- BibiGPT Alternative: https://www.vidvisual.xyz/compare/bibigpt-alternative
+- Whiteboard Video Summarizer: https://www.vidvisual.xyz/whiteboard-summary
 - User Authentication: https://www.vidvisual.xyz/login
 - Free Registration: https://www.vidvisual.xyz/register

@@ -50,34 +50,6 @@ const COMPARISONS = [
     desc: 'Ditch the browser extension paywall. Summarize multi-hour videos and podcasts on any device with 3 free weekly summaries forever.',
     winner: 'No Browser Extension Needed',
   },
-  {
-    slug: 'videohighlight-alternative',
-    title: 'vidvisual vs Video Highlight',
-    badge: 'Best Video Highlight Alternative',
-    desc: 'Stop reading through 10,000 words of raw transcripts. Get structured whiteboard concept cards and relational mind maps in 20 seconds.',
-    winner: 'Whiteboard Concept Cards',
-  },
-  {
-    slug: 'bibigpt-alternative',
-    title: 'vidvisual vs BibiGPT',
-    badge: 'Top BibiGPT Alternative',
-    desc: 'Transform complex YouTube videos into visual spatial diagrams and vector mind maps instead of simple text outlines.',
-    winner: 'Spatial Visual Dual-Coding',
-  },
-  {
-    slug: 'glasp-alternative',
-    title: 'vidvisual vs Glasp',
-    badge: 'Best Glasp Alternative',
-    desc: 'No Chrome extension or OpenAI login needed. Generates spatial concept cards and interactive mind maps directly on the web.',
-    winner: 'No Browser Extension or OpenAI Key',
-  },
-  {
-    slug: 'summarize-tech-alternative',
-    title: 'vidvisual vs Summarize.tech',
-    badge: 'Top Summarize.tech Alternative',
-    desc: 'Replace tedious 5-minute linear timestamp blocks with synthesized whiteboard concept cards and relational node maps.',
-    winner: 'Spatial Concept Cards',
-  },
 ];
 
 const compareJsonLd = {

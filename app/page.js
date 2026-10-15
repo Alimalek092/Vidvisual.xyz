@@ -6,35 +6,10 @@ import HomeHeroGenerator from '@/components/HomeHeroGenerator';
 import { SAMPLE } from '@/lib/sample';
 import { PLANS } from '@/lib/plans';
 
-export const metadata = {
-  title: 'vidvisual - Free AI YouTube Video Summarizer into Visual Whiteboard Notes',
-  description:
-    'Turn long YouTube videos, podcasts, and university lectures into structured visual whiteboard concept cards and relational mind maps in 20 seconds. 100% free with no login required.',
-  alternates: {
-    canonical: 'https://www.vidvisual.xyz',
-  },
-  openGraph: {
-    title: 'vidvisual - Free AI YouTube Video Summarizer into Visual Whiteboard Notes',
-    description:
-      'Turn long YouTube videos, podcasts, and university lectures into structured visual whiteboard concept cards and relational mind maps in 20 seconds. 100% free with no login required.',
-    url: 'https://www.vidvisual.xyz',
-    siteName: 'vidvisual',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'vidvisual - Visual YouTube Summarizer' }],
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'vidvisual - Free AI YouTube Video Summarizer into Visual Whiteboard Notes',
-    description:
-      'Turn long YouTube videos, podcasts, and university lectures into structured visual whiteboard concept cards and relational mind maps in 20 seconds.',
-    images: ['/og-image.png'],
-  },
-};
-
 const FAQ = [
   ['Can vidvisual turn a 4-hour podcast or lecture into visual notes?', 'Yes! vidvisual is specifically built to compress long-form content. Paste any 2-to-4-hour podcast (like Lex Fridman, Huberman Lab, or Joe Rogan) or multi-hour university lecture, and our AI extracts the core arguments, concept relationships, and actionable takeaways into a visual whiteboard summary in around 20 seconds.'],
   ['How much watch time do I save using vidvisual?', 'Users save up to 90% to 95% of their watch time. Instead of spending 180 to 240 minutes scrubbing through video timelines, you can understand the complete conceptual hierarchy and main key points in under 60 seconds.'],
-  ['How does vidvisual extract the main key points from long YouTube videos?', 'vidvisual parses the full transcript using advanced visual AI with structured semantic schema distillation. It automatically filters out conversational filler, sponsor segments, and banter, extracting essential definitions and arranging ideas into spatial whiteboard concept cards and an interconnected mind map.'],
+  ['How does vidvisual extract the main key points from long YouTube videos?', 'vidvisual parses the full transcript using Google Gemini 2.5 Flash with structured semantic schema distillation. It automatically filters out conversational filler, sponsor segments, and banter, extracting essential definitions and arranging ideas into spatial whiteboard concept cards and an interconnected mind map.'],
   ['How is vidvisual different from ChatGPT, NoteGPT, or Eightify?', 'Standard AI summarizers and Chrome extensions only spit out dense walls of linear bullet points that cause cognitive fatigue. vidvisual is built on cognitive Dual-Coding Theory: it converts linear speech into spatial whiteboard concept cards and relational mind maps, which are scientifically proven to boost memory retention by 65% compared to plain text skims.'],
   ['How does vidvisual prevent AI hallucinations and inaccurate summaries?', 'Unlike generic chatbots that summarize from memory or web approximations, vidvisual grounds all extraction strictly in the actual timestamped transcript of the video. It extracts direct quotes, verifies factual thesis statements against the captions, and organizes only verified claims into concept cards.'],
   ['Is vidvisual free to use?', 'Yes. The Free plan gives you 3 visual summaries every week with no credit card required. Paid plans unlock 50 to 200 summaries per week, HD downloads without a watermark, and vector PDF exports.'],
@@ -62,7 +37,7 @@ const AUDIENCES = [
 
 const STEPS = [
   { num: '1', title: 'Paste any YouTube link', text: 'Copy the URL of any YouTube video, podcast, lecture, or tutorial that has captions turned on.' },
-  { num: '2', title: 'AI distills the key points in 20s', text: 'vidvisual uses advanced visual AI to parse the transcript, extract essential concepts, and calculate topical relationships.' },
+  { num: '2', title: 'AI distills the key points in 20s', text: 'vidvisual uses Gemini 2.5 Flash to parse the transcript, extract essential concepts, and calculate topical relationships.' },
   { num: '3', title: 'Explore your visual whiteboard', text: 'Review spatial concept cards, navigate the interactive mind map, and absorb the high-yield takeaway list.' },
   { num: '4', title: 'Export, save, and remember', text: 'Your visual is stored in your private cloud library. Download as high-res JPG, HD PNG, or vector PDF with one click.' },
 ];
@@ -122,13 +97,6 @@ const appJsonLd = {
     price: String(p.price),
     priceCurrency: 'USD',
   })),
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    ratingCount: '1520',
-    bestRating: '5',
-    worstRating: '1',
-  },
 };
 
 export default function Home() {
@@ -154,11 +122,11 @@ export default function Home() {
       <header className="hero">
         <div className="hero-copy">
           <div className="hero-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '999px', background: 'rgba(43, 89, 224, 0.1)', color: 'var(--blue)', fontWeight: 700, fontSize: '0.85rem', marginBottom: '14px', border: '1.5px solid var(--blue)', flexWrap: 'wrap' }}>
-            <span>🔥 3 Free Summaries/Week · Zero Login Required</span>
-            <span>·</span>
-            <span>⚡ Under 20s</span>
+            <span>⚡ Under 20 Seconds</span>
             <span>·</span>
             <span>🌐 16+ Languages</span>
+            <span>·</span>
+            <span>100% Free Forever</span>
           </div>
           <h1 className="vv-hand">Turn Any YouTube Video into Visual Notes in Under 20s — in Any Language</h1>
           <p>
@@ -186,8 +154,8 @@ export default function Home() {
           <span className="stat-pill-label">Knowledge retention with spatial visual cards</span>
         </div>
         <div className="stat-pill">
-          <span className="stat-pill-num">Zero Login</span>
-          <span className="stat-pill-label">3 free summaries every week · No card needed</span>
+          <span className="stat-pill-num">100% Free</span>
+          <span className="stat-pill-label">3 summaries every week, zero card needed</span>
         </div>
       </section>
 
@@ -544,12 +512,12 @@ export default function Home() {
           <p className="small muted" style={{ marginBottom: '14px', fontWeight: 600 }}>Explore Core AI Summarization Tools on vidvisual:</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: 'center' }}>
             <Link href="/youtube-video-summarizer" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>YouTube Video Summarizer &rarr;</Link>
-            <Link href="/video-visual-summarizer" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Video Visual Summarizer &rarr;</Link>
-            <Link href="/youtube-video-mind-map-generator" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>YouTube Mind Map Generator &rarr;</Link>
             <Link href="/youtube-transcript-summarizer" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Transcript Summarizer &rarr;</Link>
-            <Link href="/whiteboard-summary" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>AI Whiteboard Summarizer &rarr;</Link>
-            <Link href="/multilingual-youtube-summarizer" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Multilingual Summarizer &rarr;</Link>
-            <Link href="/youtube-to-notes" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Study Notes AI &rarr;</Link>
+            <Link href="/youtube-to-pdf" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>YouTube to PDF &rarr;</Link>
+            <Link href="/youtube-to-mind-map" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>YouTube to Mind Map &rarr;</Link>
+            <Link href="/youtube-podcast-summarizer" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Podcast Summarizer &rarr;</Link>
+            <Link href="/youtube-lecture-summarizer" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Lecture Summarizer &rarr;</Link>
+            <Link href="/whiteboard-summary" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Whiteboard Summarizer &rarr;</Link>
             <Link href="/video-to-infographic" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Video to Infographic &rarr;</Link>
             <Link href="/compare/notegpt-alternative" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>NoteGPT Alternative &rarr;</Link>
             <Link href="/compare/eightify-alternative" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Eightify Alternative &rarr;</Link>
@@ -569,21 +537,19 @@ export default function Home() {
         <div className="footer-pillar-col">
           <h4>AI Summarization Hubs</h4>
           <ul>
-            <li><Link href="/youtube-video-summarizer">YouTube Video Summarizer</Link></li>
-            <li><Link href="/video-visual-summarizer">Video Visual Summarizer</Link></li>
+            <li><Link href="/youtube-video-summarizer">YouTube Video Summarizer (AI)</Link></li>
             <li><Link href="/youtube-transcript-summarizer">YouTube Transcript Summarizer</Link></li>
-            <li><Link href="/multilingual-youtube-summarizer">Multilingual YouTube Summarizer</Link></li>
             <li><Link href="/youtube-to-pdf">YouTube to PDF Converter</Link></li>
+            <li><Link href="/youtube-to-anki-flashcards">YouTube to Anki Flashcards</Link></li>
           </ul>
         </div>
         <div className="footer-pillar-col">
           <h4>Visual Learning Tools</h4>
           <ul>
-            <li><Link href="/youtube-video-mind-map-generator">YouTube Video Mind Map Generator</Link></li>
-            <li><Link href="/whiteboard-summary">AI Whiteboard Summarizer</Link></li>
+            <li><Link href="/youtube-to-mind-map">YouTube to Mind Map Generator</Link></li>
+            <li><Link href="/whiteboard-summary">Whiteboard Video Summarizer</Link></li>
             <li><Link href="/video-to-infographic">Video to Infographic AI</Link></li>
             <li><Link href="/youtube-to-notes">YouTube to Study Notes</Link></li>
-            <li><Link href="/youtube-to-anki-flashcards">YouTube to Anki Flashcards</Link></li>
           </ul>
         </div>
         <div className="footer-pillar-col">
