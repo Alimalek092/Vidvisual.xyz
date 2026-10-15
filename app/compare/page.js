@@ -50,6 +50,20 @@ const COMPARISONS = [
     desc: 'Ditch the browser extension paywall. Summarize multi-hour videos and podcasts on any device with 3 free weekly summaries forever.',
     winner: 'No Browser Extension Needed',
   },
+  {
+    slug: 'videohighlight-alternative',
+    title: 'vidvisual vs Video Highlight',
+    badge: 'Best Video Highlight Alternative',
+    desc: 'Stop reading through 10,000 words of raw transcripts. Get structured whiteboard concept cards and relational mind maps in 20 seconds.',
+    winner: 'Whiteboard Concept Cards',
+  },
+  {
+    slug: 'bibigpt-alternative',
+    title: 'vidvisual vs BibiGPT',
+    badge: 'Top BibiGPT Alternative',
+    desc: 'Transform complex YouTube videos into visual spatial diagrams and vector mind maps instead of simple text outlines.',
+    winner: 'Spatial Visual Dual-Coding',
+  },
 ];
 
 const compareJsonLd = {

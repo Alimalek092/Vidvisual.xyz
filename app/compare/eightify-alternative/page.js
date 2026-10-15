@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Visual from '@/components/Visual';
+import HomeHeroGenerator from '@/components/HomeHeroGenerator';
 import { SAMPLE } from '@/lib/sample';
 
 const SITE_URL = 'https://www.vidvisual.xyz';
@@ -122,11 +123,10 @@ export default function EightifyAlternativePage() {
             Tired of paying for Chrome extension paywalls that only spit out bullet points?
             <strong> vidvisual</strong> works on all devices and transforms long YouTube videos into whiteboard concept cards and visual mind maps in 20 seconds.
           </p>
-          <div className="hero-cta">
-            <Link href="/register" className="btn btn-primary btn-lg">Start Free (3/week forever)</Link>
+          <HomeHeroGenerator />
+          <div style={{ marginTop: '12px' }}>
             <a href="#matrix" className="link small">See feature comparison &darr;</a>
           </div>
-          <span className="muted small">100% Free · Works on Desktop, iPad &amp; Mobile · No credit card</span>
         </div>
         <div className="hero-demo">
           <Visual data={SAMPLE} format="whiteboard" />

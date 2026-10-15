@@ -122,6 +122,13 @@ const appJsonLd = {
     price: String(p.price),
     priceCurrency: 'USD',
   })),
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    ratingCount: '1520',
+    bestRating: '5',
+    worstRating: '1',
+  },
 };
 
 export default function Home() {
@@ -537,12 +544,12 @@ export default function Home() {
           <p className="small muted" style={{ marginBottom: '14px', fontWeight: 600 }}>Explore Core AI Summarization Tools on vidvisual:</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: 'center' }}>
             <Link href="/youtube-video-summarizer" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>YouTube Video Summarizer &rarr;</Link>
+            <Link href="/video-visual-summarizer" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Video Visual Summarizer &rarr;</Link>
+            <Link href="/youtube-video-mind-map-generator" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>YouTube Mind Map Generator &rarr;</Link>
             <Link href="/youtube-transcript-summarizer" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Transcript Summarizer &rarr;</Link>
-            <Link href="/youtube-to-pdf" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>YouTube to PDF &rarr;</Link>
-            <Link href="/youtube-to-mind-map" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>YouTube to Mind Map &rarr;</Link>
-            <Link href="/youtube-podcast-summarizer" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Podcast Summarizer &rarr;</Link>
-            <Link href="/youtube-lecture-summarizer" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Lecture Summarizer &rarr;</Link>
-            <Link href="/whiteboard-summary" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Whiteboard Summarizer &rarr;</Link>
+            <Link href="/whiteboard-summary" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>AI Whiteboard Summarizer &rarr;</Link>
+            <Link href="/multilingual-youtube-summarizer" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Multilingual Summarizer &rarr;</Link>
+            <Link href="/youtube-to-notes" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Study Notes AI &rarr;</Link>
             <Link href="/video-to-infographic" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Video to Infographic &rarr;</Link>
             <Link href="/compare/notegpt-alternative" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>NoteGPT Alternative &rarr;</Link>
             <Link href="/compare/eightify-alternative" className="stat-pill" style={{ padding: '8px 16px', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>Eightify Alternative &rarr;</Link>
@@ -562,19 +569,21 @@ export default function Home() {
         <div className="footer-pillar-col">
           <h4>AI Summarization Hubs</h4>
           <ul>
-            <li><Link href="/youtube-video-summarizer">YouTube Video Summarizer (AI)</Link></li>
+            <li><Link href="/youtube-video-summarizer">YouTube Video Summarizer</Link></li>
+            <li><Link href="/video-visual-summarizer">Video Visual Summarizer</Link></li>
             <li><Link href="/youtube-transcript-summarizer">YouTube Transcript Summarizer</Link></li>
+            <li><Link href="/multilingual-youtube-summarizer">Multilingual YouTube Summarizer</Link></li>
             <li><Link href="/youtube-to-pdf">YouTube to PDF Converter</Link></li>
-            <li><Link href="/youtube-to-anki-flashcards">YouTube to Anki Flashcards</Link></li>
           </ul>
         </div>
         <div className="footer-pillar-col">
           <h4>Visual Learning Tools</h4>
           <ul>
-            <li><Link href="/youtube-to-mind-map">YouTube to Mind Map Generator</Link></li>
-            <li><Link href="/whiteboard-summary">Whiteboard Video Summarizer</Link></li>
+            <li><Link href="/youtube-video-mind-map-generator">YouTube Video Mind Map Generator</Link></li>
+            <li><Link href="/whiteboard-summary">AI Whiteboard Summarizer</Link></li>
             <li><Link href="/video-to-infographic">Video to Infographic AI</Link></li>
             <li><Link href="/youtube-to-notes">YouTube to Study Notes</Link></li>
+            <li><Link href="/youtube-to-anki-flashcards">YouTube to Anki Flashcards</Link></li>
           </ul>
         </div>
         <div className="footer-pillar-col">

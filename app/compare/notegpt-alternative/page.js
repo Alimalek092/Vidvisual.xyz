@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Visual from '@/components/Visual';
+import HomeHeroGenerator from '@/components/HomeHeroGenerator';
 import { SAMPLE } from '@/lib/sample';
 
 const SITE_URL = 'https://www.vidvisual.xyz';
@@ -122,11 +123,10 @@ export default function NoteGPTAlternativePage() {
             Replacing a 2-hour video with a 2,000-word wall of plain text doesn't save time—it just creates reading fatigue.
             <strong> vidvisual</strong> turns YouTube videos into spatial whiteboard cards and interactive mind maps in under 20 seconds.
           </p>
-          <div className="hero-cta">
-            <Link href="/register" className="btn btn-primary btn-lg">Try vidvisual free</Link>
+          <HomeHeroGenerator />
+          <div style={{ marginTop: '12px' }}>
             <a href="#matrix" className="link small">See feature comparison &darr;</a>
           </div>
-          <span className="muted small">100% Free · 3 summaries every week · No credit card required</span>
         </div>
         <div className="hero-demo">
           <Visual data={SAMPLE} format="whiteboard" />
