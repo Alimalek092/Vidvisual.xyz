@@ -538,6 +538,10 @@ export default function Home() {
           <h4>AI Summarization Hubs</h4>
           <ul>
             <li><Link href="/youtube-video-summarizer">YouTube Video Summarizer (AI)</Link></li>
+            <li><Link href="/free-youtube-summarizer-no-login">Free YouTube Summarizer (No Login)</Link></li>
+            <li><Link href="/free-ai-video-summarizer">Free AI Video Summarizer</Link></li>
+            <li><Link href="/video-visual-summarizer">Video Visual Summarizer</Link></li>
+            <li><Link href="/multilingual-youtube-summarizer">Multilingual YouTube Summarizer</Link></li>
             <li><Link href="/youtube-transcript-summarizer">YouTube Transcript Summarizer</Link></li>
             <li><Link href="/youtube-to-pdf">YouTube to PDF Converter</Link></li>
             <li><Link href="/youtube-to-anki-flashcards">YouTube to Anki Flashcards</Link></li>
@@ -546,7 +550,8 @@ export default function Home() {
         <div className="footer-pillar-col">
           <h4>Visual Learning Tools</h4>
           <ul>
-            <li><Link href="/youtube-to-mind-map">YouTube to Mind Map Generator</Link></li>
+            <li><Link href="/youtube-video-mind-map-generator">YouTube Mind Map Generator</Link></li>
+            <li><Link href="/youtube-to-mind-map">YouTube to Mind Map</Link></li>
             <li><Link href="/whiteboard-summary">Whiteboard Video Summarizer</Link></li>
             <li><Link href="/video-to-infographic">Video to Infographic AI</Link></li>
             <li><Link href="/youtube-to-notes">YouTube to Study Notes</Link></li>
@@ -558,6 +563,10 @@ export default function Home() {
             <li><Link href="/compare">All Competitor Comparisons</Link></li>
             <li><Link href="/compare/notegpt-alternative">NoteGPT Alternative (Visual)</Link></li>
             <li><Link href="/compare/eightify-alternative">Eightify Alternative (Free Web)</Link></li>
+            <li><Link href="/compare/bibigpt-alternative">BibiGPT Alternative</Link></li>
+            <li><Link href="/compare/glasp-alternative">Glasp Alternative</Link></li>
+            <li><Link href="/compare/summarize-tech-alternative">Summarize.tech Alternative</Link></li>
+            <li><Link href="/compare/videohighlight-alternative">Video Highlight Alternative</Link></li>
             <li><Link href="/summarize-huberman-lab-podcast">Huberman Lab Summarizer</Link></li>
           </ul>
         </div>
