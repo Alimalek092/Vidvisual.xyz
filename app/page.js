@@ -154,11 +154,11 @@ export default function Home() {
       <header className="hero">
         <div className="hero-copy">
           <div className="hero-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '999px', background: 'rgba(43, 89, 224, 0.1)', color: 'var(--blue)', fontWeight: 700, fontSize: '0.85rem', marginBottom: '14px', border: '1.5px solid var(--blue)', flexWrap: 'wrap' }}>
-            <span>⚡ Under 20 Seconds</span>
+            <span>🔥 3 Free Summaries/Week · Zero Login Required</span>
+            <span>·</span>
+            <span>⚡ Under 20s</span>
             <span>·</span>
             <span>🌐 16+ Languages</span>
-            <span>·</span>
-            <span>100% Free Forever</span>
           </div>
           <h1 className="vv-hand">Turn Any YouTube Video into Visual Notes in Under 20s — in Any Language</h1>
           <p>
@@ -186,8 +186,8 @@ export default function Home() {
           <span className="stat-pill-label">Knowledge retention with spatial visual cards</span>
         </div>
         <div className="stat-pill">
-          <span className="stat-pill-num">100% Free</span>
-          <span className="stat-pill-label">3 summaries every week, zero card needed</span>
+          <span className="stat-pill-num">Zero Login</span>
+          <span className="stat-pill-label">3 free summaries every week · No card needed</span>
         </div>
       </section>
 

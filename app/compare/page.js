@@ -64,6 +64,20 @@ const COMPARISONS = [
     desc: 'Transform complex YouTube videos into visual spatial diagrams and vector mind maps instead of simple text outlines.',
     winner: 'Spatial Visual Dual-Coding',
   },
+  {
+    slug: 'glasp-alternative',
+    title: 'vidvisual vs Glasp',
+    badge: 'Best Glasp Alternative',
+    desc: 'No Chrome extension or OpenAI login needed. Generates spatial concept cards and interactive mind maps directly on the web.',
+    winner: 'No Browser Extension or OpenAI Key',
+  },
+  {
+    slug: 'summarize-tech-alternative',
+    title: 'vidvisual vs Summarize.tech',
+    badge: 'Top Summarize.tech Alternative',
+    desc: 'Replace tedious 5-minute linear timestamp blocks with synthesized whiteboard concept cards and relational node maps.',
+    winner: 'Spatial Concept Cards',
+  },
 ];
 
 const compareJsonLd = {
