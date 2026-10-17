@@ -59,9 +59,8 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
-# Sitemaps and LLM context files
+# Sitemaps
 Sitemap: https://www.vidvisual.xyz/sitemap.xml
-Sitemap: https://www.vidvisual.xyz/sitemap_index.xml
 # LLMs knowledge standard
 # https://www.vidvisual.xyz/llms.txt
 # https://www.vidvisual.xyz/llms-full.txt
