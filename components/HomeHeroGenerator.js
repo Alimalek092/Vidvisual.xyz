@@ -266,12 +266,6 @@ export default function HomeHeroGenerator() {
           </button>
         </form>
 
-        {/* Live Step Tracker when busy */}
-        {busy ? (
-          <div style={{ marginTop: '12px', padding: '10px 14px', background: 'var(--board)', borderRadius: '10px', border: '1px solid var(--border)', textAlign: 'center', fontSize: '0.88rem', color: 'var(--blue)', fontWeight: 600 }}>
-            {stepText}
-          </div>
-        ) : null}
 
         {/* Error message */}
         {error ? (
