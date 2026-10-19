@@ -206,6 +206,18 @@ export default function SummaryPage({ params }) {
           >
             {plan.pdf ? (busy === 'pdf' ? 'Preparing…' : 'Download PDF') : 'PDF · Unlimited 🔒'}
           </button>
+          <button
+            className="btn"
+            onClick={() => {
+              const text = `Just turned "${summary.title}" into visual whiteboard notes in 20s with @vidvisual! 🧠⚡\n\nTurn any YouTube video into visual mind maps:`;
+              const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent('https://www.vidvisual.xyz')}`;
+              window.open(url, '_blank', 'noopener,noreferrer');
+            }}
+            title="Share this visual note on X (Twitter)"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+          >
+            <span>𝕏 Share</span>
+          </button>
           <span className="spacer" />
           {plan.themes ? (
             <label className="theme">
