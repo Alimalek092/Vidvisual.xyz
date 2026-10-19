@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Visual from '@/components/Visual';
+import HomeHeroGenerator from '@/components/HomeHeroGenerator';
 import { SAMPLE } from '@/lib/sample';
 
 const SITE_URL = 'https://www.vidvisual.xyz';
@@ -165,11 +166,10 @@ export default function YouTubePodcastSummarizerPage() {
             cuts through the conversational noise, and extracts the core hypotheses, actionable advice, and
             conceptual connections into an understandable whiteboard visual you will actually remember.
           </p>
-          <div className="hero-cta">
-            <Link href="/register" className="btn btn-primary btn-lg">Summarize a podcast free</Link>
+          <HomeHeroGenerator />
+          <div style={{ marginTop: '12px' }}>
             <a href="#comparison" className="link small">See time savings &darr;</a>
           </div>
-          <span className="muted small">Free: 3 podcast summaries every week · No credit card required</span>
         </div>
         <div className="hero-demo">
           <Visual data={SAMPLE} format="whiteboard" />

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import HomeHeroGenerator from '@/components/HomeHeroGenerator';
 
 const SITE_URL = 'https://www.vidvisual.xyz';
 
@@ -123,6 +124,9 @@ export default function CompareHubPage() {
             Not all video summarizers are created equal. Discover why students, researchers, and professionals choose
             <strong> vidvisual</strong> over traditional plain-text tools.
           </p>
+          <div style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'left' }}>
+            <HomeHeroGenerator />
+          </div>
         </div>
       </header>
 

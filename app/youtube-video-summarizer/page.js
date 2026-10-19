@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Visual from '@/components/Visual';
+import HomeHeroGenerator from '@/components/HomeHeroGenerator';
 import { SAMPLE } from '@/lib/sample';
 
 const SITE_URL = 'https://www.vidvisual.xyz';
@@ -166,11 +167,10 @@ export default function YouTubeVideoSummarizerPage() {
             vidvisual reads the full YouTube video transcript for you and distills the main key points into
             scannable whiteboard concept cards and interconnected mind maps in under 20 seconds.
           </p>
-          <div className="hero-cta">
-            <Link href="/register" className="btn btn-primary btn-lg">Summarize a video free</Link>
+          <HomeHeroGenerator />
+          <div style={{ marginTop: '12px' }}>
             <a href="#how-it-works" className="link small">See how it works &darr;</a>
           </div>
-          <span className="muted small">100% Free · 3 summaries every week · No credit card required</span>
         </div>
         <div className="hero-demo">
           <Visual data={SAMPLE} format="whiteboard" />

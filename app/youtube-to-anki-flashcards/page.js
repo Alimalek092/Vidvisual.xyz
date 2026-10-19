@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Visual from '@/components/Visual';
+import HomeHeroGenerator from '@/components/HomeHeroGenerator';
 import { SAMPLE } from '@/lib/sample';
 
 const SITE_URL = 'https://www.vidvisual.xyz';
@@ -115,11 +116,10 @@ export default function YouTubeToAnkiPage() {
             Stop re-watching 2-hour college lectures before exams.
             <strong> vidvisual</strong> extracts high-yield facts, core definitions, and conceptual hierarchies into scannable flashcard cards and mind maps in 20 seconds.
           </p>
-          <div className="hero-cta">
-            <Link href="/register" className="btn btn-primary btn-lg">Generate Study Cards Free</Link>
+          <HomeHeroGenerator />
+          <div style={{ marginTop: '12px' }}>
             <a href="#how-it-works" className="link small">See how it works &darr;</a>
           </div>
-          <span className="muted small">100% Free · 3 summaries every week · Perfect for Anki &amp; GoodNotes</span>
         </div>
         <div className="hero-demo">
           <Visual data={SAMPLE} format="whiteboard" />

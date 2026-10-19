@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Visual from '@/components/Visual';
+import HomeHeroGenerator from '@/components/HomeHeroGenerator';
 import { SAMPLE } from '@/lib/sample';
 
 const SITE_URL = 'https://www.vidvisual.xyz';
@@ -157,11 +158,10 @@ export default function WhiteboardSummaryPage() {
             Experience the clarity of a physical whiteboard session without doing the drawing yourself.
             vidvisual turns complex video lectures, podcasts, and talks into structured concept cards and visual mind maps in 20 seconds.
           </p>
-          <div className="hero-cta">
-            <Link href="/register" className="btn btn-primary btn-lg">Create Whiteboard Free</Link>
+          <HomeHeroGenerator />
+          <div style={{ marginTop: '12px' }}>
             <a href="#how" className="link small">See how it works &darr;</a>
           </div>
-          <span className="muted small">Free: 3 whiteboard summaries/week · No card required</span>
         </div>
         <div className="hero-demo">
           <Visual data={SAMPLE} format="whiteboard" theme="marker" />

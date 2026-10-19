@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import HomeHeroGenerator from '@/components/HomeHeroGenerator';
 
 const SITE_URL = 'https://www.vidvisual.xyz';
 
@@ -185,12 +186,12 @@ export default function ArticleBestSummarizers() {
             </table>
           </div>
 
-          <div style={{ margin: '40px 0', padding: '24px', borderRadius: '12px', background: 'rgba(43, 89, 224, 0.08)', border: '1px solid rgba(43, 89, 224, 0.25)' }}>
-            <h3 style={{ marginTop: 0, marginBottom: '8px', fontSize: '1.2rem' }}>Experience the difference with visual summaries</h3>
+          <div style={{ margin: '40px 0', padding: '24px', borderRadius: '16px', background: 'rgba(43, 89, 224, 0.08)', border: '1.5px solid rgba(43, 89, 224, 0.25)' }}>
+            <h3 style={{ marginTop: 0, marginBottom: '8px', fontSize: '1.25rem' }}>Experience the difference with visual summaries</h3>
             <p style={{ marginBottom: '16px', fontSize: '0.95rem' }}>
-              Paste any long YouTube lecture or podcast and see how much easier it is to learn visually.
+              Paste any long YouTube lecture or podcast and see how much easier it is to learn visually. 100% Free, no login required.
             </p>
-            <Link href="/register" className="btn btn-primary btn-sm">Start Summarizing Free &rarr;</Link>
+            <HomeHeroGenerator />
           </div>
         </div>
       </article>

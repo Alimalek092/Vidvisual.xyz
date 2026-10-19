@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Visual from '@/components/Visual';
+import HomeHeroGenerator from '@/components/HomeHeroGenerator';
 import { SAMPLE } from '@/lib/sample';
 
 const SITE_URL = 'https://www.vidvisual.xyz';
@@ -163,11 +164,10 @@ export default function YouTubeToPdfPage() {
             Turn long YouTube videos, university lectures, and podcast tutorials into clean, presentation-ready
             PDF study notes. Complete with structured whiteboard concept cards, connected mind maps, and actionable takeaways.
           </p>
-          <div className="hero-cta">
-            <Link href="/register" className="btn btn-primary btn-lg">Convert video to PDF free</Link>
+          <HomeHeroGenerator />
+          <div style={{ marginTop: '12px' }}>
             <a href="#pdf-features" className="link small">See PDF features &darr;</a>
           </div>
-          <span className="muted small">100% Free · 3 summaries every week · No credit card required</span>
         </div>
         <div className="hero-demo">
           <Visual data={SAMPLE} format="whiteboard" />

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Visual from '@/components/Visual';
+import HomeHeroGenerator from '@/components/HomeHeroGenerator';
 import { SAMPLE } from '@/lib/sample';
 
 const SITE_URL = 'https://www.vidvisual.xyz';
@@ -163,11 +164,10 @@ export default function VideoToInfographicPage() {
             vidvisual extracts the core concepts, visual node maps, and key takeaway bullets so you can
             review an entire video in 30 seconds or share it directly with your team.
           </p>
-          <div className="hero-cta">
-            <Link href="/register" className="btn btn-primary btn-lg">Generate Infographic Free</Link>
+          <HomeHeroGenerator />
+          <div style={{ marginTop: '12px' }}>
             <a href="#how" className="link small">See how it works &darr;</a>
           </div>
-          <span className="muted small">Free: 3 infographics/week · No credit card required</span>
         </div>
         <div className="hero-demo">
           <Visual data={SAMPLE} format="infographic" theme="ocean" />

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import HomeHeroGenerator from '@/components/HomeHeroGenerator';
 
 const SITE_URL = 'https://www.vidvisual.xyz';
 
@@ -149,12 +150,12 @@ export default function ArticleSummarizeGuide() {
             <li>Switch between custom color palettes (Marker, Ocean Blue, Forest Green, Sunset, Slate Dark).</li>
           </ul>
 
-          <div style={{ margin: '40px 0', padding: '24px', borderRadius: '12px', background: 'rgba(43, 89, 224, 0.08)', border: '1px solid rgba(43, 89, 224, 0.25)' }}>
-            <h3 style={{ marginTop: 0, marginBottom: '8px', fontSize: '1.2rem' }}>Ready to try it on your longest "Watch Later" video?</h3>
+          <div style={{ margin: '40px 0', padding: '24px', borderRadius: '16px', background: 'rgba(43, 89, 224, 0.08)', border: '1.5px solid rgba(43, 89, 224, 0.25)' }}>
+            <h3 style={{ marginTop: 0, marginBottom: '8px', fontSize: '1.25rem' }}>Ready to try it on your longest "Watch Later" video?</h3>
             <p style={{ marginBottom: '16px', fontSize: '0.95rem' }}>
-              vidvisual is 100% free with 3 visual summaries every week and zero credit card required.
+              Paste any YouTube video or podcast URL below. Free, no login required, under 20s turnaround.
             </p>
-            <Link href="/register" className="btn btn-primary btn-sm">Try vidvisual Free &rarr;</Link>
+            <HomeHeroGenerator />
           </div>
         </div>
       </article>

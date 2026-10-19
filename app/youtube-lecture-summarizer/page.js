@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Visual from '@/components/Visual';
+import HomeHeroGenerator from '@/components/HomeHeroGenerator';
 import { SAMPLE } from '@/lib/sample';
 
 const SITE_URL = 'https://www.vidvisual.xyz';
@@ -164,11 +165,10 @@ export default function YouTubeLectureSummarizerPage() {
             vidvisual automatically extracts key definitions, core academic concepts, and logical relationships,
             rendering them into exam-ready whiteboard notes and mind maps you can revise from in 60 seconds.
           </p>
-          <div className="hero-cta">
-            <Link href="/register" className="btn btn-primary btn-lg">Summarize a lecture free</Link>
+          <HomeHeroGenerator />
+          <div style={{ marginTop: '12px' }}>
             <a href="#benefits" className="link small">Explore academic features &darr;</a>
           </div>
-          <span className="muted small">Free: 3 lecture summaries/week · No credit card required</span>
         </div>
         <div className="hero-demo">
           <Visual data={SAMPLE} format="whiteboard" />

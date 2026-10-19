@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import HomeHeroGenerator from '@/components/HomeHeroGenerator';
 
 const SITE_URL = 'https://www.vidvisual.xyz';
 
@@ -135,12 +136,12 @@ export default function ArticleLectureStudyNotes() {
             highlight key points with an Apple Pencil or stylus, and add your professor's specific exam hints alongside the AI-extracted definitions.
           </p>
 
-          <div style={{ margin: '40px 0', padding: '24px', borderRadius: '12px', background: 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.25)' }}>
-            <h3 style={{ marginTop: 0, marginBottom: '8px', fontSize: '1.2rem' }}>Pass your exams with visual notes</h3>
+          <div style={{ margin: '40px 0', padding: '24px', borderRadius: '16px', background: 'rgba(16, 185, 129, 0.08)', border: '1.5px solid rgba(16, 185, 129, 0.25)' }}>
+            <h3 style={{ marginTop: 0, marginBottom: '8px', fontSize: '1.25rem' }}>Pass your exams with visual notes</h3>
             <p style={{ marginBottom: '16px', fontSize: '0.95rem' }}>
-              Free forever for students: 3 lecture summaries every week, zero card needed.
+              Paste any university lecture URL below. Free, no login required, under 20s turnaround.
             </p>
-            <Link href="/youtube-lecture-summarizer" className="btn btn-primary btn-sm">Try Lecture Summarizer Free &rarr;</Link>
+            <HomeHeroGenerator />
           </div>
         </div>
       </article>
