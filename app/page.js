@@ -130,7 +130,7 @@ export default function Home() {
           </div>
           <h1 className="vv-hand">Turn Any YouTube Video into Visual Notes in Under 20s — in Any Language</h1>
           <p>
-            Paste any long YouTube video, podcast, or university lecture. <strong>vidvisual</strong> instantly extracts the core ideas into scannable whiteboard concept cards and visual mind maps in under 20 seconds — translated into any of 16+ languages you choose. Skip the fluff, save 90% of watch time, and remember 65% more.
+            Stop wasting hours on long videos. Get instant visual whiteboard cards & mind maps in 20 seconds — and save 90% of watch time.
           </p>
           <HomeHeroGenerator />
         </div>
