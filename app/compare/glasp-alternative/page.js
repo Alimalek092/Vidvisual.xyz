@@ -125,10 +125,7 @@ export default function GlaspAlternativePage() {
             <span>No Browser Extension Required</span>
           </div>
           <h1 className="vv-hand">The Best Glasp Alternative for Visual Learners</h1>
-          <p>
-            Ditch browser extension hassles and OpenAI login pop-ups.
-            <strong> vidvisual</strong> works in any browser, turning long YouTube videos and podcasts into spatial whiteboard concept cards and visual mind maps in 20 seconds.
-          </p>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.45', color: 'var(--ink-soft)', margin: '0 0 18px', maxWidth: '520px' }}>No Chrome extension required and no personal OpenAI key needed. Works instantly in any browser.</p>
           <HomeHeroGenerator />
           <div style={{ marginTop: '12px' }}>
             <a href="#matrix" className="link small">See feature comparison &darr;</a>

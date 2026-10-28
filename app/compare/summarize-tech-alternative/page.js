@@ -123,10 +123,7 @@ export default function SummarizeTechAlternativePage() {
             <span>Visual Concept Cards</span>
           </div>
           <h1 className="vv-hand">The Best Summarize.tech Alternative for Visual Learners</h1>
-          <p>
-            Skip reading through endless 5-minute timestamp blocks.
-            <strong> vidvisual</strong> turns multi-hour YouTube videos and podcasts into spatial whiteboard concept cards and interconnected mind maps in under 20 seconds.
-          </p>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.45', color: 'var(--ink-soft)', margin: '0 0 18px', maxWidth: '520px' }}>Replace disjointed 5-minute timestamp snippets with a unified conceptual whiteboard model in 20 seconds.</p>
           <HomeHeroGenerator />
           <div style={{ marginTop: '12px' }}>
             <a href="#matrix" className="link small">See feature comparison &darr;</a>

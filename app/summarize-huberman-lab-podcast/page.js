@@ -112,10 +112,7 @@ export default function HubermanLabSummarizerPage() {
             <span>Actionable Protocols</span>
           </div>
           <h1 className="vv-hand">Summarize 3-Hour Science Podcasts into Actionable Protocols in 20 Seconds</h1>
-          <p>
-            Love Huberman Lab and Lex Fridman but don't have 3.5 hours every week?
-            <strong> vidvisual</strong> filters out filler and organizes biological mechanisms into scannable whiteboard cards and mind maps.
-          </p>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.45', color: 'var(--ink-soft)', margin: '0 0 18px', maxWidth: '520px' }}>Extract science-backed protocols, exact timings, and biological mechanisms from 3-hour episodes in 20 seconds.</p>
           <HomeHeroGenerator />
           <div style={{ marginTop: '12px' }}>
             <a href="#how-it-works" className="link small">See how it works &darr;</a>

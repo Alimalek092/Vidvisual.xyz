@@ -161,11 +161,7 @@ export default function YouTubePodcastSummarizerPage() {
             <span>20s Compression</span>
           </div>
           <h1 className="vv-hand">Turn Long Podcasts into Beautiful Visual Notes in 20 Seconds</h1>
-          <p>
-            Stop wasting entire afternoons scrubbing through 3-hour podcasts. vidvisual reads the transcript,
-            cuts through the conversational noise, and extracts the core hypotheses, actionable advice, and
-            conceptual connections into an understandable whiteboard visual you will actually remember.
-          </p>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.45', color: 'var(--ink-soft)', margin: '0 0 18px', maxWidth: '520px' }}>Absorb 3-hour podcast deep dives in under 60 seconds — skip the conversational banter and get the core thesis.</p>
           <HomeHeroGenerator />
           <div style={{ marginTop: '12px' }}>
             <a href="#comparison" className="link small">See time savings &darr;</a>

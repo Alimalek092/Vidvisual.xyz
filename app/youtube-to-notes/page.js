@@ -161,10 +161,7 @@ export default function YouTubeToNotesPage() {
             <span>20s Study Notes</span>
           </div>
           <h1 className="vv-hand">Convert YouTube Videos into High-Yield Study Notes in 20 Seconds</h1>
-          <p>
-            Skip typing notes by hand. vidvisual automatically turns recorded lectures, podcasts,
-            and tutorials into structured concept cards, visual diagrams, and bulleted takeaways you can study from.
-          </p>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.45', color: 'var(--ink-soft)', margin: '0 0 18px', maxWidth: '520px' }}>Never pause a video to type notes again. Get structured revision sheets &amp; takeaway bullets automatically.</p>
           <HomeHeroGenerator />
           <div style={{ marginTop: '12px' }}>
             <a href="#how" className="link small">See how it works &darr;</a>

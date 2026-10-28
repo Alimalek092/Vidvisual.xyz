@@ -126,10 +126,7 @@ export default function VideoHighlightAlternativePage() {
             <span>Visual Concept Cards</span>
           </div>
           <h1 className="vv-hand">The Best Video Highlight Alternative for Visual Learners</h1>
-          <p>
-            Stop reading through 10,000 words of video transcripts.
-            <strong> vidvisual</strong> condenses YouTube videos, lectures, and podcasts into scannable whiteboard concept cards and interconnected mind maps in under 20 seconds.
-          </p>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.45', color: 'var(--ink-soft)', margin: '0 0 18px', maxWidth: '520px' }}>Avoid transcript reading fatigue. Get scannable visual concept cards and vector mind maps instead.</p>
           <HomeHeroGenerator />
           <div style={{ marginTop: '12px' }}>
             <a href="#matrix" className="link small">See feature comparison &darr;</a>

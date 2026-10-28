@@ -162,11 +162,7 @@ export default function YouTubeVideoSummarizerPage() {
             <span>Visual Concept Cards</span>
           </div>
           <h1 className="vv-hand">The AI YouTube Video Summarizer Built for Visual Learners</h1>
-          <p>
-            Stop sitting through hours of filler, sponsor segments, and rambling tangents.
-            vidvisual reads the full YouTube video transcript for you and distills the main key points into
-            scannable whiteboard concept cards and interconnected mind maps in under 20 seconds.
-          </p>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.45', color: 'var(--ink-soft)', margin: '0 0 18px', maxWidth: '520px' }}>Cut through hours of filler &amp; sponsor banter. Turn any video into scannable whiteboard cards in 20 seconds.</p>
           <HomeHeroGenerator />
           <div style={{ marginTop: '12px' }}>
             <a href="#how-it-works" className="link small">See how it works &darr;</a>

@@ -177,10 +177,7 @@ export default function YouTubeVideoMindMapGeneratorPage() {
             <span>Spatial Knowledge Nodes</span>
           </div>
           <h1 className="vv-hand">AI YouTube Video Mind Map Generator — Convert Videos to Mind Maps in 20s</h1>
-          <p>
-            Turn lengthy video lectures, podcasts, and tutorials into clear, interconnected visual mind maps.
-            <strong> vidvisual</strong> extracts core arguments and creates spatial topic nodes in under 20 seconds — 100% free with no login required.
-          </p>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.45', color: 'var(--ink-soft)', margin: '0 0 18px', maxWidth: '520px' }}>Transform sprawling video lectures into interconnected, color-coded node graphs in 20 seconds.</p>
           <HomeHeroGenerator />
           <div style={{ marginTop: '12px' }}>
             <a href="#how-it-works" className="link small">See how it works &darr;</a>

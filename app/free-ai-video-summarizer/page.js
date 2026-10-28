@@ -172,10 +172,7 @@ export default function FreeAiVideoSummarizerPage() {
             <span>3 Free Summaries Every Week</span>
           </div>
           <h1 className="vv-hand">Free AI Video Summarizer — Visual Notes in Under 20s</h1>
-          <p>
-            Stop sitting through multi-hour videos for the three ideas that matter.
-            <strong> vidvisual</strong> is the free AI video summarizer that turns YouTube videos and podcasts into scannable whiteboard concept cards and visual mind maps.
-          </p>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.45', color: 'var(--ink-soft)', margin: '0 0 18px', maxWidth: '520px' }}>Find the 3 ideas that matter in a 2-hour video without paying for expensive AI subscriptions.</p>
           <HomeHeroGenerator />
           <div style={{ marginTop: '12px' }}>
             <a href="#how-it-works" className="link small">See how it works &darr;</a>

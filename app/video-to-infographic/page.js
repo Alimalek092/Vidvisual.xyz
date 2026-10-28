@@ -159,11 +159,7 @@ export default function VideoToInfographicPage() {
             <span>One-Page Summaries</span>
           </div>
           <h1 className="vv-hand">Convert YouTube Videos into Aesthetic Infographics in 20 Seconds</h1>
-          <p>
-            Turn long, messy video transcripts into a single, beautifully structured infographic one-pager.
-            vidvisual extracts the core concepts, visual node maps, and key takeaway bullets so you can
-            review an entire video in 30 seconds or share it directly with your team.
-          </p>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.45', color: 'var(--ink-soft)', margin: '0 0 18px', maxWidth: '520px' }}>Compress 2-hour video transcripts into a single, presentation-ready visual infographic one-pager.</p>
           <HomeHeroGenerator />
           <div style={{ marginTop: '12px' }}>
             <a href="#how" className="link small">See how it works &darr;</a>

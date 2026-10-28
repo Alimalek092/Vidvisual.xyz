@@ -112,10 +112,7 @@ export default function YouTubeToAnkiPage() {
             <span>Fast Exam Prep</span>
           </div>
           <h1 className="vv-hand">Turn YouTube Lectures into Active-Recall Study Cards &amp; Mind Maps</h1>
-          <p>
-            Stop re-watching 2-hour college lectures before exams.
-            <strong> vidvisual</strong> extracts high-yield facts, core definitions, and conceptual hierarchies into scannable flashcard cards and mind maps in 20 seconds.
-          </p>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.45', color: 'var(--ink-soft)', margin: '0 0 18px', maxWidth: '520px' }}>Stop re-watching lectures before exams. Extract high-yield exam facts &amp; active recall cards in 20 seconds.</p>
           <HomeHeroGenerator />
           <div style={{ marginTop: '12px' }}>
             <a href="#how-it-works" className="link small">See how it works &darr;</a>

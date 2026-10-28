@@ -165,10 +165,7 @@ export default function YouTubeToMindMapPage() {
             <span>Instant Concept Nodes</span>
           </div>
           <h1 className="vv-hand">Turn Any YouTube Video into a Visual Mind Map</h1>
-          <p>
-            Stop drowning in walls of text. vidvisual uses AI to read video transcripts, identify core concepts,
-            and connect them into a beautifully structured, spatial mind map in under 20 seconds.
-          </p>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.45', color: 'var(--ink-soft)', margin: '0 0 18px', maxWidth: '520px' }}>See how complex ideas connect at a single glance with an interactive spatial mind map.</p>
           <HomeHeroGenerator />
           <div style={{ marginTop: '12px' }}>
             <a href="#how" className="link small">See how it works &darr;</a>

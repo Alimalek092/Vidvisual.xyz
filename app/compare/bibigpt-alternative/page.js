@@ -125,10 +125,7 @@ export default function BibiGptAlternativePage() {
             <span>Visual Concept Cards</span>
           </div>
           <h1 className="vv-hand">The Best BibiGPT Alternative for Visual Learners</h1>
-          <p>
-            Why settle for plain text bullet points?
-            <strong> vidvisual</strong> translates long YouTube videos and podcasts into interactive whiteboard concept cards and interconnected mind maps in under 20 seconds.
-          </p>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.45', color: 'var(--ink-soft)', margin: '0 0 18px', maxWidth: '520px' }}>Get clean vector mind maps and spatial whiteboard cards without complicated token setups.</p>
           <HomeHeroGenerator />
           <div style={{ marginTop: '12px' }}>
             <a href="#matrix" className="link small">See feature comparison &darr;</a>

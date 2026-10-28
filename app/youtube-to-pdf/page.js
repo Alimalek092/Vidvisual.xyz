@@ -160,10 +160,7 @@ export default function YouTubeToPdfPage() {
             <span>Tablet &amp; Print Ready</span>
           </div>
           <h1 className="vv-hand">Convert YouTube Videos to PDF Notes in 20 Seconds</h1>
-          <p>
-            Turn long YouTube videos, university lectures, and podcast tutorials into clean, presentation-ready
-            PDF study notes. Complete with structured whiteboard concept cards, connected mind maps, and actionable takeaways.
-          </p>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.45', color: 'var(--ink-soft)', margin: '0 0 18px', maxWidth: '520px' }}>Turn any lecture or tutorial into printable, tablet-ready PDF study sheets in 20 seconds.</p>
           <HomeHeroGenerator />
           <div style={{ marginTop: '12px' }}>
             <a href="#pdf-features" className="link small">See PDF features &darr;</a>

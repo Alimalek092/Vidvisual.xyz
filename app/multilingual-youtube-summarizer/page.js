@@ -175,10 +175,7 @@ export default function MultilingualYouTubeSummarizerPage() {
             <span>Instant Video Translation</span>
           </div>
           <h1 className="vv-hand">Summarize &amp; Translate Any YouTube Video into Visual Notes in 20s</h1>
-          <p>
-            Learn from international creators without language barriers.
-            <strong> vidvisual</strong> translates and distills YouTube videos in Spanish, Hindi, French, German, Japanese, and 16+ languages into scannable whiteboard concept cards and visual mind maps.
-          </p>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.45', color: 'var(--ink-soft)', margin: '0 0 18px', maxWidth: '520px' }}>Understand foreign-language lectures &amp; tutorials instantly in your native tongue — across 16+ languages.</p>
           <HomeHeroGenerator />
           <div style={{ marginTop: '12px' }}>
             <a href="#supported-languages" className="link small">Explore supported languages &darr;</a>

@@ -154,10 +154,7 @@ export default function WhiteboardSummaryPage() {
             <span>Spatial Knowledge Maps</span>
           </div>
           <h1 className="vv-hand">AI Whiteboard Visual Summaries from Any YouTube Video in 20 Seconds</h1>
-          <p>
-            Experience the clarity of a physical whiteboard session without doing the drawing yourself.
-            vidvisual turns complex video lectures, podcasts, and talks into structured concept cards and visual mind maps in 20 seconds.
-          </p>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.45', color: 'var(--ink-soft)', margin: '0 0 18px', maxWidth: '520px' }}>Get the clarity of a hand-drawn whiteboard explanation session — without taking any notes yourself.</p>
           <HomeHeroGenerator />
           <div style={{ marginTop: '12px' }}>
             <a href="#how" className="link small">See how it works &darr;</a>

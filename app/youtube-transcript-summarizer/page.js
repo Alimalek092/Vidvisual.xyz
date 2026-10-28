@@ -160,11 +160,7 @@ export default function YouTubeTranscriptSummarizerPage() {
             <span>No Manual Copy-Pasting</span>
           </div>
           <h1 className="vv-hand">Summarize YouTube Transcripts into Visual Notes in 20 Seconds</h1>
-          <p>
-            Don't waste time scrolling through 30,000 words of messy unformatted captions.
-            vidvisual reads the full transcript, strips out sponsor breaks and repetitive tangents, and delivers
-            scannable whiteboard concept cards and an interconnected mind map in under 20 seconds.
-          </p>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.45', color: 'var(--ink-soft)', margin: '0 0 18px', maxWidth: '520px' }}>Skip scrolling through 30,000 words of messy captions. Get structured visual concept cards without reading walls of text.</p>
           <HomeHeroGenerator />
           <div style={{ marginTop: '12px' }}>
             <a href="#how-it-works" className="link small">See how it works &darr;</a>

@@ -160,11 +160,7 @@ export default function YouTubeLectureSummarizerPage() {
             <span>Study Smarter</span>
           </div>
           <h1 className="vv-hand">Convert 2-Hour College Lectures into Visual Study Notes in 20 Seconds</h1>
-          <p>
-            Stop wasting hours frantically pausing recorded college lectures to scribble notes.
-            vidvisual automatically extracts key definitions, core academic concepts, and logical relationships,
-            rendering them into exam-ready whiteboard notes and mind maps you can revise from in 60 seconds.
-          </p>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.45', color: 'var(--ink-soft)', margin: '0 0 18px', maxWidth: '520px' }}>Turn 90-minute university lecture recordings into exam-ready whiteboard sheets you can review in 1 minute.</p>
           <HomeHeroGenerator />
           <div style={{ marginTop: '12px' }}>
             <a href="#benefits" className="link small">Explore academic features &darr;</a>

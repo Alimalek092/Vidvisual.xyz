@@ -119,10 +119,7 @@ export default function NoteGPTAlternativePage() {
             <span>Visual Concept Cards</span>
           </div>
           <h1 className="vv-hand">The Best NoteGPT Alternative for Visual Learners</h1>
-          <p>
-            Replacing a 2-hour video with a 2,000-word wall of plain text doesn't save time—it just creates reading fatigue.
-            <strong> vidvisual</strong> turns YouTube videos into spatial whiteboard cards and interactive mind maps in under 20 seconds.
-          </p>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.45', color: 'var(--ink-soft)', margin: '0 0 18px', maxWidth: '520px' }}>Trade NoteGPT's 2,000-word bullet walls for visual concept cards that your brain can actually remember.</p>
           <HomeHeroGenerator />
           <div style={{ marginTop: '12px' }}>
             <a href="#matrix" className="link small">See feature comparison &darr;</a>

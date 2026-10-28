@@ -176,10 +176,7 @@ export default function FreeYouTubeSummarizerNoLoginPage() {
             <span>3 Summaries Every Week</span>
           </div>
           <h1 className="vv-hand">Free YouTube Summarizer (No Login Required)</h1>
-          <p>
-            No registration, no password, and no credit card.
-            Paste any YouTube video link below and <strong>vidvisual</strong> turns it into structured whiteboard concept cards and an interactive mind map in 20 seconds.
-          </p>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.45', color: 'var(--ink-soft)', margin: '0 0 18px', maxWidth: '520px' }}>Zero signup, zero password, zero extension. Paste any video URL below for immediate visual notes.</p>
           <HomeHeroGenerator />
           <div style={{ marginTop: '12px' }}>
             <a href="#how-it-works" className="link small">See how it works &darr;</a>

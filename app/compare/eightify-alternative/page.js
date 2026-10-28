@@ -119,10 +119,7 @@ export default function EightifyAlternativePage() {
             <span>No Extension Required</span>
           </div>
           <h1 className="vv-hand">The Free Eightify Alternative That Gives You Visual Mind Maps</h1>
-          <p>
-            Tired of paying for Chrome extension paywalls that only spit out bullet points?
-            <strong> vidvisual</strong> works on all devices and transforms long YouTube videos into whiteboard concept cards and visual mind maps in 20 seconds.
-          </p>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.45', color: 'var(--ink-soft)', margin: '0 0 18px', maxWidth: '520px' }}>Ditch Eightify's expensive extension paywalls. Enjoy free visual mind maps on any desktop, tablet, or phone.</p>
           <HomeHeroGenerator />
           <div style={{ marginTop: '12px' }}>
             <a href="#matrix" className="link small">See feature comparison &darr;</a>

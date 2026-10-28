@@ -177,10 +177,7 @@ export default function VideoVisualSummarizerPage() {
             <span>Spatial Knowledge Maps</span>
           </div>
           <h1 className="vv-hand">AI Video Visual Summarizer: Turn Videos into Visual Notes in 20s</h1>
-          <p>
-            Stop drowning in 2,000-word walls of plain text.
-            <strong> vidvisual</strong> is the dedicated video visual summarizer that converts YouTube videos, university lectures, and podcasts into scannable whiteboard concept cards and relational mind maps.
-          </p>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.45', color: 'var(--ink-soft)', margin: '0 0 18px', maxWidth: '520px' }}>Dual-Coding spatial notes proven by cognitive science to boost information retention by 65% vs text.</p>
           <HomeHeroGenerator />
           <div style={{ marginTop: '12px' }}>
             <a href="#how-it-works" className="link small">See how it works &darr;</a>
