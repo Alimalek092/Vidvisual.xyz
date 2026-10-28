@@ -1,6 +1,4 @@
 import './globals.css';
-// World-Class UI Enhancement Layer (instant safety toggle: comment out to revert in 1s)
-import './world-class.css';
 import ThemeToggle from '@/components/ThemeToggle';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';

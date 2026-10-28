@@ -12,7 +12,6 @@ export default function HomeHeroGenerator() {
   const [language, setLanguage] = useState('auto');
   const [busy, setBusy] = useState(false);
   const [stepText, setStepText] = useState('');
-  const [stepIndex, setStepIndex] = useState(0);
   const [error, setError] = useState('');
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
   const [limitData, setLimitData] = useState({ used: 3, limit: 3, resetInfo: null });
@@ -43,16 +42,13 @@ export default function HomeHeroGenerator() {
 
     setError('');
     setBusy(true);
-    setStepIndex(1);
     setStepText('🔍 Reading video transcript & captions…');
 
     const stepTimer1 = setTimeout(() => {
-      setStepIndex(2);
       setStepText('🧠 AI synthesizing core concepts & study notes…');
     }, 4500);
 
     const stepTimer2 = setTimeout(() => {
-      setStepIndex(3);
       setStepText('🎨 Building whiteboard concept cards & mind map…');
     }, 9500);
 
@@ -249,40 +245,6 @@ export default function HomeHeroGenerator() {
               <option value="Russian">🇷🇺 Russian (Русский)</option>
             </select>
           </div>
-
-          {/* Real-time World-Class Animated Progress Suite */}
-          {busy && (
-            <div className="vv-gen-progress-card">
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.88rem', fontWeight: 700 }}>
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--blue)' }}>
-                  <span className="spinner" style={{ width: '15px', height: '15px', border: '2px solid var(--blue)', borderTopColor: 'transparent', borderRadius: '50%', display: 'inline-block', animation: 'spin 0.8s linear infinite' }} />
-                  <span>{stepText}</span>
-                </span>
-                <span style={{ color: 'var(--blue)', fontWeight: 800 }}>
-                  {stepIndex === 1 ? '35%' : stepIndex === 2 ? '70%' : stepIndex === 3 ? '92%' : '100%'}
-                </span>
-              </div>
-              <div className="vv-gen-progress-bar-wrap">
-                <div
-                  className="vv-gen-progress-bar-fill"
-                  style={{
-                    width: stepIndex === 1 ? '35%' : stepIndex === 2 ? '70%' : stepIndex === 3 ? '92%' : '100%',
-                  }}
-                />
-              </div>
-              <div className="vv-gen-steps-row">
-                <span className={`vv-gen-step-item ${stepIndex > 1 ? 'done' : stepIndex === 1 ? 'active' : ''}`}>
-                  {stepIndex > 1 ? '✓' : '1.'} Transcript Captions
-                </span>
-                <span className={`vv-gen-step-item ${stepIndex > 2 ? 'done' : stepIndex === 2 ? 'active' : ''}`}>
-                  {stepIndex > 2 ? '✓' : '2.'} Concept Synthesis
-                </span>
-                <span className={`vv-gen-step-item ${stepIndex >= 3 ? 'active' : ''}`}>
-                  {stepIndex >= 3 ? '⚡' : '3.'} Mind Map & Notes
-                </span>
-              </div>
-            </div>
-          )}
 
           {/* Action Button */}
           <button
