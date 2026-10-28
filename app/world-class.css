@@ -1,0 +1,334 @@
+/* ==========================================================================
+   vidvisual World-Class UI Enhancement Layer
+   Inspired by Linear.app, Vercel, Supabase & Aceternity UI.
+   SAFETY NOTE: This entire UI layer can be disabled in 1 second by toggling
+   the import in `app/layout.js` or checking out `classic-ui-backup`.
+   ========================================================================== */
+
+/* 1. KEYFRAME ANIMATIONS */
+@keyframes borderGlowPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 1px rgba(43, 89, 224, 0.25), 0 12px 36px -8px rgba(43, 89, 224, 0.18), 5px 5px 0 var(--ink);
+  }
+  50% {
+    box-shadow: 0 0 0 2px rgba(43, 89, 224, 0.45), 0 18px 48px -6px rgba(43, 89, 224, 0.28), 5px 5px 0 var(--ink);
+  }
+}
+
+@keyframes btnShimmerSweep {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(250%) rotate(25deg); }
+}
+
+@keyframes progressGradientSlide {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.35); opacity: 0.6; }
+}
+
+@keyframes modalSpringIn {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* 2. ELEVATED HERO GENERATOR BOX (The Crown Jewel) */
+.hero-generator-box {
+  position: relative !important;
+  border-radius: 20px !important;
+  border: 2.5px solid var(--ink) !important;
+  background: var(--paper) !important;
+  box-shadow: 0 16px 40px -12px rgba(15, 23, 42, 0.12), 6px 6px 0 var(--ink) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  overflow: hidden;
+}
+
+html[data-theme='dark'] .hero-generator-box {
+  background: rgba(17, 24, 39, 0.92) !important;
+  backdrop-filter: blur(16px) !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 20px 48px -10px rgba(0, 0, 0, 0.6), 6px 6px 0 #000 !important;
+}
+
+/* Generator Ambient Glow Aura */
+.hero-generator-box::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: 20%;
+  right: 20%;
+  height: 120px;
+  background: radial-gradient(circle, rgba(43, 89, 224, 0.22) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(24px);
+}
+
+html[data-theme='dark'] .hero-generator-box::before {
+  background: radial-gradient(circle, rgba(122, 162, 255, 0.25) 0%, transparent 70%);
+}
+
+.hero-generator-box form {
+  position: relative;
+  z-index: 1;
+}
+
+/* URL Input World-Class Elevation */
+.hero-generator-box input[type="url"] {
+  border-radius: 14px !important;
+  border: 2px solid var(--ink) !important;
+  background: var(--board) !important;
+  font-weight: 500 !important;
+  padding: 15px 18px !important;
+  font-size: 1.02rem !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.04) !important;
+}
+
+.hero-generator-box input[type="url"]:focus {
+  border-color: var(--blue) !important;
+  background: var(--paper) !important;
+  box-shadow: 0 0 0 4px rgba(43, 89, 224, 0.15), inset 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+}
+
+html[data-theme='dark'] .hero-generator-box input[type="url"]:focus {
+  box-shadow: 0 0 0 4px rgba(122, 162, 255, 0.25) !important;
+}
+
+/* Format & Language Selector Polish */
+.hero-generator-box .seg {
+  background: var(--board) !important;
+  border: 2px solid var(--ink) !important;
+  border-radius: 12px !important;
+  padding: 3px !important;
+  display: inline-flex !important;
+  gap: 4px !important;
+}
+
+.hero-generator-box .seg button {
+  border-radius: 9px !important;
+  border: none !important;
+  font-weight: 600 !important;
+  padding: 8px 16px !important;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.hero-generator-box .seg button.on {
+  background: var(--paper) !important;
+  color: var(--blue) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 2px 2px 0 var(--ink) !important;
+}
+
+html[data-theme='dark'] .hero-generator-box .seg button.on {
+  background: #1e293b !important;
+  color: #fff !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 1px 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+.hero-generator-box select {
+  border-radius: 12px !important;
+  border: 2px solid var(--ink) !important;
+  padding: 10px 14px !important;
+  font-weight: 600 !important;
+  cursor: pointer;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.hero-generator-box select:focus {
+  border-color: var(--blue) !important;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(43, 89, 224, 0.15) !important;
+}
+
+/* 3. WORLD-CLASS SHIMMER BUTTONS (Linear / Raycast Style) */
+.btn-primary {
+  position: relative;
+  overflow: hidden !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.01em;
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s ease !important;
+}
+
+/* Subtle Shimmer Sheen sweeping across primary button */
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.28) 50%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+  animation: btnShimmerSweep 5s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px -4px rgba(43, 89, 224, 0.45), 4px 4px 0 var(--ink) !important;
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(1px) !important;
+  box-shadow: 2px 2px 0 var(--ink) !important;
+}
+
+/* 4. REAL-TIME GENERATION PROGRESS SUITE */
+.vv-gen-progress-card {
+  background: var(--paper);
+  border: 2px solid var(--blue);
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin-top: 14px;
+  box-shadow: 0 4px 16px -2px rgba(43, 89, 224, 0.15);
+  animation: modalSpringIn 0.25s ease-out;
+}
+
+.vv-gen-progress-bar-wrap {
+  width: 100%;
+  height: 8px;
+  background: var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 10px 0 8px;
+  position: relative;
+}
+
+.vv-gen-progress-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2b59e0, #7a5af8, #23996b, #2b59e0);
+  background-size: 300% 100%;
+  animation: progressGradientSlide 2.5s ease infinite;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vv-gen-steps-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.vv-gen-step-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
+}
+
+.vv-gen-step-item.active {
+  color: var(--blue);
+}
+
+.vv-gen-step-item.done {
+  color: var(--green);
+}
+
+/* 5. PRICING CARDS REFINEMENT */
+.plan {
+  border-radius: 18px !important;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.plan:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.14), 6px 6px 0 var(--ink) !important;
+}
+
+.plan-starter {
+  border: 2.5px solid #f59e0b !important;
+  box-shadow: 0 8px 24px -4px rgba(245, 158, 11, 0.18), 4px 4px 0 #f59e0b !important;
+}
+
+.plan-starter:hover {
+  box-shadow: 0 16px 36px -6px rgba(245, 158, 11, 0.32), 6px 6px 0 #f59e0b !important;
+}
+
+.plan-hot {
+  border: 2.5px solid var(--blue) !important;
+  box-shadow: 0 12px 28px -6px rgba(43, 89, 224, 0.22), 5px 5px 0 var(--blue) !important;
+}
+
+.plan-hot:hover {
+  box-shadow: 0 20px 42px -6px rgba(43, 89, 224, 0.36), 7px 7px 0 var(--blue) !important;
+}
+
+/* 6. MODALS WORLD-CLASS POLISH */
+.modal-backdrop {
+  backdrop-filter: blur(14px) saturate(160%) !important;
+  background: rgba(10, 15, 30, 0.72) !important;
+}
+
+.modal-content {
+  animation: modalSpringIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  border-radius: 24px !important;
+  border: 2.5px solid var(--ink) !important;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.35), 8px 8px 0 var(--ink) !important;
+}
+
+/* 7. HERO HEADER & BADGE POLISH */
+.hero-pill {
+  animation: floatGentle 4s ease-in-out infinite;
+  box-shadow: 0 4px 12px rgba(43, 89, 224, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(43, 89, 224, 0.22);
+}
+
+/* 8. FEATURE & COMPARE CARDS */
+.info-card {
+  border-radius: 16px !important;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.info-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.08), 4px 4px 0 var(--ink) !important;
+}
+
+/* 9. SMOOTH CUSTOM SCROLLBAR */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--board);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 999px;
+  border: 2px solid var(--board);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-soft);
+}
