@@ -169,6 +169,7 @@ export default function SummaryPage({ params }) {
       </nav>
 
       <SupportModal open={showSupport} onClose={() => setShowSupport(false)} />
+      <UpgradeModal open={showUpgradeModal} onClose={() => setShowUpgradeModal(false)} reason="export" />
 
       <main className="dash">
         {/* Guest Progress Notice */}

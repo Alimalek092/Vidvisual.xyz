@@ -4,12 +4,14 @@ import { getUser } from '@/lib/supabaseAdmin';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://vidvisual.xyz';
 
 const POLAR_PRODUCT_MAP = {
+  starter: 'POLAR_PRODUCT_STARTER',
   pro: 'POLAR_PRODUCT_PRO',
   unlimited: 'POLAR_PRODUCT_UNLIMITED',
   team: 'POLAR_PRODUCT_TEAM',
 };
 
 const POLAR_URL_MAP = {
+  starter: 'POLAR_CHECKOUT_STARTER',
   pro: 'POLAR_CHECKOUT_PRO',
   unlimited: 'POLAR_CHECKOUT_UNLIMITED',
   team: 'POLAR_CHECKOUT_TEAM',
@@ -17,7 +19,6 @@ const POLAR_URL_MAP = {
 
 export async function POST(request) {
   const user = await getUser(request);
-  if (!user) return NextResponse.json({ error: 'Please log in first.' }, { status: 401 });
 
   const { plan } = await request.json().catch(() => ({}));
   if (!plan || !POLAR_PRODUCT_MAP[plan]) {
@@ -29,16 +30,22 @@ export async function POST(request) {
   const directUrl = process.env[POLAR_URL_MAP[plan]];
 
   // 1. Direct Checkout Link (if configured)
+  // Allows both logged-in users and guest visitors to checkout smoothly!
   if (directUrl) {
     const sep = directUrl.includes('?') ? '&' : '?';
-    const finalUrl = `${directUrl}${sep}customer_email=${encodeURIComponent(user.email)}&metadata[user_id]=${encodeURIComponent(user.id)}&metadata[plan]=${encodeURIComponent(plan)}`;
-    return NextResponse.json({ url: finalUrl });
+    if (user) {
+      const finalUrl = `${directUrl}${sep}customer_email=${encodeURIComponent(user.email)}&metadata[user_id]=${encodeURIComponent(user.id)}&metadata[plan]=${encodeURIComponent(plan)}`;
+      return NextResponse.json({ url: finalUrl });
+    } else {
+      const finalUrl = `${directUrl}${sep}metadata[plan]=${encodeURIComponent(plan)}`;
+      return NextResponse.json({ url: finalUrl });
+    }
   }
 
   // 2. Polar API Checkout Session (Standard)
   if (!token) {
     return NextResponse.json(
-      { error: 'Payment system is being initialized. Please contact support.' },
+      { error: 'Payment system is being initialized. Please contact support at vidvisual.xyz@gmail.com.' },
       { status: 503 }
     );
   }
@@ -47,6 +54,14 @@ export async function POST(request) {
     return NextResponse.json(
       { error: `Polar Product ID for ${plan} plan is not configured yet.` },
       { status: 400 }
+    );
+  }
+
+  // If user is not logged in and Polar API is used, require registration or email
+  if (!user) {
+    return NextResponse.json(
+      { error: 'Please log in or create a free account to continue to checkout.' },
+      { status: 401 }
     );
   }
 

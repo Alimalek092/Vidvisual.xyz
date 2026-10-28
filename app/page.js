@@ -387,9 +387,9 @@ export default function Home() {
       <section id="pricing" className="section pricing-section">
         <div style={{ textAlign: 'center', marginBottom: '12px' }}>
           <span className="answer-badge" style={{ marginBottom: '10px' }}>💎 Pricing</span>
-          <h2 className="vv-hand" style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.2rem)', marginBottom: '12px' }}>Start free. Upgrade when you&apos;re hooked.</h2>
+          <h2 className="vv-hand" style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.2rem)', marginBottom: '12px' }}>Start free. Upgrade only when you need more.</h2>
           <p className="section-lead" style={{ maxWidth: '580px', margin: '0 auto 8px', fontSize: '1.1rem' }}>
-            Join thousands of students, creators, and professionals who save hours every week with visual AI summaries. No credit card required to start.
+            Built for students, researchers, and visual learners who want structured notes in 20 seconds. No credit card required to start.
           </p>
           <div className="pricing-trust" style={{ display: 'flex', gap: '24px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '16px', marginBottom: '8px' }}>
             <span className="pricing-trust-item">✅ No credit card required</span>

@@ -12,17 +12,35 @@ export default function Pricing({ current, onSelect, busy, href = '/register' })
           const label = isCurrent
             ? 'Your current plan'
             : id === 'free' ? 'Get started free'
+            : id === 'starter' ? 'Get Starter Pass ($1.99) →'
             : id === 'pro' ? 'Upgrade to Pro →'
             : id === 'unlimited' ? 'Go Unlimited →'
             : 'Get Team →';
+
+          const priceSpan = id === 'free'
+            ? '/forever'
+            : p.isOneTime
+            ? '/one-time'
+            : '/month';
+
           return (
-            <div key={id} className={`plan${p.popular ? ' plan-hot' : ''}${id === 'unlimited' ? ' plan-value' : ''}`}>
+            <div
+              key={id}
+              className={`plan${p.popular ? ' plan-hot' : ''}${id === 'unlimited' ? ' plan-value' : ''}${id === 'starter' ? ' plan-starter' : ''}`}
+              style={id === 'starter' ? { borderColor: '#f59e0b' } : undefined}
+            >
               {p.popular ? <span className="plan-tag">Most popular</span> : null}
               {id === 'unlimited' ? <span className="plan-tag plan-tag-value">Best value</span> : null}
+              {p.badge && !p.popular && id !== 'unlimited' ? (
+                <span className="plan-tag" style={{ background: '#f59e0b', color: '#1e293b' }}>
+                  {p.badge}
+                </span>
+              ) : null}
+
               <h3>{p.name}</h3>
               <p className="plan-price">
                 <strong>${p.price}</strong>
-                <span>{id === 'free' ? '/forever' : '/month'}</span>
+                <span>{priceSpan}</span>
               </p>
               <ul>
                 {p.features.map((f) => (
@@ -31,21 +49,58 @@ export default function Pricing({ current, onSelect, busy, href = '/register' })
               </ul>
               {onSelect ? (
                 <button
-                  className={p.popular ? 'btn btn-primary btn-wide' : 'btn btn-wide'}
+                  className={p.popular ? 'btn btn-primary btn-wide' : id === 'starter' ? 'btn btn-primary btn-wide' : 'btn btn-wide'}
+                  style={id === 'starter' ? { background: '#f59e0b', borderColor: '#d97706', color: '#1e293b' } : undefined}
                   disabled={isCurrent || busy || id === 'free'}
                   onClick={() => onSelect(id)}
                 >
                   {busy === id ? 'Opening checkout…' : label}
                 </button>
               ) : (
-                <Link className={p.popular ? 'btn btn-primary btn-wide' : 'btn btn-wide'} href={href}>{label}</Link>
+                <Link
+                  className={p.popular ? 'btn btn-primary btn-wide' : id === 'starter' ? 'btn btn-primary btn-wide' : 'btn btn-wide'}
+                  style={id === 'starter' ? { background: '#f59e0b', borderColor: '#d97706', color: '#1e293b' } : undefined}
+                  href={`${href}${href.includes('?') ? '&' : '?'}plan=${id}`}
+                >
+                  {label}
+                </Link>
               )}
             </div>
           );
         })}
       </div>
+
+      {/* Honest 7-Day Money-Back Guarantee & Solo Maker Box */}
+      <div
+        className="pricing-guarantee"
+        style={{
+          maxWidth: '680px',
+          margin: '28px auto 0',
+          padding: '18px 22px',
+          background: 'var(--paper)',
+          border: '2px dashed var(--ink)',
+          borderRadius: '16px',
+          textAlign: 'center',
+          boxShadow: '3px 3px 0 var(--ink)',
+        }}
+      >
+        <div style={{ fontWeight: 800, fontSize: '1rem', marginBottom: '6px', color: 'var(--ink)' }}>
+          🛡️ Honest 7-Day Money-Back Guarantee • Direct Founder Support
+        </div>
+        <p style={{ margin: '0 0 8px', fontSize: '0.88rem', color: 'var(--ink-soft)', lineHeight: 1.5 }}>
+          If vidvisual doesn&apos;t meet your standards for studying or research notes, email Ali at{' '}
+          <a href="mailto:vidvisual.xyz@gmail.com" style={{ textDecoration: 'underline', fontWeight: 700, color: 'var(--blue)' }}>
+            vidvisual.xyz@gmail.com
+          </a>{' '}
+          within 7 days for a 100% full refund. No hoops, no questions asked.
+        </p>
+        <div style={{ fontSize: '0.78rem', color: 'var(--ink-soft)', fontWeight: 600 }}>
+          ⚡ Secure checkout via Polar • Instant access • Cancel anytime with 1 click
+        </div>
+      </div>
+
       <p className="pricing-help muted small" style={{ textAlign: 'center', marginTop: '18px' }}>
-        Have questions or facing payment issues? Email us at{' '}
+        Have questions or need assistance? Email us anytime at{' '}
         <a href="mailto:vidvisual.xyz@gmail.com" style={{ textDecoration: 'underline', fontWeight: 600 }}>
           vidvisual.xyz@gmail.com
         </a>

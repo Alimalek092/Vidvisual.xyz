@@ -86,7 +86,23 @@ export async function POST(request) {
         .select('id')
         .ilike('email', cleanEmail)
         .maybeSingle();
-      if (profile) userId = profile.id;
+      if (profile) {
+        userId = profile.id;
+      } else {
+        // Auto-provision user account so guest buyers can log in immediately
+        try {
+          const { data: newAuthUser } = await db.auth.admin.createUser({
+            email: cleanEmail,
+            email_confirm: true,
+          });
+          if (newAuthUser?.user) {
+            userId = newAuthUser.user.id;
+            await db.from('profiles').upsert({ id: userId, email: cleanEmail, plan: 'free' }).catch(() => {});
+          }
+        } catch (provisionErr) {
+          console.warn('[Polar Webhook] Could not auto-provision user:', provisionErr?.message || provisionErr);
+        }
+      }
     }
 
     if (!userId) {
@@ -99,12 +115,13 @@ export async function POST(request) {
     if (plan) {
       plan = String(plan).toLowerCase().trim();
     }
-    if (!plan || !['pro', 'unlimited', 'team'].includes(plan)) {
+    if (!plan || !['starter', 'pro', 'unlimited', 'team'].includes(plan)) {
       const productName = (data.product?.name || data.product?.title || data.name || '').toLowerCase();
-      if (productName.includes('unlimited')) plan = 'unlimited';
+      if (productName.includes('starter') || productName.includes('pack') || productName.includes('cram')) plan = 'starter';
+      else if (productName.includes('unlimited')) plan = 'unlimited';
       else if (productName.includes('team')) plan = 'team';
       else if (productName.includes('pro')) plan = 'pro';
-      else plan = 'pro';
+      else plan = 'starter';
     }
 
     // STRICT PAYMENT VERIFICATION:
