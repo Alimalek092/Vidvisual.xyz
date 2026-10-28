@@ -250,7 +250,7 @@ export default function UpgradeModal({
                 30-Summary Pack
               </h3>
               <div style={{ fontSize: '0.8rem', color: 'var(--ink-soft)', marginBottom: '10px' }}>
-                Use whenever you want. Never expires.
+                Prepaid pack of 30 summaries — counts down as you use them.
               </div>
               <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px', marginBottom: '12px' }}>
                 <span style={{ fontSize: '1.9rem', fontWeight: 900, color: '#d97706', lineHeight: 1 }}>$1.99</span>
@@ -259,7 +259,7 @@ export default function UpgradeModal({
               <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 16px', display: 'grid', gap: '7px', fontSize: '0.85rem' }}>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <span style={{ color: 'var(--green)', fontWeight: 900 }}>✓</span>
-                  <span><strong>30 summaries</strong> (counts down as you use)</span>
+                  <span><strong>30 summaries</strong> (deducts 1 per generation)</span>
                 </li>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <span style={{ color: 'var(--green)', fontWeight: 900 }}>✓</span>
