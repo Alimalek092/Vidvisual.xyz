@@ -12,7 +12,7 @@ export default function Pricing({ current, onSelect, busy, href = '/register' })
           const label = isCurrent
             ? 'Your current plan'
             : id === 'free' ? 'Get started free'
-            : id === 'starter' ? 'Get Starter Pass ($1.99) →'
+            : id === 'starter' ? 'Get 30 Summaries ($1.99) →'
             : id === 'pro' ? 'Upgrade to Pro →'
             : id === 'unlimited' ? 'Go Unlimited →'
             : 'Get Team →';
@@ -70,37 +70,8 @@ export default function Pricing({ current, onSelect, busy, href = '/register' })
         })}
       </div>
 
-      {/* Honest 7-Day Money-Back Guarantee & Solo Maker Box */}
-      <div
-        className="pricing-guarantee"
-        style={{
-          maxWidth: '680px',
-          margin: '28px auto 0',
-          padding: '18px 22px',
-          background: 'var(--paper)',
-          border: '2px dashed var(--ink)',
-          borderRadius: '16px',
-          textAlign: 'center',
-          boxShadow: '3px 3px 0 var(--ink)',
-        }}
-      >
-        <div style={{ fontWeight: 800, fontSize: '1rem', marginBottom: '6px', color: 'var(--ink)' }}>
-          🛡️ Honest 7-Day Money-Back Guarantee • Direct Founder Support
-        </div>
-        <p style={{ margin: '0 0 8px', fontSize: '0.88rem', color: 'var(--ink-soft)', lineHeight: 1.5 }}>
-          If vidvisual doesn&apos;t meet your standards for studying or research notes, email Ali at{' '}
-          <a href="mailto:vidvisual.xyz@gmail.com" style={{ textDecoration: 'underline', fontWeight: 700, color: 'var(--blue)' }}>
-            vidvisual.xyz@gmail.com
-          </a>{' '}
-          within 7 days for a 100% full refund. No hoops, no questions asked.
-        </p>
-        <div style={{ fontSize: '0.78rem', color: 'var(--ink-soft)', fontWeight: 600 }}>
-          ⚡ Secure checkout via Polar • Instant access • Cancel anytime with 1 click
-        </div>
-      </div>
-
-      <p className="pricing-help muted small" style={{ textAlign: 'center', marginTop: '18px' }}>
-        Have questions or need assistance? Email us anytime at{' '}
+      <p className="pricing-help muted small" style={{ textAlign: 'center', marginTop: '24px' }}>
+        ⚡ Secure payment via Polar • Instant delivery • Questions or feedback? Email us anytime at{' '}
         <a href="mailto:vidvisual.xyz@gmail.com" style={{ textDecoration: 'underline', fontWeight: 600 }}>
           vidvisual.xyz@gmail.com
         </a>

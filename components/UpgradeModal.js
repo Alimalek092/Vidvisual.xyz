@@ -228,7 +228,7 @@ export default function UpgradeModal({
 
         {/* 2 Options Grid: $1.99 Starter vs $9/mo Pro */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '14px', marginBottom: '18px' }}>
-          {/* Card 1: $1.99 Starter Pass (One-Time) */}
+          {/* Card 1: $1.99 30-Summary Pack (One-Time) */}
           <div
             style={{
               background: 'var(--board)',
@@ -244,13 +244,13 @@ export default function UpgradeModal({
           >
             <div>
               <div style={{ display: 'inline-block', background: '#f59e0b', color: '#1e293b', fontSize: '0.72rem', fontWeight: 800, padding: '2px 8px', borderRadius: '6px', textTransform: 'uppercase', marginBottom: '6px' }}>
-                ⚡ NO SUBSCRIPTION
+                ⚡ ONE-TIME • 30 SUMMARIES
               </div>
               <h3 style={{ margin: '0 0 4px', fontSize: '1.25rem', color: 'var(--ink)', fontWeight: 800 }}>
-                Starter Pass
+                30-Summary Pack
               </h3>
               <div style={{ fontSize: '0.8rem', color: 'var(--ink-soft)', marginBottom: '10px' }}>
-                Perfect for exam week or quick research
+                Use whenever you want. Never expires.
               </div>
               <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px', marginBottom: '12px' }}>
                 <span style={{ fontSize: '1.9rem', fontWeight: 900, color: '#d97706', lineHeight: 1 }}>$1.99</span>
@@ -259,7 +259,7 @@ export default function UpgradeModal({
               <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 16px', display: 'grid', gap: '7px', fontSize: '0.85rem' }}>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <span style={{ color: 'var(--green)', fontWeight: 900 }}>✓</span>
-                  <span><strong>10 summaries</strong> allowance</span>
+                  <span><strong>30 summaries</strong> (counts down as you use)</span>
                 </li>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <span style={{ color: 'var(--green)', fontWeight: 900 }}>✓</span>
@@ -271,7 +271,7 @@ export default function UpgradeModal({
                 </li>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <span style={{ color: 'var(--green)', fontWeight: 900 }}>✓</span>
-                  <span>Priority AI generation</span>
+                  <span>Works with your 3 free weekly summaries</span>
                 </li>
               </ul>
             </div>
@@ -290,7 +290,7 @@ export default function UpgradeModal({
               disabled={busyPlan === 'starter'}
               onClick={() => handleCheckout('starter')}
             >
-              {busyPlan === 'starter' ? 'Opening checkout…' : '⚡ Get 10-Pass ($1.99)'}
+              {busyPlan === 'starter' ? 'Opening checkout…' : '⚡ Get 30 Summaries ($1.99)'}
             </button>
           </div>
 
@@ -358,27 +358,8 @@ export default function UpgradeModal({
           </div>
         </div>
 
-        {/* 🛡️ Honest Risk Reversal Box */}
-        <div
-          style={{
-            background: 'var(--paper)',
-            border: '1.5px dashed var(--ink)',
-            borderRadius: '12px',
-            padding: '12px 14px',
-            marginBottom: '18px',
-            textAlign: 'center',
-          }}
-        >
-          <div style={{ fontSize: '0.86rem', fontWeight: 800, color: 'var(--ink)', marginBottom: '3px' }}>
-            🛡️ Honest 7-Day Money-Back Guarantee
-          </div>
-          <div style={{ fontSize: '0.8rem', color: 'var(--ink-soft)', lineHeight: 1.45 }}>
-            If vidvisual doesn&apos;t save you real study time, email Ali at{' '}
-            <a href="mailto:vidvisual.xyz@gmail.com" style={{ textDecoration: 'underline', fontWeight: 600, color: 'var(--blue)' }}>
-              vidvisual.xyz@gmail.com
-            </a>{' '}
-            for an immediate 100% full refund. No questions asked.
-          </div>
+        <div style={{ textAlign: 'center', marginBottom: '16px', fontSize: '0.8rem', color: 'var(--ink-soft)' }}>
+          ⚡ Secure payment via Polar • Instant access • Questions or help? Email <a href="mailto:vidvisual.xyz@gmail.com" style={{ textDecoration: 'underline', fontWeight: 600 }}>vidvisual.xyz@gmail.com</a>
         </div>
 
         {/* Monday Recall Email Box */}

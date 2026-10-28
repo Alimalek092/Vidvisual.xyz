@@ -122,7 +122,7 @@ export default function Dashboard() {
       <nav className="nav">
         <Link href="/" className="brand vv-hand"><img src="/logo.png" alt="vidvisual" className="brand-icon" width="32" height="32" /><span>vidvisual</span></Link>
         <div className="nav-links">
-          {me ? <span className="chip">{getPlan(me.plan).name} plan</span> : null}
+          {me ? <span className="chip">{getPlan(me.plan).name}</span> : null}{me?.credits > 0 ? <span className="chip" style={{ background: "#fef3c7", color: "#92400e", borderColor: "#f59e0b", fontWeight: 700, marginLeft: "6px" }}>⚡ {me.credits} credits</span> : null}
           <a href="#plans" className="link">Plans</a>
           <Link href="/" className="link">Landing Page</Link>
           <button className="link" onClick={() => setShowSupport(true)}>Support</button>

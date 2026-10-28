@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import crypto from 'crypto';
-import { admin } from '@/lib/supabaseAdmin';
+import { admin, addUserCredits } from '@/lib/supabaseAdmin';
 import { sendAdminPurchaseNotification } from '@/lib/email';
 
 export async function POST(request) {
@@ -151,15 +151,19 @@ export async function POST(request) {
       ['canceled', 'revoked', 'unpaid', 'past_due'].includes(status);
 
     if (isActivation && status !== 'canceled' && status !== 'unpaid' && status !== 'incomplete') {
-      const { error: updateError } = await db
-        .from('profiles')
-        .update({ plan })
-        .eq('id', userId);
-      if (updateError) {
-        console.error('[Polar Webhook] Supabase update error:', updateError);
-        return NextResponse.json({ error: 'Database update failed' }, { status: 500 });
+      if (plan === 'starter') {
+        await addUserCredits(userId, 30);
+      } else {
+        const { error: updateError } = await db
+          .from('profiles')
+          .update({ plan })
+          .eq('id', userId);
+        if (updateError) {
+          console.error('[Polar Webhook] Supabase update error:', updateError);
+          return NextResponse.json({ error: 'Database update failed' }, { status: 500 });
+        }
       }
-      console.log(`[Polar Webhook] VERIFIED PAYMENT: Upgraded user ${userId} to ${plan} (event: ${eventType}, status: ${status})`);
+      console.log(`[Polar Webhook] VERIFIED PAYMENT: Processed ${plan} for user ${userId} (event: ${eventType}, status: ${status})`);
 
       // Resolve customer details for email alert
       let buyerEmail = customerEmail;

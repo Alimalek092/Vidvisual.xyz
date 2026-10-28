@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { admin, getUser, getProfile } from '@/lib/supabaseAdmin';
+import { admin, getUser, getProfile, getUserCredits, decrementUserCredits } from '@/lib/supabaseAdmin';
 import {
   getDeviceFingerprint,
   getOrCreateGuestUser,
@@ -48,6 +48,8 @@ export async function POST(request) {
 
   let plan;
   let used;
+  let credits = 0;
+  let consumesCredit = false;
 
   if (isGuest) {
     plan = { id: 'free', name: 'Free Guest', weekly: 3, priority: false };
@@ -55,46 +57,55 @@ export async function POST(request) {
   } else {
     const profile = await getProfile(user);
     plan = getPlan(profile.plan);
+    credits = getUserCredits(user, profile);
     used = await weeklyUsageSinceMonday(user.id);
   }
 
-  // Strict enforcement: 3 free summaries per week (recharges every Monday)
+  // Allowance & Credit Logic:
+  // 1. If within weekly free allowance (used < plan.weekly), let it generate free.
+  // 2. If weekly allowance exhausted:
+  //    - If user has paid credits (credits > 0), use 1 paid credit (counts down 30 -> 29 -> 28)!
+  //    - Else, open upgrade modal.
   if (used >= plan.weekly) {
-    // If logged-in user hits limit, dispatch personalized upgrade email from vidvisual.xyz@gmail.com
-    if (!isGuest && plan.id === 'free' && user.email) {
-      (async () => {
-        try {
-          const db = admin();
-          const profile = await getProfile(user);
-          const lastSent = profile.last_upgrade_email_at ? new Date(profile.last_upgrade_email_at).getTime() : 0;
-          const oneWeek = 6 * 24 * 60 * 60 * 1000;
-          if (Date.now() - lastSent > oneWeek) {
-            await db.from('profiles').update({ last_upgrade_email_at: new Date().toISOString() }).eq('id', user.id);
-            await sendUserLimitUpgradeEmail({
-              recipientEmail: user.email,
-              recipientName: user.user_metadata?.full_name || user.user_metadata?.name || '',
-              plan: plan.id,
-              weeklyLimit: plan.weekly,
-              proWeeklyLimit: 50,
-            });
+    if (credits > 0) {
+      consumesCredit = true;
+    } else {
+      // If logged-in user hits limit, dispatch personalized upgrade email from vidvisual.xyz@gmail.com
+      if (!isGuest && (plan.id === 'free' || plan.id === 'starter') && user.email) {
+        (async () => {
+          try {
+            const db = admin();
+            const profile = await getProfile(user);
+            const lastSent = profile.last_upgrade_email_at ? new Date(profile.last_upgrade_email_at).getTime() : 0;
+            const oneWeek = 6 * 24 * 60 * 60 * 1000;
+            if (Date.now() - lastSent > oneWeek) {
+              await db.from('profiles').update({ last_upgrade_email_at: new Date().toISOString() }).eq('id', user.id);
+              await sendUserLimitUpgradeEmail({
+                recipientEmail: user.email,
+                recipientName: user.user_metadata?.full_name || user.user_metadata?.name || '',
+                plan: plan.id,
+                weeklyLimit: plan.weekly,
+                proWeeklyLimit: 50,
+              });
+            }
+          } catch (emailErr) {
+            console.error('[Generate Route] Error sending limit upgrade email:', emailErr?.message || emailErr);
           }
-        } catch (emailErr) {
-          console.error('[Generate Route] Error sending limit upgrade email:', emailErr?.message || emailErr);
-        }
-      })();
-    }
+        })();
+      }
 
-    return NextResponse.json(
-      {
-        error: `You just reached your limit of this week (${used}/${plan.weekly}). Free allowances recharge on every Monday of every week at 00:00 UTC (${resetInfo.countdownText} remaining). If you want to generate more summaries, buy pro version now.`,
-        code: 'LIMIT',
-        used,
-        limit: plan.weekly,
-        resetInfo,
-        isGuest,
-      },
-      { status: 402 }
-    );
+      return NextResponse.json(
+        {
+          error: `You reached your weekly allowance (${used}/${plan.weekly}). Free allowances recharge on Monday at 00:00 UTC (${resetInfo.countdownText} remaining). Grab a 30-Summary Pack ($1.99 one-time) or Pro to keep generating!`,
+          code: 'LIMIT',
+          used,
+          limit: plan.weekly,
+          resetInfo,
+          isGuest,
+        },
+        { status: 402 }
+      );
+    }
   }
 
   let transcript;
@@ -206,12 +217,18 @@ export async function POST(request) {
     row = retry.data;
   }
 
+  let remainingCredits = credits;
+  if (consumesCredit && !isGuest) {
+    remainingCredits = await decrementUserCredits(user.id);
+  }
+
   const response = NextResponse.json({
     id: row.id,
     isGuest,
     guestId: activeGuestId,
     used: used + 1,
     limit: plan.weekly,
+    credits: remainingCredits,
     resetInfo,
   });
 

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getUser, getProfile, weeklyUsage } from '@/lib/supabaseAdmin';
+import { getUser, getProfile, weeklyUsage, getUserCredits } from '@/lib/supabaseAdmin';
 import { getPlan } from '@/lib/plans';
 
 export async function GET(request) {
@@ -8,5 +8,6 @@ export async function GET(request) {
   const profile = await getProfile(user);
   const plan = getPlan(profile.plan);
   const used = await weeklyUsage(user.id);
-  return NextResponse.json({ email: user.email, plan: plan.id, limit: plan.weekly, used });
+  const credits = getUserCredits(user, profile);
+  return NextResponse.json({ email: user.email, plan: plan.id, limit: plan.weekly, used, credits });
 }
