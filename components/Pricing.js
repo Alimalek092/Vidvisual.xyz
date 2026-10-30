@@ -14,8 +14,7 @@ export default function Pricing({ current, onSelect, busy, href = '/register' })
             : id === 'free' ? 'Get started free'
             : id === 'starter' ? 'Get 30 Summaries ($1.99) →'
             : id === 'pro' ? 'Upgrade to Pro →'
-            : id === 'unlimited' ? 'Go Unlimited →'
-            : 'Get Team →';
+            : 'Go Unlimited →';
 
           const priceSpan = id === 'free'
             ? '/forever'
