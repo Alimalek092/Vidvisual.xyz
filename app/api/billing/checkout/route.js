@@ -27,6 +27,25 @@ const DODO_PRODUCT_MAP = {
   unlimited: 'DODO_PRODUCT_UNLIMITED',
 };
 
+/**
+ * Normalizes a URL value so that if the user pasted only a product ID
+ * (e.g., "pdt_0Nr3KYWOTha9IBbEU6Lo1"), it automatically converts into the full Dodo checkout URL:
+ * https://checkout.dodopayments.com/buy/pdt_0Nr3KYWOTha9IBbEU6Lo1
+ */
+function normalizeDodoUrl(raw) {
+  if (!raw) return null;
+  const trimmed = raw.trim();
+  if (trimmed.startsWith('http://') || trimmed.startsWith('https://')) {
+    return trimmed;
+  }
+  // If user only entered the product ID (e.g. pdt_...)
+  if (trimmed.startsWith('pdt_')) {
+    return `https://checkout.dodopayments.com/buy/${trimmed}`;
+  }
+  // Generic fallback if protocol was omitted
+  return `https://${trimmed}`;
+}
+
 export async function POST(request) {
   const user = await getUser(request);
 
@@ -39,7 +58,9 @@ export async function POST(request) {
   // PATH A: DODO PAYMENTS (UPI, Cards, Wallets)
   // ==========================================
   if (gateway === 'dodo') {
-    const dodoDirectUrl = process.env[DODO_URL_MAP[plan]];
+    const rawDodoUrl = process.env[DODO_URL_MAP[plan]] || process.env[DODO_PRODUCT_MAP[plan]];
+    const dodoDirectUrl = normalizeDodoUrl(rawDodoUrl);
+
     if (dodoDirectUrl) {
       const sep = dodoDirectUrl.includes('?') ? '&' : '?';
       let finalUrl = dodoDirectUrl;
