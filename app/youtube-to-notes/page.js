@@ -9,17 +9,6 @@ export const metadata = {
   title: 'YouTube to Notes AI — Convert YouTube Videos to Study Notes',
   description:
     'Turn any YouTube video, lecture, or podcast into structured study notes, concept cards, and takeaway lists in 20 seconds with AI. Built for students and researchers. Free to start.',
-  keywords: [
-    'youtube to notes',
-    'take notes from youtube video ai',
-    'convert youtube video to study notes',
-    'ai lecture notes from youtube',
-    'youtube video note taker',
-    'study from youtube videos',
-    'ai study notes from video',
-    'summarize youtube lecture',
-    'free youtube notes ai',
-  ],
   alternates: {
     canonical: `${SITE_URL}/youtube-to-notes`,
   },
@@ -299,6 +288,8 @@ export default function YouTubeToNotesPage() {
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
+          <Link href="/compare">Compare</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/youtube-podcast-summarizer">Podcasts</Link>
           <Link href="/youtube-lecture-summarizer">Lectures</Link>
           <Link href="/video-to-infographic">Infographics</Link>

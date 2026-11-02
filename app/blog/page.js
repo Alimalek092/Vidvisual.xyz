@@ -7,14 +7,6 @@ export const metadata = {
   title: 'vidvisual Blog & Learning Hub — AI Video Summaries & Study Guides',
   description:
     'Read the latest guides on AI video summarization, visual note-taking, podcast compression, and exam preparation. Learn how to save 90% of your watch time.',
-  keywords: [
-    'vidvisual blog',
-    'ai video summarization guide',
-    'youtube to mind map tutorial',
-    'how to summarize youtube videos',
-    'study notes from youtube lectures',
-    'best ai youtube summarizer 2026',
-  ],
   alternates: {
     canonical: `${SITE_URL}/blog`,
   },
@@ -84,10 +76,21 @@ const blogIndexJsonLd = {
   })),
 };
 
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog` },
+  ],
+};
+
 export default function BlogIndexPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogIndexJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       <nav className="nav">
         <Link href="/" className="brand vv-hand">
@@ -165,6 +168,7 @@ export default function BlogIndexPage() {
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
+          <Link href="/compare">Compare</Link>
           <Link href="/blog">Blog</Link>
           <Link href="/youtube-video-summarizer">Video Summarizer</Link>
           <Link href="/youtube-podcast-summarizer">Podcast Summarizer</Link>

@@ -9,16 +9,6 @@ export const metadata = {
   title: 'Huberman Lab Podcast Summarizer (AI Protocol Notes & Mind Maps)',
   description:
     'Summarize 3-hour Huberman Lab & Lex Fridman podcast episodes into science protocols, concept cards, and mind maps in under 20 seconds with AI.',
-  keywords: [
-    'huberman lab podcast summary',
-    'summarize huberman lab',
-    'huberman lab notes ai',
-    'huberman sleep protocol summary',
-    'lex fridman podcast summarizer',
-    'ai podcast notes',
-    'long podcast to mind map',
-    'podcast to whiteboard notes',
-  ],
   alternates: {
     canonical: `${SITE_URL}/summarize-huberman-lab-podcast`,
   },
@@ -216,6 +206,7 @@ export default function HubermanLabSummarizerPage() {
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/youtube-podcast-summarizer">Podcast Summarizer</Link>
           <Link href="/youtube-video-summarizer">Video Summarizer</Link>
           <Link href="/compare">Tool Comparisons</Link>

@@ -9,17 +9,6 @@ export const metadata = {
   title: 'Video Visual Summarizer (AI) — Convert Videos to Visual Notes & Mind Maps | vidvisual',
   description:
     'Free AI video visual summarizer. Turn long YouTube videos, lectures, and podcasts into scannable whiteboard concept cards and visual mind maps in 20s. 100% free with no login required.',
-  keywords: [
-    'video visual summarizer',
-    'youtube video visual summarizer',
-    'visual video summarizer',
-    'ai video visual summarizer',
-    'visual youtube summarizer',
-    'visual video notes ai',
-    'youtube visual notes generator',
-    'video to visual summary',
-    'free video visual summarizer',
-  ],
   alternates: {
     canonical: `${SITE_URL}/video-visual-summarizer`,
   },
@@ -334,6 +323,8 @@ export default function VideoVisualSummarizerPage() {
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
+          <Link href="/compare">Compare</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/youtube-video-summarizer">Video Summarizer</Link>
           <Link href="/youtube-transcript-summarizer">Transcript Summarizer</Link>
           <Link href="/video-visual-summarizer">Visual Summarizer</Link>

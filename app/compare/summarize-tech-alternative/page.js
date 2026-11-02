@@ -9,14 +9,6 @@ export const metadata = {
   title: 'Best Summarize.tech Alternative for Long Video Visual Summaries | vidvisual',
   description:
     'Looking for the best summarize.tech alternative? vidvisual turns long YouTube videos and multi-hour podcasts into whiteboard concept cards and visual mind maps in under 20s. 100% free with no login required.',
-  keywords: [
-    'summarize tech alternative',
-    'summarize.tech alternative',
-    'summarize tech vs vidvisual',
-    'best summarize tech alternatives',
-    'ai video summarizer long videos',
-    'podcast visual summarizer',
-  ],
   alternates: {
     canonical: `${SITE_URL}/compare/summarize-tech-alternative`,
   },
@@ -208,6 +200,8 @@ export default function SummarizeTechAlternativePage() {
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
+          <Link href="/compare">Compare</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/free-youtube-summarizer-no-login">Free No Login</Link>
           <Link href="/video-visual-summarizer">Visual Summarizer</Link>
           <Link href="/compare/notegpt-alternative">NoteGPT Alternative</Link>

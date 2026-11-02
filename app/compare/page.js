@@ -7,14 +7,6 @@ export const metadata = {
   title: 'Compare vidvisual vs NoteGPT, Eightify & ChatGPT (2026)',
   description:
     'Compare vidvisual with NoteGPT, Eightify, and ChatGPT. Discover why visual concept cards and vector mind maps beat walls of plain text for learning.',
-  keywords: [
-    'vidvisual alternatives',
-    'compare youtube summarizers',
-    'notegpt vs vidvisual',
-    'eightify vs vidvisual',
-    'best ai youtube summarizer',
-    'youtube to mind map',
-  ],
   alternates: {
     canonical: `${SITE_URL}/compare`,
   },
@@ -89,10 +81,21 @@ const compareJsonLd = {
   description: 'In-depth comparisons between vidvisual and popular YouTube video summarizers like NoteGPT and Eightify.',
 };
 
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+    { '@type': 'ListItem', position: 2, name: 'Compare', item: `${SITE_URL}/compare` },
+  ],
+};
+
 export default function CompareHubPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(compareJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       <nav className="nav">
         <Link href="/" className="brand vv-hand">
@@ -169,6 +172,8 @@ export default function CompareHubPage() {
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
+          <Link href="/compare">Compare</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/compare/notegpt-alternative">NoteGPT Alternative</Link>
           <Link href="/compare/eightify-alternative">Eightify Alternative</Link>
           <Link href="/youtube-video-summarizer">Video Summarizer</Link>

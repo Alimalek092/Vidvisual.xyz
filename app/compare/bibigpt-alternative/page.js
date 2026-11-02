@@ -9,16 +9,6 @@ export const metadata = {
   title: 'Best BibiGPT Alternative for Visual Video Summaries (2026) | vidvisual',
   description:
     'Looking for the best BibiGPT alternative? vidvisual turns long YouTube videos into whiteboard concept cards, mind maps, and PDF notes in under 20s. 100% free with no login required.',
-  keywords: [
-    'bibigpt alternative',
-    'best bibigpt alternative',
-    'bibigpt vs vidvisual',
-    'bbgpt alternative',
-    'free bibigpt alternative',
-    'visual youtube summarizer',
-    'youtube to mind map generator',
-    'video visual notes ai',
-  ],
   alternates: {
     canonical: `${SITE_URL}/compare/bibigpt-alternative`,
   },
@@ -211,6 +201,8 @@ export default function BibiGptAlternativePage() {
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
+          <Link href="/compare">Compare</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/youtube-video-summarizer">Video Summarizer</Link>
           <Link href="/video-visual-summarizer">Visual Summarizer</Link>
           <Link href="/youtube-video-mind-map-generator">Mind Maps</Link>

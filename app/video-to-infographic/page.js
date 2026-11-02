@@ -9,17 +9,6 @@ export const metadata = {
   title: 'YouTube Video to Infographic Generator (AI) — Visual Video Summaries',
   description:
     'Convert any YouTube video into an aesthetic, high-resolution infographic summary in 20 seconds using AI. Perfect for visual learners, executive briefings, and team sharing. Free to start.',
-  keywords: [
-    'video to infographic',
-    'youtube to infographic',
-    'convert youtube video to infographic',
-    'ai infographic generator from video',
-    'visual video summary',
-    'one page video summary',
-    'video summary infographic',
-    'turn video into infographic',
-    'free youtube infographic maker',
-  ],
   alternates: {
     canonical: `${SITE_URL}/video-to-infographic`,
   },
@@ -301,6 +290,8 @@ export default function VideoToInfographicPage() {
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
+          <Link href="/compare">Compare</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/youtube-podcast-summarizer">Podcasts</Link>
           <Link href="/youtube-lecture-summarizer">Lectures</Link>
           <Link href="/youtube-to-mind-map">Mind Maps</Link>

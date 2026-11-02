@@ -9,16 +9,6 @@ export const metadata = {
   title: 'Best NoteGPT Alternative for Visual Learners (2026)',
   description:
     'Looking for the best NoteGPT alternative? vidvisual turns long YouTube videos into whiteboard concept cards and visual mind maps in under 20 seconds. Zero reading fatigue.',
-  keywords: [
-    'notegpt alternative',
-    'best notegpt alternative',
-    'notegpt vs vidvisual',
-    'notegpt competitor',
-    'free notegpt alternative',
-    'visual youtube summarizer',
-    'ai youtube summarizer mind map',
-    'youtube video to concept cards',
-  ],
   alternates: {
     canonical: `${SITE_URL}/compare/notegpt-alternative`,
   },
@@ -253,6 +243,7 @@ export default function NoteGPTAlternativePage() {
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/compare">All Comparisons</Link>
           <Link href="/compare/eightify-alternative">Eightify Alternative</Link>
           <Link href="/youtube-video-summarizer">Video Summarizer</Link>

@@ -9,19 +9,6 @@ export const metadata = {
   title: 'YouTube Podcast Summarizer (AI) — Turn Long Podcasts into Visual Notes',
   description:
     'Turn long YouTube podcasts and multi-hour conversations into scannable whiteboard notes and visual mind maps in 20 seconds. Save 90% of listening time. Free AI podcast summarizer for Huberman Lab, Lex Fridman, Joe Rogan, and All-In.',
-  keywords: [
-    'youtube podcast summarizer',
-    'summarize youtube podcast',
-    'podcast to mind map',
-    'summarize long podcast',
-    'huberman lab podcast notes',
-    'lex fridman podcast summary',
-    'ai podcast summarizer',
-    'turn podcast into visual notes',
-    'podcast key points extractor',
-    'free podcast summarizer ai',
-    'youtube video to podcast notes',
-  ],
   alternates: {
     canonical: `${SITE_URL}/youtube-podcast-summarizer`,
   },
@@ -350,6 +337,8 @@ export default function YouTubePodcastSummarizerPage() {
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
+          <Link href="/compare">Compare</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/youtube-to-mind-map">Mind Maps</Link>
           <Link href="/youtube-lecture-summarizer">Lecture Summaries</Link>
           <Link href="/video-to-infographic">Infographics</Link>

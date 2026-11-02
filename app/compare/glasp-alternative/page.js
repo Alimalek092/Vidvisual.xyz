@@ -9,15 +9,6 @@ export const metadata = {
   title: 'Best Glasp Alternative for YouTube Summaries (No Extension Needed) | vidvisual',
   description:
     'Looking for the best Glasp alternative? vidvisual turns long YouTube videos into whiteboard concept cards and visual mind maps in under 20s. 100% web-based with no Chrome extension or OpenAI login required.',
-  keywords: [
-    'glasp alternative',
-    'best glasp alternative',
-    'youtube summary with chatgpt alternative',
-    'glasp vs vidvisual',
-    'youtube summarizer without chrome extension',
-    'free glasp alternative',
-    'visual youtube summarizer',
-  ],
   alternates: {
     canonical: `${SITE_URL}/compare/glasp-alternative`,
   },
@@ -210,6 +201,8 @@ export default function GlaspAlternativePage() {
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
+          <Link href="/compare">Compare</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/free-youtube-summarizer-no-login">Free No Login</Link>
           <Link href="/video-visual-summarizer">Visual Summarizer</Link>
           <Link href="/compare/notegpt-alternative">NoteGPT Alternative</Link>

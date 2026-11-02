@@ -9,16 +9,6 @@ export const metadata = {
   title: 'Free YouTube Summarizer (No Login Required) — 3 Free Visual Notes Weekly | vidvisual',
   description:
     'Free AI YouTube summarizer with zero login required. Summarize YouTube videos, lectures, and podcasts into visual concept cards and mind maps in 20s. 100% free with no sign-up or credit card.',
-  keywords: [
-    'free youtube summarizer no login',
-    'youtube summarizer without login',
-    'ai video summarizer no sign up',
-    'free ai youtube summarizer no account',
-    'summarize youtube video without login',
-    'youtube video summarizer free no login',
-    'ai youtube summarizer free online',
-    'free visual video summarizer',
-  ],
   alternates: {
     canonical: `${SITE_URL}/free-youtube-summarizer-no-login`,
   },
@@ -335,6 +325,8 @@ export default function FreeYouTubeSummarizerNoLoginPage() {
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
+          <Link href="/compare">Compare</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/free-youtube-summarizer-no-login">Free No Login</Link>
           <Link href="/video-visual-summarizer">Visual Summarizer</Link>
           <Link href="/youtube-video-mind-map-generator">Mind Maps</Link>

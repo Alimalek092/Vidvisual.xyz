@@ -9,18 +9,6 @@ export const metadata = {
   title: 'YouTube to PDF (AI) — Convert YouTube Videos to PDF Notes in 20s',
   description:
     'Convert YouTube videos, lectures, and podcasts into downloadable PDF study notes in 20 seconds. Clean visual concept cards, vector mind maps, and bulleted takeaways ready to print or annotate on iPad.',
-  keywords: [
-    'youtube to pdf',
-    'convert youtube video to pdf notes',
-    'youtube transcript to pdf',
-    'download youtube summary as pdf',
-    'youtube lecture to pdf notes',
-    'free youtube to pdf converter ai',
-    'ai video notes pdf',
-    'youtube to goodnotes pdf',
-    'print youtube summary pdf',
-    'youtube study notes pdf',
-  ],
   alternates: {
     canonical: `${SITE_URL}/youtube-to-pdf`,
   },
@@ -272,6 +260,8 @@ export default function YouTubeToPdfPage() {
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
+          <Link href="/compare">Compare</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/youtube-video-summarizer">Video Summarizer</Link>
           <Link href="/youtube-to-pdf">YouTube to PDF</Link>
           <Link href="/youtube-podcast-summarizer">Podcast Summarizer</Link>

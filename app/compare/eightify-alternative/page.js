@@ -9,16 +9,6 @@ export const metadata = {
   title: 'Best Eightify Alternative: Free AI YouTube Summarizer & Mind Maps',
   description:
     'Looking for a free Eightify alternative? vidvisual summarizes long YouTube videos and podcasts into visual concept cards and mind maps. No Chrome extension required.',
-  keywords: [
-    'eightify alternative',
-    'free eightify alternative',
-    'eightify vs vidvisual',
-    'eightify competitor',
-    'eightify pricing alternative',
-    'youtube summarizer without extension',
-    'ai youtube summarizer mind map',
-    'free youtube video summarizer',
-  ],
   alternates: {
     canonical: `${SITE_URL}/compare/eightify-alternative`,
   },
@@ -253,6 +243,7 @@ export default function EightifyAlternativePage() {
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/compare">All Comparisons</Link>
           <Link href="/compare/notegpt-alternative">NoteGPT Alternative</Link>
           <Link href="/youtube-video-summarizer">Video Summarizer</Link>

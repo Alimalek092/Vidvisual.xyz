@@ -7,14 +7,6 @@ export const metadata = {
   title: 'The Best AI YouTube Video Summarizers in 2026: Why Spatial Notes Beat Text',
   description:
     'Comprehensive comparison of the top AI YouTube video summarizers in 2026. Discover why spatial whiteboard concept cards and mind maps outperform plain text notes.',
-  keywords: [
-    'best ai youtube summarizer',
-    'best youtube video summarizer 2026',
-    'chatgpt vs vidvisual',
-    'notegpt alternative',
-    'glasp alternative',
-    'ai youtube summarizer comparison',
-  ],
   alternates: {
     canonical: `${SITE_URL}/blog/best-ai-youtube-summarizers`,
   },
@@ -59,10 +51,27 @@ const articleJsonLd = {
   },
 };
 
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog` },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Best AI YouTube Summarizers of 2026',
+      item: `${SITE_URL}/blog/best-ai-youtube-summarizers`,
+    },
+  ],
+};
+
 export default function ArticleBestSummarizers() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       <nav className="nav">
         <Link href="/" className="brand vv-hand">
@@ -202,6 +211,7 @@ export default function ArticleBestSummarizers() {
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
+          <Link href="/compare">Compare</Link>
           <Link href="/blog">Blog</Link>
           <Link href="/youtube-video-summarizer">Video Summarizer</Link>
           <Link href="/youtube-podcast-summarizer">Podcast Summarizer</Link>

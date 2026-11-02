@@ -7,14 +7,6 @@ export const metadata = {
   title: 'How to Turn 2-Hour College Lectures into A+ Study Notes and PDFs',
   description:
     'A study guide for students: convert recorded YouTube college lectures, STEM proofs, and exam reviews into visual whiteboard cheat sheets and printable PDF notes in 20 seconds.',
-  keywords: [
-    'youtube lecture to study notes',
-    'how to study from youtube lectures',
-    'college lecture summarizer',
-    'exam study notes ai',
-    'convert lecture to pdf notes',
-    'mit opencourseware ai notes',
-  ],
   alternates: {
     canonical: `${SITE_URL}/blog/youtube-lecture-to-study-notes`,
   },
@@ -63,6 +55,7 @@ export default function ArticleLectureStudyNotes() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       <nav className="nav">
         <Link href="/" className="brand vv-hand">
@@ -152,6 +145,7 @@ export default function ArticleLectureStudyNotes() {
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
+          <Link href="/compare">Compare</Link>
           <Link href="/blog">Blog</Link>
           <Link href="/youtube-lecture-summarizer">Lecture Summaries</Link>
           <Link href="/youtube-to-pdf">YouTube to PDF</Link>

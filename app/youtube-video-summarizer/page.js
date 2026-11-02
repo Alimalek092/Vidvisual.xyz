@@ -9,20 +9,6 @@ export const metadata = {
   title: 'YouTube Video Summarizer (AI) — Turn Any Video into Visual Notes in 20s',
   description:
     'Free AI YouTube video summarizer. Turn long, boring YouTube videos, podcasts, and lectures into scannable whiteboard concept cards and visual mind maps in under 20 seconds. Save 90% of watch time.',
-  keywords: [
-    'youtube video summarizer',
-    'ai youtube summarizer',
-    'youtube summarizer',
-    'best youtube summarizer ai',
-    'free youtube video summarizer',
-    'summarize youtube video online',
-    'ai video note taker',
-    'youtube to mind map',
-    'turn youtube video into notes',
-    'youtube transcript summarizer',
-    'summarize long youtube video',
-    'youtube study notes ai',
-  ],
   alternates: {
     canonical: `${SITE_URL}/youtube-video-summarizer`,
   },
@@ -327,6 +313,8 @@ export default function YouTubeVideoSummarizerPage() {
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
+          <Link href="/compare">Compare</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/youtube-video-summarizer">Video Summarizer</Link>
           <Link href="/youtube-podcast-summarizer">Podcast Summarizer</Link>
           <Link href="/youtube-lecture-summarizer">Lecture Summaries</Link>

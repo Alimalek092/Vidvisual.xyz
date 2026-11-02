@@ -9,16 +9,6 @@ export const metadata = {
   title: 'Best Video Highlight Alternative for Visual Notes & Mind Maps (2026)',
   description:
     'Looking for the best Video Highlight alternative? vidvisual turns YouTube videos, lectures, and podcasts into whiteboard concept cards and visual mind maps in 20 seconds. 100% free with no login required.',
-  keywords: [
-    'video highlight alternative',
-    'best video highlight alternative',
-    'video highlight vs vidvisual',
-    'videohighlight competitor',
-    'free video highlight alternative',
-    'visual youtube summarizer',
-    'youtube to mind map generator',
-    'video to visual notes',
-  ],
   alternates: {
     canonical: `${SITE_URL}/compare/videohighlight-alternative`,
   },
@@ -212,6 +202,8 @@ export default function VideoHighlightAlternativePage() {
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
+          <Link href="/compare">Compare</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/youtube-video-summarizer">Video Summarizer</Link>
           <Link href="/video-visual-summarizer">Visual Summarizer</Link>
           <Link href="/youtube-video-mind-map-generator">Mind Maps</Link>

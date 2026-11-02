@@ -7,14 +7,6 @@ export const metadata = {
   title: 'How to Summarize YouTube Videos with AI in 20 Seconds (2026 Guide)',
   description:
     'Step-by-step guide to summarizing long YouTube videos and podcasts using AI. Extract key points into whiteboard concept cards and visual mind maps without reading walls of text.',
-  keywords: [
-    'how to summarize youtube videos',
-    'how to summarize youtube videos with ai',
-    'ai youtube video summarizer tutorial',
-    'summarize youtube video in 20 seconds',
-    'extract key points from youtube',
-    'vidvisual guide',
-  ],
   alternates: {
     canonical: `${SITE_URL}/blog/how-to-summarize-youtube-videos-ai`,
   },
@@ -60,10 +52,27 @@ const articleJsonLd = {
   },
 };
 
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog` },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'How to Summarize YouTube Videos with AI',
+      item: `${SITE_URL}/blog/how-to-summarize-youtube-videos-ai`,
+    },
+  ],
+};
+
 export default function ArticleSummarizeGuide() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       <nav className="nav">
         <Link href="/" className="brand vv-hand">
@@ -166,6 +175,7 @@ export default function ArticleSummarizeGuide() {
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
+          <Link href="/compare">Compare</Link>
           <Link href="/blog">Blog</Link>
           <Link href="/youtube-video-summarizer">Video Summarizer</Link>
           <Link href="/youtube-podcast-summarizer">Podcast Summarizer</Link>

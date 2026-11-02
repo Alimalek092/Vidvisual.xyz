@@ -9,16 +9,6 @@ export const metadata = {
   title: 'YouTube to Anki Flashcards & Visual Study Notes (AI)',
   description:
     'Convert YouTube lectures, medical videos, and STEM tutorials into active-recall concept flashcards and mind maps in 20 seconds with AI.',
-  keywords: [
-    'youtube to anki',
-    'convert youtube video to flashcards',
-    'youtube lecture to study cards',
-    'ai flashcard generator from youtube',
-    'youtube to active recall',
-    'medical student youtube summarizer',
-    'stem lecture to anki',
-    'youtube to study notes',
-  ],
   alternates: {
     canonical: `${SITE_URL}/youtube-to-anki-flashcards`,
   },
@@ -216,6 +206,7 @@ export default function YouTubeToAnkiPage() {
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/youtube-lecture-summarizer">Lecture Summaries</Link>
           <Link href="/youtube-to-notes">Study Notes</Link>
           <Link href="/youtube-to-pdf">YouTube to PDF</Link>

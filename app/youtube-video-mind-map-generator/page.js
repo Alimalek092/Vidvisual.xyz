@@ -9,17 +9,6 @@ export const metadata = {
   title: 'YouTube Video Mind Map Generator (AI) — Convert Videos to Mind Maps Free | vidvisual',
   description:
     'Free AI YouTube video mind map generator. Automatically turn any YouTube video, lecture, or podcast into an interactive visual mind map in 20s. 100% free with no login required.',
-  keywords: [
-    'youtube video mind map generator',
-    'youtube mind map generator',
-    'ai youtube mind map generator',
-    'convert youtube video to mind map',
-    'youtube video to mind map free',
-    'turn youtube video into mind map',
-    'video to mind map ai',
-    'youtube concept map generator',
-    'free youtube video mind map',
-  ],
   alternates: {
     canonical: `${SITE_URL}/youtube-video-mind-map-generator`,
   },
@@ -283,6 +272,8 @@ export default function YouTubeVideoMindMapGeneratorPage() {
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
+          <Link href="/compare">Compare</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/youtube-video-summarizer">Video Summarizer</Link>
           <Link href="/video-visual-summarizer">Visual Summarizer</Link>
           <Link href="/youtube-video-mind-map-generator">Mind Map Generator</Link>

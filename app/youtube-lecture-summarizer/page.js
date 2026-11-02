@@ -9,18 +9,6 @@ export const metadata = {
   title: 'YouTube Lecture Summarizer (AI) — Convert College Lectures to Study Notes',
   description:
     'Turn 60 to 120-minute university lectures into visual whiteboard study sheets, mind maps, and exam takeaways in under 20 seconds. Free AI lecture summarizer for college students and researchers.',
-  keywords: [
-    'youtube lecture summarizer',
-    'turn lecture video into notes',
-    'ai study notes from youtube',
-    'college lecture summarizer',
-    'exam prep lecture notes',
-    'university lecture to mind map',
-    'summarize recorded lecture',
-    'ai lecture note taker',
-    'mit opencourseware notes',
-    'free lecture summarizer ai',
-  ],
   alternates: {
     canonical: `${SITE_URL}/youtube-lecture-summarizer`,
   },
@@ -303,6 +291,8 @@ export default function YouTubeLectureSummarizerPage() {
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
+          <Link href="/compare">Compare</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/youtube-podcast-summarizer">Podcast Summaries</Link>
           <Link href="/youtube-to-mind-map">Mind Maps</Link>
           <Link href="/video-to-infographic">Infographics</Link>

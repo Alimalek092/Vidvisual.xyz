@@ -9,16 +9,6 @@ export const metadata = {
   title: 'Free AI Video Summarizer — Visual Notes & Mind Maps in 20s | vidvisual',
   description:
     '100% Free AI video summarizer. Turn YouTube videos, podcasts, and lectures into whiteboard concept cards and visual mind maps in under 20s. 3 free summaries every week with no credit card.',
-  keywords: [
-    'free ai video summarizer',
-    'ai video summarizer free',
-    'free video summarizer online',
-    'best free ai video summarizer',
-    'free youtube video summarizer',
-    'ai video summarizer no credit card',
-    'visual video summarizer free',
-    'youtube to visual summary free',
-  ],
   alternates: {
     canonical: `${SITE_URL}/free-ai-video-summarizer`,
   },
@@ -278,6 +268,8 @@ export default function FreeAiVideoSummarizerPage() {
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
+          <Link href="/compare">Compare</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/free-youtube-summarizer-no-login">Free No Login</Link>
           <Link href="/free-ai-video-summarizer">Free AI Summarizer</Link>
           <Link href="/video-visual-summarizer">Visual Summarizer</Link>

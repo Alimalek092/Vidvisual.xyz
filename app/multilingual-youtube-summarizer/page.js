@@ -9,18 +9,6 @@ export const metadata = {
   title: 'Multilingual YouTube Summarizer (AI) — Translate Videos into Visual Notes',
   description:
     'Free multilingual AI YouTube video summarizer. Translate and convert videos in Spanish, Hindi, French, German, Japanese, and 16+ languages into visual whiteboard notes and mind maps in 20s.',
-  keywords: [
-    'multilingual youtube summarizer',
-    'translate youtube video into notes',
-    'summarize foreign youtube video',
-    'youtube summarizer spanish',
-    'youtube summarizer hindi',
-    'youtube summarizer french',
-    'youtube summarizer german',
-    'translate youtube transcript to visual notes',
-    'ai video translation notes',
-    'free multilingual video summarizer',
-  ],
   alternates: {
     canonical: `${SITE_URL}/multilingual-youtube-summarizer`,
   },
@@ -301,6 +289,8 @@ export default function MultilingualYouTubeSummarizerPage() {
         </span>
         <div className="foot-links">
           <Link href="/">Home</Link>
+          <Link href="/compare">Compare</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/youtube-video-summarizer">Video Summarizer</Link>
           <Link href="/youtube-transcript-summarizer">Transcript Summarizer</Link>
           <Link href="/multilingual-youtube-summarizer">Multilingual</Link>
