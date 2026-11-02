@@ -87,11 +87,11 @@ export default function Dashboard() {
     }
   }
 
-  async function upgrade(plan) {
+  async function upgrade(plan, gateway = 'polar') {
     setError('');
     setUpgrading(plan);
     try {
-      const res = await authFetch('/api/billing/checkout', { method: 'POST', body: JSON.stringify({ plan }) });
+      const res = await authFetch('/api/billing/checkout', { method: 'POST', body: JSON.stringify({ plan, gateway }) });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error);
       if (json.url) {

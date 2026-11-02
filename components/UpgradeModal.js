@@ -42,6 +42,7 @@ export default function UpgradeModal({
   const [emailError, setEmailError] = useState('');
   const [clientReset, setClientReset] = useState(null);
   const [busyPlan, setBusyPlan] = useState('');
+  const [gateway, setGateway] = useState('polar'); // 'polar' | 'dodo'
 
   useEffect(() => {
     setClientReset(calculateMondayReset());
@@ -61,7 +62,7 @@ export default function UpgradeModal({
       const res = await fetch('/api/billing/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ plan }),
+        body: JSON.stringify({ plan, gateway }),
       });
       const data = await res.json();
       if (data.url) {
@@ -69,9 +70,9 @@ export default function UpgradeModal({
         return;
       }
       // If 401 (unauthorized) and no direct link, fallback to register with plan
-      window.location.href = `/register?plan=${plan}`;
+      window.location.href = `/register?plan=${plan}&gateway=${gateway}`;
     } catch {
-      window.location.href = `/register?plan=${plan}`;
+      window.location.href = `/register?plan=${plan}&gateway=${gateway}`;
     } finally {
       setBusyPlan('');
     }
@@ -217,13 +218,66 @@ export default function UpgradeModal({
         )}
 
         {/* Modal Headline */}
-        <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '16px' }}>
           <h2 className="vv-hand" style={{ fontSize: '2rem', margin: '0 0 8px', lineHeight: 1.2, color: 'var(--ink)' }}>
             Choose the option that fits your study flow
           </h2>
           <p style={{ color: 'var(--ink-soft)', fontSize: '0.92rem', margin: 0, lineHeight: 1.5 }}>
             No hidden fees. Instant access to visual notes, mind maps, and watermark-free PDF exports.
           </p>
+        </div>
+
+        {/* 🇮🇳 Payment Gateway Switcher (Polar vs. UPI / Dodo) */}
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '18px' }}>
+          <div
+            style={{
+              background: 'var(--board)',
+              border: '2px solid var(--ink)',
+              borderRadius: '999px',
+              padding: '3px',
+              display: 'inline-flex',
+              gap: '4px',
+              width: '100%',
+              maxWidth: '420px',
+            }}
+          >
+            <button
+              type="button"
+              onClick={() => setGateway('polar')}
+              style={{
+                flex: 1,
+                padding: '8px 12px',
+                borderRadius: '999px',
+                border: 'none',
+                background: gateway === 'polar' ? 'var(--blue)' : 'transparent',
+                color: gateway === 'polar' ? '#fff' : 'var(--ink)',
+                fontWeight: 700,
+                fontSize: '0.85rem',
+                cursor: 'pointer',
+                transition: 'all 0.15s ease',
+              }}
+            >
+              💳 Card / Global
+            </button>
+            <button
+              type="button"
+              onClick={() => setGateway('dodo')}
+              style={{
+                flex: 1,
+                padding: '8px 12px',
+                borderRadius: '999px',
+                border: 'none',
+                background: gateway === 'dodo' ? '#16a34a' : 'transparent',
+                color: gateway === 'dodo' ? '#fff' : 'var(--ink)',
+                fontWeight: 700,
+                fontSize: '0.85rem',
+                cursor: 'pointer',
+                transition: 'all 0.15s ease',
+              }}
+            >
+              🇮🇳 Pay with UPI
+            </button>
+          </div>
         </div>
 
         {/* 2 Options Grid: $1.99 Starter vs $9/mo Pro */}
@@ -278,9 +332,9 @@ export default function UpgradeModal({
             <button
               className="btn btn-wide"
               style={{
-                background: '#f59e0b',
-                borderColor: '#d97706',
-                color: '#1e293b',
+                background: gateway === 'dodo' ? '#16a34a' : '#f59e0b',
+                borderColor: gateway === 'dodo' ? '#15803d' : '#d97706',
+                color: gateway === 'dodo' ? '#fff' : '#1e293b',
                 fontWeight: 800,
                 fontSize: '0.95rem',
                 padding: '12px 14px',
@@ -290,7 +344,11 @@ export default function UpgradeModal({
               disabled={busyPlan === 'starter'}
               onClick={() => handleCheckout('starter')}
             >
-              {busyPlan === 'starter' ? 'Opening checkout…' : '⚡ Get 30 Summaries ($1.99)'}
+              {busyPlan === 'starter'
+                ? 'Opening checkout…'
+                : gateway === 'dodo'
+                ? '⚡ Pay $1.99 via UPI'
+                : '⚡ Get 30 Summaries ($1.99)'}
             </button>
           </div>
 
@@ -349,17 +407,23 @@ export default function UpgradeModal({
                 padding: '12px 14px',
                 width: '100%',
                 cursor: 'pointer',
+                background: gateway === 'dodo' ? '#16a34a' : undefined,
+                borderColor: gateway === 'dodo' ? '#15803d' : undefined,
               }}
               disabled={busyPlan === 'pro'}
               onClick={() => handleCheckout('pro')}
             >
-              {busyPlan === 'pro' ? 'Opening checkout…' : 'Upgrade to Pro ($9/mo) →'}
+              {busyPlan === 'pro'
+                ? 'Opening checkout…'
+                : gateway === 'dodo'
+                ? 'Upgrade via UPI ($9/mo) →'
+                : 'Upgrade to Pro ($9/mo) →'}
             </button>
           </div>
         </div>
 
         <div style={{ textAlign: 'center', marginBottom: '16px', fontSize: '0.8rem', color: 'var(--ink-soft)' }}>
-          ⚡ Secure payment via Polar • Instant access • Questions or help? Email <a href="mailto:vidvisual.xyz@gmail.com" style={{ textDecoration: 'underline', fontWeight: 600 }}>vidvisual.xyz@gmail.com</a>
+          ⚡ {gateway === 'dodo' ? 'Instant UPI & QR Payment via Dodo Payments' : 'Secure payment via Polar (Cards, Apple Pay)'} • Instant access • Questions or help? Email <a href="mailto:vidvisual.xyz@gmail.com" style={{ textDecoration: 'underline', fontWeight: 600 }}>vidvisual.xyz@gmail.com</a>
         </div>
 
         {/* Monday Recall Email Box */}

@@ -3,34 +3,102 @@ import { getUser } from '@/lib/supabaseAdmin';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://vidvisual.xyz';
 
-const POLAR_PRODUCT_MAP = {
-  starter: 'POLAR_PRODUCT_STARTER',
-  pro: 'POLAR_PRODUCT_PRO',
-  unlimited: 'POLAR_PRODUCT_UNLIMITED',
-  team: 'POLAR_PRODUCT_TEAM',
-};
-
 const POLAR_URL_MAP = {
   starter: 'POLAR_CHECKOUT_STARTER',
   pro: 'POLAR_CHECKOUT_PRO',
   unlimited: 'POLAR_CHECKOUT_UNLIMITED',
-  team: 'POLAR_CHECKOUT_TEAM',
+};
+
+const POLAR_PRODUCT_MAP = {
+  starter: 'POLAR_PRODUCT_STARTER',
+  pro: 'POLAR_PRODUCT_PRO',
+  unlimited: 'POLAR_PRODUCT_UNLIMITED',
+};
+
+const DODO_URL_MAP = {
+  starter: 'DODO_CHECKOUT_STARTER',
+  pro: 'DODO_CHECKOUT_PRO',
+  unlimited: 'DODO_CHECKOUT_UNLIMITED',
+};
+
+const DODO_PRODUCT_MAP = {
+  starter: 'DODO_PRODUCT_STARTER',
+  pro: 'DODO_PRODUCT_PRO',
+  unlimited: 'DODO_PRODUCT_UNLIMITED',
 };
 
 export async function POST(request) {
   const user = await getUser(request);
 
-  const { plan } = await request.json().catch(() => ({}));
-  if (!plan || !POLAR_PRODUCT_MAP[plan]) {
+  const { plan, gateway = 'polar' } = await request.json().catch(() => ({}));
+  if (!plan || !['starter', 'pro', 'unlimited'].includes(plan)) {
     return NextResponse.json({ error: 'Invalid plan selected.' }, { status: 400 });
   }
 
-  const token = process.env.POLAR_ACCESS_TOKEN;
-  const productId = process.env[POLAR_PRODUCT_MAP[plan]];
-  const directUrl = process.env[POLAR_URL_MAP[plan]];
+  // ==========================================
+  // PATH A: DODO PAYMENTS (UPI, Cards, Wallets)
+  // ==========================================
+  if (gateway === 'dodo') {
+    const dodoDirectUrl = process.env[DODO_URL_MAP[plan]];
+    if (dodoDirectUrl) {
+      const sep = dodoDirectUrl.includes('?') ? '&' : '?';
+      let finalUrl = dodoDirectUrl;
+      const params = [];
+      if (user?.email) params.push(`customer_email=${encodeURIComponent(user.email)}`);
+      if (user?.id) params.push(`metadata_user_id=${encodeURIComponent(user.id)}`);
+      params.push(`metadata_plan=${encodeURIComponent(plan)}`);
+      if (params.length > 0) {
+        finalUrl = `${dodoDirectUrl}${sep}${params.join('&')}`;
+      }
+      return NextResponse.json({ url: finalUrl });
+    }
 
-  // 1. Direct Checkout Link (if configured)
-  // Allows both logged-in users and guest visitors to checkout smoothly!
+    // Direct REST API for Dodo if payment link not provided
+    const dodoApiKey = process.env.DODO_PAYMENTS_API_KEY;
+    const dodoProductId = process.env[DODO_PRODUCT_MAP[plan]];
+    if (dodoApiKey && dodoProductId) {
+      try {
+        const dodoEndpoint = process.env.DODO_PAYMENTS_ENV === 'test'
+          ? 'https://test.dodopayments.com/checkouts'
+          : 'https://live.dodopayments.com/checkouts';
+
+        const res = await fetch(dodoEndpoint, {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${dodoApiKey}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            product_cart: [{ product_id: dodoProductId, quantity: 1 }],
+            customer: user?.email ? { email: user.email } : undefined,
+            metadata: {
+              user_id: user?.id || '',
+              plan,
+            },
+            return_url: `${SITE_URL}/dashboard?checkout=success`,
+          }),
+        });
+
+        const data = await res.json();
+        if (data.checkout_url) {
+          return NextResponse.json({ url: data.checkout_url });
+        }
+      } catch (dodoErr) {
+        console.error('[Dodo API Checkout Error]:', dodoErr);
+      }
+    }
+
+    // Fallback if Dodo is selected but not configured yet
+    return NextResponse.json(
+      { error: 'UPI payment gateway (Dodo Payments) is being connected. You can pay via Card / International using Polar right now, or contact vidvisual.xyz@gmail.com' },
+      { status: 503 }
+    );
+  }
+
+  // ==========================================
+  // PATH B: POLAR PAYMENTS (Global Cards / Apple Pay)
+  // ==========================================
+  const directUrl = process.env[POLAR_URL_MAP[plan]];
   if (directUrl) {
     const sep = directUrl.includes('?') ? '&' : '?';
     if (user) {
@@ -42,8 +110,10 @@ export async function POST(request) {
     }
   }
 
-  // 2. Polar API Checkout Session (Standard)
-  if (!token) {
+  const token = process.env.POLAR_ACCESS_TOKEN;
+  const productId = process.env[POLAR_PRODUCT_MAP[plan]];
+
+  if (!token && !directUrl) {
     return NextResponse.json(
       { error: 'Payment system is being initialized. Please contact support at vidvisual.xyz@gmail.com.' },
       { status: 503 }
@@ -57,7 +127,6 @@ export async function POST(request) {
     );
   }
 
-  // If user is not logged in and Polar API is used, require registration or email
   if (!user) {
     return NextResponse.json(
       { error: 'Please log in or create a free account to continue to checkout.' },
