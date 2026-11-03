@@ -125,7 +125,7 @@ export async function POST(request) {
       };
     } else {
       return NextResponse.json(
-        { error: 'Could not read captions for this video. Try a video that has captions turned on.' },
+        { error: 'Could not read captions. Please select the proper language or try a video that has captions turned on.' },
         { status: 422 }
       );
     }
