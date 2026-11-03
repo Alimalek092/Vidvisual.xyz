@@ -3,6 +3,7 @@ import BrandLogo from '@/components/BrandLogo';
 import Visual from '@/components/Visual';
 import Pricing from '@/components/Pricing';
 import HomeHeroGenerator from '@/components/HomeHeroGenerator';
+import HeroInteractivePreview from '@/components/HeroInteractivePreview';
 import { SAMPLE } from '@/lib/sample';
 import { PLANS } from '@/lib/plans';
 
@@ -135,7 +136,7 @@ export default function Home() {
           <HomeHeroGenerator />
         </div>
         <div className="hero-demo">
-          <Visual data={SAMPLE} format="whiteboard" />
+          <HeroInteractivePreview />
         </div>
       </header>
 
