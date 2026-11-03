@@ -193,6 +193,34 @@ export default function HomeHeroGenerator() {
                 fontFamily: 'inherit',
               }}
             />
+            {/* Quick Sample Video Chips */}
+            <div className="quick-samples-row" aria-label="Quick Sample Videos">
+              <span style={{ fontWeight: 600 }}>Try sample:</span>
+              <button
+                type="button"
+                className="quick-sample-chip"
+                onClick={() => setUrl('https://www.youtube.com/watch?v=a9yO-K8mwL0')}
+                disabled={busy}
+              >
+                🎙️ Huberman (Focus)
+              </button>
+              <button
+                type="button"
+                className="quick-sample-chip"
+                onClick={() => setUrl('https://www.youtube.com/watch?v=aircAruvnKk')}
+                disabled={busy}
+              >
+                🧠 3Blue1Brown (Neural Nets)
+              </button>
+              <button
+                type="button"
+                className="quick-sample-chip"
+                onClick={() => setUrl('https://www.youtube.com/watch?v=zYIER3vGdB8')}
+                disabled={busy}
+              >
+                💻 CS50 (Algorithms)
+              </button>
+            </div>
           </div>
 
           {/* Options Row: Format & Language */}

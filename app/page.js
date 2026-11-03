@@ -1,3 +1,4 @@
+import SlidingTopicTicker from '@/components/SlidingTopicTicker';
 import Link from 'next/link';
 import BrandLogo from '@/components/BrandLogo';
 import Visual from '@/components/Visual';
@@ -158,6 +159,9 @@ export default function Home() {
           <span className="stat-pill-label">3 summaries every week, zero card needed</span>
         </div>
       </section>
+
+      {/* Smooth Sliding Channels & Topics Marquee */}
+      <SlidingTopicTicker />
 
       {/* Long-Form Video & Lecture Compression Showcase */}
       <section id="podcast-showcase" className="podcast-showcase" aria-label="Long-Form Video Compression Showcase">

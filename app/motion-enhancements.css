@@ -1,0 +1,236 @@
+/* ========================================================================
+   VIDVISUAL UI & MOTION ENHANCEMENTS (ui-ux-pro-max standard)
+   ------------------------------------------------------------------------
+   [SAFETY SWITCH NOTICE]:
+   To instantly disable all motion and revert to the baseline UI:
+   1. In `app/layout.js`, comment out: import './motion-enhancements.css';
+   OR
+   2. Run `git checkout before-sliding-motion` (git tag at commit 076eae4).
+   ======================================================================== */
+
+:root {
+  --ease-slide-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-slide-in: cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-duration-sm: 180ms;
+  --motion-duration-md: 260ms;
+  --motion-duration-lg: 380ms;
+}
+
+/* 1. Staggered Entrance Motion for Hero Section */
+.hero-copy > * {
+  animation: vvSlideUp 0.45s var(--ease-slide-out) backwards;
+}
+.hero-copy > *:nth-child(1) { animation-delay: 40ms; }
+.hero-copy > *:nth-child(2) { animation-delay: 110ms; }
+.hero-copy > *:nth-child(3) { animation-delay: 180ms; }
+.hero-copy > *:nth-child(4) { animation-delay: 240ms; }
+
+.hero-demo {
+  animation: vvSlideUp 0.55s var(--ease-slide-out) 140ms backwards;
+}
+
+@keyframes vvSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 2. Hero Pill Glint / Shimmer Highlight */
+.hero-pill {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s var(--ease-slide-out), box-shadow 0.2s ease;
+}
+.hero-pill:hover {
+  transform: translateY(-1px);
+}
+.hero-pill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-20deg) translateX(-180%);
+  animation: vvPillGlint 5s infinite ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes vvPillGlint {
+  0%, 65% {
+    transform: skewX(-20deg) translateX(-180%);
+  }
+  80%, 100% {
+    transform: skewX(-20deg) translateX(360%);
+  }
+}
+
+/* 3. Segmented Switcher (Whiteboard vs Infographic) Smooth Slide */
+.seg {
+  position: relative;
+  transition: box-shadow 0.2s var(--ease-slide-out);
+}
+.seg button {
+  position: relative;
+  z-index: 1;
+  transition: color 0.2s ease, transform 0.15s ease, background-color 0.22s var(--ease-slide-out);
+}
+.seg button:hover:not(.on):not(:disabled) {
+  background: rgba(0, 0, 0, 0.04);
+}
+html[data-theme='dark'] .seg button:hover:not(.on):not(:disabled) {
+  background: rgba(255, 255, 255, 0.08);
+}
+.seg button.on {
+  transform: scale(1.02);
+}
+
+/* 4. Infinite Sliding Marquee for Topics & Supported Channels */
+.sliding-ticker-wrapper {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 36px;
+  padding: 0 16px;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+
+.sliding-ticker-inner {
+  display: flex;
+  gap: 14px;
+  width: max-content;
+  animation: vvTickerSlide 42s linear infinite;
+  will-change: transform;
+}
+
+.sliding-ticker-wrapper:hover .sliding-ticker-inner {
+  animation-play-state: paused;
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  box-shadow: 2px 2px 0 var(--ink);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+  transition: transform 0.18s var(--ease-slide-out), box-shadow 0.18s var(--ease-slide-out);
+  cursor: default;
+}
+
+.ticker-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.ticker-item-tag {
+  font-size: 0.76rem;
+  color: var(--ink-soft);
+  font-weight: 500;
+  padding-left: 4px;
+  border-left: 1px solid var(--border);
+}
+
+@keyframes vvTickerSlide {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* 5. One-Click Sample Chips under Generator Input */
+.quick-samples-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+.quick-sample-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  border: 1px dashed var(--ink);
+  background: var(--board);
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.18s var(--ease-slide-out), background-color 0.15s ease, border-color 0.15s ease;
+  font-family: inherit;
+}
+
+.quick-sample-chip:hover {
+  transform: translateY(-2px);
+  background: var(--paper);
+  border-style: solid;
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.quick-sample-chip:active {
+  transform: translateY(0);
+}
+
+/* 6. Subtle Sliding Hover Lift for Cards and Key Blocks */
+.stat-pill,
+.podcast-timeline-item,
+.card,
+.answer-box {
+  transition: transform 0.22s var(--ease-slide-out), box-shadow 0.22s var(--ease-slide-out);
+}
+
+.stat-pill:hover,
+.podcast-timeline-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 4px 5px 0 var(--ink);
+}
+
+/* 7. Action Button Micro-Interactions */
+.btn-primary {
+  transition: transform 0.15s var(--ease-slide-out), box-shadow 0.15s var(--ease-slide-out), filter 0.15s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+
+/* 8. Accessibility: Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-copy > *,
+  .hero-demo,
+  .hero-pill::after,
+  .sliding-ticker-inner {
+    animation: none !important;
+    transform: none !important;
+  }
+  .ticker-item,
+  .quick-sample-chip,
+  .stat-pill,
+  .podcast-timeline-item,
+  .card,
+  .answer-box {
+    transition: none !important;
+  }
+}
