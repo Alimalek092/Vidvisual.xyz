@@ -23,6 +23,8 @@
 4. **Mindset & Standards**:
    - Think and act as the world's best software designer, full-stack engineer, and SaaS developer.
    - Work with high speed, deep empathy, kindness, and immediate concrete execution.
+5. **UI/UX Design Intelligence (nextlevelbuilder/ui-ux-pro-max-skill)**:
+   - Whenever designing, building, or reviewing UI or UX, consult the installed design intelligence suite in `.agents/skills/ui-ux-pro-max/` (79 styles, 192 palettes, 74 font pairings, 119 UX guidelines) to guide design decisions, layout, typography, and micro-interactions.
 
 ## Working Rules
 1. Read before you write. Open the files you will change and their neighbours first.
