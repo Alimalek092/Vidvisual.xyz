@@ -12,10 +12,10 @@ const PRESET_VIDEOS = [
 ];
 
 const LOADING_STAGES = [
-  { id: 1, title: 'Fetching YouTube transcript & captions…', duration: 4500 },
-  { id: 2, title: 'Gemini 2.5 Flash distilling core thesis & arguments…', duration: 5000 },
-  { id: 3, title: 'Building whiteboard concept cards & relational mind map…', duration: 5500 },
-  { id: 4, title: 'Rendering high-resolution visual canvas…', duration: 4000 },
+  { id: 1, title: 'Fetching YouTube transcript & captions…' },
+  { id: 2, title: 'Gemini 2.5 Flash distilling core thesis & arguments…' },
+  { id: 3, title: 'Building whiteboard concept cards & relational mind map…' },
+  { id: 4, title: 'Rendering high-resolution visual canvas…' },
 ];
 
 export default function HomeHeroGenerator() {
@@ -31,7 +31,6 @@ export default function HomeHeroGenerator() {
   const [hasHitLimit, setHasHitLimit] = useState(false);
   const [pasteFeedback, setPasteFeedback] = useState(false);
 
-  // Ensure persistent guest ID exists in localStorage and cookie
   useEffect(() => {
     if (typeof window !== 'undefined') {
       let gid = localStorage.getItem('vv_guest_id');
@@ -156,229 +155,232 @@ export default function HomeHeroGenerator() {
         resetInfo={limitData.resetInfo}
       />
 
-      <div className="hero-aurora-wrapper">
-        {/* Ambient Motion Blur Aura */}
-        <div className="hero-aurora-glow" />
+      <div className="wensity-hero-backdrop">
+        {/* Wensity Prismatic Orbs */}
+        <div className="wensity-orb-primary" />
+        <div className="wensity-orb-secondary" />
 
-        {/* Uiverse-Style Glass Generator Card */}
-        <div className="uiverse-gen-card">
-          
-          {/* Limit Alert Banner */}
-          {hasHitLimit ? (
-            <div
-              style={{
-                background: 'rgba(239, 68, 68, 0.08)',
-                border: '1.5px solid #ef4444',
-                borderRadius: '12px',
-                padding: '12px 14px',
-                marginBottom: '16px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                gap: '12px',
-                flexWrap: 'wrap',
-              }}
-            >
-              <div style={{ flex: 1, minWidth: '240px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <span>🔴</span>
-                  <strong style={{ color: '#dc2626', fontSize: '0.92rem' }}>
-                    Weekly free limit reached (3/3).
-                  </strong>
-                </div>
-                <p style={{ margin: '3px 0 0', fontSize: '0.82rem', color: '#991b1b', lineHeight: 1.4 }}>
-                  Allowances reset every Monday. Upgrade for instant unlimited access or get 30 summaries for $1.99.
-                </p>
-              </div>
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={() => setShowUpgradeModal(true)}
-                style={{ padding: '8px 16px', fontSize: '0.85rem', fontWeight: 700, whiteSpace: 'nowrap' }}
-              >
-                ⚡ Get Instant Access
-              </button>
-            </div>
-          ) : null}
-
-          <form onSubmit={handleGenerate} style={{ display: 'grid', gap: '14px' }}>
+        {/* Wensity Signature Border Beam Container */}
+        <div className="wensity-beam-box">
+          <div className="wensity-beam-inner">
             
-            {/* Modern Input Field with Integrated Icons & Paste Button */}
-            <div className="uiverse-input-wrapper">
-              <span className="uiverse-input-icon">▶</span>
-              <input
-                type="url"
-                required
-                placeholder="Paste any YouTube video or podcast URL…"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-                disabled={busy}
-                aria-label="YouTube video URL"
-                className="uiverse-input-field"
-              />
-              <div className="uiverse-input-actions">
-                {url ? (
-                  <button
-                    type="button"
-                    onClick={() => setUrl('')}
-                    className="uiverse-clear-btn"
-                    title="Clear input"
-                  >
-                    ✕
-                  </button>
-                ) : null}
-                <button
-                  type="button"
-                  onClick={handlePaste}
-                  className="uiverse-paste-btn"
-                  title="Paste from clipboard"
-                >
-                  📋 {pasteFeedback ? 'Pasted!' : 'Paste'}
-                </button>
-              </div>
-            </div>
-
-            {/* 1-Click Popular Video Presets for Immediate User Engagement */}
-            <div className="uiverse-presets-row">
-              <span className="uiverse-presets-label">
-                <span>⚡</span> Or test with 1-click popular videos:
-              </span>
-              <div className="uiverse-presets-chips">
-                {PRESET_VIDEOS.map((preset, idx) => (
-                  <button
-                    key={idx}
-                    type="button"
-                    onClick={() => handleSelectPreset(preset.url)}
-                    className="uiverse-chip-btn"
-                    disabled={busy}
-                  >
-                    {preset.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Options Row: Format Switcher & Language Dropdown */}
-            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', alignItems: 'center' }}>
-              <div className="seg" role="radiogroup" aria-label="Summary Format" style={{ margin: 0, flex: 1, minWidth: '220px' }}>
-                <button
-                  type="button"
-                  role="radio"
-                  aria-checked={format === 'whiteboard'}
-                  className={format === 'whiteboard' ? 'on' : ''}
-                  onClick={() => setFormat('whiteboard')}
-                  disabled={busy}
-                  style={{ fontSize: '0.88rem' }}
-                >
-                  ✏️ Whiteboard Cards
-                </button>
-                <button
-                  type="button"
-                  role="radio"
-                  aria-checked={format === 'infographic'}
-                  className={format === 'infographic' ? 'on' : ''}
-                  onClick={() => setFormat('infographic')}
-                  disabled={busy}
-                  style={{ fontSize: '0.88rem' }}
-                >
-                  📊 Mind Map &amp; Hub
-                </button>
-              </div>
-
-              <select
-                className="lang-select"
-                value={language}
-                onChange={(e) => setLanguage(e.target.value)}
-                disabled={busy}
-                aria-label="Summary Language"
+            {/* Limit Alert Banner */}
+            {hasHitLimit ? (
+              <div
                 style={{
-                  padding: '9px 14px',
-                  borderRadius: '10px',
-                  border: '1.5px solid var(--line)',
-                  background: 'var(--board)',
-                  color: 'var(--ink)',
-                  fontSize: '0.88rem',
-                  fontWeight: 600,
-                  minWidth: '160px',
-                  flex: 1,
+                  background: 'rgba(239, 68, 68, 0.08)',
+                  border: '1.5px solid #ef4444',
+                  borderRadius: '12px',
+                  padding: '12px 14px',
+                  marginBottom: '16px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  gap: '12px',
+                  flexWrap: 'wrap',
                 }}
               >
-                <option value="auto">🌐 Auto (Same as video)</option>
-                <option value="English">🇺🇸 English</option>
-                <option value="Spanish">🇪🇸 Spanish (Español)</option>
-                <option value="French">🇫🇷 French (Français)</option>
-                <option value="German">🇩🇪 German (Deutsch)</option>
-                <option value="Hindi">🇮🇳 Hindi (हिन्दी)</option>
-                <option value="Japanese">🇯🇵 Japanese (日本語)</option>
-                <option value="Korean">🇰🇷 Korean (한국어)</option>
-                <option value="Chinese">🇨🇳 Chinese (中文)</option>
-                <option value="Portuguese">🇵🇹 Portuguese (Português)</option>
-                <option value="Arabic">🇸🇦 Arabic (العربية)</option>
-                <option value="Italian">🇮🇹 Italian (Italiano)</option>
-                <option value="Russian">🇷🇺 Russian (Русский)</option>
-              </select>
-            </div>
+                <div style={{ flex: 1, minWidth: '240px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span>🔴</span>
+                    <strong style={{ color: '#dc2626', fontSize: '0.92rem' }}>
+                      Weekly free limit reached (3/3).
+                    </strong>
+                  </div>
+                  <p style={{ margin: '3px 0 0', fontSize: '0.82rem', color: '#991b1b', lineHeight: 1.4 }}>
+                    Allowances reset every Monday. Upgrade for instant unlimited access or get 30 summaries for $1.99.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={() => setShowUpgradeModal(true)}
+                  style={{ padding: '8px 16px', fontSize: '0.85rem', fontWeight: 700, whiteSpace: 'nowrap' }}
+                >
+                  ⚡ Get Instant Access
+                </button>
+              </div>
+            ) : null}
 
-            {/* Primary Action Button with Uiverse Shimmer Effect */}
-            <button
-              type="submit"
-              className="uiverse-cta-btn"
-              disabled={busy}
-            >
-              {busy ? (
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                  <span className="spinner" style={{ display: 'inline-block', width: '16px', height: '16px', border: '2px solid #fff', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
-                  <span>Transforming Video with AI…</span>
-                </span>
-              ) : hasHitLimit ? (
-                '⚡ Weekly Limit Reached — Upgrade to Continue'
-              ) : (
-                '⚡ Generate Visual Notes in 20s (Free · No Login)'
-              )}
-            </button>
-          </form>
-
-          {/* High-Tech Animated Loading Suite When Generating */}
-          {busy ? (
-            <div className="uiverse-loading-suite" role="status" aria-live="polite">
-              <div className="uiverse-loading-bar-track">
-                <div
-                  className="uiverse-loading-bar-fill"
-                  style={{ width: `${Math.min(100, (currentStage + 1) * 25)}%` }}
+            <form onSubmit={handleGenerate} style={{ display: 'grid', gap: '14px' }}>
+              
+              {/* Wensity Modern Input Field with Integrated Icons & Paste Button */}
+              <div className="wensity-input-wrap">
+                <span className="wensity-input-badge">▶</span>
+                <input
+                  type="url"
+                  required
+                  placeholder="Paste any YouTube video or podcast URL…"
+                  value={url}
+                  onChange={(e) => setUrl(e.target.value)}
+                  disabled={busy}
+                  aria-label="YouTube video URL"
+                  className="wensity-input-element"
                 />
-              </div>
-              <div className="uiverse-loading-steps">
-                {LOADING_STAGES.map((stg, i) => {
-                  const isDone = currentStage > i;
-                  const isActive = currentStage === i;
-                  return (
-                    <div
-                      key={stg.id}
-                      className={`uiverse-step-item ${isDone ? 'completed' : ''} ${isActive ? 'active' : ''}`}
+                <div className="wensity-input-actions">
+                  {url ? (
+                    <button
+                      type="button"
+                      onClick={() => setUrl('')}
+                      className="wensity-clear-btn"
+                      title="Clear input"
                     >
-                      <span className="uiverse-step-indicator">
-                        {isDone ? '✓' : isActive ? '▶' : i + 1}
-                      </span>
-                      <span>{stg.title}</span>
-                    </div>
-                  );
-                })}
+                      ✕
+                    </button>
+                  ) : null}
+                  <button
+                    type="button"
+                    onClick={handlePaste}
+                    className="wensity-paste-btn"
+                    title="Paste from clipboard"
+                  >
+                    📋 {pasteFeedback ? 'Pasted!' : 'Paste'}
+                  </button>
+                </div>
               </div>
-            </div>
-          ) : null}
 
-          {/* Error Message */}
-          {error ? (
-            <div className="msg msg-error" role="alert" style={{ marginTop: '14px', fontSize: '0.88rem' }}>
-              <p style={{ margin: 0 }}>{error}</p>
-            </div>
-          ) : null}
+              {/* 1-Click Popular Video Presets for Immediate User Engagement */}
+              <div className="wensity-presets-row">
+                <span className="wensity-presets-heading">
+                  <span>⚡</span> Or test with 1-click popular videos:
+                </span>
+                <div className="wensity-presets-chips">
+                  {PRESET_VIDEOS.map((preset, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => handleSelectPreset(preset.url)}
+                      className="wensity-preset-chip"
+                      disabled={busy}
+                    >
+                      {preset.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
 
-          {/* Trust & Guarantee Strip */}
-          <div style={{ marginTop: '14px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px', fontSize: '0.82rem', color: 'var(--ink-soft)' }}>
-            <span>✨ <strong>3 free visual summaries / week</strong></span>
-            <span>⚡ 20-second turnaround</span>
-            <span>🔒 Zero signup or card needed</span>
+              {/* Options Row: Format Switcher & Language Dropdown */}
+              <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', alignItems: 'center' }}>
+                <div className="seg" role="radiogroup" aria-label="Summary Format" style={{ margin: 0, flex: 1, minWidth: '220px' }}>
+                  <button
+                    type="button"
+                    role="radio"
+                    aria-checked={format === 'whiteboard'}
+                    className={format === 'whiteboard' ? 'on' : ''}
+                    onClick={() => setFormat('whiteboard')}
+                    disabled={busy}
+                    style={{ fontSize: '0.88rem' }}
+                  >
+                    ✏️ Whiteboard Cards
+                  </button>
+                  <button
+                    type="button"
+                    role="radio"
+                    aria-checked={format === 'infographic'}
+                    className={format === 'infographic' ? 'on' : ''}
+                    onClick={() => setFormat('infographic')}
+                    disabled={busy}
+                    style={{ fontSize: '0.88rem' }}
+                  >
+                    📊 Mind Map &amp; Hub
+                  </button>
+                </div>
+
+                <select
+                  className="lang-select"
+                  value={language}
+                  onChange={(e) => setLanguage(e.target.value)}
+                  disabled={busy}
+                  aria-label="Summary Language"
+                  style={{
+                    padding: '9px 14px',
+                    borderRadius: '10px',
+                    border: '1.5px solid var(--line)',
+                    background: 'var(--board)',
+                    color: 'var(--ink)',
+                    fontSize: '0.88rem',
+                    fontWeight: 600,
+                    minWidth: '160px',
+                    flex: 1,
+                  }}
+                >
+                  <option value="auto">🌐 Auto (Same as video)</option>
+                  <option value="English">🇺🇸 English</option>
+                  <option value="Spanish">🇪🇸 Spanish (Español)</option>
+                  <option value="French">🇫🇷 French (Français)</option>
+                  <option value="German">🇩🇪 German (Deutsch)</option>
+                  <option value="Hindi">🇮🇳 Hindi (हिन्दी)</option>
+                  <option value="Japanese">🇯🇵 Japanese (日本語)</option>
+                  <option value="Korean">🇰🇷 Korean (한국어)</option>
+                  <option value="Chinese">🇨🇳 Chinese (中文)</option>
+                  <option value="Portuguese">🇵🇹 Portuguese (Português)</option>
+                  <option value="Arabic">🇸🇦 Arabic (العربية)</option>
+                  <option value="Italian">🇮🇹 Italian (Italiano)</option>
+                  <option value="Russian">🇷🇺 Russian (Русский)</option>
+                </select>
+              </div>
+
+              {/* Primary Action Button with Wensity Shimmer Effect */}
+              <button
+                type="submit"
+                className="wensity-cta-btn"
+                disabled={busy}
+              >
+                {busy ? (
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                    <span className="spinner" style={{ display: 'inline-block', width: '16px', height: '16px', border: '2px solid #fff', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
+                    <span>Transforming Video with AI…</span>
+                  </span>
+                ) : hasHitLimit ? (
+                  '⚡ Weekly Limit Reached — Upgrade to Continue'
+                ) : (
+                  '⚡ Generate Visual Notes in 20s (Free · No Login)'
+                )}
+              </button>
+            </form>
+
+            {/* Wensity High-Tech Animated Loading Suite */}
+            {busy ? (
+              <div className="wensity-loading-panel" role="status" aria-live="polite">
+                <div className="wensity-progress-track">
+                  <div
+                    className="wensity-progress-bar"
+                    style={{ width: `${Math.min(100, (currentStage + 1) * 25)}%` }}
+                  />
+                </div>
+                <div className="wensity-loading-steps">
+                  {LOADING_STAGES.map((stg, i) => {
+                    const isDone = currentStage > i;
+                    const isActive = currentStage === i;
+                    return (
+                      <div
+                        key={stg.id}
+                        className={`wensity-step-item ${isDone ? 'completed' : ''} ${isActive ? 'active' : ''}`}
+                      >
+                        <span className="wensity-step-badge">
+                          {isDone ? '✓' : isActive ? '▶' : i + 1}
+                        </span>
+                        <span>{stg.title}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ) : null}
+
+            {/* Error Message */}
+            {error ? (
+              <div className="msg msg-error" role="alert" style={{ marginTop: '14px', fontSize: '0.88rem' }}>
+                <p style={{ margin: 0 }}>{error}</p>
+              </div>
+            ) : null}
+
+            {/* Trust & Guarantee Strip */}
+            <div style={{ marginTop: '14px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px', fontSize: '0.82rem', color: 'var(--ink-soft)' }}>
+              <span>✨ <strong>3 free visual summaries / week</strong></span>
+              <span>⚡ 20-second turnaround</span>
+              <span>🔒 Zero signup or card needed</span>
+            </div>
           </div>
         </div>
       </div>

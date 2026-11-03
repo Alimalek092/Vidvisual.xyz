@@ -1,136 +1,166 @@
 /* ==========================================================================
-   vidvisual World-Class UI & Motion Design System
-   Inspired by uiverse.io, Linear, Perplexity, and Modern SaaS Design
+   vidvisual Wensity UI Design System (ui.wensity.com)
+   Featuring Border Beam, Prismatic Orbs, Glassmorphic Bento Cards,
+   and Motion-Rich Micro-Interactions.
    ========================================================================== */
 
-/* 1. KEYFRAME ANIMATIONS & MOTION BLURS */
-@keyframes auroraPulse {
+/* 1. KEYFRAME ANIMATIONS */
+@keyframes wensityBorderBeamSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes wensityOrbDrift {
   0% {
     transform: translate(0, 0) scale(1);
     opacity: 0.55;
   }
   50% {
-    transform: translate(25px, -15px) scale(1.08);
-    opacity: 0.8;
+    transform: translate(35px, -25px) scale(1.12);
+    opacity: 0.85;
   }
   100% {
-    transform: translate(-15px, 20px) scale(0.96);
+    transform: translate(-25px, 20px) scale(0.95);
     opacity: 0.55;
   }
 }
 
-@keyframes btnShineSweep {
+@keyframes wensityShineSweep {
   0% {
-    transform: translateX(-150%) skewX(-20deg);
+    transform: translateX(-150%) skewX(-25deg);
   }
-  20%, 100% {
-    transform: translateX(250%) skewX(-20deg);
+  25%, 100% {
+    transform: translateX(250%) skewX(-25deg);
   }
 }
 
-@keyframes gradientShift {
+@keyframes wensityGradientShift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-@keyframes pulseGlow {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(43, 89, 224, 0.4), 0 10px 30px -5px rgba(43, 89, 224, 0.25);
-  }
-  50% {
-    box-shadow: 0 0 0 8px rgba(43, 89, 224, 0), 0 16px 40px -5px rgba(43, 89, 224, 0.4);
-  }
-}
-
-@keyframes cardHoverFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
-}
-
-@keyframes dotLivePulse {
+@keyframes wensityDotPulse {
   0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(35, 153, 107, 0.7); }
-  70% { transform: scale(1.1); box-shadow: 0 0 0 6px rgba(35, 153, 107, 0); }
+  70% { transform: scale(1.15); box-shadow: 0 0 0 6px rgba(35, 153, 107, 0); }
   100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(35, 153, 107, 0); }
 }
 
-/* 2. AMBIENT AURORA MOTION BLUR (Hero Backdrop) */
-.hero-aurora-wrapper {
+/* 2. WENSITY PRISMATIC AMBIENT ORBS */
+.wensity-hero-backdrop {
   position: relative;
   width: 100%;
 }
 
-.hero-aurora-glow {
+.wensity-orb-primary {
   position: absolute;
   top: -60px;
-  left: -40px;
-  right: -40px;
+  left: -30px;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.28) 0%, rgba(124, 58, 237, 0.22) 45%, transparent 70%);
+  filter: blur(65px);
+  pointer-events: none;
+  z-index: 0;
+  animation: wensityOrbDrift 11s ease-in-out infinite alternate;
+}
+
+.wensity-orb-secondary {
+  position: absolute;
   bottom: -40px;
-  background: radial-gradient(circle at 20% 30%, rgba(43, 89, 224, 0.22) 0%, transparent 45%),
-              radial-gradient(circle at 80% 40%, rgba(122, 90, 248, 0.2) 0%, transparent 50%),
-              radial-gradient(circle at 50% 80%, rgba(35, 153, 107, 0.15) 0%, transparent 40%);
+  right: -20px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.25) 0%, rgba(35, 153, 107, 0.2) 50%, transparent 70%);
   filter: blur(60px);
   pointer-events: none;
   z-index: 0;
-  animation: auroraPulse 10s ease-in-out infinite alternate;
+  animation: wensityOrbDrift 9s ease-in-out infinite alternate-reverse;
 }
 
-html[data-theme='dark'] .hero-aurora-glow {
-  background: radial-gradient(circle at 20% 30%, rgba(122, 162, 255, 0.28) 0%, transparent 45%),
-              radial-gradient(circle at 80% 40%, rgba(183, 148, 255, 0.25) 0%, transparent 50%),
-              radial-gradient(circle at 50% 80%, rgba(89, 211, 155, 0.18) 0%, transparent 40%);
+html[data-theme='dark'] .wensity-orb-primary {
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.32) 0%, rgba(167, 139, 250, 0.26) 45%, transparent 70%);
   filter: blur(80px);
 }
 
-/* 3. UIVERSE-STYLE GLASS GENERATOR CARD */
-.uiverse-gen-card {
+html[data-theme='dark'] .wensity-orb-secondary {
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.28) 0%, rgba(52, 211, 153, 0.22) 50%, transparent 70%);
+  filter: blur(80px);
+}
+
+/* 3. WENSITY BORDER BEAM CONTAINER (Signature Effect) */
+.wensity-beam-box {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  padding: 1.5px;
+  margin-top: 20px;
+  box-shadow: 0 20px 50px -12px rgba(22, 35, 59, 0.12);
+  z-index: 1;
+}
+
+html[data-theme='dark'] .wensity-beam-box {
+  box-shadow: 0 25px 65px -15px rgba(0, 0, 0, 0.65);
+}
+
+.wensity-beam-box::before {
+  content: '';
+  position: absolute;
+  top: -150%;
+  left: -150%;
+  width: 400%;
+  height: 400%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0deg,
+    transparent 280deg,
+    #2563eb 320deg,
+    #7c3aed 345deg,
+    #38bdf8 360deg
+  );
+  animation: wensityBorderBeamSpin 4.5s linear infinite;
+  pointer-events: none;
+}
+
+.wensity-beam-inner {
   position: relative;
   z-index: 1;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(20px) saturate(190%);
-  -webkit-backdrop-filter: blur(20px) saturate(190%);
-  border: 1.5px solid rgba(22, 35, 59, 0.12);
-  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border-radius: 20.5px;
   padding: 24px 22px;
-  box-shadow: 0 20px 50px -12px rgba(22, 35, 59, 0.12),
-              0 0 0 1px rgba(255, 255, 255, 0.8) inset;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  margin-top: 20px;
 }
 
-html[data-theme='dark'] .uiverse-gen-card {
-  background: rgba(17, 24, 39, 0.88);
-  border: 1.5px solid rgba(122, 162, 255, 0.22);
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6),
-              0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+html[data-theme='dark'] .wensity-beam-inner {
+  background: rgba(17, 24, 39, 0.90);
 }
 
-.uiverse-gen-card:focus-within {
-  border-color: var(--blue);
-  box-shadow: 0 25px 60px -12px rgba(43, 89, 224, 0.22),
-              0 0 0 3px rgba(43, 89, 224, 0.18);
-}
-
-/* 4. MODERN INPUT BOX WITH INTEGRATED ICONS */
-.uiverse-input-wrapper {
+/* 4. WENSITY INPUT WITH INTEGRATED CLIPBOARD PASTE */
+.wensity-input-wrap {
   position: relative;
   display: flex;
   align-items: center;
   width: 100%;
   background: var(--paper);
-  border: 2px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: 14px;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-.uiverse-input-wrapper:focus-within {
+.wensity-input-wrap:focus-within {
   border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(43, 89, 224, 0.16), 0 4px 16px rgba(43, 89, 224, 0.1);
-  background: var(--paper);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18), 0 4px 16px rgba(37, 99, 235, 0.1);
 }
 
-.uiverse-input-icon {
+.wensity-input-badge {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -140,7 +170,7 @@ html[data-theme='dark'] .uiverse-gen-card {
   user-select: none;
 }
 
-.uiverse-input-field {
+.wensity-input-element {
   flex: 1;
   width: 100%;
   padding: 14px 12px;
@@ -153,19 +183,19 @@ html[data-theme='dark'] .uiverse-gen-card {
   font-weight: 500;
 }
 
-.uiverse-input-field::placeholder {
+.wensity-input-element::placeholder {
   color: var(--ink-soft);
   opacity: 0.85;
 }
 
-.uiverse-input-actions {
+.wensity-input-actions {
   display: flex;
   align-items: center;
   gap: 6px;
   padding-right: 8px;
 }
 
-.uiverse-paste-btn {
+.wensity-paste-btn {
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -183,14 +213,14 @@ html[data-theme='dark'] .uiverse-gen-card {
   white-space: nowrap;
 }
 
-.uiverse-paste-btn:hover {
+.wensity-paste-btn:hover {
   background: var(--blue);
   color: #fff;
   border-color: var(--blue);
   transform: translateY(-1px);
 }
 
-.uiverse-clear-btn {
+.wensity-clear-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -206,25 +236,25 @@ html[data-theme='dark'] .uiverse-gen-card {
   transition: all 0.15s ease;
 }
 
-html[data-theme='dark'] .uiverse-clear-btn {
+html[data-theme='dark'] .wensity-clear-btn {
   background: rgba(255, 255, 255, 0.15);
   color: #fff;
 }
 
-.uiverse-clear-btn:hover {
+.wensity-clear-btn:hover {
   background: #ef4444;
   color: #fff;
 }
 
-/* 5. 1-CLICK POPULAR VIDEO PRESET CHIPS */
-.uiverse-presets-row {
+/* 5. WENSITY 1-CLICK POPULAR VIDEO PRESETS */
+.wensity-presets-row {
   display: flex;
   flex-direction: column;
   gap: 8px;
   margin-top: 2px;
 }
 
-.uiverse-presets-label {
+.wensity-presets-heading {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -235,13 +265,13 @@ html[data-theme='dark'] .uiverse-clear-btn {
   letter-spacing: 0.04em;
 }
 
-.uiverse-presets-chips {
+.wensity-presets-chips {
   display: flex;
   gap: 7px;
   flex-wrap: wrap;
 }
 
-.uiverse-chip-btn {
+.wensity-preset-chip {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -258,20 +288,20 @@ html[data-theme='dark'] .uiverse-clear-btn {
   user-select: none;
 }
 
-.uiverse-chip-btn:hover {
-  background: rgba(43, 89, 224, 0.1);
+.wensity-preset-chip:hover {
+  background: rgba(37, 99, 235, 0.1);
   border-color: var(--blue);
   color: var(--blue);
   transform: translateY(-1.5px);
-  box-shadow: 0 4px 12px rgba(43, 89, 224, 0.15);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
 }
 
-.uiverse-chip-btn:active {
+.wensity-preset-chip:active {
   transform: scale(0.97);
 }
 
-/* 6. UIVERSE SHIMMER CTA BUTTON */
-.uiverse-cta-btn {
+/* 6. WENSITY SHIMMER ACTION BUTTON */
+.wensity-cta-btn {
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -293,7 +323,7 @@ html[data-theme='dark'] .uiverse-clear-btn {
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.uiverse-cta-btn::before {
+.wensity-cta-btn::before {
   content: '';
   position: absolute;
   top: 0;
@@ -301,29 +331,29 @@ html[data-theme='dark'] .uiverse-clear-btn {
   width: 45%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
-  animation: btnShineSweep 3.2s infinite ease-in-out;
+  animation: wensityShineSweep 3.2s infinite ease-in-out;
   pointer-events: none;
 }
 
-.uiverse-cta-btn:hover:not(:disabled) {
+.wensity-cta-btn:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 0 14px 34px -4px rgba(37, 99, 235, 0.52),
               0 0 0 1px rgba(255, 255, 255, 0.35) inset;
   filter: brightness(1.04);
 }
 
-.uiverse-cta-btn:active:not(:disabled) {
+.wensity-cta-btn:active:not(:disabled) {
   transform: translateY(1px);
   box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
 }
 
-.uiverse-cta-btn:disabled {
+.wensity-cta-btn:disabled {
   opacity: 0.85;
   cursor: wait;
 }
 
-/* 7. HIGH-TECH ANIMATED LOADING SUITE */
-.uiverse-loading-suite {
+/* 7. WENSITY HIGH-TECH LOADING SUITE */
+.wensity-loading-panel {
   background: var(--board);
   border: 1.5px solid var(--line);
   border-radius: 14px;
@@ -334,7 +364,7 @@ html[data-theme='dark'] .uiverse-clear-btn {
   gap: 12px;
 }
 
-.uiverse-loading-bar-track {
+.wensity-progress-track {
   width: 100%;
   height: 6px;
   background: rgba(0, 0, 0, 0.08);
@@ -343,26 +373,26 @@ html[data-theme='dark'] .uiverse-clear-btn {
   position: relative;
 }
 
-html[data-theme='dark'] .uiverse-loading-bar-track {
+html[data-theme='dark'] .wensity-progress-track {
   background: rgba(255, 255, 255, 0.12);
 }
 
-.uiverse-loading-bar-fill {
+.wensity-progress-bar {
   height: 100%;
   border-radius: 999px;
   background: linear-gradient(90deg, #2563eb, #7c3aed, #06b6d4, #2563eb);
   background-size: 200% 100%;
-  animation: gradientShift 1.5s linear infinite;
+  animation: wensityGradientShift 1.5s linear infinite;
   transition: width 0.4s ease;
 }
 
-.uiverse-loading-steps {
+.wensity-loading-steps {
   display: grid;
   gap: 8px;
   font-size: 0.88rem;
 }
 
-.uiverse-step-item {
+.wensity-step-item {
   display: flex;
   align-items: center;
   gap: 9px;
@@ -370,18 +400,18 @@ html[data-theme='dark'] .uiverse-loading-bar-track {
   transition: all 0.25s ease;
 }
 
-.uiverse-step-item.active {
+.wensity-step-item.active {
   color: var(--blue);
   font-weight: 700;
   transform: translateX(4px);
 }
 
-.uiverse-step-item.completed {
+.wensity-step-item.completed {
   color: var(--green);
   font-weight: 600;
 }
 
-.uiverse-step-indicator {
+.wensity-step-badge {
   width: 18px;
   height: 18px;
   border-radius: 50%;
@@ -395,18 +425,18 @@ html[data-theme='dark'] .uiverse-loading-bar-track {
   flex-shrink: 0;
 }
 
-.uiverse-step-item.active .uiverse-step-indicator {
+.wensity-step-item.active .wensity-step-badge {
   background: var(--blue);
   color: #fff;
   box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
 }
 
-.uiverse-step-item.completed .uiverse-step-indicator {
+.wensity-step-item.completed .wensity-step-badge {
   background: var(--green);
   color: #fff;
 }
 
-/* 8. INTERACTIVE HERO PREVIEW APP FRAME */
+/* 8. WENSITY HERO INTERACTIVE FRAME */
 .hero-interactive-frame {
   background: var(--paper);
   border-radius: 20px;
@@ -466,7 +496,7 @@ html[data-theme='dark'] .hero-interactive-frame {
   height: 7px;
   border-radius: 50%;
   background: var(--green);
-  animation: dotLivePulse 1.8s infinite;
+  animation: wensityDotPulse 1.8s infinite;
 }
 
 .hero-frame-controls {
