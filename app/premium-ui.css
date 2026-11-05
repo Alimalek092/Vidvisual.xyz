@@ -1,0 +1,470 @@
+/* ========================================================================
+   VIDVISUAL ULTRA-PREMIUM UI SYSTEM (ui-ux-pro-max / open-source inspired)
+   ------------------------------------------------------------------------
+   Inspired by Linear, Vercel, shadcn/ui, Aceternity UI, and Stripe design.
+   Fully responsive, high-contrast, accessible, and reversible.
+   ======================================================================== */
+
+/* --- 1. Ambient Background & Mesh Lighting --- */
+body {
+  position: relative;
+  background-color: var(--board);
+  background-image: 
+    radial-gradient(at 15% 15%, rgba(43, 89, 224, 0.08) 0px, transparent 55%),
+    radial-gradient(at 85% 25%, rgba(122, 90, 248, 0.08) 0px, transparent 55%),
+    radial-gradient(at 50% 75%, rgba(35, 153, 107, 0.05) 0px, transparent 55%),
+    radial-gradient(#cfd9d6 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 26px 26px;
+  background-attachment: fixed;
+}
+
+html[data-theme='dark'] body {
+  background-image: 
+    radial-gradient(at 15% 15%, rgba(122, 162, 255, 0.12) 0px, transparent 55%),
+    radial-gradient(at 85% 25%, rgba(183, 148, 255, 0.10) 0px, transparent 55%),
+    radial-gradient(at 50% 75%, rgba(89, 211, 155, 0.06) 0px, transparent 55%),
+    radial-gradient(#1e293b 1px, transparent 1px);
+}
+
+/* --- 2. Frosted Glass Navigation Bar --- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  background: rgba(244, 247, 246, 0.82);
+  border-bottom: 1.5px solid rgba(22, 35, 59, 0.08);
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+html[data-theme='dark'] .nav {
+  background: rgba(15, 23, 42, 0.82);
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav-links a:not(.btn) {
+  position: relative;
+  font-weight: 600;
+  padding: 6px 4px;
+}
+
+.nav-links a:not(.btn)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--blue);
+  border-radius: 999px;
+  transition: width 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-links a:not(.btn):hover::after {
+  width: 100%;
+}
+
+/* --- 3. Hero Section Aura & Typography --- */
+.hero {
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(43, 89, 224, 0.15) 0%, rgba(122, 90, 248, 0.08) 50%, transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-pill {
+  box-shadow: 0 4px 14px -2px rgba(43, 89, 224, 0.25);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+}
+
+.hero-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -2px rgba(43, 89, 224, 0.35);
+}
+
+.hero-demo {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.hero-demo:hover {
+  transform: rotate(0deg) translateY(-4px);
+}
+
+.hero-demo .vv {
+  box-shadow: 0 20px 50px -12px rgba(15, 23, 42, 0.25), 6px 6px 0 var(--ink);
+}
+
+html[data-theme='dark'] .hero-demo .vv {
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.65), 0 0 30px rgba(122, 162, 255, 0.15);
+}
+
+/* --- 4. Silicon Valley SaaS Stats Strip --- */
+.stats-strip {
+  position: relative;
+  z-index: 1;
+}
+
+.stat-pill {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.88);
+  border: 2px solid var(--ink);
+  border-radius: 16px;
+  padding: 16px 20px;
+  box-shadow: 4px 4px 0 var(--ink);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease, border-color 0.2s ease;
+}
+
+html[data-theme='dark'] .stat-pill {
+  background: rgba(17, 24, 39, 0.85);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.6);
+}
+
+.stat-pill:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 7px 0 var(--ink);
+  border-color: var(--blue);
+}
+
+html[data-theme='dark'] .stat-pill:hover {
+  box-shadow: 6px 7px 0 rgba(0, 0, 0, 0.8);
+  border-color: var(--blue);
+}
+
+.stat-pill-num {
+  font-size: 1.85rem;
+  letter-spacing: -0.02em;
+}
+
+/* --- 5. Feature & Value Prop Cards (Bento-Grid Evolution) --- */
+.card-grid {
+  gap: 22px;
+}
+
+.info-card {
+  position: relative;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.92);
+  border: 2px solid var(--ink);
+  border-radius: 18px;
+  padding: 24px 22px;
+  box-shadow: 4px 4px 0 var(--ink);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.2s ease;
+  overflow: hidden;
+}
+
+html[data-theme='dark'] .info-card {
+  background: rgba(17, 24, 39, 0.88);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.6);
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 6px 8px 0 var(--ink);
+}
+
+html[data-theme='dark'] .info-card:hover {
+  box-shadow: 6px 8px 0 rgba(0, 0, 0, 0.85);
+}
+
+/* Card Icon Box Styling */
+.card-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  flex-shrink: 0;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.info-card:hover .card-icon-wrap {
+  transform: scale(1.08) rotate(-2deg);
+}
+
+.info-card.accent-blue .card-icon-wrap {
+  background: linear-gradient(135deg, rgba(43, 89, 224, 0.15), rgba(43, 89, 224, 0.3));
+  color: var(--blue);
+}
+
+.info-card.accent-violet .card-icon-wrap {
+  background: linear-gradient(135deg, rgba(122, 90, 248, 0.15), rgba(122, 90, 248, 0.3));
+  color: var(--violet);
+}
+
+.info-card.accent-green .card-icon-wrap {
+  background: linear-gradient(135deg, rgba(35, 153, 107, 0.15), rgba(35, 153, 107, 0.3));
+  color: var(--green);
+}
+
+.info-card.accent-amber .card-icon-wrap {
+  background: linear-gradient(135deg, rgba(229, 154, 0, 0.15), rgba(229, 154, 0, 0.3));
+  color: var(--amber);
+}
+
+.info-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.info-card p {
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+/* --- 6. Long-Form Video Compression Showcase --- */
+.podcast-showcase {
+  position: relative;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: linear-gradient(135deg, rgba(43, 89, 224, 0.09), rgba(35, 153, 107, 0.09));
+  border: 3px solid var(--ink);
+  border-radius: 22px;
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.podcast-timeline-item {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.92);
+  border: 2px solid var(--ink);
+  border-radius: 14px;
+  padding: 14px 18px;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+}
+
+html[data-theme='dark'] .podcast-timeline-item {
+  background: rgba(17, 24, 39, 0.9);
+}
+
+.podcast-timeline-item:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 5px 6px 0 var(--ink);
+}
+
+/* --- 7. "How It Works" Connected Step Nodes --- */
+.step-detailed {
+  position: relative;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.85);
+  border: 2px solid var(--ink);
+  border-radius: 18px;
+  padding: 18px 22px;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease;
+}
+
+html[data-theme='dark'] .step-detailed {
+  background: rgba(17, 24, 39, 0.82);
+}
+
+.step-detailed:hover {
+  transform: translateY(-3px);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+.step-num {
+  background: linear-gradient(135deg, var(--blue), var(--violet)) !important;
+  color: #ffffff !important;
+  border: 3px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* --- 8. SaaS Competitor Comparison Matrix --- */
+.comparison-wrap {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.95);
+  border: 3px solid var(--ink);
+  border-radius: 20px;
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+html[data-theme='dark'] .comparison-wrap {
+  background: rgba(17, 24, 39, 0.92);
+}
+
+.comparison-table th {
+  padding: 18px 20px;
+  border-bottom: 2.5px solid var(--ink);
+}
+
+.comparison-table td {
+  padding: 16px 20px;
+  transition: background-color 0.15s ease;
+}
+
+.comparison-table tr:hover td {
+  background-color: rgba(43, 89, 224, 0.03);
+}
+
+.comparison-table td.highlight-col {
+  background: rgba(43, 89, 224, 0.08) !important;
+  border-left: 2px solid rgba(43, 89, 224, 0.25);
+  border-right: 2px solid rgba(43, 89, 224, 0.25);
+}
+
+html[data-theme='dark'] .comparison-table td.highlight-col {
+  background: rgba(122, 162, 255, 0.12) !important;
+}
+
+/* --- 9. Pricing Cards with Spotlight Glow --- */
+.plan {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.92);
+  border: 2px solid var(--ink);
+  border-radius: 20px;
+  box-shadow: 4px 4px 0 var(--ink);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+html[data-theme='dark'] .plan {
+  background: rgba(17, 24, 39, 0.9);
+}
+
+.plan-hot {
+  background: linear-gradient(180deg, rgba(238, 244, 255, 0.95), rgba(255, 255, 255, 0.95)) !important;
+  border: 3px solid var(--blue) !important;
+  box-shadow: 6px 6px 0 var(--blue), 0 20px 45px -10px rgba(43, 89, 224, 0.3) !important;
+  transform: scale(1.02);
+}
+
+html[data-theme='dark'] .plan-hot {
+  background: linear-gradient(180deg, rgba(23, 34, 59, 0.95), rgba(17, 24, 39, 0.95)) !important;
+  box-shadow: 6px 6px 0 var(--blue), 0 20px 45px -10px rgba(122, 162, 255, 0.25) !important;
+}
+
+.plan:hover {
+  transform: translateY(-5px);
+  box-shadow: 7px 8px 0 var(--ink);
+}
+
+.plan-hot:hover {
+  transform: scale(1.03) translateY(-5px);
+  box-shadow: 8px 10px 0 var(--blue), 0 25px 50px -10px rgba(43, 89, 224, 0.4) !important;
+}
+
+/* --- 10. FAQ Accordions --- */
+.faq details {
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.88);
+  border: 2px solid var(--ink);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin: 12px 0;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+}
+
+html[data-theme='dark'] .faq details {
+  background: rgba(17, 24, 39, 0.85);
+}
+
+.faq details:hover {
+  transform: translateY(-2px);
+  box-shadow: 4px 5px 0 var(--ink);
+}
+
+.faq details[open] {
+  border-color: var(--blue);
+  box-shadow: 4px 5px 0 var(--blue);
+}
+
+.faq summary {
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+/* --- 11. High-Impact Closing CTA Banner --- */
+.final {
+  position: relative;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: linear-gradient(135deg, rgba(43, 89, 224, 0.12), rgba(122, 90, 248, 0.15));
+  border: 3px solid var(--ink);
+  border-radius: 24px;
+  box-shadow: 6px 6px 0 var(--ink);
+  padding: clamp(36px, 6vw, 64px) clamp(20px, 4vw, 40px);
+  margin: 48px auto;
+  overflow: hidden;
+}
+
+.final::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(122, 90, 248, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.final h2 {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  margin-bottom: 22px;
+}
+
+/* --- 12. Button Micro-Interactions & Elevation --- */
+.btn {
+  font-family: inherit;
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+.btn:active:not(:disabled) {
+  transform: translate(2px, 2px) scale(0.98);
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, #3b6ef6 0%, #2554d7 100%);
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary:hover:not(:disabled) {
+  filter: brightness(1.08);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+/* --- 13. Accessibility: prefers-reduced-motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

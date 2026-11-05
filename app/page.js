@@ -1,3 +1,4 @@
+import { IconBolt, IconBrain, IconNotes, IconRefresh, IconMic, IconGrad, IconBriefcase, IconUsers, IconBook, IconClock, IconHandshake, IconFolder } from '@/components/Icons';
 import SlidingTopicTicker from '@/components/SlidingTopicTicker';
 import Link from 'next/link';
 import BrandLogo from '@/components/BrandLogo';
@@ -99,6 +100,26 @@ const appJsonLd = {
     priceCurrency: 'USD',
   })),
 };
+
+
+function getCardIcon(key) {
+  const map = {
+    bolt: IconBolt,
+    brain: IconBrain,
+    notes: IconNotes,
+    refresh: IconRefresh,
+    mic: IconMic,
+    grad: IconGrad,
+    briefcase: IconBriefcase,
+    users: IconUsers,
+    book: IconBook,
+    clock: IconClock,
+    handshake: IconHandshake,
+    folder: IconFolder,
+  };
+  const Comp = map[key];
+  return Comp ? <Comp style={{ width: 24, height: 24 }} /> : null;
+}
 
 export default function Home() {
   return (
