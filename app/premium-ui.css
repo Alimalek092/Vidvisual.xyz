@@ -468,3 +468,113 @@ html[data-theme='dark'] .faq details {
     scroll-behavior: auto !important;
   }
 }
+
+/* --- 14. Pulsing Status Dots & Live Engine Badge --- */
+.status-indicator-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 0 rgba(35, 153, 107, 0.7);
+  animation: pulseGreen 2s infinite;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+@keyframes pulseGreen {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(35, 153, 107, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(35, 153, 107, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(35, 153, 107, 0);
+  }
+}
+
+/* --- 15. Shimmer Border Beam for Feature Cards --- */
+.podcast-showcase::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 24px;
+  background: linear-gradient(90deg, transparent 0%, rgba(43, 89, 224, 0.4) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: borderBeam 6s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+@keyframes borderBeam {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* --- 16. Floating Hero Badge Chips --- */
+.hero-floating-badge {
+  position: absolute;
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+  border-radius: 12px;
+  padding: 8px 14px;
+  box-shadow: 3px 3px 0 var(--ink);
+  font-size: 0.82rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 10;
+  animation: floatBadge 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero-floating-badge-top {
+  top: -16px;
+  right: 12px;
+  animation-delay: 0s;
+}
+
+.hero-floating-badge-bottom {
+  bottom: -16px;
+  left: 12px;
+  animation-delay: 2s;
+}
+
+@keyframes floatBadge {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* --- 17. Interactive FAQ Chevrons --- */
+.faq details summary {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq details summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq details summary::after {
+  content: '▼';
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+}
+
+.faq details[open] summary::after {
+  transform: rotate(180deg);
+  color: var(--blue);
+}

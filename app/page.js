@@ -144,7 +144,7 @@ export default function Home() {
       <header className="hero">
         <div className="hero-copy">
           <div className="hero-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '999px', background: 'rgba(43, 89, 224, 0.1)', color: 'var(--blue)', fontWeight: 700, fontSize: '0.85rem', marginBottom: '14px', border: '1.5px solid var(--blue)', flexWrap: 'wrap' }}>
-            <span>⚡ Under 20 Seconds</span>
+            <span><span className="status-indicator-dot" />⚡ Under 20 Seconds</span>
             <span>·</span>
             <span>🌐 16+ Languages</span>
             <span>·</span>
