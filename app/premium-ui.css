@@ -629,3 +629,10 @@ html[data-theme='dark'] .pricing-trust-item {
   transform: scale(1.08) rotate(4deg);
   box-shadow: 4px 4px 0 var(--ink);
 }
+
+/* --- 19. Mobile Scroll Performance Optimization --- */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll !important;
+  }
+}
